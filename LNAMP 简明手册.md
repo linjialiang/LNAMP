@@ -500,15 +500,15 @@ sed command                             | 说明
   写法 ==> tar -cvf 指定包目录/指定包名 要打包的文件（或目录）所在路径1 被打包文件（或目录）所在路径2 被打包文件（或目录）所在路径3
 
   示例 ==> tar -cvf home.tar home/
-   -- info >> 将 当前目录下的home目录 打包成 home.tar 并存放到当前目录下
+  -- info >> 将 当前目录下的home目录 打包成 home.tar 并存放到当前目录下
   示例 ==> tar -cvf /user1.tar /home/user1/
-   -- info >> 将 user1 这1个用户的家目录打包成 user1.tar 并存放在根目录下面
+  -- info >> 将 user1 这1个用户的家目录打包成 user1.tar 并存放在根目录下面
   示例 ==> tar -cvf /user.tar /home/user1/ /home/user2/ /home/user3/
-   -- info >> 将 user1、user2、user3 这3个用户的家目录打包成 user.tar 并存放在根目录下面
+  -- info >> 将 user1、user2、user3 这3个用户的家目录打包成 user.tar 并存放在根目录下面
   示例 ==> tar -zcvf /user.tar.gz /home/user1/ /home/user2/ /home/user3/
-   -- info >> 将 user1、user2、user3 这3个用户的家目录 打包并压缩成 /user.tar.gz 并存放在根目录下面（以gzip压缩）
+  -- info >> 将 user1、user2、user3 这3个用户的家目录 打包并压缩成 /user.tar.gz 并存放在根目录下面（以gzip压缩）
   示例 ==> tar -jcvf /user.tar.bz2 /home/user1/ /home/user2/ /home/user3/
-   -- info >> 将 user1、user2、user3 这3个用户的家目录 打包并压缩成 user.tar.bz2 并存放在根目录下面（以bzip2压缩）
+  -- info >> 将 user1、user2、user3 这3个用户的家目录 打包并压缩成 user.tar.bz2 并存放在根目录下面（以bzip2压缩）
   ```
 
 4. tar 解包 （1次只能 释放 1个包）
@@ -522,13 +522,13 @@ sed command                             | 说明
   写法 ==> tar -xvf 包所在目录/包名 [-C 指定包解压后文件的存放目录]
 
   示例 ==> tar -xvf home.tar
-   -- info >> 将当前目录下的 home.tar 解压到当前目录下面
+  -- info >> 将当前目录下的 home.tar 解压到当前目录下面
   示例 ==> tar -xvf /user1.tar -C /home/
-   -- info >> 将根目录下的 user1.tar 解包到 /home/ 目录下面
+  -- info >> 将根目录下的 user1.tar 解包到 /home/ 目录下面
   示例 ==> tar -zxvf /user1.tar.gz -C /home/
-   -- info >> 将根目录下的 user1.tar 解压到 /home/ 目录下面 （用gunzip解压）
+  -- info >> 将根目录下的 user1.tar 解压到 /home/ 目录下面 （用gunzip解压）
   示例 ==> tar -jxvf /user1.tar.bz2 -C /home/
-   -- info >> 将根目录下的 user1.tar 解压到 /home/ 目录下面 （用bunzip2解压）
+  -- info >> 将根目录下的 user1.tar 解压到 /home/ 目录下面 （用bunzip2解压）
   ```
 
 5. tar 测试包
