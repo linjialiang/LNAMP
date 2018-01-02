@@ -589,10 +589,12 @@ sed command                             | 说明
 - 编辑 `~/.bashrc` 文件
 
   ```shell
-  export LS_OPTIONS='--color=auto'                      # 文件与文件夹显示不同颜色
-  alias ls='ls $LS_OPTIONS -F'                          # ls 替代 ls -F
-  alias ll='ls $LS_OPTIONS -lAF'                        # ll 替代 ls -lAF
-  PS1='[${debian_chroot:+($debian_chroot)}\u:\w]\$ '    # 让命令行提示符更直观
+  PS1='[${debian_chroot:+($debian_chroot)}\u@Nginx:\W]\$ '      # 让命令行提示符更直观
+  export LS_OPTIONS='--color=auto'                              # 文件与文件夹显示不同颜色
+  eval "`dircolors`"
+  alias ls='ls $LS_OPTIONS -F'                                  # ls 替代 ls -F
+  alias ll='ls $LS_OPTIONS -LF'                                 # ll 替代 ls -LF
+  alias lla='ls $LS_OPTIONS -LAF'                               # ll 替代 ls -LAF
   ```
 
 ### `SP1` 配置说明
