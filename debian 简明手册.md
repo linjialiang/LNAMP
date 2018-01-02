@@ -97,6 +97,28 @@ sed command                             | 说明
   # find .|xargs grep -ri '[FileName]' -l
   ```
 
+### **其它使用命令**
+
+> 在实际工作中，这几个命令会大量缩短操作者时间
+
+1. 检查是否安装了openssh
+
+  ```shell
+  # dpkg --get-selections | grep openssh
+  ```
+
+2. 查看当前httpd相关的进程
+
+  ```shell
+  # `ps -ef | grep httpd`
+  ```
+
+3. 强制关闭进程（按上个指令可以查到进程id -- PID）
+
+  ```shell
+  # `kill -s 9 [PID]`
+  ```
+
 ## 磁盘分区、格式化与挂载
 
 - 磁盘分区
