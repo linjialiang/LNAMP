@@ -615,8 +615,9 @@ sed command                             | 说明
   export LS_OPTIONS='--color=auto'                              # 文件与文件夹显示不同颜色
   eval "`dircolors`"
   alias ls='ls $LS_OPTIONS -F'                                  # ls 替代 ls -F
-  alias ll='ls $LS_OPTIONS -LF'                                 # ll 替代 ls -LF
-  alias lla='ls $LS_OPTIONS -LAF'                               # ll 替代 ls -LAF
+  alias la='ls $LS_OPTIONS -aF'                                 # ls 替代 ls -aF
+  alias ll='ls $LS_OPTIONS -lF'                                 # ll 替代 ls -lF
+  alias lla='ls $LS_OPTIONS -laF'                               # ll 替代 ls -laF
   ```
 
 ### `SP1` 配置说明
