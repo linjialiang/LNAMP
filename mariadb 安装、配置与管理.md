@@ -40,11 +40,11 @@
   # mv /var/lib/mysql /alidata/mysql
   ```
 
-  ### **让 `mariaDB` 支持远程管理工具**
+### **让 `mariaDB` 支持远程管理工具**
 
-  > 数据库管理工具，操作 mariaDB 变得更加方便与高效
+> 数据库管理工具，操作 mariaDB 变得更加方便与高效
 
-3. _配置文件_
+1. _配置文件_
 
   ```conf
   ## 找到下面这2行并注释掉，
@@ -52,18 +52,68 @@
   ## bind-address       = 127.0.0.1
   ```
 
-4. _新建远程 `mariadb` 账户_
+2. _新建远程 `mariadb` 账户_
 
   > 授权管理员权限是很危险的
 
-  > ```shell
-  > # /etc/init.d/mysql restart
-  > # mysql
-  > MariaDB [(none)]> CREATE USER 'user1'@'%';
-  > MariaDB [(none)]> SET PASSWORD FOR 'user1'@'%' = PASSWORD('123456');
-  > MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'user1'@'%';
-  > MariaDB [(none)]> FLUSH PRIVILEGES;
-  > ```
+  ```shell
+   # /etc/init.d/mysql restart
+   # mysql
+   MariaDB [(none)]> CREATE USER 'user1'@'%';
+   MariaDB [(none)]> SET PASSWORD FOR 'user1'@'%' = PASSWORD('123456');
+   MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'user1'@'%';
+   MariaDB [(none)]> FLUSH PRIVILEGES;
+  ```
+
+### **更改 `mariaDB` 日志路径**
+
+> 1. 错误日志 `log_error`
+> 2. 普通日志 `general_log` （警告!开启general_log会影响性能，谨慎使用。正式系统用完要关闭！)
+
+1. 配置文件
+
+  ```conf
+  ## 找到这行，换成自己的错误日志路径
+  ## log_error = /var/log/mysql/error.log
+  log_error = /alidata/log/mysql/error.log
+  ```
+
+2. 复制错误日志文件到指定位置
+
+  ```shell
+  # cp -p -r /var/log/mysql/error.log /alidata/log/mysql/error.log
+  ```
+
+3. 配置文件
+
+  ```conf
+  ## 找到这两行，，默认是注释掉的，我们开放并修改
+  # general_log_file = /var/log/mysql/mysql.log
+  # general_log = 1
+  general_log_file = /alidata/log/mysql/mysql.log
+  general_log = 1
+  ```
+
+4. 新建 `mysql.log` 文件
+
+  ```shell
+  # touch /alidata/log/mysql/mysql.log
+  # chown mysql:adm /alidata/log/mysql/mysql.log
+
+  # /etc/init.d/mysql restart
+  ```
+
+5. 处理好问题后， `general_log` 需要及时关闭，这样才不会影响服务器性能
+
+  ```conf
+  ## 找到并注释掉下面两行
+  ## general_log_file       = /alidata/log/mysql/mysql.log
+  ## general_log            = 1
+  ```
+
+  ```shell
+  # /etc/init.d/mysql restart
+  ```
 
 ## **`mysql.user` 表说明**
 
