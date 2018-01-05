@@ -6,9 +6,9 @@
 
 > Debian下安装 `mariaDB` 十分简单
 
-> ```shell
-> # apt-get install maraidb-server
-> ```
+```shell
+# apt-get install maraidb-server
+```
 
 ## **`mariaDB` 服务器配置文件**
 
@@ -57,12 +57,12 @@
   > 授权管理员权限是很危险的
 
   ```shell
-   # /etc/init.d/mysql restart
-   # mysql
-   MariaDB [(none)]> CREATE USER 'user1'@'%';
-   MariaDB [(none)]> SET PASSWORD FOR 'user1'@'%' = PASSWORD('123456');
-   MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'user1'@'%';
-   MariaDB [(none)]> FLUSH PRIVILEGES;
+  # /etc/init.d/mysql restart
+  # mysql
+  MariaDB [(none)]> CREATE USER 'user1'@'%';
+  MariaDB [(none)]> SET PASSWORD FOR 'user1'@'%' = PASSWORD('123456');
+  MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'user1'@'%';
+  MariaDB [(none)]> FLUSH PRIVILEGES;
   ```
 
 ### **更改 `mariaDB` 日志路径**
@@ -191,3 +191,9 @@
 `plugin`                 | 5.5.7开始,mysql引入plugins以进行用户连接时的密码验证,plugin创建外部/代理用户                              |
 `authentication_string`  | 通过authentication_string可以控制两者的映射关系,（PAM plugin等,PAM可以支持多个服务名）尤其是在使用代理用户时，并须声明这一点 |
 `password_expired`       | 密码过期 Y,说明该用户密码已过期 N相反                                                            |
+
+## **`mariaDB` 常用指令**
+
+## **一些常用sql语句**
+
+--------------------------------------------------------------------------------
