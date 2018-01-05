@@ -49,7 +49,7 @@ hosts.deny     | 允许内容
 sshd:ALL       | 禁止全部
 in.telnetd:ALL | 禁止全部
 
-- _`hosts.allow` 、 `hosts.deny` 书写格式_
+> _`hosts.allow` 、 `hosts.deny` 书写格式_
 
   1. `/etc/hosts.allow`
 
@@ -75,7 +75,7 @@ in.telnetd:ALL | 禁止全部
     in.telnetd:ALL
     ```
 
-> PS: 查看应用包是否使用libwarp（是否支持hosts.allow和hosts.deny）
+> _PS: 查看应用包是否使用libwarp（是否支持hosts.allow和hosts.deny）_
 
 1. 查看hosts_access字段串 查看应用程序是否支持 wrapper，可以使用 strings 程序然后 grep 字符串 hosts_access
 
