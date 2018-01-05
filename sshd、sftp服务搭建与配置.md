@@ -1,4 +1,4 @@
-# **`SSHD` 、 `SFTP` 服务搭建与配置**
+# **sshd、sftp服务搭建与配置**
 
 > sshd 是远程控制服务器，最便捷与安全的工具（服务器默认已经安装）
 
@@ -29,14 +29,20 @@ PasswordAuthentication yes      ## 设置是否允许口令验证，默认yes(no
 > - 建议使用 `TCP Wrappers` 按 `主机名/域或IP` 阻止主机；
 > - 并且使用 `sshd_config` 实现基于 `用户/组` 的访问控制。
 
-### **用 TCP Wrappers 限制 SSH**
+### **用 `hosts.allow` 和 `hosts.deny` 限制 SSH**
 
-hosts.allow                      | 允许内容
--------------------------------- | ------------
-sshd:192.168.200.1               | ssh允许单个ip
-sshd:192.168.200.                | ssh允许ip端
-sshd:192.168.200., 192.168.100.1 | ssh允许多个ip
-in.telnetd:192.168.200.1         | telnet允许单个ip
+> `hosts.allow` 和 `hosts.deny` 规则的执行者为 `TCP wrappers`，对应守护进程为 `tcpd` ；而 `tcpd` 执行依赖于程序使用了 `libwrap` 库
+
+> - 也就是说： `hosts.allow` 和 `hosts.deny` 支持且只支持使用了 `libwrap` 库的服务
+
+hosts.allow                | 允许内容
+-------------------------- | ------------
+sshd:192.168.200.1         | ssh允许单个ip
+sshd:192.168.              | ssh允许1个ip段
+sshd:192.168.*             | ssh允许1个ip段
+sshd:192.168.0.0/16        | ssh允许1个ip段
+sshd:192.168., 192.1.89.32 | ssh允许多个ip
+in.telnetd:192.1.89.32     | telnet允许单个ip
 
 hosts.deny     | 允许内容
 -------------- | ----
@@ -53,7 +59,7 @@ in.telnetd:ALL | 禁止全部
     ```
 
     ```hosts.allow
-    sshd: .baidu.com , 192.168.1.3, 192.168.1.
+    sshd: www.baidu.com , 192.0.1.189, 192.168.0.0/16
     in.telnetd:192.168.200.1
     ```
 
@@ -68,6 +74,22 @@ in.telnetd:ALL | 禁止全部
     sshd:ALL
     in.telnetd:ALL
     ```
+
+> PS: 查看应用包是否使用libwarp（是否支持hosts.allow和hosts.deny）
+
+1. 查看hosts_access字段串 查看应用程序是否支持 wrapper，可以使用 strings 程序然后 grep 字符串 hosts_access
+
+  ```shell
+  # strings /usr/sbin/sshd | grep hosts_access
+  hosts_access
+  ```
+
+2. 使用ldd
+
+  ```shell
+  # ldd /usr/sbin/sshd | grep libwrap
+  libwrap.so.0 => /lib/x86_64-linux-gnu/libwrap.so.0 (0x00007fda94d5e000)
+  ```
 
 ## **限制用户登录ssh**
 
