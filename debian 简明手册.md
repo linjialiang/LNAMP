@@ -97,6 +97,11 @@ sed command                             | 说明
   # find .|xargs grep -ri '[FileName]' -l
   ```
 
+other unix command         | 说明
+-------------------------- | ----------
+`whereis [-bmsu] 文件或者目录名称` | 查看文件的位置
+`which 可执行文件名称`            | 查看可执行文件的位置
+
 ### **其它使用命令**
 
 > 在实际工作中，这几个命令会大量缩短操作者时间
