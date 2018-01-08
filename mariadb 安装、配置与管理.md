@@ -61,10 +61,17 @@
   # mysql
   MariaDB [(none)]> CREATE USER 'user1'@'%';
   MariaDB [(none)]> SET PASSWORD FOR 'user1'@'%' = PASSWORD('123456');
-  MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'user1'@'%';
+  MariaDB [(none)]> GRANT ALL ON *.* TO 'user1'@'%';
   MariaDB [(none)]> FLUSH PRIVILEGES;
   ```
-
+  
+  > 注意：用以上命令授权的用户不能给其它用户授权，如果想让该用户可以授权，用以下命令:
+  
+  ```shell
+  MariaDB [(none)]> GRANT ALL ON *.* TO 'user1'@'%' WITH GRANT OPTION;
+  MariaDB [(none)]> FLUSH PRIVILEGES;
+  ```
+  
 ### **更改 `mariaDB` 日志路径**
 
 > 1. 错误日志 `log_error`
