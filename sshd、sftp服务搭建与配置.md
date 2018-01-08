@@ -51,29 +51,29 @@ in.telnetd:ALL | 禁止全部
 
 > _`hosts.allow` 、 `hosts.deny` 书写格式_
 
-  1. `/etc/hosts.allow`
+1. `/etc/hosts.allow`
 
-    ```shell
-    # cp /etc/hosts.allow{,.backup}
-    # vim /etc/hosts.allow
-    ```
+  ```shell
+  # cp /etc/hosts.allow{,.backup}
+  # vim /etc/hosts.allow
+  ```
 
-    ```hosts.allow
-    sshd: www.baidu.com , 192.0.1.189, 192.168.0.0/16
-    in.telnetd:192.168.200.1
-    ```
+  ```hosts.allow
+  sshd: www.baidu.com , 192.0.1.189, 192.168.0.0/16
+  in.telnetd:192.168.200.1
+  ```
 
-  2. `/etc/hosts.deny`
+2. `/etc/hosts.deny`
 
-    ```shell
-    # cp /etc/hosts.deny{,.backup}
-    # vim /etc/hosts.deny
-    ```
+  ```shell
+  # cp /etc/hosts.deny{,.backup}
+  # vim /etc/hosts.deny
+  ```
 
-    ```hosts.deny
-    sshd:ALL
-    in.telnetd:ALL
-    ```
+  ```hosts.deny
+  sshd:ALL
+  in.telnetd:ALL
+  ```
 
 > _PS: 查看应用包是否使用libwarp（是否支持hosts.allow和hosts.deny）_
 
