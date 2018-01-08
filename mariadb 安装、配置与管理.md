@@ -64,14 +64,14 @@
   MariaDB [(none)]> GRANT ALL ON *.* TO 'user1'@'%';
   MariaDB [(none)]> FLUSH PRIVILEGES;
   ```
-  
+
   > 注意：用以上命令授权的用户不能给其它用户授权，如果想让该用户可以授权，用以下命令:
-  
+
   ```shell
   MariaDB [(none)]> GRANT ALL ON *.* TO 'user1'@'%' WITH GRANT OPTION;
   MariaDB [(none)]> FLUSH PRIVILEGES;
   ```
-  
+
 ### **更改 `mariaDB` 日志路径**
 
 > 1. 错误日志 `log_error`
@@ -202,5 +202,58 @@
 ## **`mariaDB` 常用指令**
 
 ## **一些常用sql语句**
+
+## **`phpmyadmin` 配置文件**
+
+### **配置文件所在位置**
+
+> apt-get 安装的 在/user/share/phpmyadmin 下面 自己安装的，位置由自己指定，安全起见，一般都是设置别名，并且也应该独立开启一个目录
+
+- /etc/phpmyadmin/config.inc.php # 这是debian本地默认配置文件，会覆盖phpmyadmin的配置文件，只有用 `apt-get install phpmyadmin` 安装才有
+- /usr/share/phpmyadmin/config.sample.inc.php # 这是参考的配置，拷贝一份 `config.sample.inc.php` 到当前目录
+- /usr/share/phpmyadmin/config.inc.php # 这是会生效的配置，如果没有就新建一个，一般是拷贝 `config.sample.inc.php` 内容
+- /usr/share/phpmyadmin/libraries/config.default.php # 这是默认的配置，一般不去改动
+
+### **简单的修改配置文件**
+
+```php
+# cookie模式最好
+/* Authentication type and info */
+# $cfg['Servers'][$i]['auth_type'] = 'config';
+# $cfg['Servers'][$i]['user'] = 'root';
+# $cfg['Servers'][$i]['password'] = '';
+# $cfg['Servers'][$i]['extension'] = 'mysqli';
+# $cfg['Servers'][$i]['AllowNoPassword'] = true;
+# $cfg['Lang'] = '';
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+
+# 高级功能用户、密码可设置为空
+/* User for advanced features */
+# $cfg['Servers'][$i]['controluser'] = 'pma';
+# $cfg['Servers'][$i]['controlpass'] = '';
+$cfg['Servers'][$i]['controluser'] = '';
+$cfg['Servers'][$i]['controlpass'] = '';
+
+# 主题风格更改为original
+$cfg['ThemeDefault'] = 'original';
+```
+
+### **`phpMyAdmin` 一些注意事项**
+
+1. phpmyadmin数据库提供phpmyadmin的高级功能，如果删除，高级功能将无法使用 – 如果未安装或已经删除，可以在找到原因那里，点击Create自动创建
+2. `phpMyAdmin` 连接数据库使用的是php的mysqli扩展，所以php必须安装mysqli扩展包
+
+## **为php安装 `mbstring` 扩展**
+
+> phpmyadmin 安装好了 打开可能会提示：
+
+> - <font color="red">没有找到 PHP 扩展 mbstring，而您现在正在使用多字节字符集。没有 mbstring 扩展的 phpMyAdmin 不能正确分割字符串并可能产生意料之外的结果。</font>
+
+> - 这是因为 `Debian 9.x` 默认并没有为 php 安装 `mbstring 扩展`
+
+```shell
+# apt-get install php-mbstring
+# /etc/init.d/apache2 restart
+```
 
 --------------------------------------------------------------------------------
