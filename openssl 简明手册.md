@@ -162,3 +162,5 @@ SSLEngine on            | 启用SSL功能
 SSLCertificateFile      | 证书文件
 SSLCertificateKeyFile   | 私钥文件
 SSLCertificateChainFile | 证书链文件
+
+--------------------------------------------------------------------------------
