@@ -14,7 +14,7 @@
 
 > `Apache2` 配置文件主要都在 `/etc/apache2` 目录下
 
-### **修改 `Apache2` 默认侦听端口为8080**
+### **修改 `Apache2` 默认侦听端口为8080 ssl侦听端口为4430**
 
 > 因为在这里我们主要是用 `Nginx` 服务器
 
@@ -30,7 +30,9 @@
   ```conf
   ## 找到下面行，注释掉，并在下面添加一行
   ## Listen 80
+  ## Listen 443
   Listen 8080
+  Listen 4430
   ```
 
 ### **为 `Apache2` 新的网站目录授权**
@@ -88,7 +90,7 @@
   ## 这个是新增的
   <Directory /alidata/www/>
   Options Indexes FollowSymLinks
-  AllowOverride All
+  AllowOverride All     ## 这个需要开启 `rewrite` 模块
   Require all granted
   </Directory>
   ```
@@ -177,36 +179,47 @@
 
   ```conf
   <VirtualHost *:8080>
-  ServerAdmin linjialiang@163.com
-  ServerName www.test.com
-  ServerAlias test.com www.test.com
-  DocumentRoot /alidata/www/www_test_com/
-  ErrorLog ${APACHE_LOG_DIR}/www_test_com-error.log
-  CustomLog ${APACHE_LOG_DIR}/www_test_com-access.log combined
+     ServerAdmin linjialiang@163.com
+     ServerName www.test.com
+     ServerAlias test.com www.test.com
+     DocumentRoot /alidata/www/yhz/www_test_com
+     ErrorDocument 404 /404.html
 
-  RewriteEngine on
-  RewriteCond %{HTTP:Host} ^test\.com$ [NC]
-  RewriteRule (.*) http://www\.test\.com$1 [NC,R=301]
+     ## 这段一般都不需要特别申明， /etc/apache2/apache2.conf 已经配置
+     <Directory "/alidata/www/yhz/www_test_com">
+         Options Indexes FollowSymLinks
+         AllowOverride All
+         Require all granted
+         DirectoryIndex index.php index.html
+     </Directory>
 
-  ErrorDocument 404 /404.html
+     ErrorLog ${APACHE_LOG_DIR}/www_test_com-error.log
+     CustomLog ${APACHE_LOG_DIR}/www_test_com-access.log combined
+
+     RewriteEngine on
+     RewriteCond %{HTTP:Host} ^test\.com$ [NC]
+     RewriteRule (.*) http://www\.test\.com$1 [NC,R=301]
   </VirtualHost>
+  ```
 
-  # `Apache2` 配置别名（针对与phpMyAmin）
+3. `Apache2` 配置别名（针对与phpMyAmin）
+
+  ```conf
   Alias /phpmyadmin /usr/share/phpmyadmin
-  
+
   <Directory /usr/share/phpmyadmin>
-      Options FollowSymLinks
-      DirectoryIndex index.php
-      <RequireAll>
-          Require ip 60.181.0.0/16
-      </RequireAll>
+     Options FollowSymLinks
+     DirectoryIndex index.php
+     <RequireAll>
+         Require ip 60.181.0.0/16
+     </RequireAll>
   </Directory>
-  
+
   <Directory /usr/share/phpmyadmin/libraries>
-      Require all denied
+     Require all denied
   </Directory>
   <Directory /usr/share/phpmyadmin/setup/lib>
-      Require all denied
+     Require all denied
   </Directory>
   ```
 
