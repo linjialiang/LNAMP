@@ -243,17 +243,4 @@ $cfg['ThemeDefault'] = 'original';
 1. phpmyadmin数据库提供phpmyadmin的高级功能，如果删除，高级功能将无法使用 – 如果未安装或已经删除，可以在找到原因那里，点击Create自动创建
 2. `phpMyAdmin` 连接数据库使用的是php的mysqli扩展，所以php必须安装mysqli扩展包
 
-## **为php安装 `mbstring` 扩展**
-
-> phpmyadmin 安装好了 打开可能会提示：
-
-> - <font color="red">没有找到 PHP 扩展 mbstring，而您现在正在使用多字节字符集。没有 mbstring 扩展的 phpMyAdmin 不能正确分割字符串并可能产生意料之外的结果。</font>
-
-> - 这是因为 `Debian 9.x` 默认并没有为 php 安装 `mbstring 扩展`
-
-```shell
-# apt-get install php-mbstring
-# /etc/init.d/apache2 restart
-```
-
 --------------------------------------------------------------------------------
