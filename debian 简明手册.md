@@ -10,8 +10,8 @@ shell command       | 说明
 ------------------- | -------------------------------------
 `uname -a`          | 显示 -m、 -n、 -r、 -s 和 -v 标志指定的所有信息
 `uname -r`          | 显示操作系统的发行版号
-`lsb_relese -a`     | 显示 -v、 -i、 -d、 -r 和 -c 标志指定的所有信息
-`lsb_relese -icr`   | 显示发行版的id、发行版代号、当前系统是发行版的具体版本
+`lsb_release -a`     | 显示 -v、 -i、 -d、 -r 和 -c 标志指定的所有信息
+`lsb_release -icr`   | 显示发行版的id、发行版代号、当前系统是发行版的具体版本
 `cat /etc/issue`    | 正常与 `lsb_release -a` 相同（系统内核手动升级后会不同）
 `cat /proc/version` | 和 `uname -a` 显示的内容相同，显示linux内核版本号
 
