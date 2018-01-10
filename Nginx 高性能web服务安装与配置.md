@@ -82,3 +82,104 @@ error_log /alidata/log/nginx/error.log
 
 # /etc/init.d/nginx restart
 ```
+
+## ** `nginx` 站点配置文件**
+
+### **`nginx` 普通站点配置文件**
+
+```conf
+server {
+    listen 80;
+    server_name test.com www.test.com;
+    root /alidata/www/www_test_com;
+    index index.html index.htm
+
+    error_page 404 = /404.html;
+}
+```
+
+### **`nginx` 支持 php 的站点配置文件**
+
+```conf
+server {
+    listen 80;
+    server_name test.com www.test.com;
+    root /alidata/www/www_test_com;
+    index index.html index.htm index.php;
+
+    error_page 404 = /404.html;
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+    }
+}
+```
+
+### **`Nginx` php反向代理 php，由 `apache2` 执行 php **
+
+1. `nginx` 站点配置文件
+
+```conf
+server {
+    listen 80;
+    server_name test.com www.test.com;
+    root /alidata/www/www_test_com;
+    index index.html index.htm index.php;
+
+    error_page 404 = /404.html;
+
+    location ~ ^(.+\.php)(.*)$ {
+        proxy_pass http://127.0.0.1:8080;
+    }
+}
+```
+
+2. `apache2` 站点配置文件
+
+```conf
+<VirtualHost *:8080>
+    ServerAdmin linjialiang@163.com
+    ServerName www.test.com
+    ServerAlias test.com www.test.com
+    DocumentRoot /alidata/www/yhz/www_test_com
+    DirectoryIndex index.php
+    
+    ErrorDocument 404 /404.html
+</VirtualHost>
+```
+
+### **`Nginx` 做反向代理， 所有文件全部由 `apache2` 执行**
+
+1. `nginx` 站点配置文件
+
+```conf
+server {
+    listen 80;
+    server_name test.com www.test.com;
+    root /alidata/www/www_test_com;
+    index index.html index.htm index.php;
+    
+    error_page 404 = /404.html;
+    
+    location ~ {                                                                                     
+        proxy_pass http://127.0.0.1:8080;
+    }
+}
+```
+
+2. `apache2` 站点配置文件
+
+```conf
+<VirtualHost *:8080>
+    ServerAdmin linjialiang@163.com
+    ServerName www.test.com
+    ServerAlias test.com www.test.com
+    DocumentRoot /alidata/www/yhz/www_test_com
+    DirectoryIndex index.php
+    
+    ErrorDocument 404 /404.html
+</VirtualHost>
+```
+
+---
