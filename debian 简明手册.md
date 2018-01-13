@@ -228,7 +228,7 @@ other unix command         | 说明
     auto lo
     auto eth0                  # 开机自动连接有线网络
 
-    iface lo inet loopback    
+    iface lo inet loopback
     allow-hotplug eth0        # 支持热插拔网卡，系统启动后,如果插入网线,系统会自动启动该接口
     iface eth0 inet dhcp      # dhcp表示使用动态ip地址上网
     ```
@@ -236,7 +236,7 @@ other unix command         | 说明
   - 有线网卡固定IP
 
     ```shell
-    auto lo                    
+    auto lo
     auto eth0                  # 开机自动连接有线网络
 
     iface lo inet loopback
@@ -267,7 +267,7 @@ other unix command         | 说明
     auto wlan0                 # 开机自动连接无线网络
 
     iface lo inet loopback
-    allow-hotplug eth0        # 支持热插拔网卡，系统启动后,如果插入网线,系统会自动启动该接口    
+    allow-hotplug eth0        # 支持热插拔网卡，系统启动后,如果插入网线,系统会自动启动该接口
     iface eth0 inet static    # static 表示使用固定IP地址上网
     address 192.168.9.100     # 设置静态ip地址
     netmask 255.255.255.0     # 设置子网掩码
