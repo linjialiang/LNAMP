@@ -90,7 +90,7 @@ set foldlevelstart=99                               " 打开文件时的折叠�
 let $za='za'                                        " 定义变量$za为 <z> <a> 组合键
 nnoremap <Space> $za                                " <Space> 映射成 折叠与展开
 
-" set showtabline=1                                 " 开启标签栏（0永远不会，1至少两个标签，2永远会，默认 1）  
+" set showtabline=1                                 " 开启标签栏（0永远不会，1至少两个标签，2永远会，默认 1）
 
 inoremap <C-c> <ESC>                                " <C-c> 映射成 <Esc>
 
@@ -122,13 +122,13 @@ autocmd BufWinEnter * let w:m2=matchadd('Underlined', '\%>' . 80 . 'v.\+', -1)
 "     if index(["(", "[", "{"], l:previous_char) != -1
 "         let l:original_pos = getpos(".")
 "         execute "normal %"
-"         let l:new_pos = getpos(".")        
+"         let l:new_pos = getpos(".")
 "         if l:original_pos == l:new_pos
 "             execute "normal! a\<BS>"
 "             return
-"         end       
+"         end
 "         let l:line2 = getline(".")
-"         
+"
 "         if len(l:line2) == col(".")
 "             execute "normal! v%xa"
 "         else
@@ -344,7 +344,7 @@ endif
             " gvim -o file1 file2 file3 小写o是水平分割窗口
             " gvim -O file1 file2 file3 大写O是垂直分割窗口
             " vim -o file1 file2 file3 小写o是水平分割窗口
-            " vim -O file1 file2 file3 大写O是垂直分割窗口   
+            " vim -O file1 file2 file3 大写O是垂直分割窗口
     " 缓冲区 buffer
         " :.,$-bdelete      " 删除从当前开始到倒数第二个的缓冲区
         " :%bdelete         " 删除所有缓冲区
