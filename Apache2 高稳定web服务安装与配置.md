@@ -80,16 +80,17 @@
   ##     AllowOverride None
   ##     Require all granted
   ## </Directory>
-
+  
+  ## Options 需要去掉 Indexes 权限
   <Directory /var/www/>
-  Options Indexes FollowSymLinks
+  Options FollowSymLinks
   AllowOverride None
   Require all granted
   </Directory>
 
   ## 这个是新增的
   <Directory /alidata/www/>
-  Options Indexes FollowSymLinks
+  Options FollowSymLinks
   AllowOverride All     ## 这个需要开启 `rewrite` 模块
   Require all granted
   </Directory>
