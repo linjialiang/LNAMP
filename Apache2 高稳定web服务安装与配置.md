@@ -56,7 +56,7 @@
   Require all denied
   </Directory>
 
-  <Directory /usr/share>                                                             
+  <Directory /usr/share>
   AllowOverride None
   Require all granted
   </Directory>
@@ -76,11 +76,11 @@
   </Directory>
 
   ## 这个被注释掉
-  ## <Directory /usr/share>                                                             
+  ## <Directory /usr/share>
   ##     AllowOverride None
   ##     Require all granted
   ## </Directory>
-  
+
   ## Options 需要去掉 Indexes 权限
   <Directory /var/www/>
   Options FollowSymLinks
