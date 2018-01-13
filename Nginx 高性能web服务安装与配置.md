@@ -182,4 +182,27 @@ server {
 </VirtualHost>
 ```
 
+## **`Nginx` 跨域**
+> 跨域不详细讲解，跨域只需要添加上 `add_header Access-Control-Allow-Origin *;` 就可以
+> 1. 针对所有其它域名跨域访问该域名跨域资源
+> 2. 支持 `http` `https` 两种通讯协议
+> 3. 支持代理跨域
+> <font color="red">提示：这种方式是不安全的!</font>
+
+```conf
+server {
+    listen 80;
+    server_name test.com www.test.com;
+    root /alidata/www/www_test_com;
+    index index.html index.htm index.php;
+    ## 加上下面这行就可以实现Nginx跨域访问
+    add_header Access-Control-Allow-Origin *;
+    
+    error_page 404 = /404.html;
+    
+    location ~ {                                                                                     
+        proxy_pass http://www.test.com:8080;
+    }
+}
+```
 ---
