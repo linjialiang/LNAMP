@@ -85,7 +85,7 @@ server {
 
     error_page 404 = /404.html;
 
-    location ~ {                            
+    location ~ {
         ## https 与 http 代理只能二选一
         proxy_pass http://www.test.com:8080;
         ## proxy_pass https://www.test.com:4430;
