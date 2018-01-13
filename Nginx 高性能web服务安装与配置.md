@@ -183,11 +183,10 @@ server {
 ```
 
 ## **`Nginx` 跨域**
-> 跨域不详细讲解，跨域只需要添加上 `add_header Access-Control-Allow-Origin *;` 就可以
+> 跨域不详细讲解，跨域只需要添加上 `add_header Access-Control-Allow-Origin *;` 就可以（这种方式是不推荐的）
 > 1. 针对所有其它域名跨域访问该域名跨域资源
 > 2. 支持 `http` `https` 两种通讯协议
 > 3. 支持代理跨域
-> 4. <font color="red">提示：这种方式是不安全的!</font>
 
 ```conf
 server {
