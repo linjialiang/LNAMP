@@ -129,8 +129,9 @@ server {
 
     error_page 404 = /404.html;
 
-    location ~ ^(.+\.php)(.*)$ {
-        proxy_pass http://www.test.com:8080;
+    location ~ ^.+\.php.*$ {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $http_host;
     }
 }
 ```
@@ -144,7 +145,7 @@ server {
     ServerAlias test.com www.test.com
     DocumentRoot /alidata/www/yhz/www_test_com
     DirectoryIndex index.php
-    
+
     ErrorDocument 404 /404.html
 </VirtualHost>
 ```
@@ -159,11 +160,12 @@ server {
     server_name test.com www.test.com;
     root /alidata/www/www_test_com;
     index index.html index.htm index.php;
-    
+
     error_page 404 = /404.html;
-    
-    location ~ {                                                                                     
-        proxy_pass http://www.test.com:8080;
+
+    location ~ {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $http_host;
     }
 }
 ```
@@ -177,7 +179,7 @@ server {
     ServerAlias test.com www.test.com
     DocumentRoot /alidata/www/yhz/www_test_com
     DirectoryIndex index.php
-    
+
     ErrorDocument 404 /404.html
 </VirtualHost>
 ```
@@ -196,11 +198,12 @@ server {
     index index.html index.htm index.php;
     ## 加上下面这行就可以实现Nginx跨域访问
     add_header Access-Control-Allow-Origin *;
-    
+
     error_page 404 = /404.html;
-    
-    location ~ {                                                                                     
-        proxy_pass http://www.test.com:8080;
+
+    location ~ ^.+\.php.*$ {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $http_host;
     }
 }
 ```
