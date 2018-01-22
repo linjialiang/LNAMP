@@ -246,4 +246,18 @@ apm install autocomplete-paths
   ```
 
 ### `atom` 色彩插件
-> ``
+> - `color-picker` 使用快捷 `Ctrl-Alt-C` 可以展开色彩选择面板
+> - `pigments` 在 html css 里面显示颜色值的颜色， 配置界面里面根据自己需求配置
+> - 不重点讲解
+
+```shell
+apm install color-picker pigments
+```
+
+### `atom` 打开浏览器
+> - `open-in-browser` 插件可以直接打开html页面到默认浏览器
+> - 使用指令 `open in browser: open`
+
+```shell
+apm install open-in-browser
+```
