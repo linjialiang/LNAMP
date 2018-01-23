@@ -66,7 +66,37 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-
+Community Packages (30) C:\Users\username\.atom\packages
+├── advanced-open-file@0.16.7
+├── atom-autocomplete-php@0.25.6
+├── atom-beautify@0.30.9
+├── atom-clock@0.1.16
+├── atom-ide-ui@0.7.2
+├── atom-ternjs@0.18.3
+├── autoclose-html@0.23.0
+├── autocomplete-paths@2.12.2
+├── autoprefixer@3.7.1
+├── color-picker@2.2.5
+├── docblockr@0.13.6
+├── emmet@2.4.3
+├── ex-mode@0.18.0
+├── file-icons@2.1.16
+├── highlight-line@0.12.0
+├── highlight-selected@0.13.1
+├── ide-php@0.7.4
+├── ide-typescript@0.7.2
+├── markdown-scroll-sync@2.1.2
+├── minimap@4.29.7
+├── minimap-split-diff@0.3.7
+├── monokai@0.24.0
+├── native-ui@0.25.2
+├── open-in-browser@0.5.2
+├── pigments@0.40.2
+├── project-viewer@1.2.5
+├── relative-numbers@0.9.0
+├── split-diff@1.5.2
+├── sync-settings@0.8.3
+└── vim-mode-plus@1.26.0
 ```
 
 ### 让 `atom` 支持简体中文
