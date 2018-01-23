@@ -245,6 +245,9 @@ apm install autocomplete-paths
   }
   ```
 
+#### 解决 `autocomplete-paths` 路径是反斜杠问题
+
+
 ### `atom` 色彩插件
 > - `color-picker` 使用快捷 `Ctrl-Alt-C` 可以展开色彩选择面板
 > - `pigments` 在 html css 里面显示颜色值的颜色， 配置界面里面根据自己需求配置
@@ -261,3 +264,107 @@ apm install color-picker pigments
 ```shell
 apm install open-in-browser
 ```
+
+### 让 `atom` 自动处理 `css3` 属性前缀
+> - `autoprefixer` 插件可以自动处理 `css3` 属性前缀
+> - 执行指令 `autoprefixer`
+> - 还可以在插件配置界面，勾选上 `run on save` 这样以保存就会自动自动 `css3` 属性前缀
+
+```shell
+apm install autoprefixer
+```
+
+### 让 `atom` 支持 `Html` 标签自动闭合
+> - 这个功能 `sublime` 是自带的，但是 `atom` 需要插件
+> - `autoclose-html` 这个插件可以支持 `html` 标签自动闭合
+> - 在插件配置界面将 `Make Never Close Elements Self-Closing` 勾选去掉（默认勾选上的，建议去掉）
+> - PS：如果不想让 `<br>` 等非闭合标签不再带有斜杠 `<br />`，可以执行上面的步骤，
+> - PS：非闭合标签，带 `/` 是一个被容忍的语法错误，这种容忍是基于兼容性考虑的，它使得所有浏览器和解析器都把 `<br>` 和 `<br />` 同等对待
+
+```shell
+apm install autoclose-html
+```
+
+### 让 `atom` 支持 `emmet` 操作
+> `emmet` 是当前编写 `html` 和 `css` 最有好的工具，具体请访问 `emmet` 官网
+
+```shell
+apm install emmet
+```
+
+### 让 `atom` 的 js 补全更加优秀
+> `atom-ternjs` 这个插件可以让 js 本地提示更加智能、全面
+
+```shell
+apm install atom-ternjs
+```
+
+### 让 `atom` 的 php 补全更加优秀
+> - `atom-autocomplete-php` 插件让 php 补全更加智能、全面
+> - 功能实现依赖于 `composer` ，所以先要绑定 `composer` 路径
+> - 插件配置界面 `Command to use composer` 下面填入 `composer.phar` 所在路径
+> - 插件配置界面 `Command php` 下面填入 `php.exe` 所在路径
+> - PS： 由于 php nodeJS 等都应该加入环境变量中，这样 `atom` 能直接找到，所以大多数插件都省略了这步操作
+
+```shell
+apm install atom-autocomplete-php
+```
+
+### 让 `atom` 下 markdown 支持同步预览
+> `markdown-scroll-sync` 支持 markdown 文件同步预览
+
+```shell
+apm install markdown-scroll-sync
+```
+
+#### 修改配置文件
+> 文件路径： `C:\Users\username\.atom\packages\markdown-scroll-sync\lib\utils.coffee`
+
+  1. 修改前，12行初始
+  ```coffee
+  lineEles = @editorView.shadowRoot.querySelectorAll '.lines .line[data-screen-row]'
+  ```
+
+  2. 修改后，12行修改
+  ```coffee
+  lineEles = @editorView.querySelectorAll '.lines .line[data-screen-row]'
+  ```
+
+### 让 `atom` 支持代码格式化（可能会不要）
+> - `atom` 本身并不支持代码格式化
+> - `atom-beautify` 这个插件让 `atom` 具备格式化功能，当然它需要针对不同语言，做相应的配置
+
+```shell
+apm install atom-beautify
+```
+
+### 将 `atom` 改装成 IDE
+> - `atom` 是一个可以扩展的编辑器，也可以改装成 IDE
+> - `atom-ide-ui` 这个插件可以将 `atom` 改装成IDE
+> - `ide-php` 让 php 支持 IDE 功能
+> - `ide-typescript` 让 js 支持 IDE 功能
+> - `atom-ide-ui` 插件配置界面里面将 `Code Formatting`两个勾选都去掉，因为测试结果是无法格式化！
+
+```shell
+apm install atom-ide-ui ide-php ide-typescript
+```
+
+### 基于 `minimap` 插件的几个子插件
+> 1. `minimap-bookmarks`    让 minimap 支持高亮书签
+> 2. `minimap-highlight-selected`   让 minimap 支持高亮选择内容
+> 3. `minimap-cursorline`   让 minimap 支持高亮当前行
+> 4. `minimap-find-and-replace` 让 minimap 支持高亮搜索内容
+> 5. `minimap-git-diff` 让 minimap 支持git对比高亮
+> 6. `minimap-pigments`     让 minimap 支持颜色高亮
+
+### 关于插件的说明
+> 好用的插件不止这些，这些插件对不合适的，也未必好用，希望大家自己尝试去收集符合自己的插件
+
+## **`atom` 主题**
+> 默认的主题已经非常优秀，如何有发现自己喜欢的也可以加入进去
+
+```shell
+apm install native-ui monokai
+```
+
+---
