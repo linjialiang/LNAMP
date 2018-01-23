@@ -27,8 +27,8 @@
 
   ```apmrc
   strict-ssl = false
-  http-proxy = http://127.0.0.1:1080/
-  https-proxy = http://127.0.0.1:1080/
+  http-proxy = http://127.0.0.1:1080
+  https-proxy = http://127.0.0.1:1080
   ```
 
   3. 下载插件安装组件，在 `cmd` 上操作
