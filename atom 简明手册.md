@@ -82,7 +82,8 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (36) C:\Users\username\.atom\packages
+Community Packages (38) C:\Users\linji\.atom\packages
+├── activate-power-mode@2.7.0
 ├── advanced-open-file@0.16.7
 ├── atom-autocomplete-php@0.25.6
 ├── atom-beautify@0.30.9
@@ -113,6 +114,7 @@ Community Packages (36) C:\Users\username\.atom\packages
 ├── native-ui@0.25.2
 ├── open-in-browser@0.5.2
 ├── pigments@0.40.2
+├── platformio-ide-terminal@2.8.0
 ├── project-viewer@1.2.5
 ├── relative-numbers@0.9.0
 ├── script@3.17.3
@@ -288,17 +290,17 @@ apm install autocomplete-paths
   'use babel'
 
   export default {
-    enableHtmlSupport: [
-      {
-        scopes: ['text.html.basic'],
-        prefixes: [
-          'src=[\'"]',
-          'href=[\'"]'
-        ],
-        extensions: ['js', 'png', 'gif', 'jpeg', 'jpg', 'tiff', 'html'],
-        relative: true
-      }
-    ]
+   enableHtmlSupport: [
+     {
+       scopes: ['text.html.basic'],
+       prefixes: [
+         'src=[\'"]',
+         'href=[\'"]'
+       ],
+       extensions: ['js', 'png', 'gif', 'jpeg', 'jpg', 'tiff', 'html'],
+       relative: true
+     }
+   ]
   }
   ```
 
@@ -308,17 +310,17 @@ apm install autocomplete-paths
   'use babel'
 
   export default {
-    enableHtmlSupport: [
-      {
-        scopes: ['text.html.basic'],
-        prefixes: [
-          'src=[\'"]',
-          'href=[\'"]'
-        ],
-        extensions: ['css', 'js', 'png', 'gif', 'jpeg', 'jpg', 'tiff', 'html'],
-        relative: true
-      }
-    ]
+   enableHtmlSupport: [
+     {
+       scopes: ['text.html.basic'],
+       prefixes: [
+         'src=[\'"]',
+         'href=[\'"]'
+       ],
+       extensions: ['css', 'js', 'png', 'gif', 'jpeg', 'jpg', 'tiff', 'html'],
+       relative: true
+     }
+   ]
   }
   ```
 
@@ -393,15 +395,15 @@ apm install atom-ternjs
 
   ```javascript
   {
-    "ecmaVersion": 6,
-    "libs": [],
-    "loadEagerly": [],
-    "dontLoad": [
-      "node_modules/**"
-    ],
-    "plugins": {
-      "doc_comment": true
-    }
+   "ecmaVersion": 6,
+   "libs": [],
+   "loadEagerly": [],
+   "dontLoad": [
+     "node_modules/**"
+   ],
+   "plugins": {
+     "doc_comment": true
+   }
   }
   ```
 
@@ -479,6 +481,8 @@ apm install atom-ide-ui ide-php ide-typescript
 > 4. `minimap-find-and-replace` 让 minimap 支持高亮搜索内容
 > 5. `minimap-git-diff` 让 minimap 支持git对比高亮
 > 6. `minimap-pigments` 让 minimap 支持颜色高亮
+> 7. `activate-power-mode` 这是一款编辑器震动插件
+> 8. `platformio-ide-terminal` 这是一款终端模拟器插件
 
 ### 关于插件的说明
 
