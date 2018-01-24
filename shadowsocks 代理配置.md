@@ -46,16 +46,16 @@
 
   ```json
   {
-    "server":"0.0.0.0",
-    "local_address": "127.0.0.1",
-    "local_port":1080,
-    "port_password": {
-      "8388": "123456",
-      "8389": "123456"
-    },
-    "timeout":300,
-    "method":"aes-256-cfb",
-    "fast_open": false
+   "server":"0.0.0.0",
+   "local_address": "127.0.0.1",
+   "local_port":1080,
+   "port_password": {
+    "8388": "123456",
+    "8389": "123456"
+   },
+   "timeout":300,
+   "method":"aes-256-cfb",
+   "fast_open": false
   }
   ```
 
@@ -221,7 +221,7 @@ netstat -tnulp
 
   ```shell
   wq
-  chown +x /etc/init.d/shadowsocks
+  chmod +x /etc/init.d/shadowsocks
   ```
 
 ### 关于服务器防火墙
@@ -242,5 +242,10 @@ netstat -tnulp
   "fast_open": false
 }
 ```
+
+### 注意事项
+
+> - 说明：在 `openssl1.1.0` 版本中，废弃了 `EVP_CIPHER_CTX_cleanup` 函数， 用 `EVP_CIPHER_CTX_reset` 函数替代（不是必然发生）
+> - 修改：在 `openssl.py` 文件中将 `EVP_CIPHER_CTX_cleanup` 替换成 `EVP_CIPHER_CTX_reset`
 
 --------------------------------------------------------------------------------
