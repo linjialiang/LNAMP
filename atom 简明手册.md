@@ -82,7 +82,7 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (38) C:\Users\linji\.atom\packages
+Community Packages (38) C:\Users\username\.atom\packages
 ├── activate-power-mode@2.7.0
 ├── advanced-open-file@0.16.7
 ├── atom-autocomplete-php@0.25.6
