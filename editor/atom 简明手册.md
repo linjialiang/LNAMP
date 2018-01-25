@@ -484,6 +484,7 @@ apm install atom-ide-ui ide-php ide-typescript
 > 6. `minimap-pigments` 让 minimap 支持颜色高亮
 > 7. `activate-power-mode` 这是一款编辑器震动插件
 > 8. `platformio-ide-terminal` 这是一款终端模拟器插件
+> 9. `git-plus` 这是插件封装了 `git` 常用指令（暂时不过多涉及 git 版本库知识）
 
 ### 关于插件的说明
 
