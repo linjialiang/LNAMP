@@ -82,7 +82,7 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (38) C:\Users\username\.atom\packages
+Community Packages (39) C:\Users\linji\.atom\packages
 ├── activate-power-mode@2.7.0
 ├── advanced-open-file@0.16.7
 ├── atom-autocomplete-php@0.25.6
@@ -98,6 +98,7 @@ Community Packages (38) C:\Users\username\.atom\packages
 ├── emmet@2.4.3
 ├── ex-mode@0.18.0
 ├── file-icons@2.1.16
+├── git-plus@7.10.0
 ├── highlight-line@0.12.0
 ├── highlight-selected@0.13.1
 ├── ide-php@0.7.4
