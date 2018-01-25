@@ -165,4 +165,43 @@ SSLCertificateFile      | 证书文件
 SSLCertificateKeyFile   | 私钥文件
 SSLCertificateChainFile | 证书链文件
 
+## **附录： `xampp` 配置 `https` 配置方式**
+
+```conf
+<VirtualHost *:80>
+  ServerAdmin linjialiang@163.com
+  ServerName www.tp5.com
+  ServerAlias tp5.com m.tp5.com www.tp5.com
+  DocumentRoot D:/xampp/www/www_tp5_com
+
+  ErrorDocument 404 /404.html
+
+  ErrorLog "logs/www_tp5_com-error.log"
+  CustomLog "logs/www_tp5_com-access.log" combined
+
+  RewriteEngine on
+  RewriteCond %{HTTP:Host} ^tp5\.com$ [NC]
+  RewriteRule (.*) http://www\.tp5\.com$1 [NC,R=301]
+</VirtualHost>
+
+<virtualhost *:443>
+  ServerAdmin linjialiang@163.com
+  ServerName www.tp5.com
+  ServerAlias tp5.com m.tp5.com www.tp5.com
+  DocumentRoot D:/xampp/www/www_tp5_com
+
+  ErrorDocument 404 /404.html
+
+  ErrorLog "logs/www_tp5_com-error.log"
+  CustomLog "logs/www_tp5_com-access.log" combined
+
+  RewriteEngine on
+  RewriteCond %{HTTP:Host} ^tp5\.com$ [NC]
+  RewriteRule (.*) https://www\.tp5\.com$1 [NC,R=301]
+
+  SSLEngine on
+  SSLCertificateFile "conf/ssl.crt/server.crt"
+  SSLCertificateKeyFile "conf/ssl.key/server.key"
+</virtualhost>
+```
 --------------------------------------------------------------------------------
