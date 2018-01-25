@@ -74,9 +74,9 @@ set fileformat=unix                                 " 换行符默认unix模式
 set fileformats=unix,dos,mac                        " 换行符支持Unix dos mac 3种模式
 set laststatus=2                                    " 开启状态栏信息，默认为1，可以设为2
 set cmdheight=1                                     " 命令行的高度，默认为1，可以设为2
-set tabstop=4                                       " 编辑时一个TAB字符占多少个空格的位置(默认为8空格)
-set softtabstop=4                                   " <Tab>键、<BS>退格键（backspace）每次前进或删除的空格数、插入模式下<C-T>、<C-D>每次相对行首前进或后退的空格数(默认为8空格)
-set shiftwidth=4                                    " (自动)缩进使用的空格数(默认为8空格)
+set tabstop=2                                       " 编辑时一个TAB字符占多少个空格的位置(默认为8空格)
+set softtabstop=2                                   " <Tab>键、<BS>退格键（backspace）每次前进或删除的空格数、插入模式下<C-T>、<C-D>每次相对行首前进或后退的空格数(默认为8空格)
+set shiftwidth=2                                    " (自动)缩进使用的空格数(默认为8空格)
 set expandtab                                       " 是否(noexpandtab/expandtab)将输入<Tab>时自动展开成空格。开启后要输入<Tab>，需要<C-V><TAB> (默认为 noexpandtab )
 set smarttab                                        " （需要开启expandtab才有意义）开启时，<Tab><BS>将加入或删除 shiftwidth 个空格，插入模式下<C-T>、<C-D>每次相对行首前进或后退的空格数（默认为 nosmarttab ）
 set scrolloff=999                                   " 光标上下两侧最少保留的屏幕行数(999光标始终位于编辑器屏幕中间，默认为 0)
