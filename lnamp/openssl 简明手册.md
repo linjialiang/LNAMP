@@ -129,20 +129,29 @@ server {
 - `Apache2` 站点配置文件
 
   ```conf
+  <VirtualHost *:80>
+    ServerAdmin linjialiang@163.com
+    ServerName www.test.com
+    ServerAlias test.com www.test.com
+    DocumentRoot /alidata/www/www_test_com
+
+    ErrorDocument 404 /404.html
+
+    ErrorLog "logs/www_test_com-error.log"
+    CustomLog "logs/www_test_com-access.log" combined
+
+    RewriteEngine on
+    RewriteCond %{SERVER_PORT} 80 [NC]
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301,L]
+  </VirtualHost>
+
   <virtualhost *:4430>
     ServerAdmin linjialiang@163.com
     ServerName www.test.com
     ServerAlias test.com www.test.com
-    DocumentRoot /alidata/www/yhz/www_test_com
+    DocumentRoot /alidata/www/www_test_com
+    
     ErrorDocument 404 /404.html
-
-    ## 这段一般都不需要特别申明， /etc/apache2/apache2.conf 已经配置
-    <directory "/alidata/www/yhz/www_test_com">
-      Options Indexes FollowSymLinks
-      AllowOverride All
-      Require all granted
-      DirectoryIndex index.php index.html
-    </directory>
 
     ErrorLog ${APACHE_LOG_DIR}/www_test_com-error.log
     CustomLog ${APACHE_LOG_DIR}/www_test_com-access.log combined
@@ -172,7 +181,7 @@ SSLCertificateChainFile | 证书链文件
   ServerAdmin linjialiang@163.com
   ServerName www.tp5.com
   ServerAlias tp5.com m.tp5.com www.tp5.com
-  DocumentRoot D:/xampp/www/www_tp5_com
+  DocumentRoot D:/xampp/www/www_tp5_com/public
 
   ErrorDocument 404 /404.html
 
@@ -188,7 +197,7 @@ SSLCertificateChainFile | 证书链文件
   ServerAdmin linjialiang@163.com
   ServerName www.tp5.com
   ServerAlias tp5.com m.tp5.com www.tp5.com
-  DocumentRoot D:/xampp/www/www_tp5_com
+  DocumentRoot D:/xampp/www/www_tp5_com/public
 
   ErrorDocument 404 /404.html
 
