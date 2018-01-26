@@ -106,8 +106,8 @@ DenyGroups  | 禁止的用户组
 ### _操作_
 
 ```shell
-  # cp /etc/sshd_config{,.kackup}
-  # vim /etc/sshd_config
+  # cp /etc/ssh/sshd_config{,.kackup}
+  # vim /etc/ssh/sshd_config
 ```
 
 ```sshd_config
@@ -172,16 +172,16 @@ Match Group usergroup1 usergroup2          ## usergroup1 usergroup2 是我们自
   # gpasswd usergroup -d user1
   ```
 
-6. 更改用户 user1 的 shell 为拒绝登录（拒绝ftp登录）
+6. 更改用户 user1 的 shell 为拒绝一切服务（拒绝ftp登录，拒绝ssh远程登录）
 
   ```shell
   # usermod -s /bin/false user1
   ```
 
-7. 更改用户 user2 的 shell 为拒绝登录（拒绝ftp登录）
+7. 更改用户 user2 的 shell 为拒绝login系统（允许ftp登录，拒绝ssh远程登录）
 
   ```shell
-  # usermod -s /usr/sbin/nilogin
+  # usermod -s /usr/sbin/nologin
   ```
 
 8. 更改用户 user1 的 shell 允许登录 （允许ssh远程登录）
