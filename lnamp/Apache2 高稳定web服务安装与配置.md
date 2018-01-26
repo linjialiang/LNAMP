@@ -198,8 +198,8 @@
      CustomLog ${APACHE_LOG_DIR}/www_test_com-access.log combined
 
      RewriteEngine on
-     RewriteCond %{HTTP:Host} ^test\.com$ [NC]
-     RewriteRule (.*) http://www\.test\.com$1 [NC,R=301]
+     RewriteCond %{HTTP_HOST} ^test.com$ [NC]
+     RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
   </VirtualHost>
   ```
 
