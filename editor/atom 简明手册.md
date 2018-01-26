@@ -82,13 +82,15 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (39) C:\Users\linji\.atom\packages
+Community Packages (41) C:\Users\username\.atom\packages
 ├── activate-power-mode@2.7.0
 ├── advanced-open-file@0.16.7
 ├── atom-autocomplete-php@0.25.6
 ├── atom-beautify@0.30.9
 ├── atom-clock@0.1.16
 ├── atom-ide-ui@0.7.2
+├── atom-material-syntax@1.0.8
+├── atom-material-ui@2.1.1
 ├── atom-ternjs@0.18.3
 ├── autoclose-html@0.23.0
 ├── autocomplete-paths@2.12.2
@@ -496,7 +498,7 @@ apm install atom-ide-ui ide-php ide-typescript
 > 默认的主题已经非常优秀，如何有发现自己喜欢的也可以加入进去
 
 ```shell
-apm install native-ui monokai
+apm install native-ui monokai atom-material-ui atom-material-syntax
 ```
 
 --------------------------------------------------------------------------------
