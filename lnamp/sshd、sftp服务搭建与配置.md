@@ -127,13 +127,45 @@ DenyGroups  | 禁止的用户组
 ```
 
 ```sshd_config
-X11Forwarding no  ## 如果是 yes 改成 no，如果不存在则添加
-Subsystem sftp internal-sftp   ## 将Subsystem sftp 修改成 internal-sftp，如果不存在则添加
-Match Group usergroup1 usergroup2          ## usergroup1 usergroup2 是我们自定义的2个用户组
-    AllowTcpForwarding no       ## 进制tcp端口转发，保护其他的tcp连接
-    ChrootDirectory %h          ## 绑定到家目录
-    ForceCommand internal-sftp  ## 登录方式，强制按internal-sftp来
+## 前面一般有 `X11Forwarding` 的指令，需要删除或备注，见下文说明
+X11Forwarding no  ## 提高传输速度，但是 `ssh` 的安全性可能会降低
+## 前面一般有的 `Subsystem sftp` 指令，需要删除或备注，见下文说明
+Subsystem sftp internal-sftp
+## usergroup 是我们自定义的用户组（测试结果，仅支持1个用户组）
+Match Group usergroup
+  ## 进制tcp端口转发，保护其他的tcp连接
+  AllowTcpForwarding no
+  ## 绑定到家目录
+  ChrootDirectory %h  
+  ## 登录方式，强制按internal-sftp来    
+  ForceCommand internal-sftp
 ```
+
+> `sshd_config` 配置文件如果存在一下内容需要注释掉
+
+1. `X11Forwarding yes` 注释掉或删除
+
+  > 在配置文件末尾已经加上 `X11Forwarding no`
+
+  > - 可以提高 SFTP 传输速度，但是安全性可能会降低
+
+  ```sshd_config
+  ## X11Forwarding yes
+  ```
+
+2. `Subsystem sftp` 注释掉或删除
+
+  > 在配置文件末尾已经加上 `Subsystem sftp internal-sftp`
+
+  > - 下面两段内容，在 `sshd_conf` 中一般会出现一段
+
+  ```sshd_config
+  ## Subsystem sftp /usr/lib/openssh/sftp-server
+  ```
+
+  ```sshd_config
+  ## Subsystem sftp /usr/libexec/openssh/sftp-server
+  ```
 
 ## **用户/用户组 操作**
 
