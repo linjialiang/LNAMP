@@ -148,8 +148,8 @@ server {
     CustomLog ${APACHE_LOG_DIR}/www_test_com-access.log combined
 
     RewriteEngine on
-    RewriteCond %{HTTP:Host} ^test\.com$ [NC]
-    RewriteRule (.*) https://www\.test\.com$1 [NC,R=301]
+    RewriteCond %{HTTP_HOST} ^test.com$ [NC]
+    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}$1 [R=301,L]
 
     SSLEngine on
     SSLCertificateFile /alidata/ssl/www_test_com/Apache2/2_www.test.com.crt
@@ -165,7 +165,7 @@ SSLCertificateFile      | 证书文件
 SSLCertificateKeyFile   | 私钥文件
 SSLCertificateChainFile | 证书链文件
 
-## **附录： `xampp` 配置 `https` 配置方式**
+## **附录： `xampp` 本地测试环境配置 `ssl`**
 
 ```conf
 <VirtualHost *:80>
@@ -180,8 +180,8 @@ SSLCertificateChainFile | 证书链文件
   CustomLog "logs/www_tp5_com-access.log" combined
 
   RewriteEngine on
-  RewriteCond %{HTTP:Host} ^tp5\.com$ [NC]
-  RewriteRule (.*) http://www\.tp5\.com$1 [NC,R=301]
+  RewriteCond %{SERVER_PORT} 80 [NC]
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301,L]
 </VirtualHost>
 
 <virtualhost *:443>
@@ -196,9 +196,9 @@ SSLCertificateChainFile | 证书链文件
   CustomLog "logs/www_tp5_com-access.log" combined
 
   RewriteEngine on
-  RewriteCond %{HTTP:Host} ^tp5\.com$ [NC]
-  RewriteRule (.*) https://www\.tp5\.com$1 [NC,R=301]
-
+  RewriteCond %{HTTP_HOST} ^tp5.com$ [NC]
+  RewriteRule ^(.*)$ https://www.%{HTTP_HOST}$1 [R=301,L]
+  
   SSLEngine on
   SSLCertificateFile "conf/ssl.crt/server.crt"
   SSLCertificateKeyFile "conf/ssl.key/server.key"
