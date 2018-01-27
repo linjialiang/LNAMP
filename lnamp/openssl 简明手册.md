@@ -129,7 +129,7 @@ server {
 - `Apache2` 站点配置文件
 
   ```conf
-  <VirtualHost *:80>
+  <VirtualHost *:8080>
     ServerAdmin linjialiang@163.com
     ServerName www.test.com
     ServerAlias test.com www.test.com
@@ -150,7 +150,7 @@ server {
     ServerName www.test.com
     ServerAlias test.com www.test.com
     DocumentRoot /alidata/www/www_test_com
-    
+
     ErrorDocument 404 /404.html
 
     ErrorLog ${APACHE_LOG_DIR}/www_test_com-error.log
@@ -207,7 +207,7 @@ SSLCertificateChainFile | 证书链文件
   RewriteEngine on
   RewriteCond %{HTTP_HOST} ^tp5.com$ [NC]
   RewriteRule ^(.*)$ https://www.%{HTTP_HOST}$1 [R=301,L]
-  
+
   SSLEngine on
   SSLCertificateFile "conf/ssl.crt/server.crt"
   SSLCertificateKeyFile "conf/ssl.key/server.key"
