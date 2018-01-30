@@ -109,7 +109,7 @@ server {
 
     error_page 404 = /404.html;
 
-    location ~ \.php$ {
+    location ~ [^/]\.php(/|$) {
         include snippets/fastcgi-php.conf;
         fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
     }
@@ -129,7 +129,7 @@ server {
 
     error_page 404 = /404.html;
 
-    location ~ ^.+\.php.*$ {
+    location ~ [^/]\.php(/|$) {
         proxy_pass http://127.0.0.1:8080;
         proxy_set_header Host $http_host;
     }
@@ -201,7 +201,7 @@ server {
 
     error_page 404 = /404.html;
 
-    location ~ ^.+\.php.*$ {
+    location ~ [^/]\.php(/|$) {
         proxy_pass http://127.0.0.1:8080;
         proxy_set_header Host $http_host;
     }
