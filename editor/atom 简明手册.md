@@ -82,13 +82,13 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (41) C:\Users\username\.atom\packages
+Community Packages (39) C:\Users\username\.atom\packages
 ├── activate-power-mode@2.7.0
 ├── advanced-open-file@0.16.7
 ├── atom-autocomplete-php@0.25.6
 ├── atom-beautify@0.30.9
 ├── atom-clock@0.1.16
-├── atom-ide-ui@0.7.2
+├── atom-ide-ui@0.8.1
 ├── atom-material-syntax@1.0.8
 ├── atom-material-ui@2.1.1
 ├── atom-ternjs@0.18.3
@@ -103,7 +103,7 @@ Community Packages (41) C:\Users\username\.atom\packages
 ├── git-plus@7.10.0
 ├── highlight-line@0.12.0
 ├── highlight-selected@0.13.1
-├── ide-php@0.7.4
+├── ide-php
 ├── ide-typescript@0.7.2
 ├── markdown-scroll-sync@2.1.2
 ├── minimap@4.29.7
@@ -113,17 +113,15 @@ Community Packages (41) C:\Users\username\.atom\packages
 ├── minimap-highlight-selected@4.6.1
 ├── minimap-pigments@0.2.2
 ├── minimap-split-diff@0.3.7
-├── monokai@0.24.0
-├── native-ui@0.25.2
 ├── open-in-browser@0.5.2
 ├── pigments@0.40.2
 ├── platformio-ide-terminal@2.8.0
-├── project-viewer@1.2.5
+├── project-viewer@1.3.0
 ├── relative-numbers@0.9.0
 ├── script@3.17.3
 ├── split-diff@1.5.2
 ├── sync-settings@0.8.3
-└── vim-mode-plus@1.26.0
+└── vim-mode-plus@1.27.0
 ```
 
 ### 让 `atom` 支持简体中文
