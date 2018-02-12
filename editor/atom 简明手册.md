@@ -103,7 +103,7 @@ Community Packages (39) C:\Users\username\.atom\packages
 ├── git-plus@7.10.0
 ├── highlight-line@0.12.0
 ├── highlight-selected@0.13.1
-├── ide-php
+├── ide-php@0.7.5
 ├── ide-typescript@0.7.2
 ├── markdown-scroll-sync@2.1.2
 ├── minimap@4.29.7
@@ -121,7 +121,7 @@ Community Packages (39) C:\Users\username\.atom\packages
 ├── script@3.17.3
 ├── split-diff@1.5.2
 ├── sync-settings@0.8.3
-└── vim-mode-plus@1.27.0
+└── vim-mode-plus@1.28.0
 ```
 
 ### 让 `atom` 支持简体中文
