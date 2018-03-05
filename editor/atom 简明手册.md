@@ -86,27 +86,27 @@ Community Packages (39) C:\Users\username\.atom\packages
 ├── activate-power-mode@2.7.0
 ├── advanced-open-file@0.16.7
 ├── atom-autocomplete-php@0.25.6
-├── atom-beautify@0.30.9
+├── atom-beautify@0.32.0
 ├── atom-clock@0.1.16
-├── atom-ide-ui@0.8.1
+├── atom-ide-ui@0.9.2
 ├── atom-material-syntax@1.0.8
-├── atom-material-ui@2.1.1
+├── atom-material-ui@2.1.3
 ├── atom-ternjs@0.18.3
 ├── autoclose-html@0.23.0
 ├── autocomplete-paths@2.12.2
 ├── autoprefixer@3.7.1
 ├── color-picker@2.2.5
-├── docblockr@0.13.6
+├── docblockr@0.13.7
 ├── emmet@2.4.3
 ├── ex-mode@0.18.0
-├── file-icons@2.1.16
+├── file-icons@2.1.17
 ├── git-plus@7.10.0
 ├── highlight-line@0.12.0
 ├── highlight-selected@0.13.1
-├── ide-php@0.7.5
-├── ide-typescript@0.7.2
+├── ide-php@0.7.8
+├── ide-typescript@0.7.5
 ├── markdown-scroll-sync@2.1.2
-├── minimap@4.29.7
+├── minimap@4.29.8
 ├── minimap-bookmarks@0.4.2
 ├── minimap-cursorline@0.2.0
 ├── minimap-find-and-replace@4.5.2
@@ -120,8 +120,8 @@ Community Packages (39) C:\Users\username\.atom\packages
 ├── relative-numbers@0.9.0
 ├── script@3.17.3
 ├── split-diff@1.5.2
-├── sync-settings@0.8.3
-└── vim-mode-plus@1.28.0
+├── sync-settings@0.8.5
+└── vim-mode-plus@1.30.0
 ```
 
 ### 让 `atom` 支持简体中文
