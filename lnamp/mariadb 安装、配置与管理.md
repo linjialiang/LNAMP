@@ -7,7 +7,7 @@
 > Debian下安装 `mariaDB` 十分简单
 
 ```shell
-# apt-get install maraidb-server
+# apt-get install mariadb-server
 ```
 
 ## **`mariaDB` 服务器配置文件**
