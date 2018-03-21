@@ -249,3 +249,99 @@ netstat -tnulp
 > - 修改：在 `openssl.py` 文件中将 `EVP_CIPHER_CTX_cleanup` 替换成 `EVP_CIPHER_CTX_reset`
 
 --------------------------------------------------------------------------------
+
+### 附录一：关于 debian 9 下面不存在 `/etc/rc.local` 的解决方法
+> 由于某些软件并没有增加开启启动的服务，很多时候需要手工添加，一般我们都是推荐添加命令到 /etc/rc.local 文件，但是 Debian 9 默认不带 /etc/rc.local 文件，而 rc.local 服务却还是自带的
+
+1. 首先查看 `rc.local.service` 文件信息
+```shell
+root@debian9 ~ # cat /lib/systemd/system/rc.local.service
+```
+
+```conf
+#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation; either version 2.1 of the License, or
+#  (at your option) any later version.
+
+# This unit gets pulled automatically into multi-user.target by
+# systemd-rc-local-generator if /etc/rc.local is executable.
+[Unit]
+Description=/etc/rc.local Compatibility
+ConditionFileIsExecutable=/etc/rc.local
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/etc/rc.local start
+TimeoutSec=0
+RemainAfterExit=yes
+GuessMainPID=no
+```
+
+2. 默认情况下 `rc.local.service` 这个服务，处于关闭的状态
+
+```shell
+root@debian9 ~ # systemctl status rc-local
+● rc-local.service - /etc/rc.local Compatibility
+   Loaded: loaded (/lib/systemd/system/rc-local.service; static; vendor preset: enabled)
+  Drop-In: /lib/systemd/system/rc-local.service.d
+           └─debian.conf
+   Active: inactive (dead)
+```
+
+3. 解决这个问题，我们需要手工添加一个 `/etc/rc.local` 文件
+
+```shell
+cat <<EOF >/etc/rc.local
+```
+
+```conf
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+exit 0
+EOF
+```
+
+4. 赋予 `/etc/rc.local` 文件权限
+```shell
+chmod +x /etc/rc.local
+```
+
+5. 接着启动 `rc-local` 服务
+```shell
+systemctl start rc-local
+```
+
+6. 查看 `rc-local` 服务状态
+```shell
+root@debian9 ~ # systemctl status rc-local
+```
+7. 出现下面信息，则服务开启成功
+```shell
+● rc-local.service - /etc/rc.local Compatibility
+   Loaded: loaded (/lib/systemd/system/rc-local.service; static; vendor preset: enabled)
+  Drop-In: /lib/systemd/system/rc-local.service.d
+           └─debian.conf
+   Active: active (exited) since Thu 2017-08-03 09:41:18 UTC; 14s ago
+  Process: 20901 ExecStart=/etc/rc.local start (code=exited, status=0/SUCCESS)
+
+Aug 03 09:41:18 xtom-proxy systemd[1]: Starting /etc/rc.local Compatibility...
+Aug 03 09:41:18 xtom-proxy systemd[1]: Started /etc/rc.local Compatibility.
+```
+
+8. 然后我们可以把需要开机启动的命令添加到 `/etc/rc.local` 文件，丢在 `exit 0` 前面即可，并尝试重启以后试试是否生效了
+
