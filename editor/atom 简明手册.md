@@ -82,29 +82,30 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (39) C:\Users\username\.atom\packages
+Community Packages (41) C:\Users\username\.atom\packages
 ├── activate-power-mode@2.7.0
-├── advanced-open-file@0.16.7
+├── advanced-open-file@0.16.8
 ├── atom-autocomplete-php@0.25.6
-├── atom-beautify@0.32.0
+├── atom-beautify@0.32.2
 ├── atom-clock@0.1.16
-├── atom-ide-ui@0.9.2
+├── atom-ide-ui@0.9.4
 ├── atom-material-syntax@1.0.8
 ├── atom-material-ui@2.1.3
 ├── atom-ternjs@0.18.3
 ├── autoclose-html@0.23.0
 ├── autocomplete-paths@2.12.2
 ├── autoprefixer@3.7.1
+├── city-lights-syntax@1.1.8
 ├── color-picker@2.2.5
 ├── docblockr@0.13.7
 ├── emmet@2.4.3
 ├── ex-mode@0.18.0
-├── file-icons@2.1.17
-├── git-plus@7.10.0
+├── file-icons@2.1.18
+├── git-plus@7.10.2
 ├── highlight-line@0.12.0
 ├── highlight-selected@0.13.1
-├── ide-php@0.7.8
-├── ide-typescript@0.7.5
+├── ide-php@0.7.14
+├── ide-typescript@0.7.6
 ├── markdown-scroll-sync@2.1.2
 ├── minimap@4.29.8
 ├── minimap-bookmarks@0.4.2
@@ -113,15 +114,16 @@ Community Packages (39) C:\Users\username\.atom\packages
 ├── minimap-highlight-selected@4.6.1
 ├── minimap-pigments@0.2.2
 ├── minimap-split-diff@0.3.7
+├── monokai@0.24.0
 ├── open-in-browser@0.5.2
 ├── pigments@0.40.2
-├── platformio-ide-terminal@2.8.0
-├── project-viewer@1.3.0
+├── platformio-ide-terminal@2.8.1
+├── project-viewer@1.3.1
 ├── relative-numbers@0.9.0
 ├── script@3.17.3
 ├── split-diff@1.5.2
 ├── sync-settings@0.8.5
-└── vim-mode-plus@1.30.0
+└── vim-mode-plus@1.31.1
 ```
 
 ### 让 `atom` 支持简体中文
