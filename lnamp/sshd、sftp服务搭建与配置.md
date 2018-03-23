@@ -288,3 +288,8 @@ Match Group usergroup
   # paddwd baidu_com
   # 输入两次密码
   ```
+
+## 附录一：ssh 终端登录方式
+```shell
+# ssh://username:passwd@ip:22
+```
