@@ -82,7 +82,7 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (44) C:\Users\username\.atom\packages
+Community Packages (43) C:\Users\username\.atom\packages
 ├── activate-power-mode@2.7.0
 ├── advanced-open-file@0.16.8
 ├── atom-autocomplete-php@0.25.6
@@ -120,7 +120,6 @@ Community Packages (44) C:\Users\username\.atom\packages
 ├── pigments@0.40.2
 ├── platformio-ide-terminal@2.8.1
 ├── project-viewer@1.3.1
-├── regex-railroad-diagram@0.19.4
 ├── relative-numbers@0.9.0
 ├── script@3.17.3
 ├── split-diff@1.5.2
