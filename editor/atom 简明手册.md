@@ -82,7 +82,7 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (43) C:\Users\username\.atom\packages
+Community Packages (42) C:\Users\username\.atom\packages
 ├── activate-power-mode@2.7.0
 ├── advanced-open-file@0.16.8
 ├── atom-autocomplete-php@0.25.6
@@ -91,7 +91,6 @@ Community Packages (43) C:\Users\username\.atom\packages
 ├── atom-ide-ui@0.9.4
 ├── atom-material-syntax@1.0.8
 ├── atom-material-ui@2.1.3
-├── atom-minify@0.8.0
 ├── atom-ternjs@0.18.3
 ├── autoclose-html@0.23.0
 ├── autocomplete-paths@2.12.2
