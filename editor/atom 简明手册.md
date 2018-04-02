@@ -26,7 +26,7 @@
   atom -v
   ```
 
-2. 修改 `.apmrc` 配置文件
+2. 修改 `.apmrc` 配置文件（国内现在已经不需要翻墙，所以不要配置这个）
 
   > - 修改或新建 `.apmrc`
   > - 所在目录 `C:\Users\username\.atom\.apmrc`
@@ -124,8 +124,8 @@ Community Packages (43) C:\Users\username\.atom\packages
 ├── script@3.17.3
 ├── split-diff@1.5.2
 ├── Sublime-Style-Column-Selection@1.7.4
-├── sync-settings@0.8.5
-└── vim-mode-plus@1.31.1
+├── sync-settings@0.8.6
+└── vim-mode-plus@1.32.0
 ```
 
 ### 让 `atom` 支持简体中文
