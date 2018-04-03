@@ -82,12 +82,13 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (43) C:\Users\username\.atom\packages
+Community Packages (45) C:\Users\username\.atom\packages
 ├── activate-power-mode@2.7.0
 ├── advanced-open-file@0.16.8
 ├── atom-autocomplete-php@0.25.6
 ├── atom-beautify@0.32.2
 ├── atom-clock@0.1.16
+├── atom-html-preview@0.2.5
 ├── atom-ide-ui@0.9.4
 ├── atom-material-syntax@1.0.8
 ├── atom-material-ui@2.1.3
@@ -102,6 +103,7 @@ Community Packages (43) C:\Users\username\.atom\packages
 ├── ex-mode@0.18.0
 ├── file-icons@2.1.18
 ├── git-plus@7.10.2
+├── github-atom-light-syntax@0.5.0
 ├── highlight-line@0.12.0
 ├── highlight-selected@0.13.1
 ├── ide-php@0.7.14
