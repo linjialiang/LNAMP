@@ -112,7 +112,7 @@
   ```ini
   ; ...
   [XDebug]
-  zend_extension = "c:\xampp\php\ext\php_xdebug-2.5.5-7.1-vc14.dll"
+  zend_extension = "c:\xampp\php\ext\php_xdebug-2.6.0-7.2-vc15-x86_64.dll"
   ; xdebug.remote_autostart = 1
   ; xdebug.profiler_append = 0
   ; xdebug.profiler_enable = 0
