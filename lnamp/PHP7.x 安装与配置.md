@@ -91,4 +91,45 @@
 # /etc/init.d/apache2 restart
 ```
 
+## 附录一： 开发环境下配置 `xdebug`
+> 这里以 `xampp` 为例子，操作方式适用于所有 `ms` 系统
+
+- 下载 `Xdebug` : 
+  1. [PHP 7.0.x](https://xdebug.org/files/php_xdebug-2.6.0-7.0-vc14-x86_64.dll)
+  2. [PHP 7.1.x](https://xdebug.org/files/php_xdebug-2.6.0-7.1-vc14-x86_64.dll)
+  3. [PHP 7.2.x](https://xdebug.org/files/php_xdebug-2.6.0-7.2-vc15-x86_64.dll)
+  
+- 拷贝文件 `php_xdebug-2.6.0-7.2-vc15-x86_64.dll` 到 `C:\xampp\php\ext` 下面
+- 使用 `notepad++` 打开 `C:\xampp\php\php.ini` 文件，并编辑:
+  1. 禁用输出缓冲 `output_buffering = Off`
+  ```ini
+  ; ...
+  output_buffering = Off  # 禁用输出缓冲，默认情况下已经禁用，如果是 On 开启了，请修改为 Off 禁用掉
+  ; ...
+  ```
+  
+  2. 文件最底部添加以下内容(注释掉的内容，一般都不需要添加)：
+  ```ini
+  ; ...
+  [XDebug]
+  zend_extension = "c:\xampp\php\ext\php_xdebug-2.5.5-7.1-vc14.dll"
+  ; xdebug.remote_autostart = 1
+  ; xdebug.profiler_append = 0
+  ; xdebug.profiler_enable = 0
+  ; xdebug.profiler_enable_trigger = 0
+  ; xdebug.profiler_output_dir = "c:\xampp\tmp"
+  ; xdebug.profiler_output_name = "cachegrind.out.%t-%s"
+  ; xdebug.remote_enable = 1
+  ; xdebug.remote_handler = "dbgp"
+  ; xdebug.remote_host = "127.0.0.1"
+  ; xdebug.remote_log="c:\xampp\tmp\xdebug.txt"
+  ; xdebug.remote_port = 9000
+  ; xdebug.trace_output_dir = "c:\xampp\tmp"
+  ; 3600 (1 hour), 36000 = 10h
+  ; xdebug.remote_cookie_expire_time = 36000
+  ```
+
+- 使用的是 `PHP` 的 `FastCGI IIS` 应该使用非线程安全的 `NTS` 版本的 `PHP` ;
+- 使用 `Apache` ，您必须使用PHP的线程安全 `TS` 版本的 `PHP` .
 --------------------------------------------------------------------------------
+
