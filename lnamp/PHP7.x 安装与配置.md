@@ -112,21 +112,50 @@
   ```ini
   ; ...
   [XDebug]
-  zend_extension = c:\xampp\php\ext\php_xdebug-2.6.0-7.2-vc15-x86_64.dll
-  ; xdebug.remote_autostart = 1
-  ; xdebug.profiler_append = 0
-  ; xdebug.profiler_enable = 0
-  ; xdebug.profiler_enable_trigger = 0
-  ; xdebug.profiler_output_dir = "c:\xampp\tmp"
-  ; xdebug.profiler_output_name = "cachegrind.out.%t-%s"
-  ; xdebug.remote_enable = 1
-  ; xdebug.remote_handler = "dbgp"
-  ; xdebug.remote_host = "127.0.0.1"
-  ; xdebug.remote_log="c:\xampp\tmp\xdebug.txt"
-  ; xdebug.remote_port = 9000
-  ; xdebug.trace_output_dir = "c:\xampp\tmp"
-  ; 3600 (1 hour), 36000 = 10h
-  ; xdebug.remote_cookie_expire_time = 36000
+  ; 请确保使用完整路径
+  zend_extension = "c:\xampp\php\ext\php_xdebug-2.6.0-7.2-vc15-x86_64.dll"
+  
+  ; 通常，您需要使用特定的HTTP GET/POST变量来启动远程调试；
+  ; 当此设置设置为1时，即使GET/POST/COOKIE变量不存在，Xdebug也将始终尝试启动远程调试会话并尝试连接到客户端。
+  ;; xdebug.remote_autostart = 1
+  
+  ; 探查器输出将被写入的目录，确保PHP将运行的用户对该目录具有写入权限；
+  ; 这个设置不能在脚本中用 ini_set() 设置。
+  xdebug.profiler_output_dir = "c:\xampp\php\php_xdebug\profiler"
+  
+  ; 此设置确定用于将跟踪转储到的文件的名称；
+  ; 该设置用格式说明符指定格式，与 sprintf() 和 strftime() 非常相似；
+  ; 有几种格式说明符可用于格式化文件名。
+  ;; xdebug.profiler_output_name = "cachegrind.out.%p"
+  
+  ; 此开关控制 Xdebug 是否应尝试联系正在使用设置 xdebug.remote_host 和 xdebug.remote_port 设置的侦听主机和端口的调试客户端；
+  ; 如果该设置为0，无法建立连接，则该脚本将会继续。
+  ;; xdebug.remote_enable = 1
+  
+  ; 选择运行调试客户端的主机，您可以为Unix域套接字使用主机名；
+  ; IP地址或'unix：/// path / to / sock'；
+  ; 如果启用 xdebug.remote_connect_back ，此设置将被忽略。
+  ;; xdebug.remote_host = localhost
+  
+  ; Xdebug尝试在远程主机上连接的端口；
+  ; 端口9000是客户端和捆绑调试客户端的默认端口；
+  ; 由于许多客户端使用此端口号，所以最好不要改变此设置。
+  ;; xdebug.remote_port = 9000
+  
+  ; 跟踪文件将被写入的目录，确保PHP将运行的用户具有对该目录的写入权限
+  xdebug.trace_output_dir = "c:\xampp\php\php_xdebug\trace"
+  
+  ; 此设置确定用于将跟踪转储到的文件的名称；
+  ; 该设置用格式说明符指定格式，与sprintf()和strftime()非常相似；
+  ; 有几种格式说明符可用于格式化文件名；
+  ; '.xt'扩展名总是自动添加。
+  ;; xdebug.trace_output_name = "trace.%c"
+  
+  ; 控制哪个 xdebug.idekey 应该传递给 DBGp 调试器处理程序，默认值基于环境设置；
+  ; 首先咨询环境设置 DBGP_IDEKEY，然后是 USER 和最后一个 USERNAME ；
+  ; 默认设置为找到的第一个环境变量。如果没有找到该设置，则默认设置为''；
+  ； 如果设置了此设置，它将始终覆盖环境变量。
+  ;; xdebug.idekey="netbeans-xdebug"
   ```
 
 - 使用的是 `PHP` 的 `FastCGI IIS` 应该使用非线程安全的 `NTS` 版本的 `PHP` ;
