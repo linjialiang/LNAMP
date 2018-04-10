@@ -82,7 +82,7 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (43) C:\Users\username\.atom\packages
+Community Packages (42) C:\Users\username\.atom\packages
 ├── activate-power-mode@2.7.0
 ├── advanced-open-file@0.16.8
 ├── atom-autocomplete-php@0.25.6
@@ -90,20 +90,21 @@ Community Packages (43) C:\Users\username\.atom\packages
 ├── atom-clock@0.1.16
 ├── atom-html-preview@0.2.5
 ├── atom-ide-ui@0.9.4
-├── atom-material-syntax@1.0.8
-├── atom-material-ui@2.1.3
 ├── atom-ternjs@0.18.3
-├── autoclose-html@0.23.0
 ├── autocomplete-paths@2.12.2
 ├── autoprefixer@3.7.1
 ├── color-picker@2.2.5
 ├── docblockr@0.13.7
-├── emmet@2.4.3
 ├── ex-mode@0.18.0
 ├── file-icons@2.1.18
+├── git-control@0.9.0
 ├── git-plus@7.10.2
+├── git-time-machine@1.5.9
+├── highlight-column@0.5.4
 ├── highlight-line@0.12.0
 ├── highlight-selected@0.13.1
+├── ide-css@0.3.0
+├── ide-html@0.4.2
 ├── ide-php@0.7.14
 ├── ide-typescript@0.7.6
 ├── markdown-scroll-sync@2.1.2
@@ -111,17 +112,15 @@ Community Packages (43) C:\Users\username\.atom\packages
 ├── minimap-bookmarks@0.4.2
 ├── minimap-cursorline@0.2.0
 ├── minimap-find-and-replace@4.5.2
+├── minimap-git-diff@4.3.1
 ├── minimap-highlight-selected@4.6.1
 ├── minimap-pigments@0.2.2
 ├── minimap-split-diff@0.3.7
-├── monokai@0.24.0
 ├── open-in-browser@0.5.2
 ├── pigments@0.40.2
 ├── platformio-ide-terminal@2.8.1
 ├── project-viewer@1.3.1
-├── regex-railroad-diagram@0.19.4
 ├── relative-numbers@0.9.0
-├── script@3.17.3
 ├── split-diff@1.5.2
 ├── Sublime-Style-Column-Selection@1.7.4
 ├── sync-settings@0.8.6
