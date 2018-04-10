@@ -104,7 +104,9 @@
   1. 禁用输出缓冲 `output_buffering = Off`
   ```ini
   ; ...
-  output_buffering = Off  # 禁用输出缓冲，默认情况下已经禁用，如果是 On 开启了，请修改为 Off 禁用掉
+  ; 禁用输出缓冲，默认情况下已经禁用，如果是 On 开启了，请修改为 Off 禁用掉
+  ; 默认情况下就是Off，所以将output_buffering注释掉即可
+  output_buffering=Off
   ; ...
   ```
   
@@ -114,8 +116,10 @@
   [XDebug]
   ; 等号（=）两边不要留空， 【;;】指默认即可，不需要写入 php.ini 文件
   
-  ; 请确保使用完整路径
-  zend_extension="c:\xampp\php\ext\php_xdebug-2.6.0-7.2-vc15-x86_64.dll"
+  ; 请确保使用完整路径(xampp版本)
+  zend_extension="c:\xampp\php\ext\php_xdebug-2.6.0-7.2-vc15.dll"
+  ; 请确保使用完整路径(php-7.2-TS-x64版本)
+  ;; zend_extension="c:\xampp\php\ext\php_xdebug-2.6.0-7.2-vc15-x86_64.dll"
 
   ; 通常，您需要使用特定的HTTP GET/POST变量来启动远程调试；
   ; 当此设置设置为1时，即使GET/POST/COOKIE变量不存在，Xdebug也将始终尝试启动远程调试会话并尝试连接到客户端。
