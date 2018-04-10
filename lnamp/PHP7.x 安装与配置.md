@@ -112,7 +112,7 @@
   ```ini
   ; ...
   [XDebug]
-  ; 等号（=）两边不要留空， 【;;】指默认即可
+  ; 等号（=）两边不要留空， 【;;】指默认即可，不需要写入 php.ini 文件
   
   ; 请确保使用完整路径
   zend_extension="c:\xampp\php\ext\php_xdebug-2.6.0-7.2-vc15-x86_64.dll"
