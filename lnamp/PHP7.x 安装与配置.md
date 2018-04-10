@@ -123,7 +123,7 @@
 
   ; 探查器输出将被写入的目录，确保PHP将运行的用户对该目录具有写入权限；
   ; 这个设置不能在脚本中用 ini_set() 设置。
-  xdebug.profiler_output_dir="c:\xampp\php\php_xdebug\profiler"
+  ;; xdebug.profiler_output_dir="c:\xampp\php\php_xdebug\profiler"
 
   ; 此设置确定用于将跟踪转储到的文件的名称；
   ; 该设置用格式说明符指定格式，与 sprintf() 和 strftime() 非常相似；
@@ -145,7 +145,7 @@
   ;; xdebug.remote_port=9000
 
   ; 跟踪文件将被写入的目录，确保PHP将运行的用户具有对该目录的写入权限
-  xdebug.trace_output_dir="c:\xampp\php\php_xdebug\trace"
+  ;; xdebug.trace_output_dir="c:\xampp\php\php_xdebug\trace"
 
   ; 此设置确定用于将跟踪转储到的文件的名称；
   ; 该设置用格式说明符指定格式，与sprintf()和strftime()非常相似；
