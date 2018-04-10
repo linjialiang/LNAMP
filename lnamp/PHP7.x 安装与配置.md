@@ -132,6 +132,7 @@
 
   ; 此开关控制 Xdebug 是否应尝试联系正在使用设置 xdebug.remote_host 和 xdebug.remote_port 设置的侦听主机和端口的调试客户端；
   ; 如果该设置为0，无法建立连接，则该脚本将会继续。
+  ; netBeans ide 调试需要加上这条，平时不需要添加
   xdebug.remote_enable=1
 
   ; 选择运行调试客户端的主机，您可以为Unix域套接字使用主机名；
