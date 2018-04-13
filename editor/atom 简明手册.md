@@ -82,7 +82,7 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (43) C:\Users\username\.atom\packages
+Community Packages (45) C:\Users\username\.atom\packages
 ├── activate-power-mode@2.7.0
 ├── advanced-open-file@0.16.8
 ├── atom-autocomplete-php@0.25.6
@@ -90,11 +90,13 @@ Community Packages (43) C:\Users\username\.atom\packages
 ├── atom-clock@0.1.16
 ├── atom-html-preview@0.2.5
 ├── atom-ide-ui@0.9.4
+├── atom-minify@0.8.0
 ├── atom-ternjs@0.18.3
 ├── autocomplete-paths@2.12.2
 ├── autoprefixer@3.7.1
-├── color-picker@2.2.5
+├── color-picker@2.3.0
 ├── docblockr@0.13.7
+├── emmet@2.4.3
 ├── ex-mode@0.18.0
 ├── file-icons@2.1.18
 ├── git-control@0.9.0
