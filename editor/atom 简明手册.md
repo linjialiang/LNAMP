@@ -82,7 +82,7 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (45) C:\Users\username\.atom\packages
+Community Packages (46) C:\Users\username\.atom\packages
 ├── activate-power-mode@2.7.0
 ├── advanced-open-file@0.16.8
 ├── atom-autocomplete-php@0.25.6
@@ -110,6 +110,7 @@ Community Packages (45) C:\Users\username\.atom\packages
 ├── ide-php@0.7.14
 ├── ide-typescript@0.7.6
 ├── markdown-scroll-sync@2.1.2
+├── merge-conflicts@1.4.5
 ├── minimap@4.29.8
 ├── minimap-bookmarks@0.4.2
 ├── minimap-cursorline@0.2.0
