@@ -99,7 +99,6 @@ Community Packages (46) C:\Users\username\.atom\packages
 ├── emmet@2.4.3
 ├── ex-mode@0.18.0
 ├── file-icons@2.1.18
-├── git-control@0.9.0
 ├── git-plus@7.10.2
 ├── git-time-machine@1.5.9
 ├── highlight-column@0.5.4
@@ -128,6 +127,7 @@ Community Packages (46) C:\Users\username\.atom\packages
 ├── split-diff@1.5.2
 ├── Sublime-Style-Column-Selection@1.7.4
 ├── sync-settings@0.8.6
+├── tree-view-git-status@1.5.0
 └── vim-mode-plus@1.32.0
 ```
 
