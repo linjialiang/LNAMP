@@ -90,10 +90,10 @@ Community Packages (46) C:\Users\username\.atom\packages
 ├── atom-html-preview@0.2.5
 ├── atom-ide-ui@0.11.0
 ├── atom-material-syntax@1.0.8
+├── atom-minify@0.8.0
 ├── autocomplete-paths@2.12.2
 ├── autoprefixer@3.7.1
 ├── city-lights-syntax@1.1.8
-├── city-lights-ui@1.3.3
 ├── color-picker@2.3.0
 ├── docblockr@0.13.7
 ├── emmet@2.4.3
