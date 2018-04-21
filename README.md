@@ -36,6 +36,3 @@
 > `program-other` 主要是程序员冲浪时可能需要用到的工具！
 >
 > -   `shadowsocks (代理工具)`
-
-
-gvsdjlghjdfl
