@@ -99,6 +99,7 @@ Community Packages (46) C:\Users\username\.atom\packages
 ├── emmet@2.4.3
 ├── ex-mode@0.18.0
 ├── file-icons@2.1.18
+├── git-blame@1.6.0
 ├── git-history@3.3.0
 ├── git-log@0.4.1
 ├── git-plus@7.10.2
