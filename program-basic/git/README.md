@@ -1,7 +1,7 @@
 # 关于 `Git`
 
 > `Git`官网地址：<https://git-scm.com/>
-> 官方出品的 [`《git pro》`](https://git-scm.com/book/en/v2)  [`《git pro 中文版》`](https://git-scm.com/book/zh/v2)，是最好的 `Git` 教科书
+> - 官方出品的 [`《git pro》`](https://git-scm.com/book/en/v2)  [`《git pro 中文版》`](https://git-scm.com/book/zh/v2)，是最好的 `Git` 教科书
 
 ## 我们会讲哪些 `Git` 相关知识点？
 
