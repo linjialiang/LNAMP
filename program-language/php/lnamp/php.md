@@ -169,3 +169,20 @@
 - 使用 `Apache` ，您必须使用PHP的线程安全 `TS` 版本的 `PHP` .
 --------------------------------------------------------------------------------
 
+## 附录二：开发模式下 php.ini 的几个配置
+
+1. 开启错误提示
+> `display_errors` 配置项
+> - 将 `display_errors=Off` 修改成 `display_errors=On`
+
+2. 设置错误提示级别
+> `error_reporting`
+> - 将 `error_reporting` 设置为 `error_reporting=E_ALL`
+
+3. 配置 `php_xdebug`
+> `php.ini` 文件底部增加类似下面的内容：
+
+```ini
+[XDebug]
+zend_extension="c:\xampp\php\ext\php_xdebug-2.6.0-7.2-vc15.dll"
+```
