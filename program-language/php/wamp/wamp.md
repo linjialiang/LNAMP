@@ -289,7 +289,7 @@ c:/wamp                         wamp部署目录（或者子目录）
   > 首先 apache2 开启伪静态扩展，来支持伪静态
 
   ```conf
-  # 在 httpd.conf 第 160 行，注释去掉
+  # 在 httpd.conf 文件第 160 行，去掉注释
   LoadModule rewrite_module modules/mod_rewrite.so
   ```
 
