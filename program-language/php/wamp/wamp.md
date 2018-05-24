@@ -212,17 +212,17 @@ c:/wamp                         wamp部署目录（或者子目录）
   ```conf
   # vhost.conf 文件内容
   <VirtualHost *:80>
-   DocumentRoot "d:/wamp/www/tp5/public"
-   ServerName www.tp5.com
-   ServerAlias www.tp5.com tp5.com
-   ErrorDocument 404 /404.html
+  DocumentRoot "d:/wamp/www/tp5/public"
+  ServerName www.tp5.com
+  ServerAlias www.tp5.com tp5.com
+  ErrorDocument 404 /404.html
 
-   ErrorLog "logs/tp5-error.log"
-   CustomLog "logs/tp5-access.log" common
+  ErrorLog "logs/tp5-error.log"
+  CustomLog "logs/tp5-access.log" common
 
-   RewriteEngine on
-   RewriteCond %{HTTP_HOST} ^tp5.com$ [NC]
-   RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
+  RewriteEngine on
+  RewriteCond %{HTTP_HOST} ^tp5.com$ [NC]
+  RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
   </VirtualHost>
   ```
 
@@ -258,7 +258,7 @@ c:/wamp                         wamp部署目录（或者子目录）
   ```conf
   # 修改 httpd.conf 文件第 281-283 行内容
   <IfModule dir_module>
-   DirectoryIndex index.html index.php
+  DirectoryIndex index.html index.php
   </IfModule>
   ```
 
@@ -310,14 +310,12 @@ c:/wamp                         wamp部署目录（或者子目录）
 
 > - 使用下面指令将 apache2 加入到系统服务中（需要管理员权限的 cmd）
 > - 只能选择一个版本的 apache2 加入到系统变量
-> - 注意：我们有 2 个阿帕奇建议不加入系统变量，可以进入 bin 目录后再操作
+> - 注意 1：如果想要同时安装多个阿帕奇到系统服务，建议不要加入到系统变量，进入 bin 目录后再操作
+> - 注意 2：如果安装多个阿帕奇，就需要为每个阿帕奇配置不同的端口号，w、Web默认80端口，所以建议只使用一个阿帕奇
 
 ```shell
 # 64位
 httpd.exe -k install -n apache2
-```
-
-```shell
 # 32位
 httpd.exe -k install -n httpd
 ```
@@ -329,9 +327,6 @@ httpd.exe -k install -n httpd
 ```shell
 # 64位
 httpd.exe -k uninstall -n apache2
-```
-
-```shell
 # 32位
 httpd.exe -k uninstall -n httpd
 ```
@@ -341,9 +336,6 @@ httpd.exe -k uninstall -n httpd
 ```shell
 # 64位
 net start apache2
-```
-
-```shell
 # 32位
 net start httpd
 ```
@@ -353,9 +345,6 @@ net start httpd
 ```shell
 # 64位
 net stop apache2
-```
-
-```shell
 # 32位
 net stop httpd
 ```
