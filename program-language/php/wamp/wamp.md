@@ -50,31 +50,18 @@ c:/wamp                         wamp部署目录（或者子目录）
 │  │  ├─conf                    配置
 │  │  │  ├─httpd.conf           阿帕奇主配置文件
 │  │  │  └─ ...
-│  │  │
 │  │  └─ ...
 │  │
 │  ├─mariadb102                 mariadb 10.2版本
 │  │  ├─bin                     mariadb可执行程序目录
-│  │  ├─data                    数据存放目录
-│  │  │  ├─
-│  │  │  └─ ...
-│  │  │
 │  │  └─ ...
 │  │
 │  ├─mariadb101                 mariadb 10.1版本
 │  │  ├─bin                     mariadb可执行程序目录
-│  │  ├─data                    数据存放目录
-│  │  │  ├─
-│  │  │  └─ ...
-│  │  │
 │  │  └─ ...
 │  │
 │  ├─mariadb100                 mariadb 10.0版本
 │  │  ├─bin                     mariadb可执行程序目录
-│  │  ├─data                    数据存放目录
-│  │  │  ├─
-│  │  │  └─ ...
-│  │  │
 │  │  └─ ...
 │  │
 │  ├─php72                      php 7.2版本
@@ -104,31 +91,18 @@ c:/wamp                         wamp部署目录（或者子目录）
 │  │  ├─conf                    配置
 │  │  │  ├─httpd.conf           阿帕奇主配置文件
 │  │  │  └─ ...
-│  │  │
 │  │  └─ ...
 │  │
 │  ├─mariadb102                 mariadb 10.2版本
 │  │  ├─bin                     mariadb可执行程序目录
-│  │  ├─data                    数据存放目录
-│  │  │  ├─
-│  │  │  └─ ...
-│  │  │
 │  │  └─ ...
 │  │
 │  ├─mariadb101                 mariadb 10.1版本
 │  │  ├─bin                     mariadb可执行程序目录
-│  │  ├─data                    数据存放目录
-│  │  │  ├─
-│  │  │  └─ ...
-│  │  │
 │  │  └─ ...
 │  │
 │  ├─mariadb100                 mariadb 10.0版本
 │  │  ├─bin                     mariadb可执行程序目录
-│  │  ├─data                    数据存放目录
-│  │  │  ├─
-│  │  │  └─ ...
-│  │  │
 │  │  └─ ...
 │  │
 │  ├─php72                      php 7.2版本
@@ -156,7 +130,7 @@ c:/wamp                         wamp部署目录（或者子目录）
 │
 ├─www                           Web根目录
 │
-└─phpMyAdmin                    基于Web的MariaDB管理工具
+└─data                          mariadb数据库存放目录
 ```
 
 ## 配置 apache2 并绑定 php
@@ -167,107 +141,40 @@ c:/wamp                         wamp部署目录（或者子目录）
 
 > - 注意： apache2 下只有正斜杆 `/` 没有反斜杠 `\` （路径都要替换成正斜杆的方式）
 
-1. 为 apache2 配置正确的路径
+#### 为 apache2 配置正确的路径
 
-  > 默认情况下 apache2 路径是 `c:/Apache2.4` ，需要修改成 apache2 当前所在路径
+> 默认情况下 apache2 路径是 `c:/Apache2.4` ，需要修改成 apache2 当前所在路径
 
-  ```shell
-  # 32位
+```shell
+# 32位
   将 httpd.conf 文件下所有 `c:/Apache24` 替换成 `c:/wamp/32/apache24`
   # 64位
   将 httpd.conf 文件下所有 `c:/Apache24` 替换成 `c:/wamp/64/apache24`
-  ```
+```
 
-2. 为 apache2 配置当前服务器根目录
+#### 为 apache2 增加配置文件
 
-  > apache2 只允许浏览器对指定的目录进行访问和操作，所以我们要对 apache2 指定 web 根目录
+> 使用 Include 可以在配置文件中加入其它配置文件
 
-  > - 将 httpd.conf 文件, 第 248-249 行的内容替换掉
+> - 在 httpd.conf 底部增加两行 Include 指令
+> - 注意：32位和64位有一个文件是不同的
 
-  ```conf
-  DocumentRoot "c:/wamp/www"
-  <Directory "c:/wamp/www">
-  ```
+```conf
+# 64位
+   Include "c:/wamp/sites/httpd.ini"
+   Include "c:/wamp/sites/httpd64.ini"
 
-3. 为 apache2 开启虚拟主机，并配置虚拟主机
+   #32位
+   Include "c:/wamp/sites/httpd.ini"
+   Include "c:/wamp/sites/httpd32.ini"
+```
 
-  > apache2 实现虚拟主机需要 3 步操作：
+#### 为 apache2 绑定 php
 
-  > 1. 开启 `vhost_alias_module` 模块
-  > 2. 为 apache2 虚拟主机指定配置文件或配置文件所在目录
-  > 3. 修改虚拟主机配置文件
+> 操作2个自定义配置文件： `httpd32.ini` `httpd64.ini`
 
-  ```conf
-  # 将 httpd.conf 文件 第 180 行注释去掉
-  LoadModule vhost_alias_module modules/mod_vhost_alias.so
-  ```
-
-  ```conf
-  # 将 httpd.conf 第 513 行下面增加一行内容
-  Include "c:/wamp/sites/*.conf"
-  ```
-
-  > sites 目录下面新建 1 个 conf格式文件，配置虚拟主机
-
-  ```conf
-  # vhost.conf 文件内容
-  <VirtualHost *:80>
-  DocumentRoot "c:/wamp/www/tp5/public"
-  ServerName www.tp5.com
-  ServerAlias www.tp5.com tp5.com
-  ErrorDocument 404 /404.html
-
-  ErrorLog "logs/tp5-error.log"
-  CustomLog "logs/tp5-access.log" common
-
-  RewriteEngine on
-  RewriteCond %{HTTP_HOST} ^tp5.com$ [NC]
-  RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
-  </VirtualHost>
-  ```
-
-  > 将虚拟主机指定的域名加入到 `hosts` 文件下
-
-  ```hosts
-  # 文件路径 c:\Windows\System32\drivers\etc\hosts
-  # 底部新增一行
-  127.0.0.1 www.tp5.com tp5.com
-  ```
-
-4. apache2 开启将 .php 文件自动解析为 PHP 脚本
-
-  > 第 419 行下面新增一行 AddType 内容
-
-  ```conf
-  # 新增内容
-  AddType application/x-httpd-php .php
-  ```
-
-  > 当然 apache2 也支持多类型的文件，自动解析为 PHP 脚本
-
-  ```conf
-  AddType application/x-httpd-php .php .emad
-  ```
-
-5. 为 apache2 指定默认文件
-
-  > 默认情况下只指定了 index.html 文件，我们可以根据自己的需要进行增加默认文件
-
-  > - 在同一目录下存在多个指定默认文件，会按顺序靠前的文件打开
-
-  ```conf
-  # 修改 httpd.conf 文件第 281-283 行内容
-  <IfModule dir_module>
-  DirectoryIndex index.html index.php
-  </IfModule>
-  ```
-
-6. 为 apache2 绑定 php
-
-  > php 安装包里面自带绑定 apache2 扩展，在 httpd.conf 第 182 行下面新增下面数行：
-
-  ```conf
-  # 32位
+```ini
+# 32位, 也就是 httpd32.ini 文件增加如下内容：
   LoadModule php7_module c:/wamp/32/php72/php7apache2_4.dll
   ##LoadModule php7_module c:/wamp/32/php71/php7apache2_4.dll
   ##LoadModule php7_module c:/wamp/32/php72/php7apache2_4.dll
@@ -280,10 +187,10 @@ c:/wamp                         wamp部署目录（或者子目录）
   <IfModule php5_module>
   PHPINIDir "c:/wamp/32/php56"
   </IfModule>
-  ```
+```
 
-  ```conf
-  # 64位
+```ini
+# 64位, 也就是 httpd64.ini 文件增加如下内容：
   LoadModule php7_module c:/wamp/64/php72/php7apache2_4.dll
   ##LoadModule php7_module c:/wamp/64/php71/php7apache2_4.dll
   ##LoadModule php7_module c:/wamp/64/php72/php7apache2_4.dll
@@ -296,12 +203,12 @@ c:/wamp                         wamp部署目录（或者子目录）
   <IfModule php5_module>
   PHPINIDir "c:/wamp/64/php56"
   </IfModule>
-  ```
+```
 
-  > 也可以去掉 IfModule，具体如下：
+> 也可以去掉 IfModule，具体如下：
 
-  ```conf
-  # 64位
+```ini
+# 64位, 也就是 httpd64.ini 文件增加如下内容：
   LoadModule php7_module c:/wamp/64/php72/php7apache2_4.dll
   PHPINIDir "c:/wamp/64/php72"
 
@@ -313,10 +220,10 @@ c:/wamp                         wamp部署目录（或者子目录）
 
   ##LoadModule php5_module c:/wamp/64/php56/php5apache2_4.dll
   ##PHPINIDir "c:/wamp/64/php56"
-  ```
+```
 
-  ```conf
-  # 32位
+```ini
+# 32位, 也就是 httpd32.ini 文件增加如下内容：
   LoadModule php7_module c:/wamp/32/php72/php7apache2_4.dll
   PHPINIDir "c:/wamp/32/php72"
 
@@ -328,29 +235,148 @@ c:/wamp                         wamp部署目录（或者子目录）
 
   ##LoadModule php5_module c:/wamp/32/php56/php5apache2_4.dll
   ##PHPINIDir "c:/wamp/32/php56"
-  ```
+```
 
-  > 只有正确配置 `PHPINIDir` ，才能成功加载 php.ini 配置文件
+> 只有正确配置 `PHPINIDir` ，才能成功加载 php.ini 配置文件
 
-7. 让 `.htaccess` 文件支持伪静态
+> - 提示： `httpd32.ini` `httpd64.ini` 这两个文件只是为 apache2 绑定了 php
 
-  > 首先 apache2 开启伪静态扩展，来支持伪静态
+#### 配置 httpd.ini 这个自定义配置文件
 
-  ```conf
-  # 在 httpd.conf 文件第 160 行，去掉注释
-  LoadModule rewrite_module modules/mod_rewrite.so
-  ```
+> 该文件为阿帕奇做了几件事情：
 
-  > 接下来配置指定的 web 根目录, 在 `<Directory "c:/wamp/www">` 内部修改：
+> - 开启虚拟主机
+> - 开启伪静态
+> - 将 .php 文件自动解析为 PHP 脚本
+> - 新增一个Web目录
+> - 为站点指定默认文件
+> - 让 .htaccess 文件支持伪静态
 
-  ```conf
-  # 将 AllowOverride None 修改为 AllowOverride All
-  <Directory "c:/wamp/www">
-  ...
-  AllowOverride All
-  ...
-  </Directory>
-  ```
+```ini文件
+# 下面是 httpd.ini 配置文件的所有内容
+LoadModule vhost_alias_module modules/mod_vhost_alias.so
+#LoadModule ssl_module modules/mod_ssl.so
+LoadModule rewrite_module modules/mod_rewrite.so
+
+AddType application/x-httpd-php .php
+
+<Directory "c:/wamp/www">
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+    DirectoryIndex index.html index.php
+</Directory>
+
+Include "c:/wamp/sites/*.conf"
+```
+
+1. 为阿帕奇开启虚拟主机模块
+
+  > httpd.ini 文件新增一行
+
+```ini
+LoadModule vhost_alias_module modules/mod_vhost_alias.so
+```
+
+1. 为阿帕奇开启伪静态模块
+
+  > httpd.ini 文件新增一行
+
+```ini
+LoadModule rewrite_module modules/mod_rewrite.so
+```
+
+1. 将 .php 文件自动解析为 PHP 脚本
+
+  > httpd.ini 文件新增一行
+
+```ini
+AddType application/x-httpd-php .php
+```
+
+> 当然阿帕奇也支持多类型的文件，自动解析为 PHP 脚本
+
+```conf
+AddType application/x-httpd-php .php .emad
+```
+
+1. 新增一个Web目录
+
+  > httpd.ini 文件新增以下内容
+
+```ini
+<Directory "c:/wamp/www">
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Require all granted
+</Directory>
+```
+
+1. 为站点指定默认文件
+
+  > 在
+
+  > <directory "c:="" wamp="" www"=""> 内将 <code>AllowOverride None</code> 替换成 <code>AllowOverride All</code></directory>
+
+```ini
+<Directory "c:/wamp/www">
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+```
+
+1. 让 .htaccess 文件支持伪静态
+
+  > 在
+
+  > <directory "c:="" wamp="" www"=""> 内新增一行，该目录下的所有站点都支持 .htaccess 文件伪静态</directory>
+
+  > - 新增内容： `DirectoryIndex index.html index.php`
+
+```ini
+<Directory "c:/wamp/www">
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+    DirectoryIndex index.html index.php
+</Directory>
+```
+
+#### 创建虚拟主机
+
+> sites 目录下面新建 1 个 conf格式文件，配置虚拟主机 提示：一个虚拟主机可以配置多个站点
+
+```conf
+# vhost.conf 文件内容
+
+  <VirtualHost *:80>
+      DocumentRoot "c:/wamp/www"
+      ServerName localhost
+  </VirtualHost>
+
+  <VirtualHost *:80>
+      DocumentRoot "c:/wamp/www/tp5/public"
+      ServerName www.tp5.com
+      ServerAlias www.tp5.com tp5.com
+      ErrorDocument 404 /404.html
+
+      ErrorLog "logs/tp5-error.log"
+      CustomLog "logs/tp5-access.log" common
+
+      RewriteEngine on
+      RewriteCond %{HTTP_HOST} ^tp5.com$ [NC]
+      RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
+  </VirtualHost>
+```
+
+> 将虚拟主机指定的域名加入到 `hosts` 文件下
+
+```hosts
+# 文件路径 c:\Windows\System32\drivers\etc\hosts
+# 底部新增一行
+127.0.0.1 www.tp5.com tp5.com
+```
 
 ### 将 apache2 写入系统服务中
 
@@ -526,15 +552,15 @@ error_reporting = E_ALL
 
   ```ini
   # 在 mariadb 根目录下面新建 my.ini
-   [client]
-   ##port = 3306
+  [client]
+  ##port = 3306
 
-   [mysqld]
-   ##port = 3306
-   datadir = "c:/wamp/data"
-   ##innodb_data_home_dir = ""
-   ##innodb_data_file_path = ibdata1:10M:autoextend
-   ##innodb_log_group_home_dir = ""
+  [mysqld]
+  ##port = 3306
+  datadir = "c:/wamp/data"
+  ##innodb_data_home_dir = ""
+  ##innodb_data_file_path = ibdata1:10M:autoextend
+  ##innodb_log_group_home_dir = ""
   ```
 
   > 注意：切换版本前需要将data目录下的非目录文件删除掉，并初始化
@@ -558,56 +584,54 @@ error_reporting = E_ALL
 
   ```shell
   # 64位 mariadb 10.2
-   mysqld install mysql102
-   # 64位 mariadb 10.1
-   mysqld install mysql101
-   # 64位 mariadb 10.0
-   mysqld install mysql100
+  mysqld install mysql102
+  # 64位 mariadb 10.1
+  mysqld install mysql101
+  # 64位 mariadb 10.0
+  mysqld install mysql100
 
-   # 32位 mariadb 10.2
-   mysqld install mariadb102
-   # 32位 mariadb 10.1
-   mysqld install mariadb101
-   # 32位 mariadb 10.0
-   mysqld install mariadb100
+  # 32位 mariadb 10.2
+  mysqld install mariadb102
+  # 32位 mariadb 10.1
+  mysqld install mariadb101
+  # 32位 mariadb 10.0
+  mysqld install mariadb100
   ```
 
   > 卸载系统服务，操作和安装类似，只是指令略有不同：
 
   ```shell
   # 64位 mariadb 10.2
-   mysqld remove mysql102
-   # 64位 mariadb 10.1
-   mysqld remove mysql101
-   # 64位 mariadb 10.0
-   mysqld remove mysql100
+  mysqld remove mysql102
+  # 64位 mariadb 10.1
+  mysqld remove mysql101
+  # 64位 mariadb 10.0
+  mysqld remove mysql100
 
-   # 32位 mariadb 10.2
-   mysqld remove mariadb102
-   # 32位 mariadb 10.1
-   mysqld remove mariadb101
-   # 32位 mariadb 10.0
-   mysqld remove mariadb100
+  # 32位 mariadb 10.2
+  mysqld remove mariadb102
+  # 32位 mariadb 10.1
+  mysqld remove mariadb101
+  # 32位 mariadb 10.0
+  mysqld remove mariadb100
   ```
 
   > 系统服务损坏如何删除？打开管理员权限的cmd（不需要指定路径），指令如下：
 
   ```shell
   # 64位 mariadb 10.2
-   sc delete mysql102
-   # 64位 mariadb 10.1
-   sc delete mysql101
-   # 64位 mariadb 10.0
-   sc delete mysql100
+  sc delete mysql102
+  # 64位 mariadb 10.1
+  sc delete mysql101
+  # 64位 mariadb 10.0
+  sc delete mysql100
 
-   # 32位 mariadb 10.2
-   sc delete mariadb102
-   # 32位 mariadb 10.1
-   sc delete mariadb101
-   # 32位 mariadb 10.0
-   sc delete mariadb100
+  # 32位 mariadb 10.2
+  sc delete mariadb102
+  # 32位 mariadb 10.1
+  sc delete mariadb101
+  # 32位 mariadb 10.0
+  sc delete mariadb100
   ```
 
 > 到此 mariadb 告一段落！
-
-## phpMyAdmin 一个基于Web的mariadb数据库管理工具
