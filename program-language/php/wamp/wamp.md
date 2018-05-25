@@ -157,7 +157,6 @@ c:/wamp                         wamp部署目录（或者子目录）
 ├─www                           Web根目录
 │
 └─phpMyAdmin                    基于Web的MariaDB管理工具
-
 ```
 
 ## 配置 apache2 并绑定 php
@@ -265,9 +264,7 @@ c:/wamp                         wamp部署目录（或者子目录）
 
 6. 为 apache2 绑定 php
 
-  > php 安装包里面自带绑定 apache2 扩展
-
-  > - 在 httpd.conf 第 182 行下面新增下面四行：
+  > php 安装包里面自带绑定 apache2 扩展，在 httpd.conf 第 182 行下面新增下面数行：
 
   ```conf
   # 32位
@@ -275,6 +272,14 @@ c:/wamp                         wamp部署目录（或者子目录）
   ##LoadModule php7_module d:/wamp/32/php71/php7apache2_4.dll
   ##LoadModule php7_module d:/wamp/32/php72/php7apache2_4.dll
   ##LoadModule php5_module d:/wamp/32/php56/php5apache2_4.dll
+  <IfModule php7_module>
+   PHPINIDir "d:/wamp/32/php72"
+   ##PHPINIDir "d:/wamp/32/php71"
+   ##PHPINIDir "d:/wamp/32/php70"
+  </IfModule>
+  <IfModule php5_module>
+   PHPINIDir "d:/wamp/32/php56"
+  </IfModule>
   ```
 
   ```conf
@@ -283,7 +288,49 @@ c:/wamp                         wamp部署目录（或者子目录）
   ##LoadModule php7_module d:/wamp/64/php71/php7apache2_4.dll
   ##LoadModule php7_module d:/wamp/64/php72/php7apache2_4.dll
   ##LoadModule php5_module d:/wamp/64/php56/php5apache2_4.dll
+  <IfModule php7_module>
+  PHPINIDir "d:/wamp/64/php72"
+  ##PHPINIDir "d:/wamp/64/php71"
+  ##PHPINIDir "d:/wamp/64/php70"
+  </IfModule>
+  <IfModule php5_module>
+  PHPINIDir "d:/wamp/64/php56"
+  </IfModule>
   ```
+
+  > 也可以去掉 IfModule，具体如下：
+
+  ```conf
+  # 64位
+  LoadModule php7_module d:/wamp/64/php72/php7apache2_4.dll
+  PHPINIDir "d:/wamp/64/php72"
+
+  ##LoadModule php7_module d:/wamp/64/php71/php7apache2_4.dll
+  ##PHPINIDir "d:/wamp/64/php71"
+
+  ##LoadModule php7_module d:/wamp/64/php72/php7apache2_4.dll
+  ##PHPINIDir "d:/wamp/64/php70"
+
+  ##LoadModule php5_module d:/wamp/64/php56/php5apache2_4.dll
+  ##PHPINIDir "d:/wamp/64/php56"
+  ```
+
+  ```conf
+  # 32位
+  LoadModule php7_module d:/wamp/32/php72/php7apache2_4.dll
+  PHPINIDir "d:/wamp/32/php72"
+
+  ##LoadModule php7_module d:/wamp/32/php71/php7apache2_4.dll
+  ##PHPINIDir "d:/wamp/32/php71"
+
+  ##LoadModule php7_module d:/wamp/32/php72/php7apache2_4.dll
+  ##PHPINIDir "d:/wamp/32/php70"
+
+  ##LoadModule php5_module d:/wamp/32/php56/php5apache2_4.dll
+  ##PHPINIDir "d:/wamp/32/php56"
+  ```
+
+  > 只有正确配置 `PHPINIDir` ，才能成功加载 php.ini 配置文件
 
 7. 让 `.htaccess` 文件支持伪静态
 
@@ -381,8 +428,37 @@ sc delete apache2
 > 在 `php.ini` 底部增加如下内容：
 
 ```ini
+# 64位 php7.2
 [XDebug]
-zend_extension="d:\wamp\对应位数目录名\对应php版本目录名\ext\php_xdebug.dll"
+zend_extension="d:\wamp\64\php72\ext\php_xdebug.dll"
+
+# 64位 php7.1
+[XDebug]
+zend_extension="d:\wamp\64\php71\ext\php_xdebug.dll"
+
+# 64位 php7.0
+[XDebug]
+zend_extension="d:\wamp\64\php70\ext\php_xdebug.dll"
+
+# 64位 php5.6
+[XDebug]
+zend_extension="d:\wamp\64\php56\ext\php_xdebug.dll"
+
+# 32位 php7.2
+[XDebug]
+zend_extension="d:\wamp\32\php72\ext\php_xdebug.dll"
+
+# 32位 php7.1
+[XDebug]
+zend_extension="d:\wamp\32\php71\ext\php_xdebug.dll"
+
+# 32位 php7.0
+[XDebug]
+zend_extension="d:\wamp\32\php70\ext\php_xdebug.dll"
+
+# 32位 php5.6
+[XDebug]
+zend_extension="d:\wamp\32\php56\ext\php_xdebug.dll"
 ```
 
 ### 开启常用扩展
