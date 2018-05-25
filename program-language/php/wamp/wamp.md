@@ -274,74 +274,70 @@ Include "c:/wamp/sites/*.conf"
 
   > httpd.ini 文件新增一行
 
-```ini
-LoadModule vhost_alias_module modules/mod_vhost_alias.so
-```
+  ```ini
+  LoadModule vhost_alias_module modules/mod_vhost_alias.so
+  ```
 
-1. 为阿帕奇开启伪静态模块
-
-  > httpd.ini 文件新增一行
-
-```ini
-LoadModule rewrite_module modules/mod_rewrite.so
-```
-
-1. 将 .php 文件自动解析为 PHP 脚本
+2. 为阿帕奇开启伪静态模块
 
   > httpd.ini 文件新增一行
 
-```ini
-AddType application/x-httpd-php .php
-```
+  ```ini
+  LoadModule rewrite_module modules/mod_rewrite.so
+  ```
 
-> 当然阿帕奇也支持多类型的文件，自动解析为 PHP 脚本
+3. 将 .php 文件自动解析为 PHP 脚本
 
-```conf
-AddType application/x-httpd-php .php .emad
-```
+  > httpd.ini 文件新增一行
 
-1. 新增一个Web目录
+  ```ini
+  AddType application/x-httpd-php .php
+  ```
+
+  > 当然阿帕奇也支持多类型的文件，自动解析为 PHP 脚本
+
+  ```conf
+  AddType application/x-httpd-php .php .emad
+  ```
+
+4. 新增一个Web目录
 
   > httpd.ini 文件新增以下内容
 
-```ini
-<Directory "c:/wamp/www">
-    Options Indexes FollowSymLinks
-    AllowOverride None
-    Require all granted
-</Directory>
-```
+  ```ini
+  <Directory "c:/wamp/www">
+      Options Indexes FollowSymLinks
+      AllowOverride None
+      Require all granted
+  </Directory>
+  ```
 
-1. 为站点指定默认文件
+5. 为站点指定默认文件
 
-  > 在
+  > 在 `<Directory "c:/wamp/www">` 内将 `AllowOverride None` 替换成 `AllowOverride All`
 
-  > <directory "c:="" wamp="" www"=""> 内将 <code>AllowOverride None</code> 替换成 <code>AllowOverride All</code></directory>
+  ```ini
+  <Directory "c:/wamp/www">
+      Options Indexes FollowSymLinks
+      AllowOverride All
+      Require all granted
+  </Directory>
+  ```
 
-```ini
-<Directory "c:/wamp/www">
-    Options Indexes FollowSymLinks
-    AllowOverride All
-    Require all granted
-</Directory>
-```
+6. 让 .htaccess 文件支持伪静态
 
-1. 让 .htaccess 文件支持伪静态
-
-  > 在
-
-  > <directory "c:="" wamp="" www"=""> 内新增一行，该目录下的所有站点都支持 .htaccess 文件伪静态</directory>
+  > 在 `<Directory "c:/wamp/www">` 内新增一行，该目录下的所有站点都支持 .htaccess 文件伪静态
 
   > - 新增内容： `DirectoryIndex index.html index.php`
 
-```ini
-<Directory "c:/wamp/www">
-    Options Indexes FollowSymLinks
-    AllowOverride All
-    Require all granted
-    DirectoryIndex index.html index.php
-</Directory>
-```
+  ```ini
+  <Directory "c:/wamp/www">
+      Options Indexes FollowSymLinks
+      AllowOverride All
+      Require all granted
+      DirectoryIndex index.html index.php
+  </Directory>
+  ```
 
 #### 创建虚拟主机
 
