@@ -502,7 +502,7 @@ zend_extension="c:\wamp\32\php56\ext\php_xdebug.dll"
   extension_dir = "ext"
   ```
 
-  > 也可以指定绝对路径
+  > 当然，也可以指定绝对路径
 
   ```ini
   extension_dir = "c:/wamp/位数目录名/php目录名/ext"
@@ -635,3 +635,5 @@ error_reporting = E_ALL
   ```
 
 > 到此 mariadb 告一段落！
+
+## 附录一：指令集中营
