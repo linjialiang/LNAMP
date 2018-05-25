@@ -38,7 +38,7 @@
 
 ### 安装包解压后的位置
 
-> 将安装包全部解压到 `d:\wamp` 目录
+> 将安装包全部解压到 `c:\wamp` 目录
 
 > - 目录结构如下：
 
@@ -173,9 +173,9 @@ c:/wamp                         wamp部署目录（或者子目录）
 
   ```shell
   # 32位
-  将 httpd.conf 文件下所有 `c:/Apache24` 替换成 `d:/wamp/32/apache24`
+  将 httpd.conf 文件下所有 `c:/Apache24` 替换成 `c:/wamp/32/apache24`
   # 64位
-  将 httpd.conf 文件下所有 `c:/Apache24` 替换成 `d:/wamp/64/apache24`
+  将 httpd.conf 文件下所有 `c:/Apache24` 替换成 `c:/wamp/64/apache24`
   ```
 
 2. 为 apache2 配置当前服务器根目录
@@ -185,8 +185,8 @@ c:/wamp                         wamp部署目录（或者子目录）
   > - 将 httpd.conf 文件, 第 248-249 行的内容替换掉
 
   ```conf
-  DocumentRoot "d:/wamp/www"
-  <Directory "d:/wamp/www">
+  DocumentRoot "c:/wamp/www"
+  <Directory "c:/wamp/www">
   ```
 
 3. 为 apache2 开启虚拟主机，并配置虚拟主机
@@ -204,7 +204,7 @@ c:/wamp                         wamp部署目录（或者子目录）
 
   ```conf
   # 将 httpd.conf 第 513 行下面增加一行内容
-  Include "d:/wamp/sites/*.conf"
+  Include "c:/wamp/sites/*.conf"
   ```
 
   > sites 目录下面新建 1 个 conf格式文件，配置虚拟主机
@@ -212,7 +212,7 @@ c:/wamp                         wamp部署目录（或者子目录）
   ```conf
   # vhost.conf 文件内容
   <VirtualHost *:80>
-  DocumentRoot "d:/wamp/www/tp5/public"
+  DocumentRoot "c:/wamp/www/tp5/public"
   ServerName www.tp5.com
   ServerAlias www.tp5.com tp5.com
   ErrorDocument 404 /404.html
@@ -268,33 +268,33 @@ c:/wamp                         wamp部署目录（或者子目录）
 
   ```conf
   # 32位
-  LoadModule php7_module d:/wamp/32/php72/php7apache2_4.dll
-  ##LoadModule php7_module d:/wamp/32/php71/php7apache2_4.dll
-  ##LoadModule php7_module d:/wamp/32/php72/php7apache2_4.dll
-  ##LoadModule php5_module d:/wamp/32/php56/php5apache2_4.dll
+  LoadModule php7_module c:/wamp/32/php72/php7apache2_4.dll
+  ##LoadModule php7_module c:/wamp/32/php71/php7apache2_4.dll
+  ##LoadModule php7_module c:/wamp/32/php72/php7apache2_4.dll
+  ##LoadModule php5_module c:/wamp/32/php56/php5apache2_4.dll
   <IfModule php7_module>
-  PHPINIDir "d:/wamp/32/php72"
-  ##PHPINIDir "d:/wamp/32/php71"
-  ##PHPINIDir "d:/wamp/32/php70"
+  PHPINIDir "c:/wamp/32/php72"
+  ##PHPINIDir "c:/wamp/32/php71"
+  ##PHPINIDir "c:/wamp/32/php70"
   </IfModule>
   <IfModule php5_module>
-  PHPINIDir "d:/wamp/32/php56"
+  PHPINIDir "c:/wamp/32/php56"
   </IfModule>
   ```
 
   ```conf
   # 64位
-  LoadModule php7_module d:/wamp/64/php72/php7apache2_4.dll
-  ##LoadModule php7_module d:/wamp/64/php71/php7apache2_4.dll
-  ##LoadModule php7_module d:/wamp/64/php72/php7apache2_4.dll
-  ##LoadModule php5_module d:/wamp/64/php56/php5apache2_4.dll
+  LoadModule php7_module c:/wamp/64/php72/php7apache2_4.dll
+  ##LoadModule php7_module c:/wamp/64/php71/php7apache2_4.dll
+  ##LoadModule php7_module c:/wamp/64/php72/php7apache2_4.dll
+  ##LoadModule php5_module c:/wamp/64/php56/php5apache2_4.dll
   <IfModule php7_module>
-  PHPINIDir "d:/wamp/64/php72"
-  ##PHPINIDir "d:/wamp/64/php71"
-  ##PHPINIDir "d:/wamp/64/php70"
+  PHPINIDir "c:/wamp/64/php72"
+  ##PHPINIDir "c:/wamp/64/php71"
+  ##PHPINIDir "c:/wamp/64/php70"
   </IfModule>
   <IfModule php5_module>
-  PHPINIDir "d:/wamp/64/php56"
+  PHPINIDir "c:/wamp/64/php56"
   </IfModule>
   ```
 
@@ -302,32 +302,32 @@ c:/wamp                         wamp部署目录（或者子目录）
 
   ```conf
   # 64位
-  LoadModule php7_module d:/wamp/64/php72/php7apache2_4.dll
-  PHPINIDir "d:/wamp/64/php72"
+  LoadModule php7_module c:/wamp/64/php72/php7apache2_4.dll
+  PHPINIDir "c:/wamp/64/php72"
 
-  ##LoadModule php7_module d:/wamp/64/php71/php7apache2_4.dll
-  ##PHPINIDir "d:/wamp/64/php71"
+  ##LoadModule php7_module c:/wamp/64/php71/php7apache2_4.dll
+  ##PHPINIDir "c:/wamp/64/php71"
 
-  ##LoadModule php7_module d:/wamp/64/php72/php7apache2_4.dll
-  ##PHPINIDir "d:/wamp/64/php70"
+  ##LoadModule php7_module c:/wamp/64/php72/php7apache2_4.dll
+  ##PHPINIDir "c:/wamp/64/php70"
 
-  ##LoadModule php5_module d:/wamp/64/php56/php5apache2_4.dll
-  ##PHPINIDir "d:/wamp/64/php56"
+  ##LoadModule php5_module c:/wamp/64/php56/php5apache2_4.dll
+  ##PHPINIDir "c:/wamp/64/php56"
   ```
 
   ```conf
   # 32位
-  LoadModule php7_module d:/wamp/32/php72/php7apache2_4.dll
-  PHPINIDir "d:/wamp/32/php72"
+  LoadModule php7_module c:/wamp/32/php72/php7apache2_4.dll
+  PHPINIDir "c:/wamp/32/php72"
 
-  ##LoadModule php7_module d:/wamp/32/php71/php7apache2_4.dll
-  ##PHPINIDir "d:/wamp/32/php71"
+  ##LoadModule php7_module c:/wamp/32/php71/php7apache2_4.dll
+  ##PHPINIDir "c:/wamp/32/php71"
 
-  ##LoadModule php7_module d:/wamp/32/php72/php7apache2_4.dll
-  ##PHPINIDir "d:/wamp/32/php70"
+  ##LoadModule php7_module c:/wamp/32/php72/php7apache2_4.dll
+  ##PHPINIDir "c:/wamp/32/php70"
 
-  ##LoadModule php5_module d:/wamp/32/php56/php5apache2_4.dll
-  ##PHPINIDir "d:/wamp/32/php56"
+  ##LoadModule php5_module c:/wamp/32/php56/php5apache2_4.dll
+  ##PHPINIDir "c:/wamp/32/php56"
   ```
 
   > 只有正确配置 `PHPINIDir` ，才能成功加载 php.ini 配置文件
@@ -341,11 +341,11 @@ c:/wamp                         wamp部署目录（或者子目录）
   LoadModule rewrite_module modules/mod_rewrite.so
   ```
 
-  > 接下来配置指定的 web 根目录, 在 `<Directory "d:/wamp/www">` 内部修改：
+  > 接下来配置指定的 web 根目录, 在 `<Directory "c:/wamp/www">` 内部修改：
 
   ```conf
   # 将 AllowOverride None 修改为 AllowOverride All
-  <Directory "d:/wamp/www">
+  <Directory "c:/wamp/www">
   ...
   AllowOverride All
   ...
@@ -430,35 +430,35 @@ sc delete apache2
 ```ini
 # 64位 php7.2
 [XDebug]
-zend_extension="d:\wamp\64\php72\ext\php_xdebug.dll"
+zend_extension="c:\wamp\64\php72\ext\php_xdebug.dll"
 
 # 64位 php7.1
 [XDebug]
-zend_extension="d:\wamp\64\php71\ext\php_xdebug.dll"
+zend_extension="c:\wamp\64\php71\ext\php_xdebug.dll"
 
 # 64位 php7.0
 [XDebug]
-zend_extension="d:\wamp\64\php70\ext\php_xdebug.dll"
+zend_extension="c:\wamp\64\php70\ext\php_xdebug.dll"
 
 # 64位 php5.6
 [XDebug]
-zend_extension="d:\wamp\64\php56\ext\php_xdebug.dll"
+zend_extension="c:\wamp\64\php56\ext\php_xdebug.dll"
 
 # 32位 php7.2
 [XDebug]
-zend_extension="d:\wamp\32\php72\ext\php_xdebug.dll"
+zend_extension="c:\wamp\32\php72\ext\php_xdebug.dll"
 
 # 32位 php7.1
 [XDebug]
-zend_extension="d:\wamp\32\php71\ext\php_xdebug.dll"
+zend_extension="c:\wamp\32\php71\ext\php_xdebug.dll"
 
 # 32位 php7.0
 [XDebug]
-zend_extension="d:\wamp\32\php70\ext\php_xdebug.dll"
+zend_extension="c:\wamp\32\php70\ext\php_xdebug.dll"
 
 # 32位 php5.6
 [XDebug]
-zend_extension="d:\wamp\32\php56\ext\php_xdebug.dll"
+zend_extension="c:\wamp\32\php56\ext\php_xdebug.dll"
 ```
 
 ### 开启常用扩展
@@ -472,7 +472,6 @@ zend_extension="d:\wamp\32\php56\ext\php_xdebug.dll"
 
   > php.ini 第 735 行下面新增一行
 
-  ````
   ```ini
   extension_dir = "ext"
   ```
@@ -480,9 +479,8 @@ zend_extension="d:\wamp\32\php56\ext\php_xdebug.dll"
   > 也可以指定绝对路径
 
   ```ini
-  extension_dir = "d:/server/wamp/php7.2/ext"
+  extension_dir = "c:/wamp/位数目录名/php目录名/ext"
   ```
-  ````
 
 2. 接下来就是开启扩展
 
@@ -533,7 +531,7 @@ error_reporting = E_ALL
 
    [mysqld]
    ##port = 3306
-   datadir = "D:/wamp/data"
+   datadir = "c:/wamp/data"
    ##innodb_data_home_dir = ""
    ##innodb_data_file_path = ibdata1:10M:autoextend
    ##innodb_log_group_home_dir = ""
@@ -611,3 +609,5 @@ error_reporting = E_ALL
   ```
 
 > 到此 mariadb 告一段落！
+
+## phpMyAdmin 一个基于Web的mariadb数据库管理工具
