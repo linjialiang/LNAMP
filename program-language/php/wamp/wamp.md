@@ -157,6 +157,7 @@ c:/wamp                         wamp部署目录（或者子目录）
 ├─www                           Web根目录
 │
 └─phpMyAdmin                    基于Web的MariaDB管理工具
+
 ```
 
 ## 配置 apache2 并绑定 php
@@ -273,7 +274,7 @@ c:/wamp                         wamp部署目录（或者子目录）
   LoadModule php7_module d:/wamp/32/php72/php7apache2_4.dll
   ##LoadModule php7_module d:/wamp/32/php71/php7apache2_4.dll
   ##LoadModule php7_module d:/wamp/32/php72/php7apache2_4.dll
-  ##LoadModule php7_module d:/wamp/32/php56/php7apache2_4.dll
+  ##LoadModule php5_module d:/wamp/32/php56/php5apache2_4.dll
   ```
 
   ```conf
@@ -281,7 +282,7 @@ c:/wamp                         wamp部署目录（或者子目录）
   LoadModule php7_module d:/wamp/64/php72/php7apache2_4.dll
   ##LoadModule php7_module d:/wamp/64/php71/php7apache2_4.dll
   ##LoadModule php7_module d:/wamp/64/php72/php7apache2_4.dll
-  ##LoadModule php7_module d:/wamp/64/php56/php7apache2_4.dll
+  ##LoadModule php5_module d:/wamp/64/php56/php5apache2_4.dll
   ```
 
 7. 让 `.htaccess` 文件支持伪静态
@@ -370,27 +371,8 @@ net stop httpd
 > 在 `php.ini` 底部增加如下内容：
 
 ```ini
-# php 7.2
 [XDebug]
-zend_extension="d:\server\wamp\php7.2\ext\php_xdebug.dll"
-```
-
-```ini
-# php 7.1
-[XDebug]
-zend_extension="d:\server\wamp\php7.1\ext\php_xdebug.dll"
-```
-
-```ini
-# php 7.0
-[XDebug]
-zend_extension="d:\server\wamp\php7.0\ext\php_xdebug.dll"
-```
-
-```ini
-# php 5.6
-[XDebug]
-zend_extension="d:\server\wamp\php5.6\ext\php_xdebug.dll"
+zend_extension="d:\wamp\对应位数目录名\对应php版本目录名\ext\php_xdebug.dll"
 ```
 
 ### 开启常用扩展
