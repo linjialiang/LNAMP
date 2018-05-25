@@ -536,6 +536,8 @@ error_reporting = E_ALL
     ##innodb_log_group_home_dir = ""
     ```
 
+    > 注意：切换版本前需要将data目录下的非目录文件删除掉，并初始化
+
 2. 初始化 mariadb 的 data 目录
     > 初始化前需要将data目录内容复制到指定位置，然后输入下面的指令
 
