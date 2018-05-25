@@ -526,14 +526,14 @@ error_reporting = E_ALL
     ```ini
     # 在 mariadb 根目录下面新建 my.ini
     [client]
-    port = 3306
+    ##port = 3306
 
     [mysqld]
-    port = 3306
+    ##port = 3306
     datadir = "D:/wamp/data"
-    innodb_data_home_dir = "D:/wamp/data"
-    innodb_data_file_path = ibdata1:10M:autoextend
-    innodb_log_group_home_dir = "D:/wamp/data"
+    ##innodb_data_home_dir = ""
+    ##innodb_data_file_path = ibdata1:10M:autoextend
+    ##innodb_log_group_home_dir = ""
     ```
 
 2. 初始化 mariadb 的 data 目录
