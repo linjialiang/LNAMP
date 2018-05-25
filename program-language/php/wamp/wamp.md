@@ -514,3 +514,90 @@ error_reporting = E_ALL
 ```
 
 > 到此 php 配置基本结束，以后需要再自行修改配置
+
+## 配置 mariadb
+> - 著配置文件 `my.ini`
+
+1. 创建 my.ini
+    > 默认情况下mariadb并没有my.ini文件，不过在根目录下面有几个参考文件：
+    > - `my-huge.ini` `my-innodb-heavy-4G.ini` `my-large.ini` `my-medium.ini` `my-small.ini`
+    > - 这里我们自行配置，因为有几个功能需要正确指定路径才能生效（不配置，只是部分功能受到限制）
+
+    ```ini
+    # 在 mariadb 根目录下面新建 my.ini
+    [client]
+    port = 3306
+
+    [mysqld]
+    port = 3306
+    datadir = "D:/wamp/data"
+    innodb_data_home_dir = "D:/wamp/data"
+    innodb_data_file_path = ibdata1:10M:autoextend
+    innodb_log_group_home_dir = "D:/wamp/data"
+    ```
+
+2. 初始化 mariadb 的 data 目录
+    > 初始化前需要将data目录内容复制到指定位置，然后输入下面的指令
+
+    ```shell
+    mysqld --initialize
+    ```
+
+    > 提示： 各版本的data目录数据可以共用，这并不影响(切换版本是否需要初始化？)
+
+3. 将 mariadb 安装到系统服务
+    > 打开cmd（有管理员权限），进入到mariadb的bin目录下,指令如下：
+
+    ```shell
+    # 64位 mariadb 10.2
+    mysqld install mysql102
+    # 64位 mariadb 10.1
+    mysqld install mysql101
+    # 64位 mariadb 10.0
+    mysqld install mysql100
+
+    # 32位 mariadb 10.2
+    mysqld install mariadb102
+    # 32位 mariadb 10.1
+    mysqld install mariadb101
+    # 32位 mariadb 10.0
+    mysqld install mariadb100
+    ```
+
+    > 卸载系统服务，操作和安装类似，只是指令略有不同：
+
+    ```shell
+    # 64位 mariadb 10.2
+    mysqld remove mysql102
+    # 64位 mariadb 10.1
+    mysqld remove mysql101
+    # 64位 mariadb 10.0
+    mysqld remove mysql100
+
+    # 32位 mariadb 10.2
+    mysqld remove mariadb102
+    # 32位 mariadb 10.1
+    mysqld remove mariadb101
+    # 32位 mariadb 10.0
+    mysqld remove mariadb100
+    ```
+
+    > 系统服务损坏如何删除？打开管理员权限的cmd（不需要指定路径），指令如下：
+
+    ```shell
+    # 64位 mariadb 10.2
+    sc delete mysql102
+    # 64位 mariadb 10.1
+    sc delete mysql101
+    # 64位 mariadb 10.0
+    sc delete mysql100
+
+    # 32位 mariadb 10.2
+    sc delete mariadb102
+    # 32位 mariadb 10.1
+    sc delete mariadb101
+    # 32位 mariadb 10.0
+    sc delete mariadb100
+    ```
+
+> 到此 mariadb 告一段落！
