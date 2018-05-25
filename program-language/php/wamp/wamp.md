@@ -350,24 +350,24 @@ AddType application/x-httpd-php .php .emad
 ```conf
 # vhost.conf 文件内容
 
-  <VirtualHost *:80>
-      DocumentRoot "c:/wamp/www"
-      ServerName localhost
-  </VirtualHost>
+<VirtualHost *:80>
+    DocumentRoot "c:/wamp/www"
+    ServerName localhost
+</VirtualHost>
 
-  <VirtualHost *:80>
-      DocumentRoot "c:/wamp/www/tp5/public"
-      ServerName www.tp5.com
-      ServerAlias www.tp5.com tp5.com
-      ErrorDocument 404 /404.html
+<VirtualHost *:80>
+    DocumentRoot "c:/wamp/www/tp5/public"
+    ServerName www.tp5.com
+    ServerAlias www.tp5.com tp5.com
+    ErrorDocument 404 /404.html
 
-      ErrorLog "logs/tp5-error.log"
-      CustomLog "logs/tp5-access.log" common
+    ErrorLog "logs/tp5-error.log"
+    CustomLog "logs/tp5-access.log" common
 
-      RewriteEngine on
-      RewriteCond %{HTTP_HOST} ^tp5.com$ [NC]
-      RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
-  </VirtualHost>
+    RewriteEngine on
+    RewriteCond %{HTTP_HOST} ^tp5.com$ [NC]
+    RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
+</VirtualHost>
 ```
 
 > 将虚拟主机指定的域名加入到 `hosts` 文件下
@@ -502,7 +502,7 @@ zend_extension="c:\wamp\32\php56\ext\php_xdebug.dll"
   extension_dir = "ext"
   ```
 
-  > 也可以指定绝对路径
+  > 当然，也可以指定绝对路径
 
   ```ini
   extension_dir = "c:/wamp/位数目录名/php目录名/ext"
@@ -635,3 +635,5 @@ error_reporting = E_ALL
   ```
 
 > 到此 mariadb 告一段落！
+
+## 附录一：指令集中营
