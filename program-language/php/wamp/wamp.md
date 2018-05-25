@@ -504,16 +504,11 @@ zend_extension="d:\wamp\32\php56\ext\php_xdebug.dll"
 
 ### 开启错误提示
 
-> 在 php.ini 中找到 display_errors , 设置错误提示的开启和关闭（off 时关，on 时开）
-
-> - 同时设置 error_reporting 的值代表错误的级别
+> 在 php.ini 中找到 display_errors , 设置错误提示的开启和关闭（off关，on开），同时设置 error_reporting 的值代表错误的级别
 
 ```ini
 # php.ini 第99 行下新增
 display_errors = On
-```
-
-```ini
 # php.ini 第 110 行下新增
 error_reporting = E_ALL
 ```
