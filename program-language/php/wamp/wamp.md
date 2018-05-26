@@ -635,18 +635,95 @@ error_reporting = E_ALL
 
 ## 附录一：指令集中营
 
-### 将阿帕奇写入系统服务
+### 阿帕奇指令篇
 
-> cmd 需进入阿帕奇根目录下的bin目录
+> 将阿帕奇写入系统服务
 
-`32 & 64` | command                           | cmd是否需要管理员
---------- | --------------------------------- | ----------
+`32 & 64` | command                           | 是否进入bin目录
+--------- | --------------------------------- | ---------
 64        | `httpd.exe -k install -n apache2` | 是
 32        | `httpd.exe -k install -n httpd`   | 是
 
-### 启动阿帕奇
+> 启动和关闭阿帕奇服务
 
-`32 & 64` | command                           | cmd是否需要管理员
---------- | --------------------------------- | ----------
-64        | `httpd.exe -k install -n apache2` | 是
-32        | `httpd.exe -k install -n httpd`   | 是
+`32 & 64` | command             | 是否进入bin目录
+--------- | ------------------- | ---------
+64        | `net start apache2` | 否
+32        | `net start httpd`   | 否
+64        | `net stop apache2`  | 否
+32        | `net stop httpd`    | 否
+
+> 卸载阿帕奇服务
+
+`32 & 64` | command                             | 是否进入bin目录
+--------- | ----------------------------------- | ---------
+64        | `httpd.exe -k uninstall -n apache2` | 是
+32        | `httpd.exe -k uninstall -n httpd`   | 是
+
+> 强制删除阿帕奇服务
+
+> - 阿帕奇损坏后，就不能使用阿帕奇自带的卸载指令，需使用cmd的 `sc delete service` 指令来删除
+
+`32 & 64` | command             | 是否进入bin目录
+--------- | ------------------- | ---------
+64        | `sc delete apache2` | 否
+32        | `sc delete httpd`   | 否
+
+### mariadb 指令篇
+
+> 将 mariadb 写入系统服务
+
+versions     | `32 & 64` | command                     | 是否进入bin目录
+------------ | --------- | --------------------------- | ---------
+mariadb 10.2 | 64        | `mysqld install mysql102`   | 是
+mariadb 10.2 | 32        | `mysqld install mariadb102` | 是
+mariadb 10.1 | 64        | `mysqld install mysql101`   | 是
+mariadb 10.1 | 32        | `mysqld install mariadb101` | 是
+mariadb 10.0 | 64        | `mysqld install mysql100`   | 是
+mariadb 10.0 | 32        | `mysqld install mariadb100` | 是
+
+> 启动 mariadb 服务
+
+versions     | `32 & 64` | command                | 是否进入bin目录
+------------ | --------- | ---------------------- | ---------
+mariadb 10.2 | 64        | `net start mysql102`   | 否
+mariadb 10.2 | 32        | `net start mariadb102` | 否
+mariadb 10.1 | 64        | `net start mysql101`   | 否
+mariadb 10.1 | 32        | `net start mariadb101` | 否
+mariadb 10.0 | 64        | `net start mysql100`   | 否
+mariadb 10.0 | 32        | `net start mariadb100` | 否
+
+> 关闭 mariadb 服务
+
+versions     | `32 & 64` | command               | 是否进入bin目录
+------------ | --------- | --------------------- | ---------
+mariadb 10.2 | 64        | `net stop mysql102`   | 否
+mariadb 10.2 | 32        | `net stop mariadb102` | 否
+mariadb 10.1 | 64        | `net stop mysql101`   | 否
+mariadb 10.1 | 32        | `net stop mariadb101` | 否
+mariadb 10.0 | 64        | `net stop mysql100`   | 否
+mariadb 10.0 | 32        | `net stop mariadb100` | 否
+
+> 卸载 mariadb 服务
+
+versions     | `32 & 64` | command                    | 是否进入bin目录
+------------ | --------- | -------------------------- | ---------
+mariadb 10.2 | 64        | `mysqld remove mysql102`   | 是
+mariadb 10.2 | 32        | `mysqld remove mariadb102` | 是
+mariadb 10.1 | 64        | `mysqld remove mysql101`   | 是
+mariadb 10.1 | 32        | `mysqld remove mariadb101` | 是
+mariadb 10.0 | 64        | `mysqld remove mysql100`   | 是
+mariadb 10.0 | 32        | `mysqld remove mariadb100` | 是
+
+> 强制删除 mariadb 服务
+
+> - mariadb 损坏后，就不能使用 mariadb 自带的卸载指令，需使用cmd的 `sc delete service` 指令来删除
+
+versions     | `32 & 64` | command                | 是否进入bin目录
+------------ | --------- | ---------------------- | ---------
+mariadb 10.2 | 64        | `sc delete mysql102`   | 否
+mariadb 10.2 | 32        | `sc delete mariadb102` | 否
+mariadb 10.1 | 64        | `sc delete mysql101`   | 否
+mariadb 10.1 | 32        | `sc delete mariadb101` | 否
+mariadb 10.0 | 64        | `sc delete mysql100`   | 否
+mariadb 10.0 | 32        | `sc delete mariadb100` | 否
