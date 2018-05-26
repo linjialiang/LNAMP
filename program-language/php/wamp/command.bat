@@ -10,20 +10,20 @@ mode con cols=120 lines=40
 :SelectService
 Cls
 @ echo.
-@ echo.ã€€ã€€           ã€é€‰æ‹©ç³»ç»ŸæœåŠ¡ã€‘
+@ echo.¡¡¡¡           ¡¾Ñ¡ÔñÏµÍ³·þÎñ¡¿
 @ echo.
-@ echo.             apache24    â†’ è¯·è¾“å…¥1
-@ echo.             httpd       â†’ è¯·è¾“å…¥2
-@ echo.             mysql102    â†’ è¯·è¾“å…¥3
-@ echo.             mysql101    â†’ è¯·è¾“å…¥4
-@ echo.             mysql100    â†’ è¯·è¾“å…¥5
-@ echo.             mariadb102  â†’ è¯·è¾“å…¥6
-@ echo.             mariadb101  â†’ è¯·è¾“å…¥7
-@ echo.             mariadb100  â†’ è¯·è¾“å…¥8
+@ echo.             apache24    ¡ú ÇëÊäÈë1
+@ echo.             httpd       ¡ú ÇëÊäÈë2
+@ echo.             mysql102    ¡ú ÇëÊäÈë3
+@ echo.             mysql101    ¡ú ÇëÊäÈë4
+@ echo.             mysql100    ¡ú ÇëÊäÈë5
+@ echo.             mariadb102  ¡ú ÇëÊäÈë6
+@ echo.             mariadb101  ¡ú ÇëÊäÈë7
+@ echo.             mariadb100  ¡ú ÇëÊäÈë8
 @ echo.
-@ echo.             é€€å‡ºè„šæœ¬ â†’ è¯·è¾“å…¥0
+@ echo.             ÍË³ö½Å±¾ ¡ú ÇëÊäÈë0
 @ echo.
-set /p export=      è¾“å…¥æ•°å­—æŒ‰å›žè½¦ï¼š
+set /p export=      ÊäÈëÊý×Ö°´»Ø³µ£º
 if /i "%export%"=="1" set ServiceName=apache24
 if /i "%export%"=="1" Goto SelectMenu
 if /i "%export%"=="2" set ServiceName=httpd
@@ -42,64 +42,64 @@ if /i "%export%"=="8" set ServiceName=mariadb100
 if /i "%export%"=="8" Goto SelectMenu
 if /i "%export%"=="0" exit
 @ echo.
-@ echo              é€‰æ‹©æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥
+@ echo              Ñ¡ÔñÎÞÐ§£¬ÇëÖØÐÂÊäÈë
 ping -n 2 127.1>nul
 Goto SelectService
 :SelectMenu
 Cls
 @ echo.
-@ echo.ã€€ã€€           ã€æœåŠ¡æ“ä½œé€‰é¡¹ã€‘
+@ echo.¡¡¡¡           ¡¾·þÎñ²Ù×÷Ñ¡Ïî¡¿
 @ echo.
-@ echo.             å¼€å¯æœåŠ¡ â†’ è¯·è¾“å…¥1
+@ echo.             ¿ªÆô·þÎñ ¡ú ÇëÊäÈë1
 @ echo.
-@ echo.             å…³é—­æœåŠ¡ â†’ è¯·è¾“å…¥2
+@ echo.             ¹Ø±Õ·þÎñ ¡ú ÇëÊäÈë2
 @ echo.
-@ echo.             é…ç½®æœåŠ¡ â†’ è¯·è¾“å…¥3
+@ echo.             ÅäÖÃ·þÎñ ¡ú ÇëÊäÈë3
 @ echo.
-@ echo.             è¿”å›žèœå• â†’ è¯·è¾“å…¥4
+@ echo.             ·µ»Ø²Ëµ¥ ¡ú ÇëÊäÈë4
 @ echo.
-@ echo.             é€€å‡ºè„šæœ¬ â†’ è¯·è¾“å…¥0
+@ echo.             ÍË³ö½Å±¾ ¡ú ÇëÊäÈë0
 @ echo.
-set /p export=      è¾“å…¥æ•°å­—æŒ‰å›žè½¦ï¼š
+set /p export=      ÊäÈëÊý×Ö°´»Ø³µ£º
 if /i "%export%"=="1" Goto StartService
 if /i "%export%"=="2" Goto StopService
 if /i "%export%"=="3" Goto SetService
 if /i "%export%"=="4" Goto SelectService
 if /i "%export%"=="0" exit
 @ echo.
-@ echo              é€‰æ‹©æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥
+@ echo              Ñ¡ÔñÎÞÐ§£¬ÇëÖØÐÂÊäÈë
 ping -n 2 127.1>nul
 Goto SelectMenu
 :StartService
 Cls
 @ echo.
-@ echo.             å¼€å¯%ServiceName%ä¸­...
+@ echo.             ¿ªÆô%ServiceName%ÖÐ...
 net start %ServiceName%
 ping -n 2 127.1>nul
 Goto SelectService
 :StopService
 Cls
 @ echo.
-@ echo.             å…³é—­%ServiceName%ä¸­...
+@ echo.             ¹Ø±Õ%ServiceName%ÖÐ...
 net stop %ServiceName%
 ping -n 2 127.1>nul
 Goto SelectService
 :SetService
 Cls
 @ echo.
-@ echo.ã€€ã€€         ã€é…ç½®æœåŠ¡é€‰é¡¹ã€‘
+@ echo.¡¡¡¡         ¡¾ÅäÖÃ·þÎñÑ¡Ïî¡¿
 @ echo.
-@ echo.             è‡ªåŠ¨ â†’ è¯·è¾“å…¥1
+@ echo.             ×Ô¶¯ ¡ú ÇëÊäÈë1
 @ echo.
-@ echo.             æ‰‹åŠ¨ â†’ è¯·è¾“å…¥2
+@ echo.             ÊÖ¶¯ ¡ú ÇëÊäÈë2
 @ echo.
-@ echo.             ç¦ç”¨ â†’ è¯·è¾“å…¥3
+@ echo.             ½ûÓÃ ¡ú ÇëÊäÈë3
 @ echo.
-@ echo.             è¿”å›ž â†’ è¯·è¾“å…¥4
+@ echo.             ·µ»Ø ¡ú ÇëÊäÈë4
 @ echo.
-@ echo.             é€€å‡ºè„šæœ¬ â†’ è¯·è¾“å…¥0
+@ echo.             ÍË³ö½Å±¾ ¡ú ÇëÊäÈë0
 @ echo.
-set /p export=      è¾“å…¥æ•°å­—æŒ‰å›žè½¦ï¼š
+set /p export=      ÊäÈëÊý×Ö°´»Ø³µ£º
 if /i "%export%"=="1" set SetName=auto
 if /i "%export%"=="2" set SetName=demand
 if /i "%export%"=="3" set SetName=disabled
@@ -111,7 +111,7 @@ if /i "%export%"=="0" exit
 :SetSelect
 Cls
 @ echo.
-@ echo.             è®¾ç½®%ServiceName%ä¸º%SetSelect%...
-sc config %ServiceName% start=%SetSelect%
+@ echo.             ÉèÖÃ%ServiceName%Îª%SetName%...
+sc config %ServiceName% start=%SetName%
 ping -n 2 127.1>nul
 Goto SelectService

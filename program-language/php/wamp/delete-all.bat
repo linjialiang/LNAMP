@@ -12,9 +12,9 @@ Cls
 @ echo.
 @ echo.　　           【菜单选项】
 @ echo.
-@ echo.             卸载所有相关服务 → 请输入1
+@ echo.             强删所有相关服务 → 请输入1
 @ echo.
-@ echo.             强删所有相关服务 → 请输入2
+@ echo.             卸载所有相关服务 → 请输入2
 @ echo.
 @ echo.             退出 → 请输入0
 @ echo.
