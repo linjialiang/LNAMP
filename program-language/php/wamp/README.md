@@ -545,7 +545,7 @@ error_reporting = E_ALL
   > 默认情况下mariadb并没有my.ini文件，不过在根目录下面有几个参考文件：
 
   > - `my-huge.ini` `my-innodb-heavy-4G.ini` `my-large.ini` `my-medium.ini` `my-small.ini`
-  > - 这里我们自行配置，因为有几个功能需要正确指定路径才能生效（不配置，只是部分功能受到限制）
+  > - 这里我们自行配置，因为有几个功能需要正确指定路径才能生效（不配置，默认会在datadir目录生成）
 
   ```ini
   # 在 mariadb 根目录下面新建 my.ini
@@ -560,7 +560,14 @@ error_reporting = E_ALL
   ##innodb_log_group_home_dir = ""
   ```
 
-  > 注意：切换版本前需要将data目录下的非目录文件删除掉，并初始化
+  > - 注意：切换版本前需要将data目录下的非目录文件删除掉，并初始化
+  > - 技巧：cmd下使用 `--defaults-file` 可以更改 my.ini 的具体位置哦
+
+  ```shell
+  # 需要管理员权限的cmd，并进入bin目录
+  --defaults-file=mysql\bin\my.ini --standalone --console
+  # 以上指令将my.ini文件设置到了bin目录下
+  ```
 
 2. 初始化 mariadb 的 data 目录
 
