@@ -251,24 +251,7 @@ c:/wamp                         wamp部署目录（或者子目录）
 > - 新增一个Web目录
 > - 为站点指定默认文件
 > - 让 .htaccess 文件支持伪静态
-
-```ini文件
-# 下面是 httpd.ini 配置文件的所有内容
-LoadModule vhost_alias_module modules/mod_vhost_alias.so
-#LoadModule ssl_module modules/mod_ssl.so
-LoadModule rewrite_module modules/mod_rewrite.so
-
-AddType application/x-httpd-php .php
-
-<Directory "c:/wamp/www">
-    Options Indexes FollowSymLinks
-    AllowOverride All
-    Require all granted
-    DirectoryIndex index.html index.php
-</Directory>
-
-Include "c:/wamp/sites/*.conf"
-```
+> - 自定义虚拟主机配置文件
 
 1. 为阿帕奇开启虚拟主机模块
 
@@ -306,9 +289,9 @@ Include "c:/wamp/sites/*.conf"
 
   ```ini
   <Directory "c:/wamp/www">
-      Options Indexes FollowSymLinks
-      AllowOverride None
-      Require all granted
+  Options Indexes FollowSymLinks
+  AllowOverride None
+  Require all granted
   </Directory>
   ```
 
@@ -317,11 +300,7 @@ Include "c:/wamp/sites/*.conf"
   > 在 `<Directory "c:/wamp/www">` 内将 `AllowOverride None` 替换成 `AllowOverride All`
 
   ```ini
-  <Directory "c:/wamp/www">
-      Options Indexes FollowSymLinks
-      AllowOverride All
-      Require all granted
-  </Directory>
+  AllowOverride All
   ```
 
 6. 让 .htaccess 文件支持伪静态
@@ -331,13 +310,35 @@ Include "c:/wamp/sites/*.conf"
   > - 新增内容： `DirectoryIndex index.html index.php`
 
   ```ini
-  <Directory "c:/wamp/www">
-      Options Indexes FollowSymLinks
-      AllowOverride All
-      Require all granted
-      DirectoryIndex index.html index.php
-  </Directory>
+  DirectoryIndex index.html index.php
   ```
+
+7. 自定义虚拟主机配置文件
+
+  > 我们定义 `c:/wamp/sites` 目录下的所有 .conf 格式的文件都是虚拟主机配置文件
+
+  ```ini
+  Include "c:/wamp/sites/*.conf"
+  ```
+
+> 附录： httpd.ini 自定义配置文件的所有内容
+
+```ini文件
+LoadModule vhost_alias_module modules/mod_vhost_alias.so
+#LoadModule ssl_module modules/mod_ssl.so
+LoadModule rewrite_module modules/mod_rewrite.so
+
+AddType application/x-httpd-php .php
+
+<Directory "c:/wamp/www">
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+    DirectoryIndex index.html index.php
+</Directory>
+
+Include "c:/wamp/sites/*.conf"
+```
 
 #### 创建虚拟主机
 
@@ -633,3 +634,19 @@ error_reporting = E_ALL
 > 到此 mariadb 告一段落！
 
 ## 附录一：指令集中营
+
+### 将阿帕奇写入系统服务
+
+> cmd 需进入阿帕奇根目录下的bin目录
+
+`32 & 64` | command                           | cmd是否需要管理员
+--------- | --------------------------------- | ----------
+64        | `httpd.exe -k install -n apache2` | 是
+32        | `httpd.exe -k install -n httpd`   | 是
+
+### 启动阿帕奇
+
+`32 & 64` | command                           | cmd是否需要管理员
+--------- | --------------------------------- | ----------
+64        | `httpd.exe -k install -n apache2` | 是
+32        | `httpd.exe -k install -n httpd`   | 是
