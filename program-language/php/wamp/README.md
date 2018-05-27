@@ -163,8 +163,8 @@ c:/wamp                         wamp部署目录（或者子目录）
 
 | digit | public                              | diff                                  |
 | ----- | ----------------------------------- | ------------------------------------- |
-| 32    | `Include "c:/wamp/sites/httpd.ini"` | `Include "c:/wamp/sites/httpd32.ini"` |
-| 64    | `Include "c:/wamp/sites/httpd.ini"` | `Include "c:/wamp/sites/httpd64.ini"` |
+| 32    | `Include "c:/wamp/conf/httpd.ini"` | `Include "c:/wamp/conf/httpd32.ini"` |
+| 64    | `Include "c:/wamp/conf/httpd.ini"` | `Include "c:/wamp/conf/httpd64.ini"` |
 
 #### 为 apache2 绑定 php
 
@@ -378,7 +378,7 @@ PHPINIDir <phpinidir-path>
     httpd.exe -k uninstall -n <service-httpd>
     ```
 
--   使用系统工具强制删除
+-   使用系统工具 `sc` 从注册表删除服务
 
     > -   优点1：不需要进入 bin 目录后才能操作
     > -   优点2：只要系统存在该服务，就算阿帕奇损坏了，也能正常删除
@@ -494,8 +494,38 @@ display_errors = On
     error_reporting(E_ALL & ~E_NOTICE);
     ```
 
-> 错误级别一览表
+> [错误级别一览表](http://php.net/manual/zh/errorfunc.constants.php)
 
+| `error-id` | `error-name`        | 描述                    |
+| ---------- | ------------------- | --------------------- |
+| 1          | E_ERROR             | 致命的运行时错误              |
+| 2          | E_WARNING           | 运行时警告                 |
+| 4          | E_PARSE             | 编译时语法解析错误             |
+| 8          | E_NOTICE            | 运行时通知                 |
+| 16         | E_CORE_ERROR        | 在PHP初始化启动过程中发生的致命错误   |
+| 32         | E_CORE_WARNING      | PHP初始化启动过程中发生的警告      |
+| 64         | E_COMPILE_ERROR     | 致命编译时错误。              |
+| 128        | E_COMPILE_WARNING   | 编译时警告                 |
+| 256        | E_USER_ERROR        | 用户产生的错误信息。            |
+| 512        | E_USER_WARNING      | 用户产生的警告信息。            |
+| 1024       | E_USER_NOTICE       | 用户产生的通知信息。            |
+| 2048       | E_STRICT            | 启用 PHP 对代码的修改建议。      |
+| 4096       | E_RECOVERABLE_ERROR | 可被捕捉的致命错误。            |
+| 8192       | E_DEPRECATED        | 运行时通知                 |
+| 16384      | E_USER_DEPRECATED   | 用户产少的警告信息。            |
+| 30719      | E_ALL               | E_STRICT除外的所有错误和警告信息。 |
+
+> -   可以使用按位运算符来组合这些值或者屏蔽某些类型的错误
+> -   在 php.ini 之中， 只有 `|` `~` `!` `^` `&` 生效，下面是[php位运算符规则](http://php.net/manual/zh/language.operators.bitwise.php)
+
+| 例子         | 名称              | 结果                                 |     |
+| ---------- | --------------- | ---------------------------------- | --- |
+| `$a & $b`  | And（按位与）        | 将把 $a 和 $b 中都为 1 的位设为 1。           |     |
+| `$a | $b`  | Or（按位或）         | 将把 $a 和 $b 中任何一个为 1 的位设为 1。        |     |
+| `$a ^ $b`  | Xor（按位异或）       | 将把 $a 和 $b 中一个为 1 另一个为 0 的位设为 1。   |     |
+| `~ $a`     | Not（按位取反）       | 将 $a 中为 0 的位设为 1，反之亦然。             |     |
+| `$a << $b` | Shift left（左移）  | 将 $a 中的位向左移动 $b 次（每一次移动都表示“乘以 2”）。 |     |
+| `$a >> $b` | Shift right（右移） | 将 $a 中的位向右移动 $b 次（每一次移动都表示“除以 2”）。 |     |
 
 ### 开启 php_xdebug 扩展
 
@@ -578,14 +608,14 @@ mysqld --initialize
 
 1.  my.ini 在mariadb根目录下
 
-    > cmd：cmd需要管理员权限
-    > 操作：cmd进入bin目录，输入指令如下：
+> cmd：cmd需要管理员权限
+> 操作：cmd进入bin目录，输入指令如下：
 
     ```shell
-    mysqld.exe --install <serviceName>
+    mysqld.exe --install <service-mariadb>
     ```
 
-    > `serviceName` 是自定义服务名，为空会自动命名为 `MySQL`
+    > `service-mariadb` 是自定义服务名，为空会自动命名为 `MySQL`
 
 2.  my.ini 不在mariadb根目录下
 
@@ -594,68 +624,95 @@ mysqld --initialize
     > 操作：cmd进入bin目录，输入指令如下：
 
     ```shell
-    mysqld.exe --install <serviceName> --defaults-file=c:\wamp\conf\my.ini
+    mysqld.exe --install <service-mariadb> --defaults-file=c:\wamp\conf\my.ini
     ```
 
 ### 卸载 mariadb 系统服务
 
-### 将 mariadb 安装到系统服务
+-   用mariadb自带工具卸载
 
-> 打开cmd（有管理员权限），进入到mariadb的bin目录下,指令如下：
+    > cmd：cmd需要管理员权限
+    > 操作：cmd进入bin目录，输入指令如下：
 
-```shell
-# 64位 mariadb 10.2
-mysqld install mysql102
-# 64位 mariadb 10.1
-mysqld install mysql101
-# 64位 mariadb 10.0
-mysqld install mysql100
+    ```shell
+    mysqld.exe --remove <service-mariadb>
+    ```
 
-# 32位 mariadb 10.2
-mysqld install mariadb102
-# 32位 mariadb 10.1
-mysqld install mariadb101
-# 32位 mariadb 10.0
-mysqld install mariadb100
-```
+-   用系统 `sc` 工具从注册表删除服务
 
-> 卸载系统服务，操作和安装类似，只是指令略有不同：
+    > cmd：cmd需要管理员权限
+    > `server` 是服务器地址，如果是本地可以省略
 
-```shell
-# 64位 mariadb 10.2
-mysqld remove mysql102
-# 64位 mariadb 10.1
-mysqld remove mysql101
-# 64位 mariadb 10.0
-mysqld remove mysql100
+    ```shell
+    sc <server> delete <service-mariadb>
+    ```
 
-# 32位 mariadb 10.2
-mysqld remove mariadb102
-# 32位 mariadb 10.1
-mysqld remove mariadb101
-# 32位 mariadb 10.0
-mysqld remove mariadb100
-```
+### 启动 mariadb 服务
 
-> 系统服务损坏如何删除？打开管理员权限的cmd（不需要指定路径），指令如下：
+> -   安装系统服务的启动方式
+> -   未安装系统服务的启动方式
 
-```shell
-# 64位 mariadb 10.2
-sc delete mysql102
-# 64位 mariadb 10.1
-sc delete mysql101
-# 64位 mariadb 10.0
-sc delete mysql100
+-   安装系统服务版-启动mariadb服务
 
-# 32位 mariadb 10.2
-sc delete mariadb102
-# 32位 mariadb 10.1
-sc delete mariadb101
-# 32位 mariadb 10.0
-sc delete mariadb100
-```
+    > cmd要求：需要管理员权限
 
-> 到此 mariadb 告一段落！
+    ```shell
+    net start <service-mariadb>
+    ```
+
+-   未安装系统服务版-启动mariadb服务
+
+    > cmd要求：需要管理员权限
+    > 操作：cmd进入bin目录，输入如下代码：
+
+    ```shell
+    mysqld.exe
+    ```
+
+    > 如果my.ini不在mariadb根目录需要如下代码：
+
+    ```shell
+    mysqld.exe --defaults-file="c:\wamp\conf\my.ini"
+    ```
+
+### 停止 mariadb 服务
+
+> -   安装系统服务的停止方式
+> -   未安装系统服务的停止方式
+
+-   安装系统服务版-停止mariadb服务
+
+    > cmd要求：需要管理员权限
+
+    ```shell
+    net stop <service-mariadb>
+    ```
+
+-   未安装系统服务版-停止mariadb服务
+
+    > cmd要求：需要管理员权限
+    > 操作：cmd进入bin目录，输入如下代码：
+
+    ```shell
+    mysqladmin.exe -uroot shutdown
+    ```
+
+    > 如果root存在密码，需要加上 `-p` ，并在出现提示时提供密码
+
+    ```shell
+    mysqladmin.exe -uroot -p shutdown
+    ```
+
+### `sercice-mariadb` 属性值一览表
+
+| digit | version    | `sercice-mariadb` |
+| ----- | ---------- | ----------------- |
+| 64    | mariadb102 | mysql102          |
+| 64    | mariadb101 | mysql101          |
+| 64    | mariadb100 | mysql100          |
+| 32    | mariadb102 | mariadb102        |
+| 32    | mariadb101 | mariadb101        |
+| 32    | mariadb100 | mariadb100        |
 
 ## 配置系统服务启动类型
 
@@ -671,97 +728,40 @@ sc config <service-name> start=<set-value>
 | demand      | 手动      |
 | disabled    | 禁用      |
 
-## 附录一：指令集中营
+## 安装 phpMyAdmin
+> phpMyAdmin 一个基于Web的mariadb管理工具
 
-### 阿帕奇指令篇
+### apche2 为 phpMyAdmin 配置别名
+> - 别名说明：也算是一种站点的方式
+> - 操作：httpd.ini 文件加入如下内容：
 
-> 将阿帕奇写入系统服务
+```ini
+Alias /phpmyadmin c:/wamp/phpMyAdmin
+<Directory c:/wamp/phpMyAdmin>
+    Options FollowSymLinks
+    DirectoryIndex index.php
+    <RequireAll>
+        Require local
+    </RequireAll>
+</Directory>
+<Directory c:/wamp/phpMyAdmin/libraries>
+    Require all denied
+</Directory>
+<Directory c:/wamp/phpMyAdmin/setup/lib>
+    Require all denied
+</Directory>
+```
 
-| `32 & 64` | command                           | 是否进入bin目录 |
-| --------- | --------------------------------- | --------- |
-| 64        | `httpd.exe -k install -n apache2` | 是         |
-| 32        | `httpd.exe -k install -n httpd`   | 是         |
+### 配置 phpMyAdmin
+> - 默认配置文件： `libraries/config.default.php` 这个文件不用于修改
+> - 操作： 所有可配置的数据都放在config.inc.php， 如果此文件不存在就创建一个（该文件只需包含你想要改变它们相应默认值的参数）
 
-> 启动和关闭阿帕奇服务
-
-| `32 & 64` | command             | 是否进入bin目录 |
-| --------- | ------------------- | --------- |
-| 64        | `net start apache2` | 否         |
-| 32        | `net start httpd`   | 否         |
-| 64        | `net stop apache2`  | 否         |
-| 32        | `net stop httpd`    | 否         |
-
-> 卸载阿帕奇服务
-
-| `32 & 64` | command                             | 是否进入bin目录 |
-| --------- | ----------------------------------- | --------- |
-| 64        | `httpd.exe -k uninstall -n apache2` | 是         |
-| 32        | `httpd.exe -k uninstall -n httpd`   | 是         |
-
-> 强制删除阿帕奇服务
->
-> -   阿帕奇损坏后，就不能使用阿帕奇自带的卸载指令，需使用cmd的 `sc delete service` 指令来删除
-
-| `32 & 64` | command             | 是否进入bin目录 |
-| --------- | ------------------- | --------- |
-| 64        | `sc delete apache2` | 否         |
-| 32        | `sc delete httpd`   | 否         |
-
-### mariadb 指令篇
-
-> 将 mariadb 写入系统服务
-
-| versions     | `32 & 64` | command                     | 是否进入bin目录 |
-| ------------ | --------- | --------------------------- | --------- |
-| mariadb 10.2 | 64        | `mysqld install mysql102`   | 是         |
-| mariadb 10.2 | 32        | `mysqld install mariadb102` | 是         |
-| mariadb 10.1 | 64        | `mysqld install mysql101`   | 是         |
-| mariadb 10.1 | 32        | `mysqld install mariadb101` | 是         |
-| mariadb 10.0 | 64        | `mysqld install mysql100`   | 是         |
-| mariadb 10.0 | 32        | `mysqld install mariadb100` | 是         |
-
-> 启动 mariadb 服务
-
-| versions     | `32 & 64` | command                | 是否进入bin目录 |
-| ------------ | --------- | ---------------------- | --------- |
-| mariadb 10.2 | 64        | `net start mysql102`   | 否         |
-| mariadb 10.2 | 32        | `net start mariadb102` | 否         |
-| mariadb 10.1 | 64        | `net start mysql101`   | 否         |
-| mariadb 10.1 | 32        | `net start mariadb101` | 否         |
-| mariadb 10.0 | 64        | `net start mysql100`   | 否         |
-| mariadb 10.0 | 32        | `net start mariadb100` | 否         |
-
-> 关闭 mariadb 服务
-
-| versions     | `32 & 64` | command               | 是否进入bin目录 |
-| ------------ | --------- | --------------------- | --------- |
-| mariadb 10.2 | 64        | `net stop mysql102`   | 否         |
-| mariadb 10.2 | 32        | `net stop mariadb102` | 否         |
-| mariadb 10.1 | 64        | `net stop mysql101`   | 否         |
-| mariadb 10.1 | 32        | `net stop mariadb101` | 否         |
-| mariadb 10.0 | 64        | `net stop mysql100`   | 否         |
-| mariadb 10.0 | 32        | `net stop mariadb100` | 否         |
-
-> 卸载 mariadb 服务
-
-| versions     | `32 & 64` | command                    | 是否进入bin目录 |
-| ------------ | --------- | -------------------------- | --------- |
-| mariadb 10.2 | 64        | `mysqld remove mysql102`   | 是         |
-| mariadb 10.2 | 32        | `mysqld remove mariadb102` | 是         |
-| mariadb 10.1 | 64        | `mysqld remove mysql101`   | 是         |
-| mariadb 10.1 | 32        | `mysqld remove mariadb101` | 是         |
-| mariadb 10.0 | 64        | `mysqld remove mysql100`   | 是         |
-| mariadb 10.0 | 32        | `mysqld remove mariadb100` | 是         |
-
-> 强制删除 mariadb 服务
->
-> -   mariadb 损坏后，就不能使用 mariadb 自带的卸载指令，需使用cmd的 `sc delete service` 指令来删除
-
-| versions     | `32 & 64` | command                | 是否进入bin目录 |
-| ------------ | --------- | ---------------------- | --------- |
-| mariadb 10.2 | 64        | `sc delete mysql102`   | 否         |
-| mariadb 10.2 | 32        | `sc delete mariadb102` | 否         |
-| mariadb 10.1 | 64        | `sc delete mysql101`   | 否         |
-| mariadb 10.1 | 32        | `sc delete mariadb101` | 否         |
-| mariadb 10.0 | 64        | `sc delete mysql100`   | 否         |
-| mariadb 10.0 | 32        | `sc delete mariadb100` | 否         |
+```php
+//<?php
+# config.inc.php 的内容
+# 如果认证方式是 cookie 模式就需要设置短语密码
+$cfg['blowfish_secret'] = 'nmTPuhjDY6Nt6Mmxy3cLCqeYXuMG3EpqBrsBmEK3FdcqKskckUd4JBdd58A4';
+# 设置认证方式为 cookie
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+# 开启免密登陆
+```
