@@ -161,8 +161,8 @@ c:/wamp                         wamp部署目录（或者子目录）
 > -   操作：在 httpd.conf 底部增加两行 Include 指令
 > -   注意：32位和64位有一个文件是不同的
 
-| digit | public                              | diff                                  |
-| ----- | ----------------------------------- | ------------------------------------- |
+| digit | public                             | diff                                 |
+| ----- | ---------------------------------- | ------------------------------------ |
 | 32    | `Include "c:/wamp/conf/httpd.ini"` | `Include "c:/wamp/conf/httpd32.ini"` |
 | 64    | `Include "c:/wamp/conf/httpd.ini"` | `Include "c:/wamp/conf/httpd64.ini"` |
 
@@ -729,11 +729,13 @@ sc config <service-name> start=<set-value>
 | disabled    | 禁用      |
 
 ## 安装 phpMyAdmin
+
 > phpMyAdmin 一个基于Web的mariadb管理工具
 
 ### apche2 为 phpMyAdmin 配置别名
-> - 别名说明：也算是一种站点的方式
-> - 操作：httpd.ini 文件加入如下内容：
+
+> -   别名说明：也算是一种站点的方式
+> -   操作：httpd.ini 文件加入如下内容：
 
 ```ini
 Alias /phpmyadmin c:/wamp/phpMyAdmin
@@ -753,44 +755,30 @@ Alias /phpmyadmin c:/wamp/phpMyAdmin
 ```
 
 ### 配置 phpMyAdmin
-> - 默认配置文件： `libraries/config.default.php` 这个文件不用于修改
-> - 操作： 所有可配置的数据都放在config.inc.php， 如果此文件不存在就创建一个（该文件只需包含你想要改变它们相应默认值的参数）
+
+> -   默认配置文件： `libraries/config.default.php` 这个文件不用于修改
+> -   操作： 所有可配置的数据都放在config.inc.php， 如果此文件不存在就创建一个（该文件只需包含你想要改变它们相应默认值的参数）
 
 ```php
-//<?php
 // config.inc.php 的内容
-// 如果认证方式是 cookie 模式就需要设置短语密码
-$cfg['blowfish_secret'] = 'nmTPuhjDY6Nt6Mmxy3cLCqeYXuMG3EpqBrsBmEK3FdcqKskckUd4JBdd58A4';
-// 设置认证方式为 cookie
-$cfg['Servers'][$i]['auth_type'] = 'cookie';
-// 设置服务器主机为 localhsot
-$cfg['Servers'][$i]['host'] = 'localhost';
-// 开启免密登陆
-$cfg['Servers'][$i]['AllowNoPassword'] = true;
-// 默认主题风格更改为original
+//<?php
+//短语密码
+$cfg['blowfish_secret'] = 'yu7ErJG6FvjeRfWSrGukuBsb3gVTqYETgtfEqtG5tST3vCw8e7';
+//设置默认主题风格为original
 $cfg['ThemeDefault'] = 'original';
-// phpMyAdmin高级功能用户及密码设置为空
-$cfg['Servers'][$i]['controluser'] = '';
-$cfg['Servers'][$i]['controlpass'] = '';
-// 开启phpMyAdmin高级功能
-$cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
-$cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
-$cfg['Servers'][$i]['relation'] = 'pma__relation';
-$cfg['Servers'][$i]['table_info'] = 'pma__table_info';
-$cfg['Servers'][$i]['table_coords'] = 'pma__table_coords';
-$cfg['Servers'][$i]['pdf_pages'] = 'pma__pdf_pages';
-$cfg['Servers'][$i]['column_info'] = 'pma__column_info';
-$cfg['Servers'][$i]['history'] = 'pma__history';
-$cfg['Servers'][$i]['table_uiprefs'] = 'pma__table_uiprefs';
-$cfg['Servers'][$i]['tracking'] = 'pma__tracking';
-$cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
-$cfg['Servers'][$i]['recent'] = 'pma__recent';
-$cfg['Servers'][$i]['favorite'] = 'pma__favorite';
-$cfg['Servers'][$i]['users'] = 'pma__users';
-$cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
-$cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
-$cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
-$cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
-$cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
-$cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
+$i = 0;
+$i++;
+//设置登陆方式为cookie
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+$cfg['Servers'][$i]['host'] = 'localhost';
+$cfg['Servers'][$i]['compress'] = false;
+//不允许免密登陆
+$cfg['Servers'][$i]['AllowNoPassword'] = false;
+$cfg['UploadDir'] = '';
+$cfg['SaveDir'] = '';
 ```
+
+### phpMyAdmin 一些注意事项
+
+> -   phpmyadmin数据库提供phpmyadmin的高级功能，如果删除，高级功能将无法使用 – 如果未安装或已经删除，可以在找到原因那里，点击Create自动创建
+> -   phpMyAdmin 连接数据库使用的是php的mysqli扩展，所以php必须安装mysqli扩展包
