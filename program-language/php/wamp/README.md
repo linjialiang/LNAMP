@@ -157,86 +157,40 @@ c:/wamp                         wamp部署目录（或者子目录）
 
 #### 为 apache2 增加配置文件
 
-> 使用 Include 可以在配置文件中加入其它配置文件
->
-> -   在 httpd.conf 底部增加两行 Include 指令
+> -   说明：阿帕奇可以在 httpd.conf 内使用 Include 加入其它配置文件
+> -   操作：在 httpd.conf 底部增加两行 Include 指令
 > -   注意：32位和64位有一个文件是不同的
 
-```conf
-# 64位
-Include "c:/wamp/sites/httpd.ini"
-Include "c:/wamp/sites/httpd64.ini"
-
-#32位
-Include "c:/wamp/sites/httpd.ini"
-Include "c:/wamp/sites/httpd32.ini"
-```
+| digit | public                              | diff                                  |
+| ----- | ----------------------------------- | ------------------------------------- |
+| 32    | `Include "c:/wamp/sites/httpd.ini"` | `Include "c:/wamp/sites/httpd32.ini"` |
+| 64    | `Include "c:/wamp/sites/httpd.ini"` | `Include "c:/wamp/sites/httpd64.ini"` |
 
 #### 为 apache2 绑定 php
 
 > 操作2个自定义配置文件： `httpd32.ini` `httpd64.ini`
 >
-> -   `php7apache2_4.dll`：apache2.4绑定php7的模块（需要绝对路径）
-> -   `php5apache2_4.dll`：apache2.4绑定php5的模块（需要绝对路径）
-> -   `PHPINIDir`：php.ini配置文件的路径（需要绝对路径）
+> -   `module-name`：apache2.4绑定php的模块名
+> -   `module-path`：apache2.4绑定php5的模块路径（绝对路径）
+> -   `phpinidir-path`：php.ini配置文件的路径（绝对路径）
 
 ```ini
-# httpd64.ini针对64位阿帕奇的文件，内容如下：
-LoadModule php7_module c:/wamp/64/php72/php7apache2_4.dll
-##LoadModule php7_module c:/wamp/64/php71/php7apache2_4.dll
-##LoadModule php7_module c:/wamp/64/php72/php7apache2_4.dll
-##LoadModule php5_module c:/wamp/64/php56/php5apache2_4.dll
-<IfModule php7_module>
-PHPINIDir "c:/wamp/64/php72"
-##PHPINIDir "c:/wamp/64/php71"
-##PHPINIDir "c:/wamp/64/php70"
-</IfModule>
-<IfModule php5_module>
-PHPINIDir "c:/wamp/64/php56"
-</IfModule>
+LoadModule <module-name> <module-path>
+PHPINIDir <phpinidir-path>
 ```
 
-```ini
-# httpd32.ini针对32位阿帕奇的文件，内容如下：
-LoadModule php7_module c:/wamp/32/php72/php7apache2_4.dll
-##LoadModule php7_module c:/wamp/32/php71/php7apache2_4.dll
-##LoadModule php7_module c:/wamp/32/php72/php7apache2_4.dll
-##LoadModule php5_module c:/wamp/32/php56/php5apache2_4.dll
-<IfModule php7_module>
-PHPINIDir "c:/wamp/32/php72"
-##PHPINIDir "c:/wamp/32/php71"
-##PHPINIDir "c:/wamp/32/php70"
-</IfModule>
-<IfModule php5_module>
-PHPINIDir "c:/wamp/32/php56"
-</IfModule>
-```
+> 属性一览表
 
-> 也可以去掉 IfModule，具体如下：
-
-```ini
-# httpd64.ini针对64位阿帕奇的文件，内容如下：
-LoadModule php7_module c:/wamp/64/php72/php7apache2_4.dll
-PHPINIDir "c:/wamp/64/php72"
-##LoadModule php7_module c:/wamp/64/php71/php7apache2_4.dll
-##PHPINIDir "c:/wamp/64/php71"
-##LoadModule php7_module c:/wamp/64/php72/php7apache2_4.dll
-##PHPINIDir "c:/wamp/64/php70"
-##LoadModule php5_module c:/wamp/64/php56/php5apache2_4.dll
-##PHPINIDir "c:/wamp/64/php56"
-```
-
-```ini
-# httpd32.ini针对32位阿帕奇的文件，内容如下：
-LoadModule php7_module c:/wamp/32/php72/php7apache2_4.dll
-PHPINIDir "c:/wamp/32/php72"
-##LoadModule php7_module c:/wamp/32/php71/php7apache2_4.dll
-##PHPINIDir "c:/wamp/32/php71"
-##LoadModule php7_module c:/wamp/32/php72/php7apache2_4.dll
-##PHPINIDir "c:/wamp/32/php70"
-##LoadModule php5_module c:/wamp/32/php56/php5apache2_4.dll
-##PHPINIDir "c:/wamp/32/php56"
-```
+| php    | digit | `module-name` | module-path                          | `phpinidir-path`   |
+| ------ | ----- | ------------- | ------------------------------------ | ------------------ |
+| php7.2 | 64    | php7_module   | `c:/wamp/64/php72/php7apache2_4.dll` | `c:/wamp/64/php72` |
+| php7.1 | 64    | php7_module   | `c:/wamp/64/php72/php7apache2_4.dll` | `c:/wamp/64/php71` |
+| php7.0 | 64    | php7_module   | `c:/wamp/64/php70/php7apache2_4.dll` | `c:/wamp/64/php70` |
+| php5.6 | 64    | php5_module   | `c:/wamp/64/php56/php5apache2_4.dll` | `c:/wamp/64/php56` |
+| php7.2 | 32    | php7_module   | `c:/wamp/32/php72/php7apache2_4.dll` | `c:/wamp/32/php72` |
+| php7.1 | 32    | php7_module   | `c:/wamp/32/php72/php7apache2_4.dll` | `c:/wamp/32/php71` |
+| php7.0 | 32    | php7_module   | `c:/wamp/32/php70/php7apache2_4.dll` | `c:/wamp/32/php70` |
+| php5.6 | 32    | php5_module   | `c:/wamp/32/php56/php5apache2_4.dll` | `c:/wamp/32/php56` |
 
 > 只有正确配置 `PHPINIDir` ，才能成功加载 php.ini 配置文件
 
@@ -340,9 +294,9 @@ PHPINIDir "c:/wamp/32/php72"
 
 2.  当前符合创建站点的配置文件
 
-    > -   `httpd.conf`
-    > -   `httpd.ini` `httpd32.ini` `httpd64.ini`
-    > -   sites目录下的所有conf格式文件
+    > -   主配置文件：`httpd.conf`
+    > -   子配置文件：`httpd.ini` `httpd32.ini` `httpd64.ini`
+    > -   子配置文件：sites目录下的所有conf格式文件
 
 3.  站点1：以 `Web根目录` 作为为站点根目录
 
@@ -377,14 +331,15 @@ PHPINIDir "c:/wamp/32/php72"
     </VirtualHost>
     ```
 
-> 本地开发环境下，我们需要将站点域名加入到 `hosts` 系统文件下才能生效
->
-> -   文件路径： `c:\Windows\System32\drivers\etc\hosts`
+5.  将域名绑定到本地
 
-```hosts
-# 在底部新增一行
-127.0.0.1 www.tp5.com tp5.com
-```
+    > -   本地开发环境下，我们需要将站点域名加入到 `hosts` 系统文件下才能生效
+    > -   文件路径： `c:\Windows\System32\drivers\etc\hosts`
+
+    ```hosts
+    # 在底部新增一行
+    127.0.0.1 www.tp5.com tp5.com
+    ```
 
 ### 将 apache2 加入到系统服务中
 
@@ -395,24 +350,18 @@ PHPINIDir "c:/wamp/32/php72"
     > -   cmd要求：需要有管理员权限
 
     ```shell
-    # 64位，在cmd下输入的指令
-    httpd.exe -k install -n apache2
-    # 32位，在cmd下输入的指令
-    httpd.exe -k install -n httpd
+    httpd.exe -k install -n <service-httpd>
     ```
 
 -   不加入系统变量的操作
 
-> -   操作前提：安装多个阿帕奇服务
-> -   操作方法：进入 bin 目录后才能操作
-> -   cmd要求：需要有管理员权限
+    > -   操作前提：安装多个阿帕奇服务
+    > -   操作方法：进入 bin 目录后才能操作
+    > -   cmd要求：需要有管理员权限
 
-```shell
-# 64位，在cmd下输入的指令
-httpd.exe -k install -n apache2
-# 32位，在cmd下输入的指令
-httpd.exe -k install -n httpd
-```
+    ```shell
+    httpd.exe -k install -n <service-httpd>
+    ```
 
 ### 将 apache2 从系统服务中卸载
 
@@ -426,10 +375,7 @@ httpd.exe -k install -n httpd
     > -   cmd要求：需要有管理员权限
 
     ```shell
-    # 64位，在cmd下输入的指令
-    httpd.exe -k uninstall -n apache2
-    # 32位，在cmd下输入的指令
-    httpd.exe -k uninstall -n httpd
+    httpd.exe -k uninstall -n <service-httpd>
     ```
 
 -   使用系统工具强制删除
@@ -439,21 +385,16 @@ httpd.exe -k install -n httpd
     > -   cmd要求：需要有管理员权限
 
     ```shell
-    # 64位，在cmd下输入的指令
-    sc delete apache2
-    # 32位，在cmd下输入的指令
-    sc delete httpd
+    sc delete <service-httpd>
     ```
 
 ### 启动 apache2 服务器
 
-> cmd要求：需要有管理员权限
+> -   cmd要求：需要有管理员权限
+> -   注意：阿帕奇需要安装到系统服务后才能启动
 
 ```shell
-# 64位，在cmd下输入的指令
-net start apache2
-# 32位，在cmd下输入的指令
-net start httpd
+net start <service-httpd>
 ```
 
 > -   默认情况：阿帕奇默认使用80和443端口，如果端口不变，系统只能开启一个阿帕奇服务
@@ -465,18 +406,15 @@ net start httpd
 > cmd要求：需要有管理员权限
 
 ```shell
-# 64位，在cmd下输入的指令
-net stop apache2
-# 32位，在cmd下输入的指令
-net stop httpd
+net stop <service-httpd>
 ```
 
-### 将系统服务设置为开机启动
+### `service-httpd` 属性值列表
 
-> 不管是阿帕奇、mariadb还是其它系统服务方式都一样：
->
-> 1.  进入 `系统服务` 的控制面板中,并找到指定服务
-> 2.  右键 > 属性 > 启动类型（选择自动）
+| digit | `service-httpd` |
+| ----- | --------------- |
+| 64    | apache24        |
+| 32    | httpd           |
 
 ## 配置 php
 
@@ -491,16 +429,20 @@ net stop httpd
 > -   修改：如果我们的php路径不在c盘根目录下，`extension_dir` 就需要指定正确的 `绝对路径`
 > -   操作：将 734 行内容 `; extension_dir = "ext"` 替换如下：
 
-| digits | version | command                                  |
-| ------ | ------- | ---------------------------------------- |
-| 64     | php72   | `extension_dir = "c:\wamp\64\php72\ext"` |
-| 64     | php71   | `extension_dir = "c:\wamp\64\php71\ext"` |
-| 64     | php70   | `extension_dir = "c:\wamp\64\php70\ext"` |
-| 64     | php56   | `extension_dir = "c:\wamp\64\php56\ext"` |
-| 32     | php72   | `extension_dir = "c:\wamp\32\php72\ext"` |
-| 32     | php71   | `extension_dir = "c:\wamp\32\php71\ext"` |
-| 32     | php70   | `extension_dir = "c:\wamp\32\php70\ext"` |
-| 32     | php56   | `extension_dir = "c:\wamp\32\php56\ext"` |
+```ini
+extension_dir = "<extension-path>"
+```
+
+| digit | version  | `extension-path`       |
+| ----- | -------- | ---------------------- |
+| 64    | `php7.2` | `c:\wamp\64\php72\ext` |
+| 64    | `php7.1` | `c:\wamp\64\php71\ext` |
+| 64    | `php7.0` | `c:\wamp\64\php70\ext` |
+| 64    | `php5.6` | `c:\wamp\64\php56\ext` |
+| 32    | `php7.2` | `c:\wamp\32\php72\ext` |
+| 32    | `php7.1` | `c:\wamp\32\php71\ext` |
+| 32    | `php7.0` | `c:\wamp\32\php70\ext` |
+| 32    | `php5.6` | `c:\wamp\32\php56\ext` |
 
 ### php允许错误提示
 
@@ -552,6 +494,9 @@ display_errors = On
     error_reporting(E_ALL & ~E_NOTICE);
     ```
 
+> 错误级别一览表
+
+
 ### 开启 php_xdebug 扩展
 
 > -   前提：php允许错误提示
@@ -597,45 +542,62 @@ zend_extension="xdebug"
 
 ### 创建 my.ini
 
-> 默认情况下mariadb并没有my.ini文件，不过在根目录下面有几个参考文件：
->
-> -   `my-huge.ini` `my-innodb-heavy-4G.ini` `my-large.ini` `my-medium.ini` `my-small.ini`
-> -   这里我们自行配置，因为有几个功能需要正确指定路径才能生效（不配置，默认会在datadir目录生成）
+> -   默认说明：默认情况下mariadb没有my.ini文件，需要我们自己新建
+> -   参考文件：mariadb目录下有几个 `my-*.ini` 文件，都是参考文件，我们可以根据需要自行配置
+> -   操作说明：下面我们在 `c:\wamp\conf` 目录下创建 my.ini，并输入如下内容：
 
 ```ini
-# 在 mariadb 根目录下面新建 my.ini
 [client]
-##port = 3306
+port = 3306
 
 [mysqld]
-##port = 3306
+port = 3306
 datadir = "c:/wamp/data"
-##innodb_data_home_dir = ""
-##innodb_data_file_path = ibdata1:10M:autoextend
-##innodb_log_group_home_dir = ""
 ```
 
-> -   注意：切换版本前需要将data目录下的非目录文件删除掉，并初始化
-> -   技巧：cmd下使用 `--defaults-file` 可以更改 my.ini 的具体位置哦
+> -   提示：`innodb` 索引扩展默认会跟 `datadir` 同级，没有特殊必要不需要配置
+> -   注意：切换版本前需要将data目录下的非目录文件删除掉
 
-```shell
-# 需要管理员权限的cmd，并进入bin目录
---defaults-file=mysql\bin\my.ini --standalone --console
-# 以上指令将my.ini文件设置到了bin目录下
-```
+### 初始化 data 目录
 
-### 初始化 mariadb 的 data 目录
-
-> 初始化前需要将data目录内容复制到指定位置，然后输入下面的指令
+> 前提：需要将data目录内容复制到指定位置
+> cmd：cmd需要管理员权限
+> 操作：cmd进入bin目录，输入指令如下：
 
 ```shell
 mysqld --initialize
 ```
 
-> 提示： 各版本的data目录数据可以共用，这并不影响(切换版本是否需要初始化？)
->
-> -   同版本，不同位数间可以相互切换
-> -   不同版本，低版本切换到高版本允许，高版本切换到低版本就会报错
+> mariadb 初始化影响不大，每次重启都会初始化（除非你不想重启）
+
+### 安装mariadb到系统服务
+
+> -   前提：data目录正确，my.ini文件路径正确
+> -   情况1：my.ini 在mariadb根目录下的安装方法
+> -   情况2：my.ini 不在mariadb根目录下的安装方法
+
+1.  my.ini 在mariadb根目录下
+
+    > cmd：cmd需要管理员权限
+    > 操作：cmd进入bin目录，输入指令如下：
+
+    ```shell
+    mysqld.exe --install <serviceName>
+    ```
+
+    > `serviceName` 是自定义服务名，为空会自动命名为 `MySQL`
+
+2.  my.ini 不在mariadb根目录下
+
+    > 默认:默认会获取在mariadb根目录上的my.ini（假如存在）
+    > cmd：cmd需要管理员权限
+    > 操作：cmd进入bin目录，输入指令如下：
+
+    ```shell
+    mysqld.exe --install <serviceName> --defaults-file=c:\wamp\conf\my.ini
+    ```
+
+### 卸载 mariadb 系统服务
 
 ### 将 mariadb 安装到系统服务
 
@@ -694,6 +656,20 @@ sc delete mariadb100
 ```
 
 > 到此 mariadb 告一段落！
+
+## 配置系统服务启动类型
+
+> 配置服务：不管是阿帕奇系统服务、mariadb系统服务方式都一样：
+
+```shell
+sc config <service-name> start=<set-value>
+```
+
+| `set-value` | explain |
+| ----------- | ------- |
+| auto        | 自动      |
+| demand      | 手动      |
+| disabled    | 禁用      |
 
 ## 附录一：指令集中营
 
