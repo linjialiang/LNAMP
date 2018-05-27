@@ -521,7 +521,7 @@ display_errors = On
 | 例子         | 名称              | 结果                                 |
 | ---------- | --------------- | ---------------------------------- |
 | `$a & $b`  | And（按位与）        | 将把 $a 和 $b 中都为 1 的位设为 1。           |
-| `$a | $b`  | Or（按位或）         | 将把 $a 和 $b 中任何一个为 1 的位设为 1。        |
+| `$a 1 $b`  | Or（按位或）         | 将把 $a 和 $b 中任何一个为 1 的位设为 1。        |
 | `$a ^ $b`  | Xor（按位异或）       | 将把 $a 和 $b 中一个为 1 另一个为 0 的位设为 1。   |
 | `~ $a`     | Not（按位取反）       | 将 $a 中为 0 的位设为 1，反之亦然。             |
 | `$a << $b` | Shift left（左移）  | 将 $a 中的位向左移动 $b 次（每一次移动都表示“乘以 2”）。 |
@@ -608,8 +608,8 @@ mysqld --initialize
 
 1.  my.ini 在mariadb根目录下
 
-> cmd：cmd需要管理员权限
-> 操作：cmd进入bin目录，输入指令如下：
+    > cmd：cmd需要管理员权限
+    > 操作：cmd进入bin目录，输入指令如下：
 
     ```shell
     mysqld.exe --install <service-mariadb>
@@ -703,7 +703,7 @@ mysqld --initialize
     mysqladmin.exe -uroot -p shutdown
     ```
 
-### `sercice-mariadb` 属性值一览表
+### `service-mariadb` 属性值一览表
 
 | digit | version    | `sercice-mariadb` |
 | ----- | ---------- | ----------------- |
@@ -782,4 +782,4 @@ $cfg['SaveDir'] = '';
 
 > -   数据库提供phpmyadmin的高级功能，如果删除，高级功能将无法使用 – 如果未安装或已经删除，可以在找到原因那里，点击Create自动创建
 > -   phpMyAdmin 连接数据库使用的是php的mysqli扩展，所以php必须安装mysqli扩展包
-> -   phpMyAdmin 需要账户有密码登陆，所以我们要为 root 设置密码
+> -   phpMyAdmin 需要账户有密码登陆，所以我们要为mariadb创建一个带密码的账户，本地开发环境下直接为 root 设置密码即可！
