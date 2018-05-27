@@ -758,10 +758,39 @@ Alias /phpmyadmin c:/wamp/phpMyAdmin
 
 ```php
 //<?php
-# config.inc.php 的内容
-# 如果认证方式是 cookie 模式就需要设置短语密码
+// config.inc.php 的内容
+// 如果认证方式是 cookie 模式就需要设置短语密码
 $cfg['blowfish_secret'] = 'nmTPuhjDY6Nt6Mmxy3cLCqeYXuMG3EpqBrsBmEK3FdcqKskckUd4JBdd58A4';
-# 设置认证方式为 cookie
+// 设置认证方式为 cookie
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
-# 开启免密登陆
+// 设置服务器主机为 localhsot
+$cfg['Servers'][$i]['host'] = 'localhost';
+// 开启免密登陆
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
+// 默认主题风格更改为original
+$cfg['ThemeDefault'] = 'original';
+// phpMyAdmin高级功能用户及密码设置为空
+$cfg['Servers'][$i]['controluser'] = '';
+$cfg['Servers'][$i]['controlpass'] = '';
+// 开启phpMyAdmin高级功能
+$cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
+$cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
+$cfg['Servers'][$i]['relation'] = 'pma__relation';
+$cfg['Servers'][$i]['table_info'] = 'pma__table_info';
+$cfg['Servers'][$i]['table_coords'] = 'pma__table_coords';
+$cfg['Servers'][$i]['pdf_pages'] = 'pma__pdf_pages';
+$cfg['Servers'][$i]['column_info'] = 'pma__column_info';
+$cfg['Servers'][$i]['history'] = 'pma__history';
+$cfg['Servers'][$i]['table_uiprefs'] = 'pma__table_uiprefs';
+$cfg['Servers'][$i]['tracking'] = 'pma__tracking';
+$cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
+$cfg['Servers'][$i]['recent'] = 'pma__recent';
+$cfg['Servers'][$i]['favorite'] = 'pma__favorite';
+$cfg['Servers'][$i]['users'] = 'pma__users';
+$cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
+$cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
+$cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
+$cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
+$cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
+$cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
 ```
