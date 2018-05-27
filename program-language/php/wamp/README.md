@@ -642,7 +642,6 @@ mysqld --initialize
 
     > cmd：cmd需要管理员权限
     > `server` 是服务器地址，如果是本地可以省略
-<<<<<<< HEAD
 
     ```shell
     sc <server> delete <service-mariadb>
@@ -650,15 +649,6 @@ mysqld --initialize
 
 ### 启动 mariadb 服务
 
-=======
-
-    ```shell
-    sc <server> delete <service-mariadb>
-    ```
-
-### 启动 mariadb 服务
-
->>>>>>> b3ecca5986a1cfb3cb16e6ca26d55bcb8640b810
 > -   安装系统服务的启动方式
 > -   未安装系统服务的启动方式
 
@@ -680,7 +670,6 @@ mysqld --initialize
     ```
 
     > 如果my.ini不在mariadb根目录需要如下代码：
-<<<<<<< HEAD
 
     ```shell
     mysqld.exe --defaults-file="c:\wamp\conf\my.ini"
@@ -705,32 +694,6 @@ mysqld --initialize
     > 操作：cmd进入bin目录，输入如下代码：
 
     ```shell
-=======
-
-    ```shell
-    mysqld.exe --defaults-file="c:\wamp\conf\my.ini"
-    ```
-
-### 停止 mariadb 服务
-
-> -   安装系统服务的停止方式
-> -   未安装系统服务的停止方式
-
--   安装系统服务版-停止mariadb服务
-
-    > cmd要求：需要管理员权限
-
-    ```shell
-    net stop <service-mariadb>
-    ```
-
--   未安装系统服务版-停止mariadb服务
-
-    > cmd要求：需要管理员权限
-    > 操作：cmd进入bin目录，输入如下代码：
-
-    ```shell
->>>>>>> b3ecca5986a1cfb3cb16e6ca26d55bcb8640b810
     mysqladmin.exe -uroot shutdown
     ```
 
@@ -765,7 +728,6 @@ sc config <service-name> start=<set-value>
 | demand      | 手动      |
 | disabled    | 禁用      |
 
-<<<<<<< HEAD
 ## 安装 phpMyAdmin
 
 > phpMyAdmin 一个基于Web的mariadb管理工具
@@ -820,6 +782,3 @@ $cfg['SaveDir'] = '';
 
 > -   phpmyadmin数据库提供phpmyadmin的高级功能，如果删除，高级功能将无法使用 – 如果未安装或已经删除，可以在找到原因那里，点击Create自动创建
 > -   phpMyAdmin 连接数据库使用的是php的mysqli扩展，所以php必须安装mysqli扩展包
-=======
-## 配置 phpMyAdmin
->>>>>>> b3ecca5986a1cfb3cb16e6ca26d55bcb8640b810
