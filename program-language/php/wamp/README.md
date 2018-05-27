@@ -780,5 +780,6 @@ $cfg['SaveDir'] = '';
 
 ### phpMyAdmin 一些注意事项
 
-> -   phpmyadmin数据库提供phpmyadmin的高级功能，如果删除，高级功能将无法使用 – 如果未安装或已经删除，可以在找到原因那里，点击Create自动创建
+> -   数据库提供phpmyadmin的高级功能，如果删除，高级功能将无法使用 – 如果未安装或已经删除，可以在找到原因那里，点击Create自动创建
 > -   phpMyAdmin 连接数据库使用的是php的mysqli扩展，所以php必须安装mysqli扩展包
+> -   phpMyAdmin 需要账户有密码登陆，所以我们要为 root 设置密码
