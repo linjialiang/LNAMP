@@ -7,7 +7,7 @@ mode con cols=120 lines=40
     DEL /f /q "%TEMP%\Getadmin.vbs" 2>NUL
     Exit /b
 )
-:Menu
+:HomeMenu
 Cls
 @ echo.
 @ echo.　　           【菜单选项】
@@ -27,7 +27,7 @@ if /i "%export%"=="0" exit
 @ echo.
 @ echo              选择无效，请重新输入
 ping -n 2 127.1>nul
-Goto Menu
+Goto HomeMenu
 :Install
 Goto SelectDigit
 :SelectDigit
@@ -43,19 +43,19 @@ Cls
 @ echo.
 set /p export=      输入数字按回车：
 if /i "%export%"=="1" set Digit=64
-if /i "%export%"=="1" set ApacheName=apache24
-if /i "%export%"=="1" set MySQLName=mysql
-if /i "%export%"=="1" Goto SlecteApache24
+if /i "%export%"=="1" set ServiceHttpd=apache24
+if /i "%export%"=="1" set ServiceMySQL=mysql
+if /i "%export%"=="1" Goto IfHttpd
 if /i "%export%"=="2" set Digit=32
-if /i "%export%"=="2" set ApacheName=httpd
-if /i "%export%"=="2" set MySQLName=mariadb
-if /i "%export%"=="2" Goto SlecteApache24
+if /i "%export%"=="2" set ServiceHttpd=httpd
+if /i "%export%"=="2" set ServiceMySQL=mariadb
+if /i "%export%"=="2" Goto IfHttpd
 if /i "%export%"=="0" exit
 @ echo.
 @ echo              选择无效，请重新输入
 ping -n 2 127.1>nul
 Goto SelectDigit
-:SlecteApache24
+:IfHttpd
 Cls
 @ echo.
 @ echo.　　　      【是否安装 apache24】
@@ -69,40 +69,44 @@ Cls
 @ echo.             退出 → 请输入0
 @ echo.
 set /p export=      输入数字按回车：
-if /i "%export%"=="1" Goto ReturnApache24
-if /i "%export%"=="2" Goto SlecteMySQLVersions
+if /i "%export%"=="1" Goto ReturnHttpd
+if /i "%export%"=="2" Goto SelecteMySQL
 if /i "%export%"=="3" Goto SelectDigit
 if /i "%export%"=="0" exit
 @ echo.
 echo                选择无效，请重新输入
 ping -n 2 127.1>nul
-Goto SlecteApache24
-:SlecteMySQLVersions
+Goto IfHttpd
+:SelecteMySQL
 Cls
 @ echo.
 @ echo.　　　　       【选择 mariadb 版本】
 @ echo.
-@ echo.             mariadb 10.2 → 请输入1
+@ echo.             mariadb 10.3 → 请输入1
 @ echo.
-@ echo.             mariadb 10.1 → 请输入2
+@ echo.             mariadb 10.2 → 请输入2
 @ echo.
-@ echo.             mariadb 10.0 → 请输入3
+@ echo.             mariadb 10.1 → 请输入3
+@ echo.
+@ echo.             mariadb 10.0 → 请输入4
 @ echo.
 @ echo.             退出 → 请输入0
 @ echo.
 set /p export=      输入数字按回车：
-if /i "%export%"=="1" SET MySQLVersion=102
-if /i "%export%"=="1" Goto SlecteMySQL
-if /i "%export%"=="2" SET MySQLVersion=101
-if /i "%export%"=="2" Goto SlecteMySQL
-if /i "%export%"=="3" SET MySQLVersion=100
-if /i "%export%"=="3" Goto SlecteMySQL
+if /i "%export%"=="1" SET MySQLVersion=103
+if /i "%export%"=="1" Goto IfMySQL
+if /i "%export%"=="2" SET MySQLVersion=102
+if /i "%export%"=="2" Goto IfMySQL
+if /i "%export%"=="3" SET MySQLVersion=101
+if /i "%export%"=="3" Goto IfMySQL
+if /i "%export%"=="4" SET MySQLVersion=100
+if /i "%export%"=="4" Goto IfMySQL
 if /i "%export%"=="0" exit
 @ echo.
 @ echo              选择无效，请重新输入
 ping -n 2 127.1>nul
-Goto SlecteMySQLVersions
-:SlecteMySQL
+Goto SelecteMySQL
+:IfMySQL
 Cls
 @ echo.
 @ echo.　　　      【是否安装 mariadb】
@@ -118,31 +122,31 @@ Cls
 set /p export=      输入数字按回车：
 if /i "%export%"=="1" Goto ReturnMySQL
 if /i "%export%"=="2" exit
-if /i "%export%"=="3" Goto SlecteMySQLVersions
+if /i "%export%"=="3" Goto SelecteMySQL
 if /i "%export%"=="0" exit
 @ echo.
 echo                选择无效，请重新输入
 ping -n 2 127.1>nul
-Goto SlecteMySQL
-:ReturnApache24
+Goto IfMySQL
+:ReturnHttpd
 Cls
 @ echo.
-@ echo              将%ApacheName%安装到系统服务...
+@ echo              将%ServiceHttpd%安装到系统服务...
 @ c:
 @ cd c:\wamp\%Digit%\apache24\bin\
-@ httpd.exe -k install -n %ApacheName%
+@ httpd.exe -k install -n %ServiceHttpd%
 @ echo.
-@ echo              %ApacheName%安装成功！
+@ echo              %ServiceHttpd%安装成功！
 ping -n 2 127.1>nul
-Goto SlecteMySQL
+Goto IfMySQL
 :ReturnMySQL
 Cls
 @ echo.
-@ echo              将%MySQLName%%MySQLVersion%安装到系统服务...
+@ echo              将%ServiceMySQL%%MySQLVersion%安装到系统服务...
 @ cd c:\wamp\%Digit%\mariadb%MySQLVersion%\bin\
-@ mysqld.exe install %MySQLName%%MySQLVersion%
+@ mysqld.exe --install %ServiceMySQL%%MySQLVersion% --defaults-file=c:\wamp\conf\my.ini
 @ echo.
-@ echo              安装%MySQLName%%MySQLVersion%成功！
+@ echo              安装%ServiceMySQL%%MySQLVersion%成功！
 ping -n 2 127.1>nul
 @ echo.
 echo                按任意键退出...
@@ -151,23 +155,23 @@ exit
 :SpeedInstall
 Cls
 set Digit=64
-set ApacheName=apache24
-set MySQLVersion=102
-set MySQLName=mysql
+set ServiceHttpd=apache24
+set MySQLVersion=103
+set ServiceMySQL=mysql
 @ echo.
-@ echo              将%ApacheName%安装到系统服务...
+@ echo              将%ServiceHttpd%安装到系统服务...
 @ c:
 @ cd c:\wamp\%Digit%\apache24\bin\
-@ httpd.exe -k install -n %ApacheName%
+@ httpd.exe -k install -n %ServiceHttpd%
 @ echo.
-@ echo              %ApacheName%安装成功！
+@ echo              %ServiceHttpd%安装成功！
 ping -n 2 127.1>nul
 @ echo.
-@ echo              将%MySQLName%%MySQLVersion%安装到系统服务...
+@ echo              将%ServiceMySQL%%MySQLVersion%安装到系统服务...
 @ cd c:\wamp\%Digit%\mariadb%MySQLVersion%\bin\
-@ mysqld.exe install %MySQLName%%MySQLVersion%
+@ mysqld.exe --install %ServiceMySQL%%MySQLVersion% --defaults-file=c:\wamp\conf\my.ini
 @ echo.
-@ echo              安装%MySQLName%%MySQLVersion%成功！
+@ echo              安装%ServiceMySQL%%MySQLVersion%成功！
 ping -n 2 127.1>nul
 @ echo.
 echo                按任意键退出...

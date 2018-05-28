@@ -18,7 +18,7 @@ Cls
 @ echo.
 @ echo.             退出 → 请输入0
 @ echo.
-@ echo.             警告：该操作比较危险，慎重选择！
+@ echo.             警告：该操作危险，慎重选择！
 @ echo.
 set /p export=      输入数字按回车：
 if /i "%export%"=="1" Goto DeleteAll
@@ -36,6 +36,9 @@ ping -n 2 127.1>nul
 @ echo.             删除httpd
 sc delete httpd
 ping -n 2 127.1>nul
+@ echo.             删除mysql103
+sc delete mysql103
+ping -n 2 127.1>nul
 @ echo.             删除mysql102
 sc delete mysql102
 ping -n 2 127.1>nul
@@ -44,6 +47,9 @@ sc delete mysql101
 ping -n 2 127.1>nul
 @ echo.             删除mysql100
 sc delete mysql100
+ping -n 2 127.1>nul
+@ echo.             删除mariadb103
+sc delete mariadb103
 ping -n 2 127.1>nul
 @ echo.             删除mariadb102
 sc delete mariadb102
@@ -62,14 +68,19 @@ exit
 :UnInstallAll
 @ echo.
 @ echo              卸载apache24
-c:
-cd c:\wamp\64\apache24\bin\
-httpd.exe -k uninstall -n apache24
+@ c:
+@ cd c:\wamp\64\apache24\bin\
+@ httpd.exe -k uninstall -n apache24
 ping -n 2 127.1>nul
 @ echo.
 @ echo              卸载httpd
 cd c:\wamp\32\apache24\bin\
 httpd.exe -k uninstall -n httpd
+ping -n 2 127.1>nul
+@ echo.
+@ echo              将mysql103从系统服务里卸载...
+@ cd c:\wamp\64\mariadb103\bin\
+@ mysqld.exe remove mysql103
 ping -n 2 127.1>nul
 @ echo.
 @ echo              将mysql102从系统服务里卸载...
@@ -82,12 +93,17 @@ ping -n 2 127.1>nul
 @ mysqld.exe remove mysql101
 ping -n 2 127.1>nul
 @ echo.
-@ echo              将mariadb100从系统服务里卸载...
+@ echo              将mysql100从系统服务里卸载...
 @ cd c:\wamp\64\mariadb100\bin\
 @ mysqld.exe remove mysql100
 ping -n 2 127.1>nul
 @ echo.
-@ echo              将mysql102从系统服务里卸载...
+@ echo              将mariadb103从系统服务里卸载...
+@ cd c:\wamp\32\mariadb103\bin\
+@ mysqld.exe remove mariadb103
+ping -n 2 127.1>nul
+@ echo.
+@ echo              将mariadb102从系统服务里卸载...
 @ cd c:\wamp\32\mariadb102\bin\
 @ mysqld.exe remove mariadb102
 ping -n 2 127.1>nul
@@ -102,6 +118,7 @@ ping -n 2 127.1>nul
 @ mysqld.exe remove mariadb100
 ping -n 2 127.1>nul
 @ echo.
+@ echo              卸载了所有相关服务，如果删除了不该删除的，请见谅！请反馈！
 echo                按任意键退出...
 pause>nul
 exit
