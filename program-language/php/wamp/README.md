@@ -775,16 +775,13 @@ Alias /phpmyadmin c:/wamp/phpMyAdmin
 // config.inc.php 的内容
 //<?php
 //短语密码
-$cfg['blowfish_secret'] = 'yu7ErJG6FvjeRfWSrGukuBsb3gVTqYETgtfEqtG5tST3vCw8e7';
-//设置默认主题风格为original
-$cfg['ThemeDefault'] = 'original';
+$cfg['blowfish_secret'] = 'bYm@XyamR)P2BurDwNKKwN\uL4YQsV$m(Fp6m';
 $i = 0;
 $i++;
 //设置登陆方式为cookie
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 $cfg['Servers'][$i]['host'] = 'localhost';
 $cfg['Servers'][$i]['compress'] = false;
-//不允许免密登陆
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
