@@ -21,10 +21,11 @@
 -   `mariadb-10.0.35-winx64.zip`
 -   `mariadb-10.1.33-winx64.zip`
 -   `mariadb-10.2.15-winx64.zip`
+-   `mariadb-10.3.7-winx64.zip`
 -   `php-5.6.36-Win32-VC11-x64.zip`
 -   `php-7.0.30-Win32-VC14-x64.zip`
--   `php-7.1.17-Win32-VC14-x64.zip`
--   `php-7.2.5-Win32-VC15-x64.zip`
+-   `php-7.1.18-Win32-VC14-x64.zip`
+-   `php-7.2.6-Win32-VC15-x64.zip`
 
 ### 安装包列表（32 位）
 
@@ -32,10 +33,11 @@
 -   `mariadb-10.0.35-win32.zip`
 -   `mariadb-10.1.33-win32.zip`
 -   `mariadb-10.2.15-win32.zip`
+-   `mariadb-10.3.7-win32.zip`
 -   `php-5.6.36-Win32-VC11-x86.zip`
 -   `php-7.0.30-Win32-VC14-x86.zip`
--   `php-7.1.17-Win32-VC14-x86.zip`
--   `php-7.2.5-Win32-VC15-x86.zip`
+-   `php-7.1.18-Win32-VC14-x86.zip`
+-   `php-7.2.6-Win32-VC15-x86.zip`
 
 ### 安装包解压后的位置
 
@@ -51,6 +53,10 @@ c:/wamp                         wamp部署目录（或者子目录）
 │  │  ├─conf                    配置
 │  │  │  ├─httpd.conf           阿帕奇主配置文件
 │  │  │  └─ ...
+│  │  └─ ...
+│  │
+│  ├─mariadb103                 mariadb 10.3版本
+│  │  ├─bin                     mariadb可执行程序目录
 │  │  └─ ...
 │  │
 │  ├─mariadb102                 mariadb 10.2版本
@@ -92,6 +98,10 @@ c:/wamp                         wamp部署目录（或者子目录）
 │  │  ├─conf                    配置
 │  │  │  ├─httpd.conf           阿帕奇主配置文件
 │  │  │  └─ ...
+│  │  └─ ...
+│  │
+│  ├─mariadb103                 mariadb 10.3版本
+│  │  ├─bin                     mariadb可执行程序目录
 │  │  └─ ...
 │  │
 │  ├─mariadb102                 mariadb 10.2版本
