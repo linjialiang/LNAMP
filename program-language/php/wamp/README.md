@@ -717,9 +717,11 @@ mysqld --initialize
 
 | digit | version    | `sercice-mariadb` |
 | ----- | ---------- | ----------------- |
+| 64    | mariadb103 | mysql103          |
 | 64    | mariadb102 | mysql102          |
 | 64    | mariadb101 | mysql101          |
 | 64    | mariadb100 | mysql100          |
+| 32    | mariadb103 | mariadb103        |
 | 32    | mariadb102 | mariadb102        |
 | 32    | mariadb101 | mariadb101        |
 | 32    | mariadb100 | mariadb100        |
