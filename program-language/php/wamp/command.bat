@@ -94,6 +94,8 @@ Cls
 @ echo.
 @ echo.             关闭服务 → 请输入2
 @ echo.
+@ echo.             重启服务 → 请输入5
+@ echo.
 @ echo.             配置服务 → 请输入3
 @ echo.
 @ echo.             返回菜单 → 请输入4
@@ -105,6 +107,7 @@ if /i "%export%"=="1" Goto StartService
 if /i "%export%"=="2" Goto StopService
 if /i "%export%"=="3" Goto SetService
 if /i "%export%"=="4" Goto SelectService
+if /i "%export%"=="5" Goto RestartService
 if /i "%export%"=="0" exit
 @ echo.
 @ echo              选择无效，请重新输入
@@ -119,6 +122,8 @@ Cls
 @ echo.
 @ echo.             关闭服务 → 请输入2
 @ echo.
+@ echo.             重启服务 → 请输入5
+@ echo.
 @ echo.             配置服务 → 请输入3
 @ echo.
 @ echo.             返回菜单 → 请输入4
@@ -130,25 +135,12 @@ if /i "%export%"=="1" Goto StartGroup
 if /i "%export%"=="2" Goto StopGroup
 if /i "%export%"=="3" Goto SetGroup
 if /i "%export%"=="4" Goto SelectService
+if /i "%export%"=="5" Goto RestartGroup
 if /i "%export%"=="0" exit
 @ echo.
 @ echo              选择无效，请重新输入
 ping -n 2 127.1>nul
 Goto GroupMenu
-:StartService
-Cls
-@ echo.
-@ echo.             开启%ServiceName%中...
-net start %ServiceName%
-ping -n 2 127.1>nul
-Goto SelectService
-:StopService
-Cls
-@ echo.
-@ echo.             关闭%ServiceName%中...
-net stop %ServiceName%
-ping -n 2 127.1>nul
-Goto SelectService
 :SetService
 Cls
 @ echo.
@@ -168,45 +160,15 @@ set /p export=      输入数字按回车：
 if /i "%export%"=="1" set SetName=auto
 if /i "%export%"=="2" set SetName=demand
 if /i "%export%"=="3" set SetName=disabled
-if /i "%export%"=="1" Goto SetSelect
-if /i "%export%"=="2" Goto SetSelect
-if /i "%export%"=="3" Goto SetSelect
+if /i "%export%"=="1" Goto RetuenSetService
+if /i "%export%"=="2" Goto RetuenSetService
+if /i "%export%"=="3" Goto RetuenSetService
 if /i "%export%"=="4" Goto SelectService
 if /i "%export%"=="0" exit
 @ echo.
 @ echo              选择无效，请重新输入
 ping -n 2 127.1>nul
 Goto SetService
-:SetSelect
-Cls
-@ echo.
-@ echo.             设置%ServiceName%为%SetName%...
-sc config %ServiceName% start=%SetName%
-ping -n 2 127.1>nul
-Goto SelectService
-:StartGroup
-Cls
-@ echo.
-@ echo.             开启%HttpdName%中...
-net start %HttpdName%
-ping -n 2 127.1>nul
-@ echo.
-@ echo.             开启%MySQLName%中...
-net start %MySQLName%
-ping -n 2 127.1>nul
-Goto SelectService
-
-:StopGroup
-Cls
-@ echo.
-@ echo.             关闭%HttpdName%中...
-net stop %HttpdName%
-ping -n 2 127.1>nul
-@ echo.
-@ echo.             关闭%MySQLName%中...
-net stop %MySQLName%
-ping -n 2 127.1>nul
-Goto SelectService
 :SetGroup
 Cls
 @ echo.
@@ -226,16 +188,81 @@ set /p export=      输入数字按回车：
 if /i "%export%"=="1" set SetName=auto
 if /i "%export%"=="2" set SetName=demand
 if /i "%export%"=="3" set SetName=disabled
-if /i "%export%"=="1" Goto SetSelect
-if /i "%export%"=="2" Goto SetSelect
-if /i "%export%"=="3" Goto SetSelect
+if /i "%export%"=="1" Goto RetuenSetGroup
+if /i "%export%"=="2" Goto RetuenSetGroup
+if /i "%export%"=="3" Goto RetuenSetGroup
 if /i "%export%"=="4" Goto SelectService
 if /i "%export%"=="0" exit
 @ echo.
 @ echo              选择无效，请重新输入
 ping -n 2 127.1>nul
 Goto SetGroup
-:SetSelect
+:StartService
+Cls
+@ echo.
+@ echo.             开启%ServiceName%中...
+net start %ServiceName%
+ping -n 2 127.1>nul
+Goto SelectService
+:StopService
+Cls
+@ echo.
+@ echo.             关闭%ServiceName%中...
+net stop %ServiceName%
+ping -n 2 127.1>nul
+Goto SelectService
+:RestartService
+Cls
+@ echo.
+@ echo.             重启%ServiceName%中...
+net stop %ServiceName%
+net start %ServiceName%
+@ echo.
+@ echo.             重启%ServiceName%成功...
+ping -n 2 127.1>nul
+Goto SelectService
+:RetuenSetService
+Cls
+@ echo.
+@ echo.             设置%ServiceName%为%SetName%...
+sc config %ServiceName% start=%SetName%
+ping -n 2 127.1>nul
+Goto SelectService
+:StartGroup
+Cls
+@ echo.
+@ echo.             开启%HttpdName%中...
+net start %HttpdName%
+ping -n 2 127.1>nul
+@ echo.
+@ echo.             开启%MySQLName%中...
+net start %MySQLName%
+ping -n 2 127.1>nul
+Goto SelectService
+:StopGroup
+Cls
+@ echo.
+@ echo.             关闭%HttpdName%中...
+net stop %HttpdName%
+ping -n 2 127.1>nul
+@ echo.
+@ echo.             关闭%MySQLName%中...
+net stop %MySQLName%
+ping -n 2 127.1>nul
+Goto SelectService
+:RestartGroup
+Cls
+@ echo.
+@ echo.             重启%HttpdName% %MySQLName%中...
+net stop %HttpdName%
+net stop %MySQLName%
+net start %HttpdName%
+net start %MySQLName%
+@ echo.
+@ echo.             重启%MySQLName% %MySQLName%成功...
+ping -n 2 127.1>nul
+Goto SelectService
+:RetuenSetGroup
 Cls
 @ echo.
 @ echo.             设置%HttpdName%为%SetName%...
