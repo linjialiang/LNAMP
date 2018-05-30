@@ -787,6 +787,11 @@ $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
 ```
 
+### 提示部分功能未启用的解决方法
+> 1. 删除数据库： 将 phpmyadmin 数据库删除
+> 2. 登陆phpMyAdmin:首页找到原因那里，进入原因页面
+> 3. 创建数据库：进入原因页面后，点击Create会自动创建 phpmyadmin 数据库，这样即可！
+
 ### phpMyAdmin 一些注意事项
 
 > -   数据库提供phpmyadmin的高级功能，如果删除，高级功能将无法使用 – 如果未安装或已经删除，可以在找到原因那里，点击Create自动创建
