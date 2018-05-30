@@ -10,15 +10,15 @@ mode con cols=120 lines=40
 :Menu
 Cls
 @ echo.
-@ echo.　　           【菜单选项】
+@ echo 　　           【菜单选项】
 @ echo.
-@ echo.             强删所有相关服务 → 请输入1
+@ echo              强删所有相关服务 → 请输入1
 @ echo.
-@ echo.             卸载所有相关服务 → 请输入2
+@ echo              卸载所有相关服务 → 请输入2
 @ echo.
-@ echo.             退出 → 请输入0
+@ echo              退出 → 请输入0
 @ echo.
-@ echo.             警告：该操作危险，慎重选择！
+@ echo              警告：该操作危险，慎重选择！
 @ echo.
 set /p export=      输入数字按回车：
 if /i "%export%"=="1" Goto DeleteAll
@@ -30,40 +30,47 @@ ping -n 2 127.1>nul
 Goto Menu
 :DeleteAll
 @ echo.
-@ echo.             删除apache24
+@ echo              删除apache24
 sc delete apache2
 ping -n 2 127.1>nul
-@ echo.             删除httpd
+@ echo.
+@ echo              删除httpd
 sc delete httpd
 ping -n 2 127.1>nul
-@ echo.             删除mysql103
+@ echo.
+@ echo              删除mysql103
 sc delete mysql103
 ping -n 2 127.1>nul
-@ echo.             删除mysql102
+@ echo.
+@ echo              删除mysql102
 sc delete mysql102
 ping -n 2 127.1>nul
-@ echo.             删除mysql101
+@ echo.
+@ echo              删除mysql101
 sc delete mysql101
 ping -n 2 127.1>nul
-@ echo.             删除mysql100
+@ echo.
+@ echo              删除mysql100
 sc delete mysql100
 ping -n 2 127.1>nul
-@ echo.             删除mariadb103
+@ echo.
+@ echo              删除mariadb103
 sc delete mariadb103
 ping -n 2 127.1>nul
-@ echo.             删除mariadb102
+@ echo.
+@ echo              删除mariadb102
 sc delete mariadb102
 ping -n 2 127.1>nul
-@ echo.             删除mariadb101
+@ echo.
+@ echo              删除mariadb101
 sc delete mariadb101
 ping -n 2 127.1>nul
-@ echo.             删除mariadb100
-sc delete mariadb100
-ping -n 2 127.1>nul
 @ echo.
-@ echo              强制删除所有相关服务完毕，如果删除了不该删除的，请见谅！请反馈！
-echo                按任意键退出...
-pause>nul
+@ echo              删除mariadb100
+sc delete mariadb100         
+@ echo.
+@ echo              强制删除所有相关服务完毕，如果删除了不该删除的，请见谅！请反馈！3秒后退出脚本...
+ping -n 3 127.1>nul
 exit
 :UnInstallAll
 @ echo.
@@ -118,7 +125,6 @@ ping -n 2 127.1>nul
 @ mysqld.exe remove mariadb100
 ping -n 2 127.1>nul
 @ echo.
-@ echo              卸载了所有相关服务，如果删除了不该删除的，请见谅！请反馈！
-echo                按任意键退出...
-pause>nul
+@ echo              卸载了所有相关服务，如果删除了不该删除的，请见谅！请反馈！3秒后退出脚本...
+ping -n 3 127.1>nul
 exit

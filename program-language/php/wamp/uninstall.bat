@@ -18,17 +18,17 @@ Cls
 @ echo.
 @ echo.             退出 → 请输入0
 @ echo.
-@ echo.             提示：如果指向卸载极速卸载的软件，，直接选择极速卸载即可！
+@ echo.             提示：如果只是推荐安装的话，我们选择极速卸载即可！
 @ echo.
 set /p export=      输入数字按回车：
-if /i "%export%"=="1" Goto UnInstall
-if /i "%export%"=="2" Goto SpeedUnInstall
+if /i "%export%"=="1" Goto Uninstall
+if /i "%export%"=="2" Goto SpeedUninstall
 if /i "%export%"=="0" exit
 @ echo.
 @ echo              选择无效，请重新输入
 ping -n 2 127.1>nul
 Goto HomeMenu
-:UnInstall
+:Uninstall
 Goto SelectDigit
 :SelectDigit
 Cls
@@ -50,6 +50,7 @@ if /i "%export%"=="2" set Digit=32
 if /i "%export%"=="2" set ServiceHttpd=httpd
 if /i "%export%"=="2" set ServiceMySQL=mariadb
 if /i "%export%"=="2" Goto IfHttpd
+if /i "%export%"=="3" Goto HomeMenu
 if /i "%export%"=="0" exit
 @ echo.
 @ echo              选择无效，请重新输入
@@ -58,9 +59,9 @@ Goto SelectDigit
 :IfHttpd
 Cls
 @ echo.
-@ echo.　　　      【是否卸载 apache24】
+@ echo.　　　      【是否卸载%Digit%位的%ServiceHttpd%】
 @ echo.
-@ echo.             继续卸载 → 请输入1
+@ echo.             确定卸载 → 请输入1
 @ echo.
 @ echo.             跳过卸载 → 请输入2
 @ echo.
@@ -80,7 +81,7 @@ Goto IfHttpd
 :SelecteMySQL
 Cls
 @ echo.
-@ echo.　　　　       【选择 mariadb 版本】
+@ echo.　　　　       【选择%Digit%位的mariadb版本】
 @ echo.
 @ echo.             mariadb 10.3 → 请输入1
 @ echo.
@@ -109,9 +110,9 @@ Goto SelecteMySQL
 :IfMySQL
 Cls
 @ echo.
-@ echo.　　　      【是否卸载 mariadb】
+@ echo.　　　      【是否卸载%Digit%位的%ServiceMySQL%%MySQLVersion%】
 @ echo.
-@ echo.             继续卸载 → 请输入1
+@ echo.             确定卸载 → 请输入1
 @ echo.
 @ echo.             取消卸载 → 请输入2
 @ echo.
@@ -134,25 +135,24 @@ Cls
 @ echo              将%ServiceHttpd%从系统服务卸载...
 @ c:
 @ cd c:\wamp\%Digit%\apache24\bin\
+@ net stop %ServiceHttpd%
 @ httpd.exe -k uninstall -n %ServiceHttpd%
 @ echo.
-@ echo              %ServiceHttpd%卸载成功！
+@ echo              %ServiceHttpd%卸载成功！即将进入mariadb卸载界面...
 ping -n 2 127.1>nul
-Goto IfMySQL
+Goto SelecteMySQL
 :ReturnMySQL
 Cls
 @ echo.
 @ echo              将%ServiceMySQL%%MySQLVersion%从系统服务卸载...
 @ cd c:\wamp\%Digit%\mariadb%MySQLVersion%\bin\
-@ mysqld.exe --remove %ServiceMySQL%%MySQLVersion%
+@ net stop %ServiceMySQL%%MySQLVersion%
+@ mysqld.exe --remove %ServiceMySQL%%MySQLVersion% --defaults-file=c:\wamp\conf\my.ini
 @ echo.
-@ echo              卸载%ServiceMySQL%%MySQLVersion%成功！
-ping -n 2 127.1>nul
-@ echo.
-echo                按任意键退出...
-pause>nul
-exit
-:SpeedUnInstall
+@ echo              卸载%ServiceMySQL%%MySQLVersion%成功！3秒后退出脚本...
+ping -n 3 127.1>nul
+Goto HomeMenu
+:SpeedUninstall
 Cls
 set Digit=64
 set ServiceHttpd=apache24
@@ -169,11 +169,8 @@ ping -n 2 127.1>nul
 @ echo.
 @ echo              将%ServiceMySQL%%MySQLVersion%从系统服务卸载...
 @ cd c:\wamp\%Digit%\mariadb%MySQLVersion%\bin\
-@ mysqld.exe --remove %ServiceMySQL%%MySQLVersion%
+@ mysqld.exe --remove %ServiceMySQL%%MySQLVersion% --defaults-file=c:\wamp\conf\my.ini
 @ echo.
-@ echo              卸载%ServiceMySQL%%MySQLVersion%成功！
-ping -n 2 127.1>nul
-@ echo.
-echo                按任意键退出...
-pause>nul
+@ echo              卸载%ServiceMySQL%%MySQLVersion%成功！3秒后退出脚本...
+ping -n 3 127.1>nul
 exit

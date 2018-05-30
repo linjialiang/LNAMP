@@ -14,11 +14,11 @@ Cls
 @ echo.
 @ echo.             安装 → 请输入1
 @ echo.
-@ echo.             极速 → 请输入2
+@ echo.             推荐安装 → 请输入2
 @ echo.
 @ echo.             退出 → 请输入0
 @ echo.
-@ echo.             提示：建议大家只选择一种位数安装，如果是64位可直接选择极速安装！
+@ echo.             提示：建议大家只选择一种位数安装，如果是64位可直接选择推荐安装！
 @ echo.
 set /p export=      输入数字按回车：
 if /i "%export%"=="1" Goto Install
@@ -39,6 +39,8 @@ Cls
 @ echo.
 @ echo.             32位 → 请输入2
 @ echo.
+@ echo.             主菜单 → 请输入3
+@ echo.
 @ echo.             退出 → 请输入0
 @ echo.
 set /p export=      输入数字按回车：
@@ -50,6 +52,7 @@ if /i "%export%"=="2" set Digit=32
 if /i "%export%"=="2" set ServiceHttpd=httpd
 if /i "%export%"=="2" set ServiceMySQL=mariadb
 if /i "%export%"=="2" Goto IfHttpd
+if /i "%export%"=="3" Goto HomeMenu
 if /i "%export%"=="0" exit
 @ echo.
 @ echo              选择无效，请重新输入
@@ -58,9 +61,9 @@ Goto SelectDigit
 :IfHttpd
 Cls
 @ echo.
-@ echo.　　　      【是否安装 apache24】
+@ echo.　　　      【是否安装%Digit%位的%ServiceHttpd%】
 @ echo.
-@ echo.             继续安装 → 请输入1
+@ echo.             确定安装 → 请输入1
 @ echo.
 @ echo.             跳过安装 → 请输入2
 @ echo.
@@ -80,7 +83,7 @@ Goto IfHttpd
 :SelecteMySQL
 Cls
 @ echo.
-@ echo.　　　　       【选择 mariadb 版本】
+@ echo.　　　　       【选择%Digit%位的mariadb版本】
 @ echo.
 @ echo.             mariadb 10.3 → 请输入1
 @ echo.
@@ -109,9 +112,9 @@ Goto SelecteMySQL
 :IfMySQL
 Cls
 @ echo.
-@ echo.　　　      【是否安装 mariadb】
+@ echo.　　　      【是否安装%Digit%位的%ServiceMySQL%%MySQLVersion%】
 @ echo.
-@ echo.             继续安装 → 请输入1
+@ echo.             确定安装 → 请输入1
 @ echo.
 @ echo.             取消安装 → 请输入2
 @ echo.
@@ -136,9 +139,9 @@ Cls
 @ cd c:\wamp\%Digit%\apache24\bin\
 @ httpd.exe -k install -n %ServiceHttpd%
 @ echo.
-@ echo              %ServiceHttpd%安装成功！
+@ echo              %ServiceHttpd%安装成功！即将进入mariadb安装界面...
 ping -n 2 127.1>nul
-Goto IfMySQL
+Goto SelecteMySQL
 :ReturnMySQL
 Cls
 @ echo.
@@ -146,12 +149,9 @@ Cls
 @ cd c:\wamp\%Digit%\mariadb%MySQLVersion%\bin\
 @ mysqld.exe --install %ServiceMySQL%%MySQLVersion% --defaults-file=c:\wamp\conf\my.ini
 @ echo.
-@ echo              安装%ServiceMySQL%%MySQLVersion%成功！
-ping -n 2 127.1>nul
-@ echo.
-echo                按任意键退出...
-pause>nul
-exit
+@ echo              安装%ServiceMySQL%%MySQLVersion%成功！3秒后退出脚本...
+ping -n 3 127.1>nul
+Goto HomeMenu
 :SpeedInstall
 Cls
 set Digit=64
@@ -171,9 +171,6 @@ ping -n 2 127.1>nul
 @ cd c:\wamp\%Digit%\mariadb%MySQLVersion%\bin\
 @ mysqld.exe --install %ServiceMySQL%%MySQLVersion% --defaults-file=c:\wamp\conf\my.ini
 @ echo.
-@ echo              安装%ServiceMySQL%%MySQLVersion%成功！
-ping -n 2 127.1>nul
-@ echo.
-echo                按任意键退出...
-pause>nul
+@ echo              安装%ServiceMySQL%%MySQLVersion%成功！3秒后退出脚本...
+ping -n 3 127.1>nul
 exit
