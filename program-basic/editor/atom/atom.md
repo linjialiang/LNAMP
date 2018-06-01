@@ -87,7 +87,7 @@ Community Packages (40) C:\\Users\\username\\.atom\\packages
 ├── aligner@1.2.4
 ├── aligner-javascript@1.3.0
 ├── aligner-php@1.2.0
-├── atom-beautify@0.32.4
+├── atom-beautify@0.32.5
 ├── atom-clock@0.1.16
 ├── atom-html-preview@0.2.5
 ├── atom-ide-ui@0.12.0
@@ -334,7 +334,7 @@ apm install autocomplete-paths
 ### `atom` 色彩插件
 
 > - `color-picker` 使用快捷 `Ctrl-Alt-C` 可以展开色彩选择面板
-> - `pigments` 在 html css 里面显示颜色值的颜色， 配置界面里面根据自己需求配置
+> - `pigments` 在 html css 里面显示颜色值的颜色， 配置界面里面根据自己需求配置（导致太卡，已经移除）
 > - 不重点讲解
 
 ```shell
@@ -380,7 +380,7 @@ apm install autoclose-html
 apm install emmet
 ```
 
-### 让 `atom` 的 js 补全更加优秀
+### 让 `atom` 的 js 补全更加优秀（已经移除）
 
 > `atom-ternjs` 这个插件可以让 js 本地提示更加智能、全面
 
