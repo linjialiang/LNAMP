@@ -82,7 +82,7 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (40) C:\\Users\\username\\.atom\\packages
+Community Packages (43) C:\\Users\\username\\.atom\\packages
 ├── advanced-open-file@0.16.8
 ├── aligner@1.2.4
 ├── aligner-javascript@1.3.0
@@ -91,33 +91,36 @@ Community Packages (40) C:\\Users\\username\\.atom\\packages
 ├── atom-clock@0.1.16
 ├── atom-html-preview@0.2.5
 ├── atom-ide-ui@0.12.0
-├── atom-material-syntax@1.0.8
-├── atom-material-ui@2.1.3
 ├── autocomplete-paths@2.12.2
 ├── autoprefixer@3.7.1
 ├── color-picker@2.3.0
 ├── docblockr@0.13.7
+├── dracula-syntax@2.0.7
 ├── emmet@2.4.3
 ├── ex-mode@0.18.0
 ├── file-icons@2.1.21
+├── git-blame@1.7.0
 ├── git-plus@7.10.2
-├── git-time-machine@2.0.1
+├── git-time-machine@2.1.0
 ├── highlight-selected@0.13.1
 ├── ide-php@0.7.14
 ├── ide-typescript@0.7.6
 ├── markdown-scroll-sync@2.1.2
 ├── merge-conflicts@1.4.5
 ├── minimap@4.29.8
+├── minimap-cursorline@0.2.0
 ├── minimap-find-and-replace@4.5.2
 ├── minimap-git-diff@4.3.1
 ├── minimap-highlight-selected@4.6.1
 ├── minimap-split-diff@0.3.7
 ├── monokai@0.24.0
-├── native-ui@0.26.2
 ├── nord-atom-syntax@0.9.1
+├── nord-atom-ui@0.11.0
+├── northem-light-atom-ui@2.1.1
 ├── open-in-browser@0.5.2
 ├── project-viewer@1.3.1
 ├── relative-numbers@0.9.0
+├── script@3.18.1
 ├── split-diff@1.5.2
 ├── Sublime-Style-Column-Selection@1.7.4
 ├── sync-settings@0.8.6
