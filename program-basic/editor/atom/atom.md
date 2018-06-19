@@ -82,7 +82,7 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (42) C:\\Users\\username\\.atom\\packages
+Community Packages (43) C:\\Users\\username\\.atom\\packages
 ├── aligner@1.2.4
 ├── aligner-javascript@1.3.0
 ├── aligner-php@1.2.0
@@ -102,6 +102,7 @@ Community Packages (42) C:\\Users\\username\\.atom\\packages
 ├── file-icons@2.1.21
 ├── git-plus@7.10.2
 ├── git-time-machine@2.1.0
+├── github-atom-light-syntax@0.5.0
 ├── highlight-selected@0.13.1
 ├── ide-php@0.7.14
 ├── ide-typescript@0.7.6
