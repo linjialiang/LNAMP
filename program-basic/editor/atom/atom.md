@@ -127,6 +127,61 @@ Community Packages (42) C:\\Users\\username\\.atom\\packages
 └── vim-mode-plus@1.32.0
 ```
 
+### `.atom/style.less` 文件新增css样式
+
+```css
+// new add
+.line.cursor-line {
+  background: rgba(55, 125, 185, 0.3) !important;
+}
+.minimap .cursor-line {
+  background: rgba(55, 125, 185, 0.8);
+}
+.list-tree .selected > span{
+    font-weight: bold;
+    font-size: 14px;
+}
+atom-workspace{
+    font-family: 'Ubuntu Mono';
+}
+atom-dock.left .list-inline.tab-bar.inset-panel{
+    display: none;
+}
+.list-inline.tab-bar.inset-panel > li.active{
+        border-bottom: 1px solid #5b71f6;
+}
+.list-inline.tab-bar.inset-panel{
+    height:3.5rem;
+}
+.list-inline.tab-bar.inset-panel > li{
+    line-height: 3.5rem;
+}
+.tab-bar .tab .close-icon{
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+.tab-bar .tab .close-icon:hover, .tab-bar .tab .close-icon:active{
+    cursor:pointer;
+}
+.left .tree-view .project-root-header{
+    border-bottom: 1px solid #4b5ddc;
+    font-size:1.2em;
+    font-weight: bold !important;
+    height: 3.5rem;
+}
+.list-group li:not(.list-nested-item),
+.list-tree li:not(.list-nested-item),
+.list-group li.list-nested-item > .list-item,
+.list-tree li.list-nested-item > .list-item{
+    line-height: 2.5rem;
+}
+.list-group .selected::before,
+.list-tree .selected::before{
+    height: 2.5rem;
+}
+```
+
 ### 让 `atom` 支持简体中文
 
 > - `simplified-chinese-menu` 这是 `atom` 上简体中文菜单插件
