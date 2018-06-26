@@ -100,7 +100,7 @@ Community Packages (43) C:\\Users\\username\\.atom\\packages
 ├── emmet@2.4.3
 ├── ex-mode@0.18.0
 ├── file-icons@2.1.21
-├── git-plus@7.10.2
+├── git-plus@7.11.0
 ├── git-time-machine@2.1.0
 ├── github-atom-light-syntax@0.5.0
 ├── highlight-selected@0.13.1
