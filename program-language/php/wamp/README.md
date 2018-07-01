@@ -791,12 +791,12 @@ digit | version    | `sercice-mariadb`
 64    | mariadb102 | mysql102
 64    | mariadb101 | mysql101
 64    | mariadb100 | mysql100
-64    | mariadb55 | mysql55
+64    | mariadb55  | mysql55
 32    | mariadb103 | mariadb103
 32    | mariadb102 | mariadb102
 32    | mariadb101 | mariadb101
 32    | mariadb100 | mariadb100
-32    | mariadb55 | mariadb55
+32    | mariadb55  | mariadb55
 
 ## 配置系统服务启动类型
 
@@ -870,3 +870,34 @@ $cfg['SaveDir'] = '';
 > - 数据库提供phpmyadmin的高级功能，如果删除，高级功能将无法使用 – 如果未安装或已经删除，可以在找到原因那里，点击Create自动创建
 > - phpMyAdmin 连接数据库使用的是php的mysqli扩展，所以php必须安装mysqli扩展包
 > - phpMyAdmin 需要账户有密码登陆，所以我们要为mariadb创建一个带密码的账户（我已经将mariadb的root账户已经设置密码为123456）
+
+## wamp 说明书
+
+> 该 `wamp` 安装包解压即用，包含32位和64位版本，并且可自由选择 `mariadb` 与 `php` 的版本！
+
+### `bat` 脚本须知：
+
+1. bat 脚本的换行符必须是 `\r\n` ，否则不能执行
+2. bat 脚本的编码格式需要gb2312（因为中文版系统，其它编码cmd会出现乱码）
+
+### 几个命令脚本说明：
+
+1. `常用服务指令.bat` 该脚本用于启动服务、停止服务、设置服务选项
+2. `批量清除服务.bat` 该脚本用来一次性卸载所有相关服务（安装前可执行一遍）
+3. `安装.bat` 该脚本用于安装指定版本到相关服务
+4. `卸载.bat` 该脚本用于卸载指定版本的相关服务
+
+### 安装说明：
+
+1. 先使用 `批量清除服务.bat` 脚本文件清理一遍
+2. 使用 `安装.bat` 脚本文件安装你需要的版本
+3. 使用 `常用服务指令.bat` 脚本文件启动或关闭服务
+
+### 运行库支持：该环境包需要运行库支持，运行库建议自己去下载最新版的 `VC15` `VC14` `VC11` `VC9`
+
+### 软件包自带的运行库安装包：
+
+- `MSVBCRT_AIO_2018.05.13_X86.exe`
+- `MSVBCRT_AIO_2018.05.13_X86+X64.exe`
+
+> `文档连接` ：[wamp环境搭建说明文档](https://github.com/linjialiang/programmer/blob/dev3/program-language/php/wamp/README.md)
