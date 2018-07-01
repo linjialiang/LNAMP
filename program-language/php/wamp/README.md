@@ -18,26 +18,36 @@
 ### 安装包列表（64 位）
 
 - `httpd-2.4.33-win64-VC15.zip`
+- `mariadb-5.5.60-winx64.zip`
 - `mariadb-10.0.35-winx64.zip`
-- `mariadb-10.1.33-winx64.zip`
-- `mariadb-10.2.15-winx64.zip`
+- `mariadb-10.1.34-winx64.zip`
+- `mariadb-10.2.16-winx64.zip`
 - `mariadb-10.3.7-winx64.zip`
+- `php-5.5.38-Win32-VC11-x64.zip`
 - `php-5.6.36-Win32-VC11-x64.zip`
 - `php-7.0.30-Win32-VC14-x64.zip`
-- `php-7.1.18-Win32-VC14-x64.zip`
-- `php-7.2.6-Win32-VC15-x64.zip`
+- `php-7.1.19-Win32-VC14-x64.zip`
+- `php-7.2.7-Win32-VC15-x64.zip`
 
 ### 安装包列表（32 位）
 
 - `httpd-2.4.33-Win32-VC15.zip`
+- `mariadb-5.5.60-win32.zip`
 - `mariadb-10.0.35-win32.zip`
-- `mariadb-10.1.33-win32.zip`
-- `mariadb-10.2.15-win32.zip`
+- `mariadb-10.1.34-win32.zip`
+- `mariadb-10.2.16-win32.zip`
 - `mariadb-10.3.7-win32.zip`
+- `php-5.2.17-Win32-VC6-x86.zip`
+- `php-5.3.29-Win32-VC9-x86.zip`
+- `php-5.4.45-Win32-VC9-x86.zip`
+- `php-5.5.38-Win32-VC11-x86.zip`
 - `php-5.6.36-Win32-VC11-x86.zip`
 - `php-7.0.30-Win32-VC14-x86.zip`
-- `php-7.1.18-Win32-VC14-x86.zip`
-- `php-7.2.6-Win32-VC15-x86.zip`
+- `php-7.1.19-Win32-VC14-x86.zip`
+- `php-7.2.7-Win32-VC15-x86.zip`
+
+### phpMyAdmin 安装包
+- `phpMyAdmin-4.8.2-all-languages.zip`
 
 ### 安装包解压后的位置
 
@@ -71,6 +81,10 @@ c:/wamp                         wamp部署目录（或者子目录）
 │  │  ├─bin                     mariadb可执行程序目录
 │  │  └─ ...
 │  │
+│  ├─mariadb55                  mariadb 5.5版本
+│  │  ├─bin                     mariadb可执行程序目录
+│  │  └─ ...
+│  │
 │  ├─php72                      php 7.2版本
 │  │  ├─ext                     模块目录
 │  │  ├─php.ini                 php主配置文件
@@ -87,6 +101,26 @@ c:/wamp                         wamp部署目录（或者子目录）
 │  │  └─ ...
 │  │
 │  └─php56                      php 5.6版本
+│  │  ├─ext                     模块目录
+│  │  ├─php.ini                 php主配置文件
+│  │  └─ ...
+│  │
+│  └─php55                      php 5.5版本
+│  │  ├─ext                     模块目录
+│  │  ├─php.ini                 php主配置文件
+│  │  └─ ...
+│  │
+│  └─php54                      php 5.4版本
+│  │  ├─ext                     模块目录
+│  │  ├─php.ini                 php主配置文件
+│  │  └─ ...
+│  │
+│  └─php53                      php 5.3版本
+│  │  ├─ext                     模块目录
+│  │  ├─php.ini                 php主配置文件
+│  │  └─ ...
+│  │
+│  └─php52                      php 5.2版本
 │  │  ├─ext                     模块目录
 │  │  ├─php.ini                 php主配置文件
 │  │  └─ ...
@@ -116,6 +150,10 @@ c:/wamp                         wamp部署目录（或者子目录）
 │  │  ├─bin                     mariadb可执行程序目录
 │  │  └─ ...
 │  │
+│  ├─mariadb55                  mariadb 5.5版本
+│  │  ├─bin                     mariadb可执行程序目录
+│  │  └─ ...
+│  │
 │  ├─php72                      php 7.2版本
 │  │  ├─ext                     模块目录
 │  │  ├─php.ini                 php主配置文件
@@ -136,8 +174,15 @@ c:/wamp                         wamp部署目录（或者子目录）
 │  │  ├─php.ini                 php主配置文件
 │  │  └─ ...
 │  │
+│  └─php55                      php 5.5版本
+│  │  ├─ext                     模块目录
+│  │  ├─php.ini                 php主配置文件
+│  │  └─ ...
+│  │
 │
-├─sites                         站点配置文件
+├─conf                          公用配置文件目录
+│
+├─sites                         站点配置文件目录
 │
 ├─www                           Web根目录
 │
