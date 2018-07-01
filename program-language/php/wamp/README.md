@@ -627,7 +627,14 @@ zend_extension="php_xdebug.dll"
 zend_extension="xdebug"
 ```
 
-> 提示：如果以上两种写法都不行，请用扩展的绝对地址（反斜杠 `\` 不需要转成正斜杠 `/`）！
+> 注意： `php5.3 php 5.4` 写法与高版本有所不同，需要将 `zend_extension` 改成 `extension`
+
+```ini
+[XDebug]
+extension="php_xdebug.dll"
+```
+
+> 提示：如果以上两种写法都不行，可能是由于 `extension_dir` 没有使用绝对路径导致的，这样请用扩展的绝对地址（反斜杠 `\` 不需要转成正斜杠 `/`）！
 
 ### 开启php自带的扩展
 
@@ -784,10 +791,12 @@ digit | version    | `sercice-mariadb`
 64    | mariadb102 | mysql102
 64    | mariadb101 | mysql101
 64    | mariadb100 | mysql100
+64    | mariadb55 | mysql55
 32    | mariadb103 | mariadb103
 32    | mariadb102 | mariadb102
 32    | mariadb101 | mariadb101
 32    | mariadb100 | mariadb100
+32    | mariadb55 | mariadb55
 
 ## 配置系统服务启动类型
 
