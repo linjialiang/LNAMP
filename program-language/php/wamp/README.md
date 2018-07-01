@@ -37,7 +37,6 @@
 - `mariadb-10.1.34-win32.zip`
 - `mariadb-10.2.16-win32.zip`
 - `mariadb-10.3.7-win32.zip`
-- `php-5.2.17-Win32-VC6-x86.zip`
 - `php-5.3.29-Win32-VC9-x86.zip`
 - `php-5.4.45-Win32-VC9-x86.zip`
 - `php-5.5.38-Win32-VC11-x86.zip`
@@ -47,6 +46,7 @@
 - `php-7.2.7-Win32-VC15-x86.zip`
 
 ### phpMyAdmin 安装包
+
 - `phpMyAdmin-4.8.2-all-languages.zip`
 
 ### 安装包解压后的位置
@@ -116,11 +116,6 @@ c:/wamp                         wamp部署目录（或者子目录）
 │  │  └─ ...
 │  │
 │  └─php53                      php 5.3版本
-│  │  ├─ext                     模块目录
-│  │  ├─php.ini                 php主配置文件
-│  │  └─ ...
-│  │
-│  └─php52                      php 5.2版本
 │  │  ├─ext                     模块目录
 │  │  ├─php.ini                 php主配置文件
 │  │  └─ ...
@@ -210,6 +205,23 @@ c:/wamp                         wamp部署目录（或者子目录）
 将 httpd.conf 文件下所有 `c:/Apache24` 替换成 `c:/wamp/64/apache24`
 ```
 
+#### 为 apache2 配置日志
+
+1. 配置日志格式
+
+  > `LogFormat` 下添加 `%V` ，让日志显示访问的域名
+
+2. 配置日志记录值
+
+  > 让 apache2 日志不记录图片、css、js等资源
+
+  ```conf
+  <FilesMatch "\.(ico|gif|jpg|png|bmp|swf|css|js)">
+  SetEnv LOG_IMAG 1
+  </FilesMatch>
+  CustomLog "日志路径/日志文件名" combined env=!LOG_IMAG
+  ```
+
 #### 为 apache2 增加配置文件
 
 > - 说明：阿帕奇可以在 httpd.conf 内使用 Include 加入其它配置文件
@@ -242,10 +254,14 @@ php7.2 | 64    | php7_module   | `c:/wamp/64/php72/php7apache2_4.dll` | `c:/wamp
 php7.1 | 64    | php7_module   | `c:/wamp/64/php72/php7apache2_4.dll` | `c:/wamp/64/php71`
 php7.0 | 64    | php7_module   | `c:/wamp/64/php70/php7apache2_4.dll` | `c:/wamp/64/php70`
 php5.6 | 64    | php5_module   | `c:/wamp/64/php56/php5apache2_4.dll` | `c:/wamp/64/php56`
+php5.5 | 64    | php5_module   | `c:/wamp/64/php55/php5apache2_4.dll` | `c:/wamp/64/php55`
 php7.2 | 32    | php7_module   | `c:/wamp/32/php72/php7apache2_4.dll` | `c:/wamp/32/php72`
 php7.1 | 32    | php7_module   | `c:/wamp/32/php72/php7apache2_4.dll` | `c:/wamp/32/php71`
 php7.0 | 32    | php7_module   | `c:/wamp/32/php70/php7apache2_4.dll` | `c:/wamp/32/php70`
 php5.6 | 32    | php5_module   | `c:/wamp/32/php56/php5apache2_4.dll` | `c:/wamp/32/php56`
+php5.5 | 32    | php5_module   | `c:/wamp/32/php55/php5apache2_4.dll` | `c:/wamp/32/php55`
+php5.4 | 32    | php5_module   | `c:/wamp/32/php54/php5apache2_4.dll` | `c:/wamp/32/php54`
+php5.3 | 32    | php5_module   | `c:/wamp/32/php53/php5apache2_4.dll` | `c:/wamp/32/php53`
 
 > 只有正确配置 `PHPINIDir` ，才能成功加载 php.ini 配置文件
 
@@ -279,7 +295,7 @@ php5.6 | 32    | php5_module   | `c:/wamp/32/php56/php5apache2_4.dll` | `c:/wamp
   AddType application/x-httpd-php .php
   ```
 
-  > 当然阿帕奇也支持多类型的文件，自动解析为 PHP 脚本
+  > 当然阿帕奇也支持多类型的文件，自动解析为 PHP 脚本，例如：
 
   ```conf
   AddType application/x-httpd-php .php .emad
@@ -289,9 +305,9 @@ php5.6 | 32    | php5_module   | `c:/wamp/32/php56/php5apache2_4.dll` | `c:/wamp
 
   ```ini
   <Directory "c:/wamp/www">
-  Options Indexes FollowSymLinks
-  AllowOverride None
-  Require all granted
+   Options Indexes FollowSymLinks
+   AllowOverride None
+   Require all granted
   </Directory>
   ```
 
@@ -325,16 +341,15 @@ php5.6 | 32    | php5_module   | `c:/wamp/32/php56/php5apache2_4.dll` | `c:/wamp
 
   ```ini文件
   LoadModule vhost_alias_module modules/mod_vhost_alias.so
-  #LoadModule ssl_module modules/mod_ssl.so
   LoadModule rewrite_module modules/mod_rewrite.so
 
   AddType application/x-httpd-php .php
 
   <Directory "c:/wamp/www">
-      Options Indexes FollowSymLinks
-      AllowOverride All
-      Require all granted
-      DirectoryIndex index.html index.php
+   Options Indexes FollowSymLinks
+   AllowOverride All
+   Require all granted
+   DirectoryIndex index.html index.php
   </Directory>
 
   Include "c:/wamp/sites/*.conf"
@@ -360,8 +375,8 @@ php5.6 | 32    | php5_module   | `c:/wamp/32/php56/php5apache2_4.dll` | `c:/wamp
   ```conf
   # 在sites目录下新建 vhosts.conf 文件（基本上只用1个文件作为站点配置文件）
   <VirtualHost *:80>
-      DocumentRoot "c:/wamp/www"
-      ServerName localhost
+   DocumentRoot "c:/wamp/www"
+   ServerName localhost
   </VirtualHost>
   ```
 
@@ -372,17 +387,18 @@ php5.6 | 32    | php5_module   | `c:/wamp/32/php56/php5apache2_4.dll` | `c:/wamp
   ```conf
   # vhosts.conf 文件新增内容
   <VirtualHost *:80>
-      DocumentRoot "c:/wamp/www/tp5/public"
-      ServerName www.tp5.com
-      ServerAlias www.tp5.com tp5.com
-      ErrorDocument 404 /404.html
+  ServerAdmin linjialiang@163.com
+  DocumentRoot "c:/wamp/www/tp5/public"
+  ServerName www.tp5.com
+  ServerAlias www.tp5.com tp5.com m.tp5.com
+  ErrorDocument 404 /404.html
 
-      ErrorLog "logs/tp5-error.log"
-      CustomLog "logs/tp5-access.log" common
+  ErrorLog "logs/tp5-error.log"
+  CustomLog "logs/tp5-access.log" common
 
-      RewriteEngine on
-      RewriteCond %{HTTP_HOST} ^tp5.com$ [NC]
-      RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
+  RewriteEngine on
+  RewriteCond %{HTTP_HOST} ^tp5.com$ [NC]
+  RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
   </VirtualHost>
   ```
 
@@ -494,18 +510,22 @@ digit | version  | `extension-path`
 64    | `php7.1` | `c:\wamp\64\php71\ext`
 64    | `php7.0` | `c:\wamp\64\php70\ext`
 64    | `php5.6` | `c:\wamp\64\php56\ext`
+64    | `php5.5` | `c:\wamp\64\php55\ext`
 32    | `php7.2` | `c:\wamp\32\php72\ext`
 32    | `php7.1` | `c:\wamp\32\php71\ext`
 32    | `php7.0` | `c:\wamp\32\php70\ext`
 32    | `php5.6` | `c:\wamp\32\php56\ext`
+32    | `php5.5` | `c:\wamp\32\php55\ext`
+32    | `php5.4` | `c:\wamp\32\php54\ext`
+32    | `php5.3` | `c:\wamp\32\php53\ext`
 
 ### php允许错误提示
 
 > php.ini 文件可以对错误是否提示进行控制
 
-### 开启错误提示
+### 开启错误提示（php.ini-development 默认已经开启）
 
-> 操作：php.ini 第 99 行新增内容：
+> 操作：php.ini 第 470 行左右：
 
 ```ini
 display_errors = On
@@ -513,13 +533,20 @@ display_errors = On
 
 ### 设置错误级别报告
 
-1. php.ini 全局版
+1. php.ini 全局版（php.ini-development 默认已经开启）
 
   > - 说明：达到指定的错误级别才会提示错误报告
-  > - 操作：php.ini 第 110 行下新增内容：
+  > - 操作：php.ini 第 450 行左右：
 
   ```ini
   error_reporting = E_ALL
+  ```
+
+  > - 说明：错误的函数
+  > - 操作：php.ini 第 540 行左右：
+
+  ```ini
+  html_errors = On
   ```
 
   > - 开发环境下错误级别报告推荐设置成 `E_ALL`
