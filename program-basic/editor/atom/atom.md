@@ -132,11 +132,17 @@ Community Packages (43) C:\\Users\\username\\.atom\\packages
 
 ```css
 // new add
+atom-dock.left .list-inline.tab-bar.inset-panel{
+    display: none;
+}
+.item-views .header.list-item.project-root-header{
+    z-index: 2;
+}
 .line.cursor-line {
-  background: rgba(55, 125, 185, 0.3) !important;
+  background-color: rgba(90, 138, 233, .3) !important;
 }
 .minimap .cursor-line {
-  background: rgba(55, 125, 185, 0.8);
+  background-color: rgb(90, 138, 233);
 }
 .list-tree .selected > span{
     font-weight: bold;
@@ -145,11 +151,9 @@ Community Packages (43) C:\\Users\\username\\.atom\\packages
 atom-workspace{
     font-family: 'Ubuntu Mono';
 }
-atom-dock.left .list-inline.tab-bar.inset-panel{
-    display: none;
-}
+
 .list-inline.tab-bar.inset-panel > li.active{
-        border-bottom: 1px solid #5b71f6;
+    border-bottom: 2px solid rgba(90, 138, 233, .3);
 }
 .list-inline.tab-bar.inset-panel{
     height:3.5rem;
@@ -165,8 +169,11 @@ atom-dock.left .list-inline.tab-bar.inset-panel{
 .tab-bar .tab .close-icon:hover, .tab-bar .tab .close-icon:active{
     cursor:pointer;
 }
+.tree-view:focus .selected:before{
+    background-color: rgba(90, 138, 233, .3);
+}
 .left .tree-view .project-root-header{
-    border-bottom: 1px solid #4b5ddc;
+    border-bottom: 2px solid rgba(90, 138, 233, .3);
     font-size:1.2em;
     font-weight: bold !important;
     height: 3.5rem;
@@ -180,6 +187,9 @@ atom-dock.left .list-inline.tab-bar.inset-panel{
 .list-group .selected::before,
 .list-tree .selected::before{
     height: 2.5rem;
+}
+[theme-one-light-ui-sticky-headers="sticky"] .tree-view:focus .selected .project-root-header.project-root-header{
+    background: rgb(180, 180, 180)!important;
 }
 ```
 
