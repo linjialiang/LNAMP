@@ -16,7 +16,7 @@ Cls
 @ echo.
 @ echo              卸载所有相关服务 → 请输入2
 @ echo.
-@ echo              退出 → 请输入0
+@ echo              退出             → 请输入0
 @ echo.
 @ echo              警告：该操作危险，慎重选择！
 @ echo.
@@ -30,44 +30,51 @@ ping -n 2 127.1>nul
 Goto Menu
 :DeleteAll
 @ echo.
-@ echo              删除apache24
+@ echo              强删apache24
 sc delete apache2
 ping -n 2 127.1>nul
 @ echo.
-@ echo              删除httpd
+@ echo              强删httpd
 sc delete httpd
 ping -n 2 127.1>nul
 @ echo.
-@ echo              删除mysql103
+@ echo              强删64位mariadb10.3
 sc delete mysql103
 ping -n 2 127.1>nul
 @ echo.
-@ echo              删除mysql102
+@ echo              强删64位mariadb10.2
 sc delete mysql102
 ping -n 2 127.1>nul
 @ echo.
-@ echo              删除mysql101
+@ echo              强删64位mariadb10.1
 sc delete mysql101
 ping -n 2 127.1>nul
 @ echo.
-@ echo              删除mysql100
+@ echo              强删64位mariadb10.0
 sc delete mysql100
 ping -n 2 127.1>nul
 @ echo.
-@ echo              删除mariadb103
+@ echo              强删64位mariadb5.5
+sc delete mysql55
+ping -n 2 127.1>nul
+@ echo.
+@ echo              强删32位mariadb10.3
 sc delete mariadb103
 ping -n 2 127.1>nul
 @ echo.
-@ echo              删除mariadb102
+@ echo              强删32位mariadb10.2
 sc delete mariadb102
 ping -n 2 127.1>nul
 @ echo.
-@ echo              删除mariadb101
+@ echo              强删32位mariadb10.1
 sc delete mariadb101
 ping -n 2 127.1>nul
 @ echo.
-@ echo              删除mariadb100
+@ echo              强删32位mariadb10.0
 sc delete mariadb100         
+@ echo.
+@ echo              强删32位mariadb5.5
+sc delete mariadb55         
 @ echo.
 @ echo              强制删除所有相关服务完毕，如果删除了不该删除的，请见谅！请反馈！3秒后退出脚本...
 ping -n 3 127.1>nul
@@ -85,44 +92,54 @@ cd c:\wamp\32\apache24\bin\
 httpd.exe -k uninstall -n httpd
 ping -n 2 127.1>nul
 @ echo.
-@ echo              将mysql103从系统服务里卸载...
+@ echo              卸载64位mariadb10.3从系统服务里卸载...
 @ cd c:\wamp\64\mariadb103\bin\
 @ mysqld.exe remove mysql103
 ping -n 2 127.1>nul
 @ echo.
-@ echo              将mysql102从系统服务里卸载...
+@ echo              卸载64位mariadb10.2从系统服务里卸载...
 @ cd c:\wamp\64\mariadb102\bin\
 @ mysqld.exe remove mysql102
 ping -n 2 127.1>nul
 @ echo.
-@ echo              将mysql101从系统服务里卸载...
+@ echo              卸载64位mariadb10.1从系统服务里卸载...
 @ cd c:\wamp\64\mariadb101\bin\
 @ mysqld.exe remove mysql101
 ping -n 2 127.1>nul
 @ echo.
-@ echo              将mysql100从系统服务里卸载...
+@ echo              卸载64位mariadb10.0从系统服务里卸载...
 @ cd c:\wamp\64\mariadb100\bin\
 @ mysqld.exe remove mysql100
 ping -n 2 127.1>nul
 @ echo.
-@ echo              将mariadb103从系统服务里卸载...
+@ echo              卸载64位mariadb5.5从系统服务里卸载...
+@ cd c:\wamp\64\mariadb55\bin\
+@ mysqld.exe remove mysql55
+ping -n 2 127.1>nul
+@ echo.
+@ echo              卸载32位mariadb10.3从系统服务里卸载...
 @ cd c:\wamp\32\mariadb103\bin\
 @ mysqld.exe remove mariadb103
 ping -n 2 127.1>nul
 @ echo.
-@ echo              将mariadb102从系统服务里卸载...
+@ echo              卸载32位mariadb10.2从系统服务里卸载...
 @ cd c:\wamp\32\mariadb102\bin\
 @ mysqld.exe remove mariadb102
 ping -n 2 127.1>nul
 @ echo.
-@ echo              将mariadb101从系统服务里卸载...
+@ echo              卸载32位mariadb10.1从系统服务里卸载...
 @ cd c:\wamp\32\mariadb101\bin\
 @ mysqld.exe remove mariadb101
 ping -n 2 127.1>nul
 @ echo.
-@ echo              将mariadb100从系统服务里卸载...
+@ echo              卸载32位mariadb10.0从系统服务里卸载...
 @ cd c:\wamp\32\mariadb100\bin\
 @ mysqld.exe remove mariadb100
+ping -n 2 127.1>nul
+@ echo.
+@ echo              卸载32位mariadb5.5从系统服务里卸载...
+@ cd c:\wamp\32\mariadb55\bin\
+@ mysqld.exe remove mariadb55
 ping -n 2 127.1>nul
 @ echo.
 @ echo              卸载了所有相关服务，如果删除了不该删除的，请见谅！请反馈！3秒后退出脚本...

@@ -131,9 +131,19 @@ Community Packages (43) C:\\Users\\username\\.atom\\packages
 ### `.atom/style.less` 文件新增css样式
 
 ```css
+<<<<<<< HEAD
 atom-dock.left .list-inline.tab-bar.inset-panel{
     display: none;
 }
+=======
+// new add
+atom-dock.left .list-inline.tab-bar.inset-panel{
+    display: none;
+}
+.item-views .header.list-item.project-root-header{
+    z-index: 2;
+}
+>>>>>>> dev3
 .line.cursor-line {
   background-color: rgba(90, 138, 233, .3) !important;
 }
@@ -183,6 +193,9 @@ atom-workspace{
 .list-group .selected::before,
 .list-tree .selected::before{
     height: 2.5rem;
+}
+[theme-one-light-ui-sticky-headers="sticky"] .tree-view:focus .selected .project-root-header.project-root-header{
+    background: rgb(180, 180, 180)!important;
 }
 ```
 

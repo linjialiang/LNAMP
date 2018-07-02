@@ -14,7 +14,7 @@ Cls
 @ echo.
 @ echo.             安装 → 请输入1
 @ echo.
-@ echo.             推荐安装 → 请输入2
+@ echo.         推荐安装 → 请输入2
 @ echo.
 @ echo.             退出 → 请输入0
 @ echo.
@@ -39,7 +39,7 @@ Cls
 @ echo.
 @ echo.             32位 → 请输入2
 @ echo.
-@ echo.             主菜单 → 请输入3
+@ echo.           主菜单 → 请输入3
 @ echo.
 @ echo.             退出 → 请输入0
 @ echo.
@@ -67,9 +67,9 @@ Cls
 @ echo.
 @ echo.             跳过安装 → 请输入2
 @ echo.
-@ echo.             重新选择位数 → 请输入3
+@ echo.             重选位数 → 请输入3
 @ echo.
-@ echo.             退出 → 请输入0
+@ echo.             退出     → 请输入0
 @ echo.
 set /p export=      输入数字按回车：
 if /i "%export%"=="1" Goto ReturnHttpd
@@ -92,8 +92,10 @@ Cls
 @ echo.             mariadb 10.1 → 请输入3
 @ echo.
 @ echo.             mariadb 10.0 → 请输入4
+ echo.
+@ echo.             mariadb 5.5  → 请输入5
 @ echo.
-@ echo.             退出 → 请输入0
+@ echo.             退出         → 请输入0
 @ echo.
 set /p export=      输入数字按回车：
 if /i "%export%"=="1" SET MySQLVersion=103
@@ -104,6 +106,8 @@ if /i "%export%"=="3" SET MySQLVersion=101
 if /i "%export%"=="3" Goto IfMySQL
 if /i "%export%"=="4" SET MySQLVersion=100
 if /i "%export%"=="4" Goto IfMySQL
+if /i "%export%"=="5" SET MySQLVersion=55
+if /i "%export%"=="5" Goto IfMySQL
 if /i "%export%"=="0" exit
 @ echo.
 @ echo              选择无效，请重新输入
@@ -118,9 +122,9 @@ Cls
 @ echo.
 @ echo.             取消安装 → 请输入2
 @ echo.
-@ echo.             重选mariadb版本 → 请输入3
+@ echo.      重选mariadb版本 → 请输入3
 @ echo.
-@ echo.             退出 → 请输入0
+@ echo.             退出     → 请输入0
 @ echo.
 set /p export=      输入数字按回车：
 if /i "%export%"=="1" Goto ReturnMySQL

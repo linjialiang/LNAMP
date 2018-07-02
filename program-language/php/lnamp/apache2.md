@@ -165,6 +165,21 @@
   # /etc/init.d/apache2 restart
   ```
 
+### **日志相关配置**
+
+> 几个能让日志更加直观的配置
+
+1. `LogFormat` 加上 `%V` ，让日志显示访问的域名
+
+2. `日志屏蔽图片、css、js等资源的记录`
+
+  ```conf
+  <FilesMatch "\.(ico|gif|jpg|png|bmp|swf|css|js)">
+       SetEnv LOG_IMAG 1
+   </FilesMatch>
+   CustomLog "日志路径/日志文件名" combined env=!LOG_IMAG
+  ```
+
 ## **网站配置文件格式**
 
 > 在 `/alidata/sites/apache2/` 目录下新建网站配置文件 `nginx_kcstatic_top.conf`
@@ -180,26 +195,26 @@
 
   ```conf
   <VirtualHost *:8080>
-     ServerAdmin linjialiang@163.com
-     ServerName www.test.com
-     ServerAlias test.com www.test.com
-     DocumentRoot /alidata/www/yhz/www_test_com
-     ErrorDocument 404 /404.html
+    ServerAdmin linjialiang@163.com
+    ServerName www.test.com
+    ServerAlias test.com www.test.com
+    DocumentRoot /alidata/www/yhz/www_test_com
+    ErrorDocument 404 /404.html
 
-     ## 这段一般都不需要特别申明， /etc/apache2/apache2.conf 已经配置
-     <Directory "/alidata/www/yhz/www_test_com">
-         Options Indexes FollowSymLinks
-         AllowOverride All
-         Require all granted
-         DirectoryIndex index.php index.html
-     </Directory>
+    ## 这段一般都不需要特别申明， /etc/apache2/apache2.conf 已经配置
+    <Directory "/alidata/www/yhz/www_test_com">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+        DirectoryIndex index.php index.html
+    </Directory>
 
-     ErrorLog ${APACHE_LOG_DIR}/www_test_com-error.log
-     CustomLog ${APACHE_LOG_DIR}/www_test_com-access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/www_test_com-error.log
+    CustomLog ${APACHE_LOG_DIR}/www_test_com-access.log combined
 
-     RewriteEngine on
-     RewriteCond %{HTTP_HOST} ^test.com$ [NC]
-     RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
+    RewriteEngine on
+    RewriteCond %{HTTP_HOST} ^test.com$ [NC]
+    RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
   </VirtualHost>
   ```
 
@@ -209,18 +224,18 @@
   Alias /phpmyadmin /usr/share/phpmyadmin
 
   <Directory /usr/share/phpmyadmin>
-     Options FollowSymLinks
-     DirectoryIndex index.php
-     <RequireAll>
-         Require ip 60.181.0.0/16
-     </RequireAll>
+    Options FollowSymLinks
+    DirectoryIndex index.php
+    <RequireAll>
+        Require ip 60.181.0.0/16
+    </RequireAll>
   </Directory>
 
   <Directory /usr/share/phpmyadmin/libraries>
-     Require all denied
+    Require all denied
   </Directory>
   <Directory /usr/share/phpmyadmin/setup/lib>
-     Require all denied
+    Require all denied
   </Directory>
   ```
 

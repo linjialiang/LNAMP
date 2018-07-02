@@ -18,26 +18,36 @@
 ### 安装包列表（64 位）
 
 - `httpd-2.4.33-win64-VC15.zip`
+- `mariadb-5.5.60-winx64.zip`
 - `mariadb-10.0.35-winx64.zip`
-- `mariadb-10.1.33-winx64.zip`
-- `mariadb-10.2.15-winx64.zip`
+- `mariadb-10.1.34-winx64.zip`
+- `mariadb-10.2.16-winx64.zip`
 - `mariadb-10.3.7-winx64.zip`
+- `php-5.5.38-Win32-VC11-x64.zip`
 - `php-5.6.36-Win32-VC11-x64.zip`
 - `php-7.0.30-Win32-VC14-x64.zip`
-- `php-7.1.18-Win32-VC14-x64.zip`
-- `php-7.2.6-Win32-VC15-x64.zip`
+- `php-7.1.19-Win32-VC14-x64.zip`
+- `php-7.2.7-Win32-VC15-x64.zip`
 
 ### 安装包列表（32 位）
 
 - `httpd-2.4.33-Win32-VC15.zip`
+- `mariadb-5.5.60-win32.zip`
 - `mariadb-10.0.35-win32.zip`
-- `mariadb-10.1.33-win32.zip`
-- `mariadb-10.2.15-win32.zip`
+- `mariadb-10.1.34-win32.zip`
+- `mariadb-10.2.16-win32.zip`
 - `mariadb-10.3.7-win32.zip`
+- `php-5.3.29-Win32-VC9-x86.zip`
+- `php-5.4.45-Win32-VC9-x86.zip`
+- `php-5.5.38-Win32-VC11-x86.zip`
 - `php-5.6.36-Win32-VC11-x86.zip`
 - `php-7.0.30-Win32-VC14-x86.zip`
-- `php-7.1.18-Win32-VC14-x86.zip`
-- `php-7.2.6-Win32-VC15-x86.zip`
+- `php-7.1.19-Win32-VC14-x86.zip`
+- `php-7.2.7-Win32-VC15-x86.zip`
+
+### phpMyAdmin 安装包
+
+- `phpMyAdmin-4.8.2-all-languages.zip`
 
 ### 安装包解压后的位置
 
@@ -71,6 +81,10 @@ c:/wamp                         wamp部署目录（或者子目录）
 │  │  ├─bin                     mariadb可执行程序目录
 │  │  └─ ...
 │  │
+│  ├─mariadb55                  mariadb 5.5版本
+│  │  ├─bin                     mariadb可执行程序目录
+│  │  └─ ...
+│  │
 │  ├─php72                      php 7.2版本
 │  │  ├─ext                     模块目录
 │  │  ├─php.ini                 php主配置文件
@@ -87,6 +101,21 @@ c:/wamp                         wamp部署目录（或者子目录）
 │  │  └─ ...
 │  │
 │  └─php56                      php 5.6版本
+│  │  ├─ext                     模块目录
+│  │  ├─php.ini                 php主配置文件
+│  │  └─ ...
+│  │
+│  └─php55                      php 5.5版本
+│  │  ├─ext                     模块目录
+│  │  ├─php.ini                 php主配置文件
+│  │  └─ ...
+│  │
+│  └─php54                      php 5.4版本
+│  │  ├─ext                     模块目录
+│  │  ├─php.ini                 php主配置文件
+│  │  └─ ...
+│  │
+│  └─php53                      php 5.3版本
 │  │  ├─ext                     模块目录
 │  │  ├─php.ini                 php主配置文件
 │  │  └─ ...
@@ -116,6 +145,10 @@ c:/wamp                         wamp部署目录（或者子目录）
 │  │  ├─bin                     mariadb可执行程序目录
 │  │  └─ ...
 │  │
+│  ├─mariadb55                  mariadb 5.5版本
+│  │  ├─bin                     mariadb可执行程序目录
+│  │  └─ ...
+│  │
 │  ├─php72                      php 7.2版本
 │  │  ├─ext                     模块目录
 │  │  ├─php.ini                 php主配置文件
@@ -136,8 +169,15 @@ c:/wamp                         wamp部署目录（或者子目录）
 │  │  ├─php.ini                 php主配置文件
 │  │  └─ ...
 │  │
+│  └─php55                      php 5.5版本
+│  │  ├─ext                     模块目录
+│  │  ├─php.ini                 php主配置文件
+│  │  └─ ...
+│  │
 │
-├─sites                         站点配置文件
+├─conf                          公用配置文件目录
+│
+├─sites                         站点配置文件目录
 │
 ├─www                           Web根目录
 │
@@ -164,6 +204,23 @@ c:/wamp                         wamp部署目录（或者子目录）
 # 64位
 将 httpd.conf 文件下所有 `c:/Apache24` 替换成 `c:/wamp/64/apache24`
 ```
+
+#### 为 apache2 配置日志
+
+1. 配置日志格式
+
+  > `LogFormat` 下添加 `%V` ，让日志显示访问的域名
+
+2. 配置日志记录值
+
+  > 让 apache2 日志不记录图片、css、js等资源
+
+  ```conf
+  <FilesMatch "\.(ico|gif|jpg|png|bmp|swf|css|js)">
+  SetEnv LOG_IMAG 1
+  </FilesMatch>
+  CustomLog "日志路径/日志文件名" combined env=!LOG_IMAG
+  ```
 
 #### 为 apache2 增加配置文件
 
@@ -197,10 +254,14 @@ php7.2 | 64    | php7_module   | `c:/wamp/64/php72/php7apache2_4.dll` | `c:/wamp
 php7.1 | 64    | php7_module   | `c:/wamp/64/php72/php7apache2_4.dll` | `c:/wamp/64/php71`
 php7.0 | 64    | php7_module   | `c:/wamp/64/php70/php7apache2_4.dll` | `c:/wamp/64/php70`
 php5.6 | 64    | php5_module   | `c:/wamp/64/php56/php5apache2_4.dll` | `c:/wamp/64/php56`
+php5.5 | 64    | php5_module   | `c:/wamp/64/php55/php5apache2_4.dll` | `c:/wamp/64/php55`
 php7.2 | 32    | php7_module   | `c:/wamp/32/php72/php7apache2_4.dll` | `c:/wamp/32/php72`
 php7.1 | 32    | php7_module   | `c:/wamp/32/php72/php7apache2_4.dll` | `c:/wamp/32/php71`
 php7.0 | 32    | php7_module   | `c:/wamp/32/php70/php7apache2_4.dll` | `c:/wamp/32/php70`
 php5.6 | 32    | php5_module   | `c:/wamp/32/php56/php5apache2_4.dll` | `c:/wamp/32/php56`
+php5.5 | 32    | php5_module   | `c:/wamp/32/php55/php5apache2_4.dll` | `c:/wamp/32/php55`
+php5.4 | 32    | php5_module   | `c:/wamp/32/php54/php5apache2_4.dll` | `c:/wamp/32/php54`
+php5.3 | 32    | php5_module   | `c:/wamp/32/php53/php5apache2_4.dll` | `c:/wamp/32/php53`
 
 > 只有正确配置 `PHPINIDir` ，才能成功加载 php.ini 配置文件
 
@@ -234,7 +295,7 @@ php5.6 | 32    | php5_module   | `c:/wamp/32/php56/php5apache2_4.dll` | `c:/wamp
   AddType application/x-httpd-php .php
   ```
 
-  > 当然阿帕奇也支持多类型的文件，自动解析为 PHP 脚本
+  > 当然阿帕奇也支持多类型的文件，自动解析为 PHP 脚本，例如：
 
   ```conf
   AddType application/x-httpd-php .php .emad
@@ -244,9 +305,9 @@ php5.6 | 32    | php5_module   | `c:/wamp/32/php56/php5apache2_4.dll` | `c:/wamp
 
   ```ini
   <Directory "c:/wamp/www">
-  Options Indexes FollowSymLinks
-  AllowOverride None
-  Require all granted
+   Options Indexes FollowSymLinks
+   AllowOverride None
+   Require all granted
   </Directory>
   ```
 
@@ -280,16 +341,15 @@ php5.6 | 32    | php5_module   | `c:/wamp/32/php56/php5apache2_4.dll` | `c:/wamp
 
   ```ini文件
   LoadModule vhost_alias_module modules/mod_vhost_alias.so
-  #LoadModule ssl_module modules/mod_ssl.so
   LoadModule rewrite_module modules/mod_rewrite.so
 
   AddType application/x-httpd-php .php
 
   <Directory "c:/wamp/www">
-      Options Indexes FollowSymLinks
-      AllowOverride All
-      Require all granted
-      DirectoryIndex index.html index.php
+   Options Indexes FollowSymLinks
+   AllowOverride All
+   Require all granted
+   DirectoryIndex index.html index.php
   </Directory>
 
   Include "c:/wamp/sites/*.conf"
@@ -315,8 +375,8 @@ php5.6 | 32    | php5_module   | `c:/wamp/32/php56/php5apache2_4.dll` | `c:/wamp
   ```conf
   # 在sites目录下新建 vhosts.conf 文件（基本上只用1个文件作为站点配置文件）
   <VirtualHost *:80>
-      DocumentRoot "c:/wamp/www"
-      ServerName localhost
+   DocumentRoot "c:/wamp/www"
+   ServerName localhost
   </VirtualHost>
   ```
 
@@ -327,17 +387,18 @@ php5.6 | 32    | php5_module   | `c:/wamp/32/php56/php5apache2_4.dll` | `c:/wamp
   ```conf
   # vhosts.conf 文件新增内容
   <VirtualHost *:80>
-      DocumentRoot "c:/wamp/www/tp5/public"
-      ServerName www.tp5.com
-      ServerAlias www.tp5.com tp5.com
-      ErrorDocument 404 /404.html
+  ServerAdmin linjialiang@163.com
+  DocumentRoot "c:/wamp/www/tp5/public"
+  ServerName www.tp5.com
+  ServerAlias www.tp5.com tp5.com m.tp5.com
+  ErrorDocument 404 /404.html
 
-      ErrorLog "logs/tp5-error.log"
-      CustomLog "logs/tp5-access.log" common
+  ErrorLog "logs/tp5-error.log"
+  CustomLog "logs/tp5-access.log" common
 
-      RewriteEngine on
-      RewriteCond %{HTTP_HOST} ^tp5.com$ [NC]
-      RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
+  RewriteEngine on
+  RewriteCond %{HTTP_HOST} ^tp5.com$ [NC]
+  RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
   </VirtualHost>
   ```
 
@@ -449,18 +510,22 @@ digit | version  | `extension-path`
 64    | `php7.1` | `c:\wamp\64\php71\ext`
 64    | `php7.0` | `c:\wamp\64\php70\ext`
 64    | `php5.6` | `c:\wamp\64\php56\ext`
+64    | `php5.5` | `c:\wamp\64\php55\ext`
 32    | `php7.2` | `c:\wamp\32\php72\ext`
 32    | `php7.1` | `c:\wamp\32\php71\ext`
 32    | `php7.0` | `c:\wamp\32\php70\ext`
 32    | `php5.6` | `c:\wamp\32\php56\ext`
+32    | `php5.5` | `c:\wamp\32\php55\ext`
+32    | `php5.4` | `c:\wamp\32\php54\ext`
+32    | `php5.3` | `c:\wamp\32\php53\ext`
 
 ### php允许错误提示
 
 > php.ini 文件可以对错误是否提示进行控制
 
-### 开启错误提示
+### 开启错误提示（php.ini-development 默认已经开启）
 
-> 操作：php.ini 第 99 行新增内容：
+> 操作：php.ini 第 470 行左右：
 
 ```ini
 display_errors = On
@@ -468,13 +533,20 @@ display_errors = On
 
 ### 设置错误级别报告
 
-1. php.ini 全局版
+1. php.ini 全局版（php.ini-development 默认已经开启）
 
   > - 说明：达到指定的错误级别才会提示错误报告
-  > - 操作：php.ini 第 110 行下新增内容：
+  > - 操作：php.ini 第 450 行左右：
 
   ```ini
   error_reporting = E_ALL
+  ```
+
+  > - 说明：错误的函数
+  > - 操作：php.ini 第 540 行左右：
+
+  ```ini
+  html_errors = On
   ```
 
   > - 开发环境下错误级别报告推荐设置成 `E_ALL`
@@ -555,7 +627,14 @@ zend_extension="php_xdebug.dll"
 zend_extension="xdebug"
 ```
 
-> 提示：如果以上两种写法都不行，请用扩展的绝对地址（反斜杠 `\` 不需要转成正斜杠 `/`）！
+> 注意： `php5.3 php 5.4` 写法与高版本有所不同，需要将 `zend_extension` 改成 `extension`
+
+```ini
+[XDebug]
+extension="php_xdebug.dll"
+```
+
+> 提示：如果以上两种写法都不行，可能是由于 `extension_dir` 没有使用绝对路径导致的，这样请用扩展的绝对地址（反斜杠 `\` 不需要转成正斜杠 `/`）！
 
 ### 开启php自带的扩展
 
@@ -712,10 +791,12 @@ digit | version    | `sercice-mariadb`
 64    | mariadb102 | mysql102
 64    | mariadb101 | mysql101
 64    | mariadb100 | mysql100
+64    | mariadb55  | mysql55
 32    | mariadb103 | mariadb103
 32    | mariadb102 | mariadb102
 32    | mariadb101 | mariadb101
 32    | mariadb100 | mariadb100
+32    | mariadb55  | mariadb55
 
 ## 配置系统服务启动类型
 
@@ -789,3 +870,39 @@ $cfg['SaveDir'] = '';
 > - 数据库提供phpmyadmin的高级功能，如果删除，高级功能将无法使用 – 如果未安装或已经删除，可以在找到原因那里，点击Create自动创建
 > - phpMyAdmin 连接数据库使用的是php的mysqli扩展，所以php必须安装mysqli扩展包
 > - phpMyAdmin 需要账户有密码登陆，所以我们要为mariadb创建一个带密码的账户（我已经将mariadb的root账户已经设置密码为123456）
+
+## wamp 说明书
+
+> 该 `wamp` 安装包解压即用，包含32位和64位版本，并且可自由选择 `mariadb` 与 `php` 的版本！
+
+### mariadb 相关：
+1. root的默认密码是123456
+2. `mariadb 5.5` 的 `data` 内数据与其它版本有很大不同，最简单的方法就是将 `data` 目录的原始资源全部替换掉
+3. `mariadb 10.0` 版本基本上完全兼容 `mariadb 5.5` ，所以 `mariadb 5.5` 已经可以淘汰
+
+### `bat` 脚本须知：
+
+1. bat 脚本的换行符必须是 `\r\n` ，否则不能执行
+2. bat 脚本的编码格式需要gb2312（因为中文版系统，其它编码cmd会出现乱码）
+
+### 几个命令脚本说明：
+
+1. `常用服务指令.bat` 该脚本用于启动服务、停止服务、设置服务选项
+2. `批量清除服务.bat` 该脚本用来一次性卸载所有相关服务（安装前可执行一遍）
+3. `安装.bat` 该脚本用于安装指定版本到相关服务
+4. `卸载.bat` 该脚本用于卸载指定版本的相关服务
+
+### 安装说明：
+
+1. 先使用 `批量清除服务.bat` 脚本文件清理一遍
+2. 使用 `安装.bat` 脚本文件安装你需要的版本
+3. 使用 `常用服务指令.bat` 脚本文件启动或关闭服务
+
+### 运行库支持：该环境包需要运行库支持，运行库建议自己去下载最新版的 `VC15` `VC14` `VC11` `VC9`
+
+### 软件包自带的运行库安装包：
+
+- `MSVBCRT_AIO_2018.05.13_X86.exe`
+- `MSVBCRT_AIO_2018.05.13_X86+X64.exe`
+
+> `文档连接` ：[wamp环境搭建说明文档](https://github.com/linjialiang/programmer/blob/dev3/program-language/php/wamp/README.md)
