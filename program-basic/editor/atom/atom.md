@@ -100,7 +100,7 @@ Community Packages (43) C:\\Users\\username\\.atom\\packages
 ├── emmet@2.4.3
 ├── ex-mode@0.18.0
 ├── file-icons@2.1.21
-├── git-plus@7.11.0
+├── git-plus@7.12.0
 ├── git-time-machine@2.1.0
 ├── github-atom-light-syntax@0.5.0
 ├── highlight-selected@0.13.1
@@ -125,17 +125,12 @@ Community Packages (43) C:\\Users\\username\\.atom\\packages
 ├── Sublime-Style-Column-Selection@1.7.4
 ├── sync-settings@0.8.6
 ├── tree-view-git-status@1.5.0
-└── vim-mode-plus@1.32.0
+└── vim-mode-plus@1.33.0
 ```
 
 ### `.atom/style.less` 文件新增css样式
 
 ```css
-<<<<<<< HEAD
-atom-dock.left .list-inline.tab-bar.inset-panel{
-    display: none;
-}
-=======
 // new add
 atom-dock.left .list-inline.tab-bar.inset-panel{
     display: none;
@@ -143,7 +138,6 @@ atom-dock.left .list-inline.tab-bar.inset-panel{
 .item-views .header.list-item.project-root-header{
     z-index: 2;
 }
->>>>>>> dev3
 .line.cursor-line {
   background-color: rgba(90, 138, 233, .3) !important;
 }
