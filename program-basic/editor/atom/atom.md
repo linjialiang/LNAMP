@@ -151,7 +151,6 @@ atom-dock.left .list-inline.tab-bar.inset-panel{
 atom-workspace{
     font-family: 'Ubuntu Mono';
 }
-
 .list-inline.tab-bar.inset-panel > li.active{
     border-bottom: 2px solid rgba(90, 138, 233, .3);
 }
@@ -175,8 +174,8 @@ atom-workspace{
 .left .tree-view .project-root-header{
     border-bottom: 2px solid rgba(90, 138, 233, .3);
     font-size:1.2em;
-    font-weight: bold !important;
     height: 3.5rem;
+    font-weight: bold !important;
 }
 .list-group li:not(.list-nested-item),
 .list-tree li:not(.list-nested-item),
@@ -188,8 +187,8 @@ atom-workspace{
 .list-tree .selected::before{
     height: 2.5rem;
 }
-[theme-one-light-ui-sticky-headers="sticky"] .tree-view:focus .selected .project-root-header.project-root-header{
-    background: rgb(180, 180, 180)!important;
+.tree-view .project-root.project-root:before{
+    height: 3.5rem;
 }
 ```
 
