@@ -145,7 +145,6 @@ atom-dock.left .list-inline.tab-bar.inset-panel{
   background-color: rgb(90, 138, 233);
 }
 .list-tree .selected > span{
-    font-weight: bold;
     font-size: 14px;
 }
 atom-workspace{
@@ -175,7 +174,6 @@ atom-workspace{
     border-bottom: 2px solid rgba(90, 138, 233, .3);
     font-size:1.2em;
     height: 3.5rem;
-    font-weight: bold !important;
 }
 .list-group li:not(.list-nested-item),
 .list-tree li:not(.list-nested-item),
