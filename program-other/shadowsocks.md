@@ -295,10 +295,7 @@ netstat -tnulp
   ```
 
 3. 解决这个问题，我们需要手工添加一个 `/etc/rc.local` 文件
-
-  ```shell
-  cat <<EOF >/etc/rc.local
-  ```
+> `cat <<EOF >/etc/rc.local`
 
   ```conf
   #!/bin/sh -e
