@@ -94,76 +94,78 @@
 ## 附录一： 开发环境下配置 `xdebug`
 > 这里以 `xampp` 为例子，操作方式适用于所有 `ms` 系统
 
-- 下载 `Xdebug` : 
+- 下载 `Xdebug` :
   1. [PHP 7.0.x](https://xdebug.org/files/php_xdebug-2.6.0-7.0-vc14-x86_64.dll)
   2. [PHP 7.1.x](https://xdebug.org/files/php_xdebug-2.6.0-7.1-vc14-x86_64.dll)
   3. [PHP 7.2.x](https://xdebug.org/files/php_xdebug-2.6.0-7.2-vc15-x86_64.dll)
-  
+
 - 拷贝文件 `php_xdebug-2.6.0-7.2-vc15-x86_64.dll` 到 `C:\xampp\php\ext` 下面
 - 使用 `notepad++` 打开 `C:\xampp\php\php.ini` 文件，并编辑:
   1. 禁用输出缓冲 `output_buffering = Off`
-  ```ini
-  ; ...
-  ; 禁用输出缓冲，默认情况下已经禁用，如果是 On 开启了，请修改为 Off 禁用掉
-  ; 默认情况下就是Off，所以将output_buffering注释掉即可
-  output_buffering=Off
-  ; ...
-  ```
-  
+
+      ```ini
+      ; ...
+      ; 禁用输出缓冲，默认情况下已经禁用，如果是 On 开启了，请修改为 Off 禁用掉
+      ; 默认情况下就是Off，所以将output_buffering注释掉即可
+      output_buffering=Off
+      ; ...
+      ```
+
   2. 文件最底部添加以下内容(注释掉的内容，一般都不需要添加)：
-  ```ini
-  ; ...
-  [XDebug]
-  ; 等号（=）两边不要留空， 【;;】指默认即可，不需要写入 php.ini 文件
-  
-  ; 请确保使用完整路径(xampp版本)
-  zend_extension="c:\xampp\php\ext\php_xdebug-2.6.0-7.2-vc15.dll"
-  ; 请确保使用完整路径(php-7.2-TS-x64版本)
-  ;; zend_extension="c:\xampp\php\ext\php_xdebug-2.6.0-7.2-vc15-x86_64.dll"
 
-  ; 通常，您需要使用特定的HTTP GET/POST变量来启动远程调试；
-  ; 当此设置设置为1时，即使GET/POST/COOKIE变量不存在，Xdebug也将始终尝试启动远程调试会话并尝试连接到客户端。
-  ;; xdebug.remote_autostart=1
+      ```ini
+      ; ...
+      [XDebug]
+      ; 等号（=）两边不要留空， 【;;】指默认即可，不需要写入 php.ini 文件
 
-  ; 探查器输出将被写入的目录，确保PHP将运行的用户对该目录具有写入权限；
-  ; 这个设置不能在脚本中用 ini_set() 设置。
-  ;; xdebug.profiler_output_dir="c:\xampp\php\php_xdebug\profiler"
+      ; 请确保使用完整路径(xampp版本)
+      zend_extension="c:\xampp\php\ext\php_xdebug-2.6.0-7.2-vc15.dll"
+      ; 请确保使用完整路径(php-7.2-TS-x64版本)
+      ;; zend_extension="c:\xampp\php\ext\php_xdebug-2.6.0-7.2-vc15-x86_64.dll"
 
-  ; 此设置确定用于将跟踪转储到的文件的名称；
-  ; 该设置用格式说明符指定格式，与 sprintf() 和 strftime() 非常相似；
-  ; 有几种格式说明符可用于格式化文件名。
-  ;; xdebug.profiler_output_name="cachegrind.out.%p"
+      ; 通常，您需要使用特定的HTTP GET/POST变量来启动远程调试；
+      ; 当此设置设置为1时，即使GET/POST/COOKIE变量不存在，Xdebug也将始终尝试启动远程调试会话并尝试连接到客户端。
+      ;; xdebug.remote_autostart=1
 
-  ; 此开关控制 Xdebug 是否应尝试联系正在使用设置 xdebug.remote_host 和 xdebug.remote_port 设置的侦听主机和端口的调试客户端；
-  ; 如果该设置为0，无法建立连接，则该脚本将会继续。
-  ; netBeans ide 调试需要加上这条，平时不需要添加
-  xdebug.remote_enable=1
+      ; 探查器输出将被写入的目录，确保PHP将运行的用户对该目录具有写入权限；
+      ; 这个设置不能在脚本中用 ini_set() 设置。
+      ;; xdebug.profiler_output_dir="c:\xampp\php\php_xdebug\profiler"
 
-  ; 选择运行调试客户端的主机，您可以为Unix域套接字使用主机名；
-  ; IP地址或'unix：/// path / to / sock'；
-  ; 如果启用 xdebug.remote_connect_back ，此设置将被忽略。
-  ;; xdebug.remote_host=localhost
+      ; 此设置确定用于将跟踪转储到的文件的名称；
+      ; 该设置用格式说明符指定格式，与 sprintf() 和 strftime() 非常相似；
+      ; 有几种格式说明符可用于格式化文件名。
+      ;; xdebug.profiler_output_name="cachegrind.out.%p"
 
-  ; Xdebug尝试在远程主机上连接的端口；
-  ; 端口9000是客户端和捆绑调试客户端的默认端口；
-  ; 由于许多客户端使用此端口号，所以最好不要改变此设置。
-  ;; xdebug.remote_port=9000
+      ; 此开关控制 Xdebug 是否应尝试联系正在使用设置 xdebug.remote_host 和 xdebug.remote_port 设置的侦听主机和端口的调试客户端；
+      ; 如果该设置为0，无法建立连接，则该脚本将会继续。
+      ; netBeans ide 调试需要加上这条，平时不需要添加
+      xdebug.remote_enable=1
 
-  ; 跟踪文件将被写入的目录，确保PHP将运行的用户具有对该目录的写入权限
-  ;; xdebug.trace_output_dir="c:\xampp\php\php_xdebug\trace"
+      ; 选择运行调试客户端的主机，您可以为Unix域套接字使用主机名；
+      ; IP地址或'unix：/// path / to / sock'；
+      ; 如果启用 xdebug.remote_connect_back ，此设置将被忽略。
+      ;; xdebug.remote_host=localhost
 
-  ; 此设置确定用于将跟踪转储到的文件的名称；
-  ; 该设置用格式说明符指定格式，与sprintf()和strftime()非常相似；
-  ; 有几种格式说明符可用于格式化文件名；
-  ; '.xt'扩展名总是自动添加。
-  ;; xdebug.trace_output_name="trace.%c"
+      ; Xdebug尝试在远程主机上连接的端口；
+      ; 端口9000是客户端和捆绑调试客户端的默认端口；
+      ; 由于许多客户端使用此端口号，所以最好不要改变此设置。
+      ;; xdebug.remote_port=9000
 
-  ; 控制哪个 xdebug.idekey 应该传递给 DBGp 调试器处理程序，默认值基于环境设置；
-  ; 首先咨询环境设置 DBGP_IDEKEY，然后是 USER 和最后一个 USERNAME ；
-  ; 默认设置为找到的第一个环境变量。如果没有找到该设置，则默认设置为''；
-  ; 如果设置了此设置，它将始终覆盖环境变量。
-  ;; xdebug.idekey="netbeans-xdebug"
-  ```
+      ; 跟踪文件将被写入的目录，确保PHP将运行的用户具有对该目录的写入权限
+      ;; xdebug.trace_output_dir="c:\xampp\php\php_xdebug\trace"
+
+      ; 此设置确定用于将跟踪转储到的文件的名称；
+      ; 该设置用格式说明符指定格式，与sprintf()和strftime()非常相似；
+      ; 有几种格式说明符可用于格式化文件名；
+      ; '.xt'扩展名总是自动添加。
+      ;; xdebug.trace_output_name="trace.%c"
+
+      ; 控制哪个 xdebug.idekey 应该传递给 DBGp 调试器处理程序，默认值基于环境设置；
+      ; 首先咨询环境设置 DBGP_IDEKEY，然后是 USER 和最后一个 USERNAME ；
+      ; 默认设置为找到的第一个环境变量。如果没有找到该设置，则默认设置为''；
+      ; 如果设置了此设置，它将始终覆盖环境变量。
+      ;; xdebug.idekey="netbeans-xdebug"
+      ```
 
 - 使用的是 `PHP` 的 `FastCGI IIS` 应该使用非线程安全的 `NTS` 版本的 `PHP` ;
 - 使用 `Apache` ，您必须使用PHP的线程安全 `TS` 版本的 `PHP` .
