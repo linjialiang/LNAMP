@@ -188,6 +188,9 @@ atom-workspace{
 .tree-view .project-root.project-root:before{
     height: 3.5rem;
 }
+[theme-one-light-ui-sticky-headers="sticky"] .tree-view:focus .selected .project-root-header.project-root-header{
+    background-color: rgb(150, 180, 230);
+}
 ```
 
 ### 让 `atom` 支持简体中文
