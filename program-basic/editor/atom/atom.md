@@ -93,13 +93,12 @@ Community Packages (43) C:\\Users\\username\\.atom\\packages
 ├── atom-material-syntax@1.0.8
 ├── autocomplete-paths@2.12.2
 ├── autoprefixer@3.7.1
-├── city-lights-syntax@1.1.8
+├── chester-atom-syntax@0.3.2
 ├── color-picker@2.3.0
 ├── docblockr@0.13.7
-├── dracula-syntax@2.0.7
 ├── emmet@2.4.3
 ├── ex-mode@0.18.0
-├── file-icons@2.1.21
+├── file-icons@2.1.22
 ├── git-plus@7.12.0
 ├── git-time-machine@2.1.0
 ├── github-atom-light-syntax@0.5.0
@@ -125,7 +124,7 @@ Community Packages (43) C:\\Users\\username\\.atom\\packages
 ├── Sublime-Style-Column-Selection@1.7.4
 ├── sync-settings@0.8.6
 ├── tree-view-git-status@1.5.0
-└── vim-mode-plus@1.33.0
+└── vim-mode-plus@1.34.0
 ```
 
 ### `.atom/style.less` 文件新增css样式
