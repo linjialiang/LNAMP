@@ -89,7 +89,7 @@ Community Packages (42) C:\\Users\\username\\.atom\\packages
 ├── atom-beautify@0.32.5
 ├── atom-clock@0.1.16
 ├── atom-html-preview@0.2.5
-├── atom-ide-ui@0.12.0
+├── atom-ide-ui@0.13.0
 ├── atom-material-syntax@1.0.8
 ├── autocomplete-paths@2.12.2
 ├── autoprefixer@3.7.1
@@ -99,10 +99,10 @@ Community Packages (42) C:\\Users\\username\\.atom\\packages
 ├── emmet@2.4.3
 ├── ex-mode@0.18.0
 ├── file-icons@2.1.22
-├── git-plus@7.12.0
+├── git-plus@8.0.0
 ├── git-time-machine@2.1.0
 ├── github-atom-light-syntax@0.5.0
-├── highlight-selected@0.13.1
+├── highlight-selected@0.14.0
 ├── ide-php@0.7.14
 ├── ide-typescript@0.7.6
 ├── markdown-scroll-sync@2.1.2
@@ -138,7 +138,7 @@ atom-dock.left .list-inline.tab-bar.inset-panel{
     z-index: 2;
 }
 .line.cursor-line {
-  background-color: rgba(90, 138, 233, .3) !important;
+  background-color: rgba(90, 138, 233, .1) !important;
 }
 .minimap .cursor-line {
   background-color: rgb(90, 138, 233);
