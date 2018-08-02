@@ -170,19 +170,19 @@ php5.3 | 32    | php5_module   | `c:/wamp/32/php53/php5apache2_4.dll` | `c:/wamp
 
 1. 为阿帕奇开启虚拟主机模块
 
-  ```ini
+  ```shell
   LoadModule vhost_alias_module modules/mod_vhost_alias.so
   ```
 
 2. 为阿帕奇开启伪静态模块
 
-  ```ini
+  ```shell
   LoadModule rewrite_module modules/mod_rewrite.so
   ```
 
 3. 将 .php 文件自动解析为 PHP 脚本
 
-  ```ini
+  ```shell
   AddType application/x-httpd-php .php
   ```
 
@@ -194,7 +194,7 @@ php5.3 | 32    | php5_module   | `c:/wamp/32/php53/php5apache2_4.dll` | `c:/wamp
 
 4. 新增一个Web目录
 
-  ```ini
+  ```shell
   <Directory "c:/wamp/www">
   Options Indexes FollowSymLinks
   AllowOverride None
@@ -207,7 +207,7 @@ php5.3 | 32    | php5_module   | `c:/wamp/32/php53/php5apache2_4.dll` | `c:/wamp
   > - 在 `<Directory>` 内将 `AllowOverride None` 替换成 `AllowOverride All`
   > - 该Web目录及子目录下的所有 .htaccess 文件都支持伪静态定义
 
-  ```ini
+  ```shell
   AllowOverride All
   ```
 
@@ -215,7 +215,7 @@ php5.3 | 32    | php5_module   | `c:/wamp/32/php53/php5apache2_4.dll` | `c:/wamp
 
   > 格式： `DirectoryIndex <文件名.文件格式> ...`
 
-  ```ini
+  ```shell
   DirectoryIndex index.html index.php
   ```
 
@@ -224,13 +224,13 @@ php5.3 | 32    | php5_module   | `c:/wamp/32/php53/php5apache2_4.dll` | `c:/wamp
   > - `Include` 所指定的所有文件都会被阿帕奇视为配置文件，启动阿帕奇时将被加载
   > - 如下定义后，sites目录下所有conf格式的文件在阿帕奇启动时，都会被加载！
 
-  ```ini
+  ```shell
   Include "c:/wamp/sites/*.conf"
   ```
 
   > 附录： httpd.ini 自定义配置文件的所有内容
 
-  ```ini文件
+  ```shell
   LoadModule vhost_alias_module modules/mod_vhost_alias.so
   LoadModule rewrite_module modules/mod_rewrite.so
 
@@ -429,14 +429,14 @@ display_errors = On
   > - 说明：达到指定的错误级别才会提示错误报告
   > - 操作：php.ini 第 450 行左右：
 
-  ```ini
+  ```shell
   error_reporting = E_ALL
   ```
 
   > - 说明：错误的函数
   > - 操作：php.ini 第 540 行左右：
 
-  ```ini
+  ```shell
   html_errors = On
   ```
 
@@ -712,7 +712,7 @@ disabled    | 禁用
 > - 别名说明：也算是一种站点的方式
 > - 操作：httpd.ini 文件加入如下内容：
 
-```ini
+```shell
 Alias /phpmyadmin c:/wamp/phpMyAdmin
 <Directory c:/wamp/phpMyAdmin>
     Options FollowSymLinks

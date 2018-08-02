@@ -1,3 +1,9 @@
+/.idea
+/.vscode
+/vendor
+*.log
+thinkphp
+.env
 # 所有空格或者以 # 开头的行都会被 Git 忽略
 # 可以使用标准的 glob 模式匹配
 # 匹配 glob 模式可以以 / 开头防止递归
