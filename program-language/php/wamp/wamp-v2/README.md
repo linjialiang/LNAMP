@@ -77,26 +77,33 @@
 └─phpmyadmin                    网页版mariadb数据库管理平台（编程语言是php）
 ```
 
-## 配置 apache2 并绑定 php
+## 配置apache24并绑定php
 
-### 配置 httpd.conf 文件
+### 配置httpd.conf文件
 
-> httpd.conf 是 apache2 的主配置文件，开发模式下我们需要配置的内容如下：
+> httpd.conf是apache24的主配置文件
 
-> - 注意： apache2 下只有正斜杆 `/` 没有反斜杠 `\` （路径都要替换成正斜杆的方式）
+> - 注意： apache24下只有正斜杆 `/` 没有反斜杠 `\` （路径都要替换成正斜杆的方式）
 
-#### 为 apache2 配置正确的路径
+#### httpd.conf文件路径
 
-> 默认情况下 apache2 路径是 `c:/Apache2.4` ，需要修改成 apache2 当前所在路径
+位数 | 路径
+-- | ----------------------------------
+32 | `C:/wamp/32/httpd/conf/httpd.conf`
+64 | `C:/wamp/64/httpd/conf/httpd.conf`
 
-```shell
-# 32位
-将 httpd.conf 文件下所有 `c:/Apache24` 替换成 `c:/wamp/32/apache24`
-# 64位
-将 httpd.conf 文件下所有 `c:/Apache24` 替换成 `c:/wamp/64/apache24`
-```
+#### 为apache24配置正确的路径
 
-#### 为 apache2 配置日志
+> 默认情况下apache24路径是 `c:/Apache2.4` ，需要修改成apache24当前所在目录
+
+位数 | 替换前           | 替换后
+-- | ------------- | ---------------------
+32 | `c:/Apache24` | `c:/wamp/32/httpd`
+64 | `c:/Apache24` | `c:/wamp/64/httpd`
+
+写到这里========================================================
+
+#### 为apache2配置日志
 
 1. 配置日志格式
 
