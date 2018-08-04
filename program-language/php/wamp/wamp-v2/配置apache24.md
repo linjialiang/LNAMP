@@ -322,28 +322,61 @@ core | ErrorLogFormat | 错误日志写入的格式（附录表格）
 
 1. ErrorLog，为了统一兼容版和推荐版的错误日志，我们使用绝对路径指定
 
-```shell
-ErrorLog "${WAMPROOT}/logs/apache24/error.log"
-```
+  ```shell
+  ErrorLog "${WAMPROOT}/logs/apache24/error.log"
+  ```
 
 2. LogLevel 大众设置，老手都应该按需来调节它
 
+  ```shell
+  LogLevel warn
+  ```
+
+3. ErrorLogFormat，按需设置（我习惯性不设置它）
+
+> 错误日志格式一
+
 ```shell
-LogLevel warn
+#Simple example
+ErrorLogFormat "[%t] [%l] [pid %P] %F: %E: [client %a] %M"
 ```
 
+> 错误日志格式二
+
+```shell
+#Example (default format for threaded MPMs)
+ErrorLogFormat "[%{u}t] [%-m:%l] [pid %P:tid %T] %7F: %E: [client\ %a] %M% ,\ referer\ %{Referer}i"
+```
+
+> 错误日志格式三
+
+```shell
+#Example (similar to the 2.2.x format)
+ErrorLogFormat "[%t] [%l] %7F: %E: [client\ %a] %M% ,\ referer\ %{Referer}i"
+```
+
+> 错误日志格式三
+
+```shell
+#Advanced example with request/connection log IDs
+ErrorLogFormat "[%{uc}t] [%-m:%-l] [R:%L] [C:%{C}L] %7F: %E: %M"
+ErrorLogFormat request "[%{uc}t] [R:%L] Request %k on C:%{c}L pid:%P tid:%T"
+ErrorLogFormat request "[%{uc}t] [R:%L] UA:'%+{User-Agent}i'"
+ErrorLogFormat request "[%{uc}t] [R:%L] Referer:'%+{Referer}i'"
+ErrorLogFormat connection "[%{uc}t] [C:%{c}L] local\ %a remote\ %A"
+```
 
 #### 本小节附录：
 
-> LogLevel 格式
+> LogLevel 格式（至少需要指定一个全局的错误日志级别）
 
-LogLevel 格式                          | 描述
------------------------------------- | -----------------
-`LogLevel [模块标识符:]级别 [模块标识符:级别] ...` | 至少需要指定一个全局的错误日志级别
+```shell
+LogLevel [模块标识符:]级别 [模块标识符:级别] ...
+```
 
 > LogLevel调整错误日志中记录的消息的详细程度。共有以下级别可用，按重要性递减顺序：
 
-级别     | 描述
+级别字符串  | 描述
 ------ | --------------
 emerg  | 紧急情况 - 系统无法使用。
 alert  | 必须立即采取行动。
@@ -361,3 +394,38 @@ trace5 | 跟踪消息
 trace6 | 跟踪消息
 trace7 | 跟踪消息，转储大量数据
 trace8 | 跟踪消息，转储大量数据
+
+> ErrorLogFormat 格式
+
+```shell
+ErrorLogFormat [connection|request] [格式1] [格式2] ...
+```
+
+格式字符串                 | 描述
+--------------------- | --------------------------------------
+`%%`                  | 百分号
+`%a`                  | 客户端IP地址和请求的端口
+`%{c}a`               | 底层对等IP地址和连接端口（参见 mod_remoteip模块）
+`%A`                  | 本地IP地址和端口
+`%{name}e`            | 请求环境变量名称
+`%E`                  | APR / OS错误状态代码和字符串
+`%F`                  | 源文件名和日志调用的行号
+`%{name}i`            | 请求标题名称
+`%k`                  | 此连接上的保持活动请求数
+`%l`                  | Loglevel的消息
+`%L`                  | 请求的日志ID
+`%{c}L`               | 连接的日志ID
+`%{C}L`               | 如果在连接范围中使用，则为连接的日志ID，否则为空
+`%m`                  | 记录消息的模块的名称
+`%M`                  | 实际的日志消息
+`%{name}n`            | 请求备注名称
+`%P`                  | 当前进程的进程ID
+`%T`                  | 当前线程的线程ID
+`%{g}T`               | 当前线程的系统唯一线程ID（与例如显示的ID相同top;仅限当前Linux）
+`%t`                  | 现在的时间
+`%{u}t`               | 当前时间包括微秒
+`%{cu}t`              | 紧凑型ISO 8601格式的当前时间，包括微秒
+`%v`                  | ServerName 当前服务器的规范。
+`%V`                  | 根据UseCanonicalName 设置提供请求的服务器的服务器名称 。
+`\ (backslash space)` | 非字段分隔空间
+`% (percent space)`   | 字段分隔符（无输出）
