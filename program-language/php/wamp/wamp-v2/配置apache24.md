@@ -717,12 +717,10 @@ Alias /phpmyadmin ${WAMPROOT}/phpmyadmin
 ### 各自的作用对比图
 
 `指令`            | 所属   | `描述`
---------------- | ---- | -----------------------------------------------------
+--------------- | ---- | ----------------------------------------
 `Require`       | 授权指令 | 写入授权容器内的规则
 `<RequireAll>`  | 授权容器 | 用于包含一组授权指令，并且必须全部是否定的，
-`<RequireAny>`  | 授权容器 | 用于包含一组授权指令，其中一个必须成功才能使
-
-<requireany>指令成功</requireany>
+`<RequireAny>`  | 授权容器 | 用于包含一组授权指令，其中一个必须成功才能使`<requireany>`指令成功
 `<RequireNone>` | 授权容器 | 在此元素中包含的规则，所有规则取反
 
 ### Require 指令
@@ -731,13 +729,11 @@ Alias /phpmyadmin ${WAMPROOT}/phpmyadmin
 
 指令                                                | 描述
 ------------------------------------------------- | -------------------
-`Require all {granted                             | denied}`            | 全部允许或全部禁止授权
+`Require all {granted OR denied}`                 | 全部允许或全部禁止授权
 `Require method {method1 [method2] [method3]...}` | 对指定的请求授权，如：POST、GET
 `Require env {SetEnvIf命名}`                        | 基于SetEnvIf定义的环境变量授权
 `Require expr {正则表达式}`                            | 对任意表达式授权
 
 ### 授权容器
 
-> 3个授权容器指令
-
-> <requireall>、<requireany>、<requirenone>可以彼此结合，并通过Require指令来表达复杂的授权逻辑。</requirenone></requireany></requireall>
+> 3个授权容器指令`<requireall>、<requireany>、<requirenone>`可以彼此结合，并通过Require指令来表达复杂的授权逻辑。
