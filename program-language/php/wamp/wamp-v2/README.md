@@ -72,6 +72,8 @@
 │
 ├─www                           Web根目录
 │
+├─www-default                   Web缺省位置
+│
 ├─data                          mariadb数据库存放目录
 │
 └─phpmyadmin                    网页版mariadb数据库管理平台（编程语言是php）

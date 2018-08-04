@@ -30,20 +30,20 @@
 
 > 定义变量：wamp开发环境根目录变量（ `${WAMPROOT}` ）
 
-位数 | 代码
+位数 | 设置变量
 -- | ---------------------------
 32 | `Define WAMPROOT "c:/wamp"`
 64 | `Define WAMPROOT "c:/wamp"`
 
-> 定义变量：版本目录变量（ `${VERSIONPAHT}` ）
+> 定义变量：版本目录变量（ `${BITPATH}` ）
 
-位数 | 代码
+位数 | 设置变量
 -- | ---------------------------------
-32 | `Define VERSIONPAHT "${WAMPROOT}/32"`
-64 | `Define VERSIONPAHT "${WAMPROOT}/64"`
+32 | `Define BITPATH "${WAMPROOT}/32"`
+64 | `Define BITPATH "${WAMPROOT}/64"`
 
 - 说明：如不需要，尽量不要定义变量
-- 注意：至少要保证变量 `${WAMPROOT}` `${VERSIONPAHT}` 是第一次出现，这是符合逻辑的定义方式！
+- 注意：至少要保证变量 `${WAMPROOT}` `${BITPATH}` 是第一次出现，这是符合逻辑的定义方式！
 - 提示：由于 `Define` 是apache24自带的，并不需要模块支持，所以允许定义到配置文件最顶部！
 
 ### httpd.conf下为apache24增加子配置文件
@@ -70,8 +70,9 @@
 
 ```conf
 Define WAMPROOT "c:/wamp"
-Define VERSIONPAHT "${WAMPROOT}/64"
-Define SRVROOT "${VERSIONPAHT}/apache24"
+Define BITPATH "${WAMPROOT}/32"
+Define SRVROOT "${BITPATH}/apache24"
+Define PHPVERSION "php5"
 
 ServerRoot "${SRVROOT}"
 
@@ -109,8 +110,9 @@ LoadModule setenvif_module modules/mod_setenvif.so
 
 ```conf
 Define WAMPROOT "c:/wamp"
-Define VERSIONPAHT "${WAMPROOT}/64"
-Define SRVROOT "${VERSIONPAHT}/apache24"
+Define BITPATH "${WAMPROOT}/64"
+Define SRVROOT "${BITPATH}/apache24"
+Define PHPVERSION "php7"
 
 ServerRoot "${SRVROOT}"
 
@@ -157,16 +159,43 @@ LoadModule setenvif_module modules/mod_setenvif.so
 
 > 默认并没有将模块全部开启，需要的模块在apache24.conf下加载即可，下面是我经常使用的模块
 
-模块名           | 贴代码
+模块名           | 加载模块
 ------------- | ----------------------------------------------------------
 `mod_alias`   | `LoadModule vhost_alias_module modules/mod_vhost_alias.so`
 `mod_rewrite` | `LoadModule rewrite_module modules/mod_rewrite.so`
 
 > 加载模块格式 `LoadModule 模块标识符 模块路径（支持相对路径和绝对路径）`
 
-### ~~题外话： `unixd_module` 模块~~
+### 二、为apache24绑定php
 
-> 这是Unix系列平台的基本（必需）安全性模块，类unix下属于必须配置项（windows不需要配置）
+> 绑定php需要分两步操作：1）加载php模块；2）获取php配置文件所在目录
+
+#### 解决：php版本差异（配置文件：httpd.conf）
+
+> 由于推荐版和兼容版php版本差异，导致模块标识符不一致，需要通过设置变量来解决
+
+位数 | 设置变量
+-- | --------------------------
+32 | `Define PHPVERSION "php5"`
+64 | `Define PHPVERSION "php7"`
+
+1. 加载php模块
+
+```conf
+LoadModule ${PHPVERSION}_module ${BITPATH}/php/${PHPVERSION}apache2_4.dll
+```
+
+1. 获取php配置文件所在目录（php.ini）
+
+```conf
+<IfModule ${PHPVERSION}_module>
+  PHPINIDir "${BITPATH}/php"
+</IfModule>
+```
+
+### ~~题外话： `mod_unixd` 模块~~
+
+> 这是Unix系列平台的基本（必需）安全性模块，类unix下属于必须配置项（windows不需要这个）
 
 属性           | 描述
 ------------ | ---------------
@@ -181,3 +210,45 @@ LoadModule setenvif_module modules/mod_setenvif.so
     Group www
 </IfModule>
 ```
+
+## 三、设置服务器主配置
+
+> 任何未由virtualhost定义处理的请求都会由该配置响应。这些值会为稍后在文件中定义的任何虚拟主机容器提供缺省值。
+
+1. 设置默认邮箱地址
+
+  > 这个地址出现在一些服务器生成的页面上，比如错误文档。
+
+  ```conf
+  ServerAdmin admin@example.com
+  ```
+
+2. 设置全局主机名
+
+  > 一般情况下这个不需要配置，除非个人有特殊需要
+
+  ```conf
+  # ServerName www.example.com:80
+  ```
+
+3. 拒绝访问整个服务器的文件系统
+
+  > 如果是服务器这个必须配置，否则整个服务器文件系统都将对访问者开放
+
+  ```conf
+  <Directory />
+  AllowOverride none
+  Require all denied
+  </Directory>
+  ```
+
+4. 为apache24指定缺省位置
+> `DocumentRoot` 默认情况下，所有的请求都是从这个目录中获取的，安全起见不应该与其它站点设置在同一个目录下
+
+5. 特定区块开放访问权限
+
+  > 通俗讲：指定一个位置，允许访问者访问
+
+
+
+  > 提示：一般情况下，我们会指定1个服务器站点存放的根目录
