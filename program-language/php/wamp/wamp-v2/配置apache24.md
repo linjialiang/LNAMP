@@ -312,11 +312,11 @@ Require all denied
 
 #### 错误日志
 
-> 错误日志指令
+> 服务器错误日志（其名称和位置由ErrorLog指令设置） 是最重要的日志文件。这是Apache httpd将发送诊断信息并记录它在处理请求时遇到的任何错误的地方。当启动服务器或服务器操作出现问题时，它是第一个查看的地方，因为它通常包含错误的详细信息以及如何修复它。
 
 所属模块 | 指令             | 描述
----- | -------------- | ----------------------
-core | ErrorLog       | 记录错误日志的位置（支持绝对路径和相对路径）
+---- | -------------- | --------------------------
+core | ErrorLog       | 记录错误日志的文件存放路径（支持绝对路径和相对路径）
 core | LogLevel       | 控制ErrorLog的详细程度（附录表格）
 core | ErrorLogFormat | 错误日志写入的格式（附录表格）
 
@@ -332,39 +332,31 @@ core | ErrorLogFormat | 错误日志写入的格式（附录表格）
   LogLevel warn
   ```
 
-3. ErrorLogFormat，按需设置（我习惯性不设置它）
+3. ErrorLogFormat，按需设置（很多时候都不需要设置它）
 
-> 错误日志格式一
+  ```shell
+  #Simple example
+  ErrorLogFormat "[%t] [%l] [pid %P] %F: %E: [client %a] %M"
+  ```
 
-```shell
-#Simple example
-ErrorLogFormat "[%t] [%l] [pid %P] %F: %E: [client %a] %M"
-```
+  ```shell
+  #Example (default format for threaded MPMs)
+  ErrorLogFormat "[%{u}t] [%-m:%l] [pid %P:tid %T] %7F: %E: [client\ %a] %M% ,\ referer\ %{Referer}i"
+  ```
 
-> 错误日志格式二
+  ```shell
+  #Example (similar to the 2.2.x format)
+  ErrorLogFormat "[%t] [%l] %7F: %E: [client\ %a] %M% ,\ referer\ %{Referer}i"
+  ```
 
-```shell
-#Example (default format for threaded MPMs)
-ErrorLogFormat "[%{u}t] [%-m:%l] [pid %P:tid %T] %7F: %E: [client\ %a] %M% ,\ referer\ %{Referer}i"
-```
-
-> 错误日志格式三
-
-```shell
-#Example (similar to the 2.2.x format)
-ErrorLogFormat "[%t] [%l] %7F: %E: [client\ %a] %M% ,\ referer\ %{Referer}i"
-```
-
-> 错误日志格式三
-
-```shell
-#Advanced example with request/connection log IDs
-ErrorLogFormat "[%{uc}t] [%-m:%-l] [R:%L] [C:%{C}L] %7F: %E: %M"
-ErrorLogFormat request "[%{uc}t] [R:%L] Request %k on C:%{c}L pid:%P tid:%T"
-ErrorLogFormat request "[%{uc}t] [R:%L] UA:'%+{User-Agent}i'"
-ErrorLogFormat request "[%{uc}t] [R:%L] Referer:'%+{Referer}i'"
-ErrorLogFormat connection "[%{uc}t] [C:%{c}L] local\ %a remote\ %A"
-```
+  ```shell
+  #Advanced example with request/connection log IDs
+  ErrorLogFormat "[%{uc}t] [%-m:%-l] [R:%L] [C:%{C}L] %7F: %E: %M"
+  ErrorLogFormat request "[%{uc}t] [R:%L] Request %k on C:%{c}L pid:%P tid:%T"
+  ErrorLogFormat request "[%{uc}t] [R:%L] UA:'%+{User-Agent}i'"
+  ErrorLogFormat request "[%{uc}t] [R:%L] Referer:'%+{Referer}i'"
+  ErrorLogFormat connection "[%{uc}t] [C:%{c}L] local\ %a remote\ %A"
+  ```
 
 #### 本小节附录：
 
@@ -429,3 +421,98 @@ ErrorLogFormat [connection|request] [格式1] [格式2] ...
 `%V`                  | 根据UseCanonicalName 设置提供请求的服务器的服务器名称 。
 `\ (backslash space)` | 非字段分隔空间
 `% (percent space)`   | 字段分隔符（无输出）
+
+#### 访问日志
+
+> 服务器访问日志记录服务器处理的所有请求。访问日志的位置和内容由CustomLog 指令控制。该LogFormat 指令可用于简化日志内容的选择。
+
+所属模块           | 指令        | 描述
+-------------- | --------- | -------------------------
+mod_log_config | CustomLog | 控制访问日志的位置和内容（支持绝对路径和相对路径）
+mod_setenvif   | LogFormat | 用于个性化选择日志内容
+mod_setenvif   | SetEnvIf  | 根据请求的属性设置环境变量，用于限制日志输出内容
+
+> 访问日志的典型配置可能如下所示：
+
+```shell
+LogFormat "%h %l %u %t \"%r\" %>s %b" common
+CustomLog ${WAMPROOT}/logs/apache24/access_log common
+```
+
+> 默认的访问日志配置代码
+
+```shell
+<IfModule log_config_module>
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+    LogFormat "%h %l %u %t \"%r\" %>s %b" common
+
+    <IfModule logio_module>
+      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+    </IfModule>
+
+    CustomLog "${WAMPROOT}/logs/apache24/access_log" common
+</IfModule>
+```
+
+> 按天分割的访问日志配置代码
+
+```shell
+<IfModule log_config_module>
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+    LogFormat "%h %l %u %t \"%r\" %>s %b" common
+
+    <IfModule logio_module>
+      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+    </IfModule>
+
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe ${WAMPROOT}/logs/apache24/access_log 86400" common
+</IfModule>
+```
+
+
+
+> 访问日志格式字符串
+
+格式字符串         | 描述
+------------- | -------------------------------------------------------------------------------------------------------------------------------------
+%%            | 百分号。
+%a            | 请求的客户端IP地址（请参阅 mod_remoteip模块）。
+%{c}a         | 连接的基础对等IP地址（请参阅 mod_remoteip模块）。
+%A            | 本地IP地址。
+%B            | 响应大小（以字节为单位），不包括HTTP头。
+%b            | 响应大小（以字节为单位），不包括HTTP头。在CLF格式中，即-没有发送字节时 的' '而不是0。
+%{VARNAME}C   | 发送到服务器的请求中的cookie VARNAME的内容。仅完全支持版本0 cookie。
+%D            | 服务请求所需的时间，以微秒为单位。
+%{VARNAME}e   | 环境变量VARNAME的内容 。
+%f            | 文件名。
+%h            | 远程主机名。如果HostnameLookups设置为 Off，将记录IP地址，这是默认值。如果它仅记录少数主机的主机名，则可能具有按名称提及它们的访问控制指令。请参阅Require主机文档。
+%H            | 请求协议。
+%{VARNAME}i   | VARNAME:发送到服务器的请求中标题行的内容。其他模块（例如mod_headers）所做的更改会影响这一点。如果您对大多数模块修改它之前请求标头的内容感兴趣，请使用mod_setenvif 将标头复制到内部环境变量中并使用上述描述该值。%{VARNAME}e
+%k            | 此连接上处理的keepalive请求数。有趣的KeepAlive是，如果 正在使用，那么，例如，'1'表示在初始一个之后的第一个keepalive请求，'2'表示第二个，等等; 否则这始终为0（表示初始请求）。
+%l            | 远程日志名称（来自identd，如果提供）。除非mod_ident存在并且IdentityCheck已设置， 否则这将返回破折号On。
+%L            | 来自错误日志的请求日志ID（如果没有将任何内容记录到此请求的错误日志中，则为" - "）。查找匹配的错误日志行以查看哪些请求导致了什么错误。
+%m            | 请求方法。
+%{VARNAME}n   | 来自另一个模块的note VARNAME的内容。
+%{VARNAME}o   | VARNAME:回复中标题行的内容。
+%p            | 服务请求的服务器的规范端口。
+%{format}p    | 服务请求的服务器的规范端口，服务器的实际端口或客户端的实际端口。有效的格式canonical，local或remote。
+%P            | 为请求提供服务的子进程ID。
+%{format}P    | 为请求提供服务的子进程ID或线程ID。有效的格式是pid，tid和hextid。 hextid要求APR 1.2.0或更高。
+%q            | 查询字符串（?如果查询字符串存在则前缀，否则为空字符串）。
+%r            | 第一行请求。
+%R            | 生成响应的处理程序（如果有）。
+%s            | 状态。对于已内部重定向的请求，这是原始请求的状态。使用%>s 的最终状态。
+%t            | 收到请求的时间，格式为[18/Sep/2011:19:18:28 -0400]。最后一个数字表示与GMT的时区偏移量
+%{format}t    | 时间，以格式给出的形式，应该是扩展strftime(3)格式（可能是本地化的）。如果格式以begin:（默认）开头，则在请求处理开始时进行。如果以它开始， end:则是写入日志条目的时间，接近请求处理的结束。除支持的格式外strftime(3)，还支持以下格式标记：
+%T            | 服务请求所需的时间，以秒为单位。
+%{UNIT}T      | 服务请求所用的时间，以时间单位给出 UNIT。有效单位ms为毫秒， us微秒和s秒。使用s与%T 没有任何格式的结果相同; 使用us给出相同的结果%D。%T2.4.13及更高版本中提供了与单元的组合。
+%u            | 远程用户，如果请求已通过身份验证。如果返回状态（%s）为401（未经授权），则可能是伪造的。
+%U            | 请求的URL路径，不包括任何查询字符串。
+%v            | ServerName 服务请求的服务器的规范。
+%V            | 服务器名称根据UseCanonicalName设置。
+%X            | 响应完成时的连接状态：
+%I            | 收到的字节数，包括请求和标题。不能为零。您需要启用mod_logio此功能。
+%O            | 发送的字节数，包括标题。在极少数情况下可能为零，例如在发送响应之前请求被中止。您需要启用mod_logio此功能。
+%S            | 传输（接收和发送）的字节（包括请求和标头）不能为零。这是％I和％O的组合。您需要启用mod_logio此功能。
+%{VARNAME}^ti | VARNAME:发送到服务器的请求中的预告片行的内容。
+%{VARNAME}^to | VARNAME:从服务器发送的响应中的预告片行的内容。
