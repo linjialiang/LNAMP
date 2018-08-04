@@ -549,3 +549,112 @@ CustomLog ${WAMPROOT}/logs/apache24/access_log common
 `%S`            | 传输（接收和发送）的字节（包括请求和标头）不能为零。这是％I和％O的组合。您需要启用mod_logio此功能。
 `%{VARNAME}^ti` | VARNAME:发送到服务器的请求中的预告片行的内容。
 `%{VARNAME}^to` | VARNAME:从服务器发送的响应中的预告片行的内容。
+
+### 七、3组不需要特别修改的默认配置
+
+> 这几组都是默认配置，我们将配置移除掉了
+
+```shell
+<IfModule alias_module>
+    ScriptAlias /cgi-bin/ "${SRVROOT}/cgi-bin/"
+</IfModule>
+
+<Directory "${SRVROOT}/cgi-bin">
+    AllowOverride None
+    Options None
+    Require all granted
+</Directory>
+
+<IfModule headers_module>
+    RequestHeader unset Proxy early
+</IfModule>
+```
+
+### 八、为php关联扩展名（支持多个扩展名）
+
+> 操作：在 `<IfModule mime_module>` 内新增一行代码
+
+```shell
+<IfModule mime_module>
+    TypesConfig conf/mime.types
+
+    AddType application/x-compress .Z
+    AddType application/x-gzip .gz .tgz
+    AddType application/x-httpd-php .php
+</IfModule>
+```
+
+> 格式： `AddType application/x-httpd-php [.扩展名1] [.扩展名2] ...`
+
+### 九、2组不需要特别修改的默认配置
+
+```shell
+<IfModule proxy_html_module>
+    Include conf/extra/proxy-html.conf
+</IfModule>
+
+<IfModule ssl_module>
+    SSLRandomSeed startup builtin
+    SSLRandomSeed connect builtin
+</IfModule>
+```
+
+### 十、为apache24虚拟主机配置文件指定存放目录
+
+> 说明：虚拟主机配置文件其实就是，apache24的子孙配置文件
+
+```shell
+<IfModule include_module>
+    Include "${WAMPROOT}/sites/*.conf"
+</IfModule>
+```
+
+> 提示：Include 支持简单的正则表达式
+
+## 虚拟主机相关配置
+
+> 这里我主要讲解2个内容：1）别名配置；2）虚拟主机配置
+
+### 一、别名配置
+
+> 站点配置目录下新建文件 `phpmyadmin.conf` ，下面直接贴代码：
+
+```shell
+Alias /phpmyadmin ${WAMPROOT}/phpmyadmin
+<Directory ${WAMPROOT}/phpmyadmin>
+    Options FollowSymLinks
+    DirectoryIndex index.php
+    <RequireAll>
+        Require local
+    </RequireAll>
+</Directory>
+<Directory ${WAMPROOT}/phpmyadmin/libraries>
+    Require all denied
+</Directory>
+<Directory ${WAMPROOT}/phpmyadmin/setup/lib>
+    Require all denied
+</Directory>
+```
+
+### 配置虚拟主机
+
+> 站点配置目录下新建 `.conf` 扩展的文件，下面直接贴代码：
+
+```shell
+<VirtualHost *:80>
+    ServerAdmin "your email"
+    DocumentRoot "${WAMPROOT}/www/路径"
+    ServerName www.test1.com
+    ServerAlias www.test1.com test1.com www.test2.com test2.com
+    ErrorDocument 404 /404.html
+
+    ErrorLog "${WAMP}/logs/apache24/域名1-error.log"
+    CustomLog "${WAMP}/logs/apache24/域名1-access.log" common
+
+    RewriteEngine on
+    RewriteCond %{HTTP_HOST} ^test1.com$ [NC]
+    RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
+    RewriteCond %{HTTP_HOST} ^test2.com$ [NC]
+    RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
+</VirtualHost>
+```
