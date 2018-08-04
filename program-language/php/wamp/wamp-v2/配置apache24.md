@@ -323,7 +323,7 @@ core | ErrorLogFormat | 错误日志写入的格式（附录表格）
 1. ErrorLog，为了统一兼容版和推荐版的错误日志，我们使用绝对路径指定
 
 ```shell
-ErrorLog "logs/error.log"
+ErrorLog "${WAMPROOT}/logs/apache24/error.log"
 ```
 
 2. LogLevel 大众设置，老手都应该按需来调节它

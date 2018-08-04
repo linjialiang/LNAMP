@@ -68,6 +68,11 @@
 │
 ├─conf                          公用配置文件目录
 │
+├─logs                          服务器相关日志文件目录
+│  │  ├─apache24                apache24日志目录
+│  │  ├─mariadb                 mariadb日志目录
+│  │
+│
 ├─sites                         站点配置文件目录
 │
 ├─www                           Web根目录
