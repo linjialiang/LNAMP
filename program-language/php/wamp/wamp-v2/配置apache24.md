@@ -429,7 +429,7 @@ ErrorLogFormat [connection|request] [格式1] [格式2] ...
 所属模块           | 指令        | 描述
 -------------- | --------- | -------------------------
 mod_log_config | CustomLog | 控制访问日志的位置和内容（支持绝对路径和相对路径）
-mod_setenvif   | LogFormat | 用于个性化选择日志内容
+mod_setenvif   | LogFormat | 设置日志文件的文件名和格式
 mod_setenvif   | SetEnvIf  | 根据请求的属性设置环境变量，用于限制日志输出内容
 
 > 访问日志的典型配置可能如下所示：
@@ -469,7 +469,37 @@ CustomLog ${WAMPROOT}/logs/apache24/access_log common
 </IfModule>
 ```
 
+> 按天分割的访问日志配置代码，并记录当前访问域名字段
 
+```shell
+<IfModule log_config_module>
+    LogFormat "$V-%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+    LogFormat "$V-%h %l %u %t \"%r\" %>s %b" common
+
+    <IfModule logio_module>
+      LogFormat "$V-%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+    </IfModule>
+
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe ${WAMPROOT}/logs/apache24/access_log 86400" common
+</IfModule>
+```
+
+> 按天分割的访问日志配置代码，并记录当前访问域名字段，限制图片js等文件写入日志（我们选择这个吧）
+
+```shell
+<IfModule log_config_module>
+    LogFormat "$V-%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+    LogFormat "$V-%h %l %u %t \"%r\" %>s %b" common
+
+    <IfModule logio_module>
+      LogFormat "$V-%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+    </IfModule>
+
+    SetEnvIf Request_URI "\.(ico|gif|jpg|png|bmp|swf|css|js)$" dontlog
+
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe ${WAMPROOT}/logs/apache24/access_log 86400" common env=!dontlog
+</IfModule>
+```
 
 > 访问日志格式字符串
 
