@@ -31,7 +31,7 @@
 ```shell
 ├─     ====================     wamp环境部署目录
 ├─32                            32位安装包
-│  ├─httpd                      Web服务器
+│  ├─apache24                   Web服务器
 │  │  ├─bin                     阿帕奇可执行程序目录
 │  │  ├─conf                    配置
 │  │  │  ├─httpd.conf           阿帕奇主配置文件
@@ -49,7 +49,7 @@
 │  │
 │
 ├─64                            64位安装包
-│  ├─httpd                      Web服务器
+│  ├─apache24                   Web服务器
 │  │  ├─bin                     阿帕奇可执行程序目录
 │  │  ├─conf                    配置
 │  │  │  ├─httpd.conf           阿帕奇主配置文件
@@ -77,61 +77,7 @@
 └─phpmyadmin                    网页版mariadb数据库管理平台（编程语言是php）
 ```
 
-## 配置apache24
 
-> - `httpd.conf` 是apache24的主配置文件，基本上我们都会在该文件上完成配置
-
-> - 注意：apache24下只有正斜杆 `/` 没有反斜杠 `\` （路径都要替换成正斜杆的方式）
-
-### apache24配置文件路径
-
-位数 | 路径
--- | ----------------------------------
-32 | `C:/wamp/32/httpd/conf/httpd.conf`
-64 | `C:/wamp/64/httpd/conf/httpd.conf`
-
-### httpd.conf下配置apache24正确路径
-
-- 描述：默认情况下apache24路径是 `c:/Apache2.4` ，需要修改成apache24当前所在目录
-- 注意：最新版开始引入了 `Define` 变量定义，所以我们只需要修改一个位置
-
-位数 | 替换前                            | 替换后
--- | ------------------------------ | --------------------------------------
-32 | `Define SRVROOT "c:/Apache24"` | `Define SRVROOT "c:/wamp/32/apache24"`
-64 | `Define SRVROOT "c:/Apache24"` | `Define SRVROOT "c:/wamp/64/apache24"`
-
-### httpd.conf下配置开发环境根路径变量
-
-- 描述：新版apache24推荐使用 `Define` 来定义变量，让配置环境更加清晰、直观！
-- 定义格式： `Define 变量名 变量值`
-- 使用格式： `${变量名}`
-
-```conf
-Define WAMPROOT "c:/wamp"
-```
-
-- 注意：至少要保证变量 `WAMPROOT` 是第一次出现，这是符合逻辑的定义方式！
-- 提示：由于 `Define` 是apache24自带的，并不需要模块支持，所以允许定义到配置文件最顶部！
-
-### httpd.conf下为apache24增加子配置文件
-
-- 描述：apache24支持定义子孙配置文件，支持相对路径和绝对路径，我们这里会用到绝对路径
-- 格式： `Include 自配置文件路径`
-
-```conf
-<IfModule include_module>
-    Include "${SRVROOT}/conf/apache24.conf"
-</IfModule>
-```
-
-- 警告：由于 `Include` 需要模块 `include_module` 支持，所以我们需要在模块定义之后添加
-- 注意：由于自定义的apache24.conf文件会有各种配置，我们建议在模块定义后第一个出现就是该配置文件，这是符合逻辑的定义方式
-
-### 删除httpd.conf多余配置项目
-
-- 删除2：文件里所有注释的行都可以被删除掉
-- 删除1：由于apache24支持相对路径，因此 `定义模块之后的内容` 都可以删除或转移到apache24.conf
-- 甜点：为了能更直观理解apache24配置，我会将模块往后的内容全部挪移到apache24.conf这个子配置文件里
 
 到此==============================================
 
