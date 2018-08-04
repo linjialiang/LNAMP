@@ -181,17 +181,17 @@ LoadModule setenvif_module modules/mod_setenvif.so
 
 1. 加载php模块
 
-```shell
-LoadModule ${PHPVERSION}_module ${BITPATH}/php/${PHPVERSION}apache2_4.dll
-```
+  ```shell
+  LoadModule ${PHPVERSION}_module ${BITPATH}/php/${PHPVERSION}apache2_4.dll
+  ```
 
-1. 获取php配置文件所在目录（php.ini）
+2. 获取php配置文件所在目录（php.ini）
 
-```shell
-<IfModule ${PHPVERSION}_module>
+  ```shell
+  <IfModule ${PHPVERSION}_module>
   PHPINIDir "${BITPATH}/php"
-</IfModule>
-```
+  </IfModule>
+  ```
 
 ### ~~题外话： `mod_unixd` 模块~~
 
@@ -202,16 +202,16 @@ LoadModule ${PHPVERSION}_module ${BITPATH}/php/${PHPVERSION}apache2_4.dll
 ~~`User 用户名`~~   | ~~指定apache24的用户~~
 ~~`Group 用户组名`~~ | ~~指定apache24的用户群组~~
 
-> 代码案例
+> ~~代码案例~~
 
 ```shell
-<IfModule unixd_module>
-    User www
-    Group www
-</IfModule>
+# <IfModule unixd_module>
+#     User www
+#     Group www
+# </IfModule>
 ```
 
-### 三、设置服务器主配置
+### 三、设置apache24站点默认配置
 
 > 任何未由virtualhost定义处理的请求都会由该配置响应。这些值会为稍后在文件中定义的任何虚拟主机容器提供缺省值。
 
@@ -257,11 +257,34 @@ LoadModule ${PHPVERSION}_module ${BITPATH}/php/${PHPVERSION}apache2_4.dll
   ```shell
   <Directory "${WAMPROOT}/www">
   Options Indexes FollowSymLinks
-  AllowOverride None
+  AllowOverride All
   Require all granted
   </Directory>
   ```
 
   > 提示：一般情况下，我们会指定1个存放所有站点的根目录
 
-题外话
+### 四、设置apache24在请求目录时将服务的文件
+
+> 我们经常说的，默认文件就是这个这个了
+
+```shell
+<IfModule dir_module>
+DirectoryIndex index.html index.htm index.php
+</IfModule>
+```
+
+> 提示：配置多个默认文件，会从左往右索引文件，直到找到为止。无法找到页面将无法显示或输出文件列表
+
+### 五、阻止客户端查看特殊文件
+
+> 一般情况下我们需要阻止 `.htaccess` 和 `.htpasswd` 文件被Web客户端查看
+
+```shell
+<Files ".ht*">
+Require all denied
+</Files>
+```
+
+### 六、apache24日志
+> 为了有效地管理Web服务器，有必要获得有关服务器的活动和性能以及可能发生的任何问题的反馈。 `Apache HTTP Server` 提供了非常全面和灵活的日志记录功能。
