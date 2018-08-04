@@ -51,7 +51,7 @@
 - 描述：apache24支持定义子孙配置文件，支持相对路径和绝对路径，我们这里会用到绝对路径
 - 格式： `Include 自配置文件路径`
 
-```conf
+```shell
 <IfModule include_module>
     Include "${WAMPROOT}/conf/apache24.conf"
 </IfModule>
@@ -68,7 +68,7 @@
 
 > 兼容版 httpd.conf 内容
 
-```conf
+```shell
 Define WAMPROOT "c:/wamp"
 Define BITPATH "${WAMPROOT}/32"
 Define SRVROOT "${BITPATH}/apache24"
@@ -108,7 +108,7 @@ LoadModule setenvif_module modules/mod_setenvif.so
 
 > 推荐版 httpd.conf 内容
 
-```conf
+```shell
 Define WAMPROOT "c:/wamp"
 Define BITPATH "${WAMPROOT}/64"
 Define SRVROOT "${BITPATH}/apache24"
@@ -181,13 +181,13 @@ LoadModule setenvif_module modules/mod_setenvif.so
 
 1. 加载php模块
 
-```conf
+```shell
 LoadModule ${PHPVERSION}_module ${BITPATH}/php/${PHPVERSION}apache2_4.dll
 ```
 
 1. 获取php配置文件所在目录（php.ini）
 
-```conf
+```shell
 <IfModule ${PHPVERSION}_module>
   PHPINIDir "${BITPATH}/php"
 </IfModule>
@@ -195,23 +195,23 @@ LoadModule ${PHPVERSION}_module ${BITPATH}/php/${PHPVERSION}apache2_4.dll
 
 ### ~~题外话： `mod_unixd` 模块~~
 
-> 这是Unix系列平台的基本（必需）安全性模块，类unix下属于必须配置项（windows不需要这个）
+> ~~这是Unix系列平台的基本（必需）安全性模块，类unix下属于必须配置项（windows不需要这个）~~
 
-属性           | 描述
------------- | ---------------
-`User 用户名`   | 指定apache24的用户
-`Group 用户组名` | 指定apache24的用户群组
+~~属性~~           | ~~描述~~
+---------------- | -------------------
+~~`User 用户名`~~   | ~~指定apache24的用户~~
+~~`Group 用户组名`~~ | ~~指定apache24的用户群组~~
 
 > 代码案例
 
-```conf
+```shell
 <IfModule unixd_module>
     User www
     Group www
 </IfModule>
 ```
 
-## 三、设置服务器主配置
+### 三、设置服务器主配置
 
 > 任何未由virtualhost定义处理的请求都会由该配置响应。这些值会为稍后在文件中定义的任何虚拟主机容器提供缺省值。
 
@@ -219,15 +219,15 @@ LoadModule ${PHPVERSION}_module ${BITPATH}/php/${PHPVERSION}apache2_4.dll
 
   > 这个地址出现在一些服务器生成的页面上，比如错误文档。
 
-  ```conf
+  ```shell
   ServerAdmin admin@example.com
   ```
 
-2. 设置全局主机名
+2. ~~设置全局主机名~~
 
-  > 一般情况下这个不需要配置，除非个人有特殊需要
+  > ~~一般情况下这个不需要配置，除非个人有特殊需要~~
 
-  ```conf
+  ```shell
   # ServerName www.example.com:80
   ```
 
@@ -235,7 +235,7 @@ LoadModule ${PHPVERSION}_module ${BITPATH}/php/${PHPVERSION}apache2_4.dll
 
   > 如果是服务器这个必须配置，否则整个服务器文件系统都将对访问者开放
 
-  ```conf
+  ```shell
   <Directory />
   AllowOverride none
   Require all denied
@@ -243,12 +243,25 @@ LoadModule ${PHPVERSION}_module ${BITPATH}/php/${PHPVERSION}apache2_4.dll
   ```
 
 4. 为apache24指定缺省位置
-> `DocumentRoot` 默认情况下，所有的请求都是从这个目录中获取的，安全起见不应该与其它站点设置在同一个目录下
+
+  > `DocumentRoot` 默认情况下，所有的请求都是从这个目录中获取的，安全起见不应该与其它站点设置在同一个目录下
+
+  ```shell
+  DocumentRoot "${WAMPROOT}/www-default"
+  ```
 
 5. 特定区块开放访问权限
 
   > 通俗讲：指定一个位置，允许访问者访问
 
+  ```shell
+  <Directory "${WAMPROOT}/www">
+  Options Indexes FollowSymLinks
+  AllowOverride None
+  Require all granted
+  </Directory>
+  ```
 
+  > 提示：一般情况下，我们会指定1个存放所有站点的根目录
 
-  > 提示：一般情况下，我们会指定1个服务器站点存放的根目录
+题外话

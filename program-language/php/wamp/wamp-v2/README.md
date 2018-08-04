@@ -110,7 +110,7 @@
 
   > 让 apache2 日志不记录图片、css、js等资源
 
-  ```conf
+  ```shell
   <FilesMatch "\.(ico|gif|jpg|png|bmp|swf|css|js)">
   SetEnv LOG_IMAG 1
   </FilesMatch>
@@ -192,7 +192,7 @@ php5.3 | 32    | php5_module   | `c:/wamp/32/php53/php5apache2_4.dll` | `c:/wamp
 
   > 当然阿帕奇也支持多类型的文件，自动解析为 PHP 脚本，例如：
 
-  ```conf
+  ```shell
   AddType application/x-httpd-php .php .emad
   ```
 
@@ -267,7 +267,7 @@ php5.3 | 32    | php5_module   | `c:/wamp/32/php53/php5apache2_4.dll` | `c:/wamp
 
   > 其实我们有多个 `Web根目录`，我们基本上只用 `c:/wamp/www` 这个Web根目录
 
-  ```conf
+  ```shell
   # 在sites目录下新建 vhosts.conf 文件（基本上只用1个文件作为站点配置文件）
   <VirtualHost *:80>
   DocumentRoot "c:/wamp/www"
@@ -279,7 +279,7 @@ php5.3 | 32    | php5_module   | `c:/wamp/32/php53/php5apache2_4.dll` | `c:/wamp
 
   > 大多数网站都会以这类形式存在
 
-  ```conf
+  ```shell
   # vhosts.conf 文件新增内容
   <VirtualHost *:80>
   ServerAdmin linjialiang@163.com
