@@ -470,27 +470,29 @@ CustomLog ${WAMPROOT}/logs/apache24/access_log common
 </IfModule>
 ```
 
-> 调用 `newlogformat` 模板为访问日志输出格式，并按天分割访问日志文件
+> 调用 `newlogformat` 模板为访问日志输出格式，创建 `access_log` 访问日志文件并每天截断一次文件
 
 ```shell
 <IfModule log_config_module>
     LogFormat "$V-%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
     LogFormat "$V-%h %l %u %t \"%r\" %>s %b" common
+    LogFormat "%h-%v-%V %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" newlogformat
 
     <IfModule logio_module>
       LogFormat "$V-%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
 
-    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe ${WAMPROOT}/logs/apache24/access_log 86400" common
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access_log 86400" newlogformat
 </IfModule>
 ```
 
-> 按天分割的访问日志配置代码，并记录当前访问域名字段，限制图片js等文件写入日志（我们选择这个吧）
+> 1）调用 `newlogformat` 模板为访问日志输出格式；2）创建 `access_log` 访问日志文件并每天截断一次文件；3）限制图片js等文件写入日志
 
 ```shell
 <IfModule log_config_module>
     LogFormat "$V-%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
     LogFormat "$V-%h %l %u %t \"%r\" %>s %b" common
+    LogFormat "%h-%v-%V %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" newlogformat
 
     <IfModule logio_module>
       LogFormat "$V-%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
@@ -498,7 +500,7 @@ CustomLog ${WAMPROOT}/logs/apache24/access_log common
 
     SetEnvIf Request_URI "\.(ico|gif|jpg|png|bmp|swf|css|js)$" dontlog
 
-    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe ${WAMPROOT}/logs/apache24/access_log 86400" common env=!dontlog
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access_log 86400" newlogformat env=!dontlog
 </IfModule>
 ```
 
