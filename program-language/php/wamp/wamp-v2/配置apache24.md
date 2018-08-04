@@ -636,17 +636,17 @@ Alias /phpmyadmin ${WAMPROOT}/phpmyadmin
 </Directory>
 ```
 
-### 配置虚拟主机
+### 二、配置虚拟主机
 
 > 站点配置目录下新建 `.conf` 扩展的文件，下面直接贴代码：
 
 ```shell
 <VirtualHost *:80>
     ServerAdmin "your email"
-    DocumentRoot "${WAMPROOT}/www/路径"
+    DocumentRoot "${WAMPROOT}/www/www_test_com"
     ServerName www.test1.com
     ServerAlias www.test1.com test1.com www.test2.com test2.com
-    ErrorDocument 404 /404.html
+    ErrorDocument 404 /Error.html
 
     ErrorLog "${WAMP}/logs/apache24/域名1-error.log"
     CustomLog "${WAMP}/logs/apache24/域名1-access.log" common
@@ -658,3 +658,69 @@ Alias /phpmyadmin ${WAMPROOT}/phpmyadmin
     RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
 </VirtualHost>
 ```
+
+> 最简洁虚拟主机配置
+
+```shell
+<VirtualHost *:80>
+    DocumentRoot "${WAMPROOT}/www/www_test_com"
+    ServerName www.test1.com
+</VirtualHost>
+```
+
+> ssl版配置
+
+```shell
+<VirtualHost *:80>
+    ServerName www.test.com
+    ServerAlias test.com www.test.com
+    DocumentRoot "${WAMPROOT}/www/www_test_com"
+
+    RewriteEngine on
+    RewriteCond %{SERVER_PORT} 80 [NC]
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301,L]
+</VirtualHost>
+
+<virtualhost *:443>
+    ServerName www.test.com
+    ServerAlias test.com www.test.com
+    DocumentRoot "${WAMPROOT}/www/www_test_com"
+
+    RewriteEngine on
+    RewriteCond %{HTTP_HOST} ^test.com$ [NC]
+    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}$1 [R=301,L]
+
+    SSLEngine on
+    SSLCertificateFile 路径/2_www.test.com.crt
+    SSLCertificateKeyFile 路径/3_www.test.com.key
+    SSLCertificateChainFile 路径/1_root_bundle.crt
+</virtualhost>
+```
+
+## 新版apache24访问控制
+
+> 我们常用到的主要集中于 `Require` `<RequireAll>` `<RequireAny>` `<RequireNone>` 这四种指令的组合
+
+### 各自的作用对比图
+
+`指令`            | 所属   | `描述`
+--------------- | ---- | -----------------------
+`Require`       | 授权指令 | 写入授权容器内的规则
+`<RequireAll>`  | 授权容器 | 用于包含一组授权指令，并且必须全部是否定的，
+`<RequireAny>`  | 授权容器 | 用于包含一组授权指令，其中一个必须成功才能使<RequireAny>指令成功
+`<RequireNone>` | 授权容器 | 在此元素中包含的规则，所有规则取反
+
+
+### Require 指令
+> 这些都是比较复杂的东西，建议去看官方手册
+
+指令|描述
+---|---
+`Require all {granted|denied}`|全部允许或全部禁止授权
+`Require method {method1 [method2] [method3]...}`|对指定的请求授权，如：POST、GET
+`Require env {SetEnvIf命名}`|基于SetEnvIf定义的环境变量授权
+`Require expr {正则表达式}`|对任意表达式授权
+
+### 授权容器
+
+> 3个授权容器指令<RequireAll>、<RequireAny>、<RequireNone>可以彼此结合，并通过Require指令来表达复杂的授权逻辑。
