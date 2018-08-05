@@ -813,9 +813,9 @@ Alias /phpmyadmin ${WAMPROOT}/phpmyadmin
 
 ## 新版apache24访问控制
 
-> 我们常用到的主要集中于 `Require` `<RequireAll>` `<RequireAny>` `<RequireNone>` 这四种指令的组合
+> 我们常用到的主要集中于 `Require` `<RequireAll>` `<RequireAny>` `<RequireNone>` 这四种指令的相互结合
 
-### 各自的作用对比图
+### 访问控制指令对比图
 
 command         | 所属        | 描述
 --------------- | --------- | ----------------------------------------
@@ -833,7 +833,7 @@ command         | 所属        | 描述
 `Require`     | 允许授权访问
 `Require not` | 拒绝授权访问
 
-> `Require not` 是 `Require` 的反操作指令，`Require` 是允许授权访问 `Require not` 就是拒绝授权访问，因此下面不对 `Require not` 举例
+> `Require not` 是 `Require` 的反操作指令，`Require` 是允许授权访问 `Require not` 就是拒绝授权访问，因此 `Require not` 不再举例！下面是Require的使用场景：
 
 数量 | 使用场景
 -- | --------------------------------------------------------------------
