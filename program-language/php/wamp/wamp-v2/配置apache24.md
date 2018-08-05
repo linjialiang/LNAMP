@@ -840,6 +840,8 @@ command         | 所属        | 描述
 单条 | 允许现在 `<Directory>` `<Files>` `<Location>` 3个区块以及 `.htaccess` 文件内
 组合 | 组合指令必须写入 `<RequireAll>` `<RequireAny>` `<RequireNone>` 这3个授权指令组合的容器中
 
+> 常用的 `Require` 授权访问指令列表：
+
 Require command                                   | 描述
 ------------------------------------------------- | -------------------------------------------------
 `Require all granted`                             | 无条件允许访问
@@ -853,6 +855,8 @@ Require command                                   | 描述
 `Require valid-user`                              | 所有有效用户都可以访问该资源
 `Require host .net example.edu`                   | 顶级域名是 `.net` 的所有域名， `example.edu` 自身及子孙域名都可以访问该资源
 `Require forward-dns host-name`                   | 根据主机名来判断该ip是否允许访问资源（这个有点复杂）
+
+> `Require ip` 授权访问指令列表：
 
 Require ip command                         | 描述
 ------------------------------------------ | --------------------
