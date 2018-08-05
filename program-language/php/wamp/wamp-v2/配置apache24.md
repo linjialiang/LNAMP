@@ -815,32 +815,30 @@ Alias /phpmyadmin ${WAMPROOT}/phpmyadmin
 
 > 我们常用到的主要集中于 `Require` `<RequireAll>` `<RequireAny>` `<RequireNone>` 这四种指令的相互结合
 
-### 访问控制指令对比图
-
 command         | 所属        | 描述
 --------------- | --------- | ----------------------------------------
-`Require`       | 授权指令      | 写入授权容器内的规则
-`<RequireAll>`  | 授权指令组合的容器 | 用于包含一组授权指令，并且必须全部是否定的，
-`<RequireAny>`  | 授权指令组合的容器 | 用于包含一组授权指令，其中一个必须成功才能使`<requireany>`指令成功
-`<RequireNone>` | 授权指令组合的容器 | 在此元素中包含的规则，所有规则取反
+`Require`       | 访问授权指令    | 写入授权容器内的规则
+`<RequireAll>`  | 访问授权指令的容器 | 用于包含一组授权指令，并且必须全部是否定的，
+`<RequireAny>`  | 访问授权指令的容器 | 用于包含一组授权指令，其中一个必须成功才能使`<requireany>`指令成功
+`<RequireNone>` | 访问授权指令的容器 | 在此元素中包含的规则，所有规则取反
 
-### 授权指令 `Require`
+### 访问授权指令 `Require`
 
 > 指令格式：`Require [not] entity-name [entity-name] ...`
 
-指令            | 功能
-------------- | ------
-`Require`     | 允许授权访问
-`Require not` | 拒绝授权访问
+访问授权指令        | 功能
+------------- | --------
+`Require`     | 允许访问授权指令
+`Require not` | 拒绝访问授权指令
 
-> `Require not` 是 `Require` 的反操作指令，`Require` 是允许授权访问 `Require not` 就是拒绝授权访问，因此 `Require not` 不再举例！下面是Require的使用场景：
+> `Require not` 是 `Require` 的反操作指令，`Require` 是允许访问授权 `Require not` 就是拒绝访问授权，因此 `Require not` 不再举例！下面是Require的使用区块：
 
-数量 | 使用场景
+数量 | 使用区块
 -- | --------------------------------------------------------------------
 单条 | 允许现在 `<Directory>` `<Files>` `<Location>` 3个区块以及 `.htaccess` 文件内
 组合 | 组合指令必须写入 `<RequireAll>` `<RequireAny>` `<RequireNone>` 这3个授权指令组合的容器中
 
-> 常用的 `Require` 授权访问指令列表：
+> 常用的 `Require` 访问授权指令列表：
 
 Require command                                   | 描述
 ------------------------------------------------- | -------------------------------------------------
@@ -856,7 +854,7 @@ Require command                                   | 描述
 `Require host .net example.edu`                   | 顶级域名是 `.net` 的所有域名， `example.edu` 自身及子孙域名都可以访问该资源
 `Require forward-dns host-name`                   | 根据主机名来判断该ip是否允许访问资源（这个有点复杂）
 
-> `Require ip` 授权访问指令列表：
+> `Require ip` 访问授权指令列表：
 
 Require ip command                         | 描述
 ------------------------------------------ | --------------------
@@ -871,6 +869,60 @@ Require ip command                         | 描述
 `Require ip 2001:db8:2:1::/64`             | 可以指定IPv6地址和IPv6子网
 `Require ip 2001:db8:3::/48`               | 可以指定IPv6地址和IPv6子网
 
-### 授权指令组合的容器
+### 访问授权指令组合的容器
 
-> 3个授权指令组合的容器 `<requireall>、<requireany>、<requirenone>` 可以彼此结合，并通过 `Require` 授权访问指令来表达复杂的授权逻辑。
+> 访问授权指令组合的容器格式
+
+```shell
+<RequireAll>
+    ...
+    <RequireAny>
+        <RequireNone>
+            ...
+        </RequireNone>
+        ...
+    </RequireAny>
+</RequireAll>
+```
+
+> 访问授权指令组合的容器使用区块
+
+容器              | 使用区块
+--------------- | --------------------
+`<RequireAll>`  | directory, .htaccess
+`<RequireAny>`  | directory, .htaccess
+`<RequireNone>` | directory, .htaccess
+
+> 3个访问授权指令组合的存放容器 `<RequireAll>` `<RequireAny>` `<RequireNone>` 可以彼此结合，并通过 `Require` 访问授权指令来表达复杂的授权逻辑。
+
+指令说明| `<RequireAll>`| `<RequireAny>`| `<RequireNone>`|
+
+## apache24附录表：
+
+> apache24指令合法区块说明
+
+区域（Context）     | 说明
+--------------- | -----------------------------------------------------------------------------
+`server config` | 只支持配置在主配置文件和子孙配置文件内！不允许： 1） `<VirtualHost> <Directory>` 区域内；2） `.htaccess` 文件
+`virtual host`  | 指令可以出现在 `<VirtualHost>` 容器中
+`directory`     | 指令允许出现在后面这些容器中： `<Directory> <Location> <Files> <If> <Proxy>`
+`.htaccess`     | 指令允许出现在每个站点目录下的 `.htaccess` 文件
+
+> 常用容器的合法区块汇总列表：
+
+容器                 | 区块（Context）
+------------------ | -------------------------------------------------
+`<Directory>`      | server config, virtual host
+`<DirectoryMatch>` | server config, virtual host
+`<Files>`          | server config, virtual host, directory, .htaccess
+`<FilesMatch>`     | server config, virtual host, directory, .htaccess
+`<If>`             | server config, virtual host, directory, .htaccess
+`<IfDefine>`       | server config, virtual host, directory, .htaccess
+`<IfModule>`       | server config, virtual host, directory, .htaccess
+`<IfVersion>`      | server config, virtual host, directory, .htaccess
+`<Location>`       | server config, virtual host
+`<LocationMatch>`  | server config, virtual host
+`<MDomainSet>`     | server config
+`<Proxy>`          | server config, virtual host
+`<ProxyMatch>`     | server config, virtual host
+`<VirtualHost>`    | server config
