@@ -874,6 +874,7 @@ Require ip command                         | 描述
 > 访问授权指令组合的容器格式
 
 ```shell
+## 基本格式，支持容器嵌套
 <RequireAll>
     ...
     <RequireAny>
@@ -883,6 +884,13 @@ Require ip command                         | 描述
         ...
     </RequireAny>
 </RequireAll>
+
+## <VirtualHost> 区块下需要封装进 `<Location>` 容器
+<Location>
+    <RequireAll>
+        ...
+    </RequireAll>
+</Location>
 ```
 
 > 访问授权指令组合的容器使用区块
