@@ -242,12 +242,22 @@ LoadModule setenvif_module modules/mod_setenvif.so
   </Directory>
   ```
 
-4. 为apache24指定缺省位置
+4. 为apache24指定站点缺省位置
 
   > `DocumentRoot` 默认情况下，所有的请求都是从这个目录中获取的，安全起见不应该与其它站点设置在同一个目录下
 
   ```shell
   DocumentRoot "${WAMPROOT}/www-default"
+  ```
+
+  > 为站点缺省位置配置访问权限（不配置会继承 `<Directory />` 的配置，禁止所有人访问）
+
+  ```shell
+  <Directory "${WAMPROOT}/www-default">
+  Options FollowSymLinks
+  AllowOverride None
+  Require all granted
+  </Directory>
   ```
 
 5. 特定区块开放访问权限
