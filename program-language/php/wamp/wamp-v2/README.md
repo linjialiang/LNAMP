@@ -77,7 +77,7 @@
 │
 ├─www                           Web根目录
 │
-├─www-default                   Web缺省位置
+├─www-default                   apache24站点缺省位置
 │
 ├─data                          mariadb数据库存放目录
 │
