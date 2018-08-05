@@ -817,24 +817,56 @@ Alias /phpmyadmin ${WAMPROOT}/phpmyadmin
 
 ### 各自的作用对比图
 
-`指令`            | 所属   | `描述`
---------------- | ---- | ----------------------------------------
-`Require`       | 授权指令 | 写入授权容器内的规则
-`<RequireAll>`  | 授权容器 | 用于包含一组授权指令，并且必须全部是否定的，
-`<RequireAny>`  | 授权容器 | 用于包含一组授权指令，其中一个必须成功才能使`<requireany>`指令成功
-`<RequireNone>` | 授权容器 | 在此元素中包含的规则，所有规则取反
+command         | 所属        | 描述
+--------------- | --------- | ----------------------------------------
+`Require`       | 授权指令      | 写入授权容器内的规则
+`<RequireAll>`  | 授权指令组合的容器 | 用于包含一组授权指令，并且必须全部是否定的，
+`<RequireAny>`  | 授权指令组合的容器 | 用于包含一组授权指令，其中一个必须成功才能使`<requireany>`指令成功
+`<RequireNone>` | 授权指令组合的容器 | 在此元素中包含的规则，所有规则取反
 
-### Require 指令
+### 授权指令 `Require`
 
-> 写入授权容器内的规则，只有一条的时候允许现在外面，多条必须写入 `<RequireAll>` `<RequireAny>` `<RequireNone>` 这3个容器中
+> 指令格式：`Require [not] entity-name [entity-name] ...`
 
-指令                                                | 描述
-------------------------------------------------- | -------------------
-`Require all {granted OR denied}`                 | 全部允许或全部禁止授权
-`Require method {method1 [method2] [method3]...}` | 对指定的请求授权，如：POST、GET
-`Require env {SetEnvIf命名}`                        | 基于SetEnvIf定义的环境变量授权
-`Require expr {正则表达式}`                            | 对任意表达式授权
+指令            | 功能
+------------- | ------
+`Require`     | 允许授权访问
+`Require not` | 拒绝授权访问
 
-### 授权容器
+> `Require not` 是 `Require` 的反操作指令，`Require` 是允许授权访问，`Require not`就是拒绝授权访问
 
-> 3个授权容器指令`<requireall>、<requireany>、<requirenone>`可以彼此结合，并通过Require指令来表达复杂的授权逻辑。
+数量 | 使用场景
+-- | --------------------------------------------------------------------
+单条 | 允许现在 `<Directory>` `<Files>` `<Location>` 3个区块以及 `.htaccess` 文件内
+组合 | 组合指令必须写入 `<RequireAll>` `<RequireAny>` `<RequireNone>` 这3个授权指令组合的容器中
+
+Require command                                   | 描述
+------------------------------------------------- | -------------------------------------------------
+`Require all granted`                             | 无条件允许访问
+`Require all denied`                              | 无条件拒绝访问
+`Require local`                                   | 允许匹配源自本地主机的连接
+`Require method {method1 [method2] [method3]...}` | 仅允许对给定的HTTP方法进行访问
+`Require env env-var [env-var] ...`               | 仅当设置了一个给定的环境变量时才允许访问
+`Require expr expression`                         | 如果expression的计算结果为true，则允许访问
+`Require user userid [userid] ...`                | 只有指定的用户才能访问该资源
+`Require group group-name [group-name] ...`       | 只有命名组中的用户才能访问该资源
+`Require valid-user`                              | 所有有效用户都可以访问该资源
+`Require host .net example.edu`                   | 顶级域名是 `.net` 的所有域名， `example.edu` 自身及子孙域名都可以访问该资源
+`Require forward-dns host-name`                   | 根据主机名来判断该ip是否允许访问资源（这个有点复杂）
+
+Require ip command                         | 描述
+------------------------------------------ | --------------------
+`Require ip ip-address1 [ip-address2] ...` | Require ip 指令格式
+`Require ip 1.2.3.0`                       | 指定IP地址范围内的客户端可以访问该资源
+`Require ip 1.2.3.10 1.2.3.11`             | 指定多个ip地址对应的客户端访问该资源
+`Require ip 10 172.20 192.168.2`           | 指定部分ip地址对应的客户端访问该资源
+`Require ip 10.1.0.0/255.255.0.0`          | 指定网络/网络掩码对的客户端访问该资源。
+`Require ip 10.1.0.0/16`                   | 指定IP段内的客户端访问该资源。
+`Require ip 2001:db8::a00:20ff:fea7:ccea`  | 可以指定IPv6地址和IPv6子网
+`Require ip 2001:db8:1:1::a`               | 可以指定IPv6地址和IPv6子网
+`Require ip 2001:db8:2:1::/64`             | 可以指定IPv6地址和IPv6子网
+`Require ip 2001:db8:3::/48`               | 可以指定IPv6地址和IPv6子网
+
+### 授权指令组合的容器
+
+> 3个授权指令组合的容器 `<requireall>、<requireany>、<requirenone>` 可以彼此结合，并通过 `Require` 授权访问指令来表达复杂的授权逻辑。
