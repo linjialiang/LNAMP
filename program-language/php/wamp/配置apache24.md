@@ -938,3 +938,7 @@ Require ip command                         | 描述
 `<Proxy>`          | server config, virtual host
 `<ProxyMatch>`     | server config, virtual host
 `<VirtualHost>`    | server config
+
+## 结束语
+
+> 关于apache24的配置讲解到此就为止，想要深入学习，建议去[apache24官网查看手册](https://httpd.apache.org/docs/2.4/)！
