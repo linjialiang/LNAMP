@@ -833,7 +833,7 @@ command         | 所属        | 描述
 `Require`     | 允许授权访问
 `Require not` | 拒绝授权访问
 
-> `Require not` 是 `Require` 的反操作指令，`Require` 是允许授权访问，`Require not`就是拒绝授权访问
+> `Require not` 是 `Require` 的反操作指令，`Require` 是允许授权访问 `Require not` 就是拒绝授权访问，因此下面不对 `Require not` 举例
 
 数量 | 使用场景
 -- | --------------------------------------------------------------------
