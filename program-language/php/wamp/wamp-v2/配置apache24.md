@@ -869,9 +869,9 @@ Require ip command                         | 描述
 `Require ip 2001:db8:2:1::/64`             | 可以指定IPv6地址和IPv6子网
 `Require ip 2001:db8:3::/48`               | 可以指定IPv6地址和IPv6子网
 
-### 访问授权指令组合的容器
+### 访问授权指令的容器
 
-> 访问授权指令组合的容器格式
+> 访问授权指令的容器格式
 
 ```shell
 ## 基本格式，支持容器嵌套
@@ -893,7 +893,7 @@ Require ip command                         | 描述
 </Location>
 ```
 
-> 访问授权指令组合的容器使用区块
+> 访问授权指令的容器使用区块
 
 容器              | 使用区块
 --------------- | --------------------
@@ -901,9 +901,13 @@ Require ip command                         | 描述
 `<RequireAny>`  | directory, .htaccess
 `<RequireNone>` | directory, .htaccess
 
-> 3个访问授权指令组合的存放容器 `<RequireAll>` `<RequireAny>` `<RequireNone>` 可以彼此结合，并通过 `Require` 访问授权指令来表达复杂的授权逻辑。
+> 访问授权指令的存放容器有3个： `<RequireAll>` `<RequireAny>` `<RequireNone>` ，允许彼此结合并通过 `Require` 访问授权指令来表达复杂的授权逻辑。
 
-指令说明| `<RequireAll>`| `<RequireAny>`| `<RequireNone>`|
+访问授权指令的容器       | `Require not`支持情况 | 优先 | 允许访问              | 拒绝访问              | 无效
+--------------- | ----------------- | -- | ----------------- | ----------------- | -----------
+`<RequireAll>`  | 支持                | 拒绝 | 没有匹配到拒绝，至少匹配到1条允许 | 至少匹配到1条拒绝         | 拒绝和允许都没有匹配到
+`<RequireAny>`  | 不支持               | 成功 | 匹配到1条允许           | 没有匹配到允许，至少匹配到1条拒绝 | 拒绝和允许都没有匹配到
+`<RequireNone>` | 不支持               | 拒绝 | 全部条件允许            | 全部条件只要一条没有匹配到     | 只有拒绝访问，没有无效
 
 ## apache24附录表：
 
