@@ -667,12 +667,12 @@ ErrorLog "${WAMPROOT}/logs/apache24/error.log"
 LogLevel warn
 
 <IfModule log_config_module>
-    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-    LogFormat "%h %l %u %t \"%r\" %>s %b" common
+    LogFormat "$V-%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+    LogFormat "$V-%h %l %u %t \"%r\" %>s %b" common
     LogFormat "%h-%v-%V %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" newlogformat
 
     <IfModule logio_module>
-      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+      LogFormat "$V-%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
 
     SetEnvIf Request_URI "\.(ico|gif|jpg|png|bmp|swf|css|js)$" dontlog
@@ -709,6 +709,10 @@ LogLevel warn
 <IfModule ssl_module>
     SSLRandomSeed startup builtin
     SSLRandomSeed connect builtin
+</IfModule>
+
+<IfModule include_module>
+    Include "${WAMPROOT}/sites/*.conf"
 </IfModule>
 ```
 
