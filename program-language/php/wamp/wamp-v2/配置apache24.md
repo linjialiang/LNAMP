@@ -642,6 +642,11 @@ ServerAdmin admin@example.com
 </Directory>
 
 DocumentRoot "${WAMPROOT}/www-default"
+<Directory "${WAMPROOT}/www-default">
+    Options FollowSymLinks
+    AllowOverride None
+    Require all granted
+</Directory>
 
 <Directory "${WAMPROOT}/www">
     Options Indexes FollowSymLinks
