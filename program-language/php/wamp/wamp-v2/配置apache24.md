@@ -611,6 +611,92 @@ CustomLog ${WAMPROOT}/logs/apache24/access_log common
 
 > 提示：Include 支持简单的正则表达式
 
+### apache24.conf内容
+
+> 兼容版和推荐版用的都是同一个apache24.conf配置文件
+
+```shell
+LoadModule vhost_alias_module modules/mod_vhost_alias.so
+LoadModule rewrite_module modules/mod_rewrite.so
+LoadModule ${PHPVERSION}_module ${BITPATH}/php/${PHPVERSION}apache2_4.dll
+
+<IfModule ${PHPVERSION}_module>
+    PHPINIDir "${BITPATH}/php"
+</IfModule>
+
+ServerAdmin admin@example.com
+
+<Directory />
+    AllowOverride none
+    Require all denied
+</Directory>
+
+DocumentRoot "${WAMPROOT}/www-default"
+
+<Directory "${WAMPROOT}/www">
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+
+<IfModule dir_module>
+    DirectoryIndex index.html index.htm index.php
+</IfModule>
+
+<Files ".ht*">
+    Require all denied
+</Files>
+
+ErrorLog "${WAMPROOT}/logs/apache24/error.log"
+
+LogLevel warn
+
+<IfModule log_config_module>
+    LogFormat "$V-%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+    LogFormat "$V-%h %l %u %t \"%r\" %>s %b" common
+    LogFormat "%h-%v-%V %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" newlogformat
+
+    <IfModule logio_module>
+      LogFormat "$V-%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+    </IfModule>
+
+    SetEnvIf Request_URI "\.(ico|gif|jpg|png|bmp|swf|css|js)$" dontlog
+
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access_log 86400" newlogformat env=!dontlog
+</IfModule>
+
+<IfModule alias_module>
+    ScriptAlias /cgi-bin/ "${SRVROOT}/cgi-bin/"
+</IfModule>
+
+<Directory "${SRVROOT}/cgi-bin">
+    AllowOverride None
+    Options None
+    Require all granted
+</Directory>
+
+<IfModule headers_module>
+    RequestHeader unset Proxy early
+</IfModule>
+
+<IfModule mime_module>
+    TypesConfig conf/mime.types
+
+    AddType application/x-compress .Z
+    AddType application/x-gzip .gz .tgz
+    AddType application/x-httpd-php .php
+</IfModule>
+
+<IfModule proxy_html_module>
+    Include conf/extra/proxy-html.conf
+</IfModule>
+
+<IfModule ssl_module>
+    SSLRandomSeed startup builtin
+    SSLRandomSeed connect builtin
+</IfModule>
+```
+
 ## 虚拟主机相关配置
 
 > 这里我主要讲解2个内容：1）别名配置；2）虚拟主机配置
@@ -642,7 +728,7 @@ Alias /phpmyadmin ${WAMPROOT}/phpmyadmin
 
 ```shell
 <VirtualHost *:80>
-    ServerAdmin "your email"
+    ServerAdmin admin@example.com
     DocumentRoot "${WAMPROOT}/www/www_test_com"
     ServerName www.test1.com
     ServerAlias www.test1.com test1.com www.test2.com test2.com
