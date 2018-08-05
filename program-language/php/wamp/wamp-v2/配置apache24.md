@@ -913,7 +913,7 @@ Require ip command                         | 描述
 
 > apache24指令合法区块说明
 
-区域（Context）     | 说明
+区块（Context）     | 说明
 --------------- | -----------------------------------------------------------------------------
 `server config` | 只支持配置在主配置文件和子孙配置文件内！不允许： 1） `<VirtualHost> <Directory>` 区域内；2） `.htaccess` 文件
 `virtual host`  | 指令可以出现在 `<VirtualHost>` 容器中
