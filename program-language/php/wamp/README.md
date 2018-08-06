@@ -159,36 +159,6 @@ digit | `service-httpd`
 64    | apache24
 32    | httpd
 
-## 配置 mariadb
-
-### 创建 my.ini
-
-> - 默认说明：默认情况下mariadb没有my.ini文件，需要我们自己新建
-> - 参考文件：mariadb目录下有几个 `my-*.ini` 文件，都是参考文件，我们可以根据需要自行配置
-> - 操作说明：下面我们在 `c:\wamp\conf` 目录下创建 my.ini，并输入如下内容：
-
-```ini
-[client]
-port = 3306
-
-[mysqld]
-port = 3306
-datadir = "c:/wamp/data"
-```
-
-> - 提示：`innodb` 索引扩展默认会跟 `datadir` 同级，没有特殊必要不需要配置
-> - 注意：切换版本前需要将data目录下的非目录文件删除掉
-
-### 初始化 data 目录
-
-> 前提：需要将data目录内容复制到指定位置 cmd：cmd需要管理员权限 操作：cmd进入bin目录，输入指令如下：
-
-```shell
-mysqld --initialize
-```
-
-> mariadb 初始化影响不大，每次重启都会初始化（除非你不想重启）
-
 ### 安装mariadb到系统服务
 
 > - 前提：data目录正确，my.ini文件路径正确
