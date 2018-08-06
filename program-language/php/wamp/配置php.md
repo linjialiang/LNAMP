@@ -12,3 +12,15 @@
 `php.ini-production`  | 部署环境推荐模板
 
 > 由于我们是开发环境，所以选择复制php.ini-development并重命名为php.ini
+
+## php绑定apache24服务器
+
+> 该节内容已经在 [配置apache24.md]('./配置apache24.md') 上说明过，这里不再重复
+
+## 关于php模块
+
+> php里的模块一节，需要通过我们配置才能正常运行
+
+1. 为php模块默认目录配置正确路径
+
+>
