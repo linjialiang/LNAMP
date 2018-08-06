@@ -248,38 +248,38 @@ display_errors = On
   error_reporting(E_ALL & ~E_NOTICE);
   ```
 
-> [错误级别一览表](http://php.net/manual/zh/errorfunc.constants.php)
+  > [错误级别一览表](http://php.net/manual/zh/errorfunc.constants.php)
 
-`error-id` | `error-name`        | 描述
----------- | ------------------- | ---------------------
-1          | E_ERROR             | 致命的运行时错误
-2          | E_WARNING           | 运行时警告
-4          | E_PARSE             | 编译时语法解析错误
-8          | E_NOTICE            | 运行时通知
-16         | E_CORE_ERROR        | 在PHP初始化启动过程中发生的致命错误
-32         | E_CORE_WARNING      | PHP初始化启动过程中发生的警告
-64         | E_COMPILE_ERROR     | 致命编译时错误。
-128        | E_COMPILE_WARNING   | 编译时警告
-256        | E_USER_ERROR        | 用户产生的错误信息。
-512        | E_USER_WARNING      | 用户产生的警告信息。
-1024       | E_USER_NOTICE       | 用户产生的通知信息。
-2048       | E_STRICT            | 启用 PHP 对代码的修改建议。
-4096       | E_RECOVERABLE_ERROR | 可被捕捉的致命错误。
-8192       | E_DEPRECATED        | 运行时通知
-16384      | E_USER_DEPRECATED   | 用户产少的警告信息。
-30719      | E_ALL               | E_STRICT除外的所有错误和警告信息。
+  `error-id` | `error-name`        | 描述
+  ---------- | ------------------- | ---------------------
+  1          | E_ERROR             | 致命的运行时错误
+  2          | E_WARNING           | 运行时警告
+  4          | E_PARSE             | 编译时语法解析错误
+  8          | E_NOTICE            | 运行时通知
+  16         | E_CORE_ERROR        | 在PHP初始化启动过程中发生的致命错误
+  32         | E_CORE_WARNING      | PHP初始化启动过程中发生的警告
+  64         | E_COMPILE_ERROR     | 致命编译时错误。
+  128        | E_COMPILE_WARNING   | 编译时警告
+  256        | E_USER_ERROR        | 用户产生的错误信息。
+  512        | E_USER_WARNING      | 用户产生的警告信息。
+  1024       | E_USER_NOTICE       | 用户产生的通知信息。
+  2048       | E_STRICT            | 启用 PHP 对代码的修改建议。
+  4096       | E_RECOVERABLE_ERROR | 可被捕捉的致命错误。
+  8192       | E_DEPRECATED        | 运行时通知
+  16384      | E_USER_DEPRECATED   | 用户产少的警告信息。
+  30719      | E_ALL               | 支持的所有错误和警告，但PHP 5.4.0之前的级别E_STRICT除外。
 
-> - 可以使用按位运算符来组合这些值或者屏蔽某些类型的错误
-> - 在 php.ini 之中， 只有 `|` `~` `!` `^` `&` 生效，下面是[php位运算符规则](http://php.net/manual/zh/language.operators.bitwise.php)
+  > - 可以使用按位运算符来组合这些值或者屏蔽某些类型的错误
+  > - 在 php.ini 之中， 只有 `|` `~` `!` `^` `&` 生效，下面是[php位运算符规则](http://php.net/manual/zh/language.operators.bitwise.php)
 
-例子         | 名称              | 结果
----------- | --------------- | ----------------------------------
-`$a & $b`  | And（按位与）        | 将把 $a 和 $b 中都为 1 的位设为 1。
-`$a 1 $b`  | Or（按位或）         | 将把 $a 和 $b 中任何一个为 1 的位设为 1。
-`$a ^ $b`  | Xor（按位异或）       | 将把 $a 和 $b 中一个为 1 另一个为 0 的位设为 1。
-`~ $a`     | Not（按位取反）       | 将 $a 中为 0 的位设为 1，反之亦然。
-`$a << $b` | Shift left（左移）  | 将 $a 中的位向左移动 $b 次（每一次移动都表示"乘以 2"）。
-`$a >> $b` | Shift right（右移） | 将 $a 中的位向右移动 $b 次（每一次移动都表示"除以 2"）。
+  例子         | 名称              | 结果
+  ---------- | --------------- | ----------------------------------
+  `$a & $b`  | And（按位与）        | 将把 $a 和 $b 中都为 1 的位设为 1。
+  `$a 1 $b`  | Or（按位或）         | 将把 $a 和 $b 中任何一个为 1 的位设为 1。
+  `$a ^ $b`  | Xor（按位异或）       | 将把 $a 和 $b 中一个为 1 另一个为 0 的位设为 1。
+  `~ $a`     | Not（按位取反）       | 将 $a 中为 0 的位设为 1，反之亦然。
+  `$a << $b` | Shift left（左移）  | 将 $a 中的位向左移动 $b 次（每一次移动都表示"乘以 2"）。
+  `$a >> $b` | Shift right（右移） | 将 $a 中的位向右移动 $b 次（每一次移动都表示"除以 2"）。
 
 ### 开启 php_xdebug 扩展
 

@@ -35,7 +35,7 @@
 > 那些重要的php官方扩展都在etc存放着，并且php.ini都已经写入了，只是默认都被注释掉，我们只需要将备注去掉即可，下面是一些常用扩展：
 
 常用扩展                | 说明
-------------------- | ----------------------------------------------------
+------------------- | ------------------------------------------------------
 `php_gd2.dll`       | php对图像处理的扩展
 `php_mbstring.dll`  | php对多字节的支持（多国语言并存就意味着多字节）
 `php_exif.dll`      | 让php可以操作图像元数据
@@ -47,13 +47,13 @@
 
 > php扩展写入php.ini格式
 
-扩展文件名               | 格式1                           | 格式2
-------------------- | ----------------------------- | ---------------------
-`php_别名.dll`        | `extension=php_别名.dll`        | `extension=别名`
-`php_mbstring.dll`  | `extension=php_mbstring.dll`  | `extension=mbstring`
-`php_mysqli.dll`    | `extension=php_mysqli.dll`    | `extension=mysqli`
-`php_pdo_mysql.dll` | `extension=php_pdo_mysql.dll` | `extension=pdo_mysql`
-`php_xdebug.dll`    | `zend_extension=php_xdebug.dll`    | `zend_extension=xdebug`
+扩展文件名               | 格式1                             | 格式2
+------------------- | ------------------------------- | -----------------------
+`php_别名.dll`        | `extension=php_别名.dll`          | `extension=别名`
+`php_mbstring.dll`  | `extension=php_mbstring.dll`    | `extension=mbstring`
+`php_mysqli.dll`    | `extension=php_mysqli.dll`      | `extension=mysqli`
+`php_pdo_mysql.dll` | `extension=php_pdo_mysql.dll`   | `extension=pdo_mysql`
+`php_xdebug.dll`    | `zend_extension=php_xdebug.dll` | `zend_extension=xdebug`
 
 > 由于xdebug的驱动程序与其它官方自带扩展不同，我们建议将其写在 php.ini 最下方，写法如下：
 
@@ -75,11 +75,91 @@ zend_extension=xdebug
 
 > php.ini通过对display_errors的设置控制是否对php语法错误进行提示，默认开启错误提示
 
-指令|错误提示
---|--
-`display_errors = On`|开启错误提示
-`display_errors = Off`|关闭错误提示
+指令                   | 错误提示
+-------------------- | ------
+`display_errors=On`  | 开启错误提示
+`display_errors=Off` | 关闭错误提示
 
 ### php错误提示级别
 
-> php.ini通过对error_reporting的设置控制php错误提示级别
+> php通过error_reporting的设置控制错误提示级别，格式如下：
+
+```shell
+; php.ini配置文件内格式
+error_reporting=错误级别别名
+
+; .php扩展文件内格式
+error_reporting(错误级别别名与位运算符组合);
+```
+
+> [错误级别一览表](http://php.net/manual/zh/errorfunc.constants.php)
+
+`error-id` | `error-name`        | 描述
+---------- | ------------------- | -------------------------------------
+1          | E_ERROR             | 致命的运行时错误
+2          | E_WARNING           | 运行时警告
+4          | E_PARSE             | 编译时语法解析错误
+8          | E_NOTICE            | 运行时通知
+16         | E_CORE_ERROR        | 在PHP初始化启动过程中发生的致命错误
+32         | E_CORE_WARNING      | PHP初始化启动过程中发生的警告
+64         | E_COMPILE_ERROR     | 致命编译时错误。
+128        | E_COMPILE_WARNING   | 编译时警告
+256        | E_USER_ERROR        | 用户产生的错误信息。
+512        | E_USER_WARNING      | 用户产生的警告信息。
+1024       | E_USER_NOTICE       | 用户产生的通知信息。
+2048       | E_STRICT            | 启用 PHP 对代码的修改建议。
+4096       | E_RECOVERABLE_ERROR | 可被捕捉的致命错误。
+8192       | E_DEPRECATED        | 运行时通知
+16384      | E_USER_DEPRECATED   | 用户产少的警告信息。
+30719      | E_ALL               | 支持的所有错误和警告，但PHP 5.4.0之前的级别E_STRICT除外。
+
+> 可以使用 [`php位运算符规则`](http://php.net/manual/zh/language.operators.bitwise.php) 来组合这些值或者屏蔽某些类型的错误
+
+例子         | 名称              | 结果
+---------- | --------------- | ----------------------------------
+`$a & $b`  | And（按位与）        | 将把 $a 和 $b 中都为 1 的位设为 1。
+`$a 1 $b`  | Or（按位或）         | 将把 $a 和 $b 中任何一个为 1 的位设为 1。
+`$a ^ $b`  | Xor（按位异或）       | 将把 $a 和 $b 中一个为 1 另一个为 0 的位设为 1。
+`~ $a`     | Not（按位取反）       | 将 $a 中为 0 的位设为 1，反之亦然。
+`$a << $b` | Shift left（左移）  | 将 $a 中的位向左移动 $b 次（每一次移动都表示"乘以 2"）。
+`$a >> $b` | Shift right（右移） | 将 $a 中的位向右移动 $b 次（每一次移动都表示"除以 2"）。
+
+> 提示：在php.ini配置文件里，只支持 `|` `~` `!` `^` `&` 这5个位运算符
+
+1. php.ini配置文件版
+
+  > 说明：错误达到指定的错误级别才会提示错误报告，下面是案例：
+
+  ```shell
+  # 报告所有php错误
+  error_reporting = E_ALL
+
+  # 报告所有php错误，但是忽略：1）运行时通知；2）PHP对代码的修改建议
+  E_ALL & ~E_DEPRECATED & ~E_STRICT
+  ```
+
+  > 注意：只能一个设置生效，所以php.ini文件里不要出现多个
+
+2. `.php`扩展文件内格式
+
+  > 运用场景：一般是某个.php扩展文件执行时遇到问题，针对当前文件开启调试功能，下面是案例：
+
+  ```php
+  // <?php
+  // 关闭错误报告
+  error_reporting(0);
+
+  // 报告 runtime 错误
+  error_reporting(E_ERROR | E_WARNING | E_PARSE);
+
+  // 报告所有错误
+  error_reporting(E_ALL);
+
+  // 等同 error_reporting(E_ALL);
+  ini_set("error_reporting", E_ALL);
+
+  // 报告 E_NOTICE 之外的所有错误
+  error_reporting(E_ALL & ~E_NOTICE);
+  ```
+
+  > 允许覆盖php.ini对应配置，只能一个设置生效，并且需要放在最靠近 `<?php` 的位置！
