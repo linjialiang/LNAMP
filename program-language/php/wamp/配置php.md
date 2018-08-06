@@ -176,6 +176,15 @@ command    | alias_name      | 结果
 `upload_max_filesize = 2M` | 上传文件的最大允许大小为2M
 `max_file_uploads = 20`    | 可以通过单个请求上传的最大文件数量
 
+## 删除 `php.ini` 多余的配置
+
+> 主要就是删除php.ini文件下的备注行，下面展示php.ini文件的所有内容
+
+1. 32位php的php.ini文件内容
+
+
+2. 64位php的php.ini文件内容
+
 ## 结束语
 
 > 关于php的配置事实上会比apache24更多，由于它是一门使用广泛的高级语言，所以php的相关内容重点会放在php语言学习中...
