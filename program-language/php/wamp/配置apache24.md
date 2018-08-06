@@ -12,6 +12,8 @@
 32 | `C:/wamp/32/httpd/conf/httpd.conf`
 64 | `C:/wamp/64/httpd/conf/httpd.conf`
 
+> 提示： `c:\wamp` 是wamp开发环境的根目录，如果想要更改wamp所在目录只需将其改成真实路径即可，以后不再重复该说明（php、mariadb也是同理的）！
+
 ### httpd.conf下配置apache24正确路径
 
 - 描述：默认情况下apache24路径是 `c:/Apache2.4` ，需要修改成apache24当前所在目录
