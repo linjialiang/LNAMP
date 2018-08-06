@@ -26,7 +26,8 @@
   datadir = "c:/wamp/data/64"
   ```
 
-> 提示：`innodb` 索引扩展默认会跟 `datadir` 同级，如无必要不用配置
+> - 提示：`innodb` 索引扩展默认会跟 `datadir` 同级，如无必要不用配置
+> - 注意：需要将mariadb根目录下的data目录下的全部数据复制到指定的路径下
 
 ## windows下mariadb配置文件my.ini路径相关
 

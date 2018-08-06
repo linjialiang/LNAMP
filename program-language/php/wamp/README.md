@@ -314,65 +314,6 @@ auto        | 自动
 demand      | 手动
 disabled    | 禁用
 
-## 安装 phpMyAdmin
-
-> phpMyAdmin 一个基于Web的mariadb管理工具
-
-### apche2 为 phpMyAdmin 配置别名
-
-> - 别名说明：也算是一种站点的方式
-> - 操作：httpd.ini 文件加入如下内容：
-
-```shell
-Alias /phpmyadmin c:/wamp/phpMyAdmin
-<Directory c:/wamp/phpMyAdmin>
-    Options FollowSymLinks
-    DirectoryIndex index.php
-    <RequireAll>
-        Require local
-    </RequireAll>
-</Directory>
-<Directory c:/wamp/phpMyAdmin/libraries>
-    Require all denied
-</Directory>
-<Directory c:/wamp/phpMyAdmin/setup/lib>
-    Require all denied
-</Directory>
-```
-
-### 配置 phpMyAdmin
-
-> - 默认配置文件： `libraries/config.default.php` 这个文件不用于修改
-> - 操作： 所有可配置的数据都放在config.inc.php， 如果此文件不存在就创建一个（该文件只需包含你想要改变它们相应默认值的参数）
-
-```php
-// config.inc.php 的内容
-//<?php
-//短语密码
-$cfg['blowfish_secret'] = 'bYm@XyamR)P2BurDwNKKwN\uL4YQsV$m(Fp6m';
-$i = 0;
-$i++;
-//设置登陆方式为cookie
-$cfg['Servers'][$i]['auth_type'] = 'cookie';
-$cfg['Servers'][$i]['host'] = 'localhost';
-$cfg['Servers'][$i]['compress'] = false;
-$cfg['Servers'][$i]['AllowNoPassword'] = false;
-$cfg['UploadDir'] = '';
-$cfg['SaveDir'] = '';
-```
-
-### 提示部分功能未启用的解决方法
-
-> 1. 删除数据库： 将 phpmyadmin 数据库删除
-> 2. 登陆phpMyAdmin:首页找到原因那里，进入原因页面
-> 3. 创建数据库：进入原因页面后，点击Create会自动创建 phpmyadmin 数据库，这样即可！
-
-### phpMyAdmin 一些注意事项
-
-> - 数据库提供phpmyadmin的高级功能，如果删除，高级功能将无法使用 – 如果未安装或已经删除，可以在找到原因那里，点击Create自动创建
-> - phpMyAdmin 连接数据库使用的是php的mysqli扩展，所以php必须安装mysqli扩展包
-> - phpMyAdmin 需要账户有密码登陆，所以我们要为mariadb创建一个带密码的账户（我已经将mariadb的root账户已经设置密码为123456）
-
 ## wamp 说明书
 
 > 该 `wamp` 安装包解压即用，包含32位和64位版本，并且可自由选择 `mariadb` 与 `php` 的版本！
