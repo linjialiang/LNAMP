@@ -89,6 +89,6 @@
 文章标题          | 导航链接
 ------------- | -------------------------
 配置apache24.md | [apache24](配置apache24.md)
-配置php         | [php](配置php)
-配置mariadb     | [mariadb](配置mariadb)
-wamp组件维护      | [组件维护](wamp组件维护)
+配置php         | [php](配置php.md)
+配置mariadb     | [mariadb](配置mariadb.md)
+wamp组件维护      | [组件维护](wamp组件维护.md)
