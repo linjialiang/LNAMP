@@ -104,7 +104,7 @@ LoadModule negotiation_module modules/mod_negotiation.so
 LoadModule setenvif_module modules/mod_setenvif.so
 
 <IfModule include_module>
-    Include "${SRVROOT}/conf/apache24.conf"
+    Include "${WAMPROOT}/conf/apache24.conf"
 </IfModule>
 ```
 
@@ -144,7 +144,7 @@ LoadModule negotiation_module modules/mod_negotiation.so
 LoadModule setenvif_module modules/mod_setenvif.so
 
 <IfModule include_module>
-    Include "${SRVROOT}/conf/apache24.conf"
+    Include "${WAMPROOT}/conf/apache24.conf"
 </IfModule>
 ```
 
