@@ -252,7 +252,7 @@ LoadModule setenvif_module modules/mod_setenvif.so
   DocumentRoot "${WAMPROOT}/www-default"
   ```
 
-  > 为站点缺省位置配置访问权限（不配置会继承 `<Directory />` 的配置，禁止所有人访问）
+  > 为站点缺省位置配置访问权限（不配置会禁止所有人访问--继承 `<Directory />` 的配置，）
 
   ```shell
   <Directory "${WAMPROOT}/www-default">
@@ -260,7 +260,12 @@ LoadModule setenvif_module modules/mod_setenvif.so
   AllowOverride None
   Require all granted
   </Directory>
+  <VirtualHost *:80>
+  DocumentRoot "${WAMPROOT}/www-default"
+  </VirtualHost>
   ```
+
+  > 由于apache24的第一个 `<VirtualHost>` 设置的站点目录为 `${WAMPROOT}/www-default` ，因此缺省站点都会访问该目录！
 
 5. 特定区块开放访问权限
 
@@ -649,6 +654,9 @@ DocumentRoot "${WAMPROOT}/www-default"
     AllowOverride None
     Require all granted
 </Directory>
+<VirtualHost *:80>
+    DocumentRoot "${WAMPROOT}/www-default"
+</VirtualHost>
 
 <Directory "${WAMPROOT}/www">
     Options Indexes FollowSymLinks
