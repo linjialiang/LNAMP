@@ -246,13 +246,14 @@ LoadModule setenvif_module modules/mod_setenvif.so
 
 4. 为apache24指定站点缺省位置
 
-  > `DocumentRoot` 默认情况下，所有的请求都是从这个目录中获取的，安全起见不应该与其它站点设置在同一个目录下
+  > - apache24未配置VirtualHost的域名会访问第一个VirtualHost配置下的站点目录
+  > - `DocumentRoot` 是会被探针识别为站点目录的，安全起见不应该与其它站点设置在同一个根目录下
 
   ```shell
   DocumentRoot "${WAMPROOT}/www-default"
   ```
 
-  > 为站点缺省位置配置访问权限（不配置会禁止所有人访问--继承 `<Directory />` 的配置，）
+  > 为站点缺省位置配置访问权限（不配置会禁止所有人访问--继承于 `<Directory />` 的配置，）
 
   ```shell
   <Directory "${WAMPROOT}/www-default">
@@ -260,12 +261,15 @@ LoadModule setenvif_module modules/mod_setenvif.so
   AllowOverride None
   Require all granted
   </Directory>
+  ```
+
+  > 由于apache24的第一个 `<VirtualHost>` 设置的站点目录为 `${WAMPROOT}/www-default` ，因此缺省站点都会访问该目录！
+
+  ```shell
   <VirtualHost *:80>
   DocumentRoot "${WAMPROOT}/www-default"
   </VirtualHost>
   ```
-
-  > 由于apache24的第一个 `<VirtualHost>` 设置的站点目录为 `${WAMPROOT}/www-default` ，因此缺省站点都会访问该目录！
 
 5. 特定区块开放访问权限
 
