@@ -1,38 +1,34 @@
 # 关于 `《programmer》`
 
-> `《programmer》` 是解决程序入门疑问的书籍！
->
-> -   起初是自己学习过程中的做的笔记
-> -   新手可以拿来做入门指导手册，有经验者可以拿来当操作手册使用
-> -   `《programmer》` 是一本程序入门指导手册
-> -   `《programmer》` 是一本便捷的程序操作手册，不会去过多讨论理论性问题
-> -   中文名我们可以随意这样称呼 `《程序入门指导（实践版）》` `《程序参考手册》`
+> 《programmer》 是本人在学习和实践中的总结，写这篇的文章主要作用如下表所述：
 
-## `《programmer》` 涵盖哪些内容？
+number | 写这本手册初衷
+------ | ----------------
+1      | 了解自己掌握的知识点
+2      | 在工作中更有效率的运用这些知识点
+3      | 分析自己具备的能力能解决哪类问题
+4      | 未来需要进一步学习的知识点有哪些
+5      | 未来哪些工作更加适合我
 
-> 主要有 `program-basic (程序基础设备)` `program-language (程序语言应用)` `program-other (程序其它应用)` 3 大版块
+> 本手册根目录导航
 
-### `program-basic`
+number | 导航
+------ | ------------------
+1      | [Git](./Git)
+2      | [Debian](./Debian)
+3      | [PHP](./PHP)
+4      | [LNAMP](./LNAMP)
+5      | [WAMP](./WAMP)
+6      | [Other](./Other)
 
-> `program-basic` 主要分为：
->
-> -   `Linux`
-> -   `editor (编辑器 OR IDE)`
-> -   `Git (版本控制系统)`
-> -   `Regular Expression (正则表达式)`
-> -   `...`
+## 根目录列表描述
 
-### `program-language`
+1. `Git` 是讲解git使用的说明手册，只要愿意学习，你就能学会使用git来改善自己的工作方式
 
-> `program-language` 针对不同程序编程语言，主要分为：
->
-> -   `PHP`
-> -   `JavaScript`
-> -   `C`
-> -   `...`
+2. `Debian` 是讲解linux桌面及服务器使用的说明手册，主要是基于Debian这个发行版本
 
-## `program-other`
+3. `PHP` 是讲解php基础知识的说明手册，其它一些例如：框架的知识点会出现在子文件other内
 
-> `program-other` 主要是程序员冲浪时可能需要用到的工具！
->
-> -   `shadowsocks (代理工具)`
+4. `LNAMP` 是讲解Debian下如何配置LNAMP环境的说明手册
+
+5. `WAMP` 是讲解Windows下如何自己搭建WAMP环境的说明手册
