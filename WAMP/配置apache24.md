@@ -352,7 +352,7 @@ core | ErrorLogFormat | 错误日志写入的格式（附录表格）
   > 错误日志超过5M会截断一次，并且按截断时间来命名
 
   ```shell
-  ErrorLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/error/error_log.%Y-%m-%d-%H_%M_%S 5M"
+  ErrorLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/error/error_log.%Y-%m-%d-%H_%M_%S 5M 480"
   ```
 
 2. LogLevel 大众设置，老手都应该按需来调节它
@@ -512,7 +512,7 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
 
-    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access/access_log 86400" newlogformat
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access/access_log 86400 480" newlogformat
 </IfModule>
 ```
 
@@ -529,7 +529,7 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
 
-    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access/access_log.%Y-%m-%d 86400" newlogformat
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat
 </IfModule>
 ```
 
@@ -549,7 +549,7 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
 
     SetEnvIf Request_URI "\.(ico|gif|jpg|png|bmp|swf|css|js)$" dontlog
 
-    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access/access_log.%Y-%m-%d 86400" newlogformat env=!dontlog
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat env=!dontlog
 </IfModule>
 ```
 
