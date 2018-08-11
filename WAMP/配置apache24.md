@@ -499,8 +499,8 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
 </IfModule>
 ```
 
-> 1、调用 `newlogformat` 模板为访问日志输出格式
-> 2、创建 `access_log` 访问日志文件并每天截断一次文件（由于每次截断的文件名一致，因此永远只能保留一天的日志）
+> 1. 调用 `newlogformat` 模板为访问日志输出格式
+> 2. 创建 `access_log` 访问日志文件并每天截断一次文件（由于每次截断的文件名一致，因此永远只能保留一天的日志）
 
 ```shell
 <IfModule log_config_module>
@@ -516,8 +516,8 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
 </IfModule>
 ```
 
-> - 1、调用 `newlogformat` 模板为访问日志输出格式；
-> - 2、创建 `access_log` 访问日志文件并每天截断一次文件（由于文件名根据时间来创建，因此每天都有一个日志文件被保留）；
+> 1. 调用 `newlogformat` 模板为访问日志输出格式；
+> 2. 创建 `access_log` 访问日志文件并每天截断一次文件（由于文件名根据时间来创建，因此每天都有一个日志文件被保留）；
 
 ```shell
 <IfModule log_config_module>
@@ -533,9 +533,9 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
 </IfModule>
 ```
 
-> 1、调用 `newlogformat` 模板为访问日志输出格式；
-> 2、创建 `access_log` 访问日志文件并每天截断一次文件（由于文件名根据时间来创建，因此每天都有一个日志文件被保留）；
-> 3、限制图片js等文件写入日志；
+> 1. 调用 `newlogformat` 模板为访问日志输出格式；
+> 2. 创建 `access_log` 访问日志文件并每天截断一次文件（由于文件名根据时间来创建，因此每天都有一个日志文件被保留）；
+> 3. 限制图片js等文件写入日志；
 
 ```shell
 <IfModule log_config_module>
