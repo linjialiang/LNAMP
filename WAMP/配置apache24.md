@@ -343,8 +343,16 @@ core | ErrorLogFormat | 错误日志写入的格式（附录表格）
 
 1. ErrorLog，为了统一兼容版和推荐版的错误日志，我们使用绝对路径指定
 
+  > 所有的错误日志写在一个文件内
+
   ```shell
-  ErrorLog "${WAMPROOT}/logs/apache24/error.log"
+  ErrorLog "${WAMPROOT}/logs/apache24/error/error.log"
+  ```
+
+  > 错误日志超过5M会截断一次，并且按截断时间来命名
+
+  ```shell
+  ErrorLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/error/error_log.%Y-%m-%d-%H_%M_%S 5M"
   ```
 
 2. LogLevel 大众设置，老手都应该按需来调节它
@@ -457,7 +465,7 @@ mod_setenvif   | SetEnvIf  | 根据请求的属性设置环境变量，用于限
 
 ```shell
 LogFormat "%h %l %u %t \"%r\" %>s %b" common
-CustomLog ${WAMPROOT}/logs/apache24/access_log common
+CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
 ```
 
 > 默认的访问日志配置代码
@@ -471,7 +479,7 @@ CustomLog ${WAMPROOT}/logs/apache24/access_log common
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
 
-    CustomLog "${WAMPROOT}/logs/apache24/access_log" common
+    CustomLog "${WAMPROOT}/logs/apache24/access/access_log" common
 </IfModule>
 ```
 
@@ -487,11 +495,12 @@ CustomLog ${WAMPROOT}/logs/apache24/access_log common
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
 
-    CustomLog "${WAMPROOT}/logs/apache24/access_log" newlogformat
+    CustomLog "${WAMPROOT}/logs/apache24/access/access_log" newlogformat
 </IfModule>
 ```
 
-> 调用 `newlogformat` 模板为访问日志输出格式，创建 `access_log` 访问日志文件并每天截断一次文件
+> 1、调用 `newlogformat` 模板为访问日志输出格式
+> 2、创建 `access_log` 访问日志文件并每天截断一次文件（由于每次截断的文件名一致，因此永远只能保留一天的日志）
 
 ```shell
 <IfModule log_config_module>
@@ -503,11 +512,30 @@ CustomLog ${WAMPROOT}/logs/apache24/access_log common
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
 
-    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access_log 86400" newlogformat
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access/access_log 86400" newlogformat
 </IfModule>
 ```
 
-> 1）调用 `newlogformat` 模板为访问日志输出格式；2）创建 `access_log` 访问日志文件并每天截断一次文件；3）限制图片js等文件写入日志
+> - 1、调用 `newlogformat` 模板为访问日志输出格式；
+> - 2、创建 `access_log` 访问日志文件并每天截断一次文件（由于文件名根据时间来创建，因此每天都有一个日志文件被保留）；
+
+```shell
+<IfModule log_config_module>
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+    LogFormat "%h %l %u %t \"%r\" %>s %b" common
+    LogFormat "%h-%v-%V %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" newlogformat
+
+    <IfModule logio_module>
+      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+    </IfModule>
+
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access/access_log.%Y-%m-%d 86400" newlogformat
+</IfModule>
+```
+
+> 1、调用 `newlogformat` 模板为访问日志输出格式；
+> 2、创建 `access_log` 访问日志文件并每天截断一次文件（由于文件名根据时间来创建，因此每天都有一个日志文件被保留）；
+> 3、限制图片js等文件写入日志；
 
 ```shell
 <IfModule log_config_module>
@@ -521,7 +549,7 @@ CustomLog ${WAMPROOT}/logs/apache24/access_log common
 
     SetEnvIf Request_URI "\.(ico|gif|jpg|png|bmp|swf|css|js)$" dontlog
 
-    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access_log 86400" newlogformat env=!dontlog
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access/access_log.%Y-%m-%d 86400" newlogformat env=!dontlog
 </IfModule>
 ```
 
