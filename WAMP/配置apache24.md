@@ -704,7 +704,7 @@ DocumentRoot "${WAMPROOT}/www-default"
     Require all denied
 </Files>
 
-ErrorLog "${WAMPROOT}/logs/apache24/error.log"
+ErrorLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/error/error_log.%Y-%m-%d-%H_%M_%S 5M 480"
 
 LogLevel warn
 
@@ -719,7 +719,7 @@ LogLevel warn
 
     SetEnvIf Request_URI "\.(ico|gif|jpg|png|bmp|swf|css|js)$" dontlog
 
-    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access_log 86400" newlogformat env=!dontlog
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access_log.%Y-%m-%d 86400 480" newlogformat env=!dontlog
 </IfModule>
 
 <IfModule alias_module>
