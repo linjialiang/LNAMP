@@ -719,7 +719,7 @@ LogLevel warn
 
     SetEnvIf Request_URI "\.(ico|gif|jpg|png|bmp|swf|css|js)$" dontlog
 
-    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access_log.%Y-%m-%d 86400 480" newlogformat env=!dontlog
+    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat env=!dontlog
 </IfModule>
 
 <IfModule alias_module>
