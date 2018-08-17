@@ -131,65 +131,27 @@ Community Packages (42) C:\\Users\\username\\.atom\\packages
 
 ```css
 // new add
-atom-dock.left .list-inline.tab-bar.inset-panel{
-    display: none;
-}
-.item-views .header.list-item.project-root-header{
-    z-index: 2;
-}
-.line.cursor-line {
-  background-color: rgba(90, 138, 233, .1) !important;
-}
-.minimap .cursor-line {
-  background-color: rgb(90, 138, 233);
-}
-.list-tree .selected > span{
-    font-size: 14px;
-}
-atom-workspace{
-    font-family: 'Ubuntu Mono';
-}
-.list-inline.tab-bar.inset-panel > li.active{
-    border-bottom: 2px solid rgba(90, 138, 233, .3);
-}
-.list-inline.tab-bar.inset-panel{
-    height:3.5rem;
-}
-.list-inline.tab-bar.inset-panel > li{
-    line-height: 3.5rem;
-}
-.tab-bar .tab .close-icon{
-    top: 0;
-    bottom: 0;
-    margin: auto 0;
-}
-.tab-bar .tab .close-icon:hover, .tab-bar .tab .close-icon:active{
-    cursor:pointer;
-}
-.tree-view:focus .selected:before{
-    background-color: rgba(90, 138, 233, .3);
-}
-.left .tree-view .project-root-header{
-    border-bottom: 2px solid rgba(90, 138, 233, .3);
-    font-size:1.2em;
-    height: 3.5rem;
-}
-.list-group li:not(.list-nested-item),
-.list-tree li:not(.list-nested-item),
-.list-group li.list-nested-item > .list-item,
-.list-tree li.list-nested-item > .list-item{
-    line-height: 2.5rem;
-}
-.list-group .selected::before,
-.list-tree .selected::before{
-    height: 2.5rem;
-}
-.tree-view .project-root.project-root:before{
-    height: 3.5rem;
-}
-.tree-view:focus .selected .project-root-header.project-root-header{
-    background-color: rgb(150, 180, 230)!important;
-}
+atom-workspace{font-family:'Ubuntu Mono';}
+ol.tree-view-root > li{font-size: 12px;}
+atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left .tab-bar {display:none;}
+atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left .header.list-item.project-root-header{z-index: 2;}
+atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left ol.entries.list-tree .selected > span,
+atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left ol.entries.list-tree .selected > span::before{font-size:1.2em;}
+atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left ol.entries.list-tree .selected > span::before{width:auto;}
+.line.cursor-line {background-color:rgba(90,138,233,.3);}
+.minimap .cursor-line {background-color:rgb(90,138,233);}
+.list-inline.tab-bar.inset-panel > li.active {border-bottom:2px solid rgba(219, 219, 219, 1);}
+.list-inline.tab-bar.inset-panel {height:3.5rem;}
+.list-inline.tab-bar.inset-panel > li {line-height:3.5rem;}
+.tab-bar .tab .close-icon {top:0;bottom:0;margin:auto 0;}
+.tab-bar .tab .close-icon:hover,.tab-bar .tab .close-icon:active {cursor:pointer;}
+.tree-view:focus .selected:before {background-color:rgba(90,138,233,.3);}
+.left .tree-view .project-root-header {border-bottom:2px solid rgba(90,138,233,.3);font-size:1.2em;height:3.5rem;}
+.list-group li:not(.list-nested-item),.list-tree li:not(.list-nested-item),.list-group li.list-nested-item > .list-item,.list-tree li.list-nested-item > .list-item {line-height:2.5rem;}
+.list-group .selected::before,.list-tree .selected::before {height:2.5rem;}
+.tree-view .project-root.project-root:before {height:3.5rem;}
+.tree-view:focus .selected .project-root-header.project-root-header {background-color:rgb(150,180,230)!important;}
+.tab-bar .tab .title.title:before{vertical-align: middle;}
 ```
 
 ### 让 `atom` 支持简体中文
