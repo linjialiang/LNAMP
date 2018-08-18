@@ -82,7 +82,7 @@
 > 将我正在使用的插件罗列在此（不代表其它插件不优秀）
 
 ```shell
-Community Packages (42) C:\\Users\\username\\.atom\\packages
+Community Packages (43) C:\\Users\\username\\.atom\\packages
 ├── aligner@1.2.4
 ├── aligner-javascript@1.3.0
 ├── aligner-php@1.2.0
@@ -98,7 +98,7 @@ Community Packages (42) C:\\Users\\username\\.atom\\packages
 ├── emmet@2.4.3
 ├── ex-mode@0.18.0
 ├── file-icons@2.1.24
-├── git-plus@8.0.0
+├── git-plus@8.0.1
 ├── git-time-machine@2.1.0
 ├── highlight-selected@0.14.0
 ├── ide-php@0.7.14
@@ -118,6 +118,7 @@ Community Packages (42) C:\\Users\\username\\.atom\\packages
 ├── monokai@0.24.0
 ├── nord-atom-syntax@0.9.1
 ├── open-in-browser@0.5.2
+├── platformio-ide-terminal@2.8.4
 ├── project-viewer@1.3.1
 ├── relative-numbers@0.9.0
 ├── split-diff@1.5.2
@@ -132,11 +133,11 @@ Community Packages (42) C:\\Users\\username\\.atom\\packages
 ```css
 // new add
 atom-workspace{font-family:'Ubuntu Mono';}
-ol.tree-view-root > li{font-size: 12px;}
+/* ol.tree-view-root > li{font-size: 12px;} */
 atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left .tab-bar {display:none;}
 atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left .header.list-item.project-root-header{z-index: 2;}
 atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left ol.entries.list-tree .selected > span,
-atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left ol.entries.list-tree .selected > span::before{font-size:1.2em;}
+atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left ol.entries.list-tree .selected > span::before{font-size:1.3em;}
 atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left ol.entries.list-tree .selected > span::before{width:auto;}
 .line.cursor-line {background-color:rgba(90,138,233,.3);}
 .minimap .cursor-line {background-color:rgb(90,138,233);}
