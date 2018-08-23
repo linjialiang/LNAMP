@@ -83,6 +83,8 @@
 | `atom-ide-ui`    | atom的ide基础包    |
 | `ide-php`        | php的ide        |
 | `ide-typescript` | JavaScript的ide |
+| `ide-html`       | html的ide       |
+| `ide-css`        | css的ide        |
 
 | 符号对齐相关插件             | 插件说明    |
 | -------------------- | ------- |
@@ -103,14 +105,16 @@
 | `atom-clock`          | 时钟   |
 | `file-icons`          | 文件图标 |
 
-| html相关插件            | 插件说明           |
-| ------------------- | -------------- |
-| `atom-html-preview` | atom内嵌浏览器      |
-| `autoclose-html`    | html自动不全结束标签   |
-| `emmet`             | 前端神器之一         |
-| `autoprefixer`      | css3后缀自动完成     |
-| `open-in-browser`   | html页面从默认浏览器打开 |
-| `color-picker`      | 颜色选择           |
+| html相关插件                    | 插件说明           |
+| --------------------------- | -------------- |
+| `atom-html-preview`         | atom内嵌浏览器      |
+| `autoclose-html`            | html自动不全结束标签   |
+| `emmet`                     | 前端神器之一         |
+| `autoprefixer`              | css3后缀自动完成     |
+| `open-in-browser`           | html页面从默认浏览器打开 |
+| `color-picker`              | 颜色选择           |
+| `autocomplete-font-awesome` | 字体图标库          |
+| `atom-bootstrap4`           | bootstrap4     |
 
 | vim相关插件            | 插件说明           |
 | ------------------ | -------------- |
