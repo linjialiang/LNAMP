@@ -45,7 +45,7 @@
 | `monokai`              | 代码样式3 |
 | `nord-atom-syntax`     | 代码样式4 |
 | `atom-material-syntax` | 代码样式5 |
-| `seti-syntax` | 代码样式5 |
+| `seti-syntax`          | 代码样式5 |
 
 | git相关插件                | 插件说明                  |
 | ---------------------- | --------------------- |
@@ -54,6 +54,18 @@
 | `merge-conflicts`      | 优秀的git合并视图            |
 | `tree-view-git-status` | git相关                 |
 | `split-diff`           | 可以根任何文件做对比，不需要git支持   |
+
+| 其它实用插件                           | 插件说明                  |
+| -------------------------------- | --------------------- |
+| `highlight-selected`             | 选择高亮                  |
+| `advanced-open-file`             | 打开、创建文件的另一种方式         |
+| `atom-beautify`                  | 格式化源代码                |
+| `docblockr`                      | 注释神器                  |
+| `Sublime-Style-Column-Selection` | 复制任意区域，比如：复制联系数行的中间区域 |
+| `autocomplete-paths`             | 文件自动不全插件              |
+| `project-viewer`                 | 项目管理插件                |
+| `sync-settings`                  | atom配置同步插件            |
+| `markdown-scroll-sync`           | markdown文件预览时同步       |
 
 | minimap相关插件                  | 插件说明          |
 | ---------------------------- | ------------- |
@@ -85,10 +97,17 @@
 | `language-ini`    | ini扩展文件语法高亮    |
 | `language-nginx`  | nginx配置文件语法高亮  |
 
+| 界面优化插件                | 插件说明 |
+| --------------------- | ---- |
+| `activate-power-mode` | 酷炫   |
+| `atom-clock`          | 时钟   |
+| `file-icons`          | 文件图标 |
+
 | html相关插件            | 插件说明           |
 | ------------------- | -------------- |
 | `atom-html-preview` | atom内嵌浏览器      |
 | `autoclose-html`    | html自动不全结束标签   |
+| `emmet`             | 前端神器之一         |
 | `autoprefixer`      | css3后缀自动完成     |
 | `open-in-browser`   | html页面从默认浏览器打开 |
 | `color-picker`      | 颜色选择           |
@@ -99,32 +118,9 @@
 | `relative-numbers` | vim普通模式下显示先对行号 |
 | `ex-mode`          | atom下的ex单行编辑器  |
 
-| 其它实用插件                           | 插件说明                  |
-| -------------------------------- | --------------------- |
-| `highlight-line`                 | 当前行高亮                 |
-| `highlight-selected`             | 选择高亮                  |
-| `advanced-open-file`             | 打开、创建文件的另一种方式         |
-| `atom-beautify`                  | 格式化源代码                |
-| `docblockr`                      | 注释神器                  |
-| `Sublime-Style-Column-Selection` | 复制任意区域，比如：复制联系数行的中间区域 |
-| `autocomplete-paths`             | 文件自动不全插件              |
-| `project-viewer`                 | 项目管理插件                |
-| `sync-settings`                  | atom配置同步插件            |
-| `markdown-scroll-sync`           | markdown文件预览时同步       |
-
-| 界面优化插件                | 插件说明 |
-| --------------------- | ---- |
-| `activate-power-mode` | 酷炫   |
-| `atom-clock`          | 时钟   |
-| `file-icons`          | 文件图标 |
-
 ## 配置插件
 
 > 有些插件需要我们进一步配置，才能更有效提升工作效率
-
-
-
-
 
 ## atom 实用快捷键
 
