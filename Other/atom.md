@@ -45,6 +45,7 @@
 | `monokai`              | 代码样式3 |
 | `nord-atom-syntax`     | 代码样式4 |
 | `atom-material-syntax` | 代码样式5 |
+| `seti-syntax` | 代码样式5 |
 
 | git相关插件                | 插件说明                  |
 | ---------------------- | --------------------- |
@@ -116,6 +117,14 @@
 | `activate-power-mode` | 酷炫   |
 | `atom-clock`          | 时钟   |
 | `file-icons`          | 文件图标 |
+
+## 配置插件
+
+> 有些插件需要我们进一步配置，才能更有效提升工作效率
+
+
+
+
 
 ## atom 实用快捷键
 
