@@ -127,7 +127,7 @@
 
 > 有些插件需要我们进一步配置，才能更有效提升工作效率
 
-1.  `sync-settings` 插件配置
+### 1、 `sync-settings` 插件配置
 
 > 这是atom配置同步插件配置也很简单，填入正确的token跟gistid即可
 
@@ -138,19 +138,31 @@
 | `sync-settings:view-backup`  | 这条是当你执行备份后到线上查询你的备份的,也就是到你的 `gist code` 里的内容 |
 | `sync-settings:check-backup` | 这条是查询最后一次是否正常                                |
 
-2.  `atom-beautify` 插件配置
+### 2、 `atom-beautify` 插件配置
 
 > `atom-beautify` 有些语言的格式化需要依赖与其它工具，遇到问题可以查看插件说明
+
+### 3、 `markdown-scroll-sync` 插件配置
+
+> 比较遗憾，这个插件的作者似乎并不愿意更新了，需要解决问题如下
+
+```coffee
+# 路径 C:\Users\username\.atom\packages\markdown-scroll-sync\lib\utils.coffee
+# 12行修改前
+lineEles = @editorView.shadowRoot.querySelectorAll '.lines .line[data-screen-row]'
+# 12行修改后
+lineEles = @editorView.querySelectorAll '.lines .line[data-screen-row]'
+```
 
 ## atom 实用快捷键
 
 > 网上关于atom快捷键的文章都是各种问题，各种抄袭，所以我这里整理了一些常用的快捷键（vim相关快捷键不做解释）
 
-| 全局快捷键                       | 功能  |
-| --------------------------- | --- |
-| `C-\`\|显示或隐藏目录树             |     |
-| `M-\`\|显示目录树，光标在页面和目录树将切换   |     |
-| `C-S-\`\|显示目录树，并定位到当前页面所在位置 |     |
+| 全局快捷键    | 功能                 |
+| -------- | ------------------ |
+| `C-斜杠`   | 显示或隐藏目录树           |
+| `M-斜杠`   | 显示目录树，光标在页面和目录树将切换 |
+| `C-S-斜杠` | 显示目录树，并定位到当前页面所在位置 |
 
 | 目录树的快捷键   | 功能                             |
 | --------- | ------------------------------ |
