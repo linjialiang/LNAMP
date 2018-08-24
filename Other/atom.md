@@ -105,8 +105,6 @@
 | html相关插件                    | 插件说明           |
 | --------------------------- | -------------- |
 | `atom-html-preview`         | atom内嵌浏览器      |
-| `autoclose-html`            | html自动不全结束标签   |
-| `emmet`                     | 前端神器之一         |
 | `autoprefixer`              | css3后缀自动完成     |
 | `open-in-browser`           | html页面从默认浏览器打开 |
 | `color-picker`              | 颜色选择           |
@@ -120,15 +118,31 @@
 
 > 插件管理
 
-| 说明   | 指令                                                        |
-| ---- | --------------------------------------------------------- |
-| 安装插件 | `apm install package1 [package2 package3 ...]`            |
-| 卸载插件 | `apm <uninstall|remove> package1 [package2 package3 ...]` |
-| 禁用插件 | `apm disable package1 [package2 package3 ...]`            |
+| 说明   | 指令                                             |
+| ---- | ---------------------------------------------- |
+| 安装插件 | `apm install package1 [package2 package3 ...]` |
+| 卸载插件 | `apm remove package1 [package2 package3 ...]`  |
+| 禁用插件 | `apm disable package1 [package2 package3 ...]` |
 
 ## 配置插件
 
 > 有些插件需要我们进一步配置，才能更有效提升工作效率
+
+1.  `sync-settings` 插件配置
+
+> 这是atom配置同步插件配置也很简单，填入正确的token跟gistid即可
+
+| 命令                           | 说明                                           |
+| ---------------------------- | -------------------------------------------- |
+| `sync-settings:backup`       | 这条命令是备份当前的配置                                 |
+| `sync-settings:restore`      | 这条命令是回复配置,是直接覆盖的;                            |
+| `sync-settings:view-backup`  | 这条是当你执行备份后到线上查询你的备份的,也就是到你的 `gist code` 里的内容 |
+| `sync-settings:check-backup` | 这条是查询最后一次是否正常                                |
+
+2. `atom-beautify` 插件配置
+
+> `atom-beautify` 有些语言的格式化需要依赖与其它工具，遇到问题可以查看插件说明
+
 
 ## atom 实用快捷键
 
