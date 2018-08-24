@@ -209,3 +209,29 @@
 | `M-鼠标左键` | 选取多行的中间部分内容               |
 
 > `C-S-p` 下面有大量的指令，这些指令将会大大提升我们的工作效力，并且能让我们真正意义上拜托鼠标，希望同学们自行多多研究！
+
+## 自定义界面样式
+
+> 自定义界面样式，可以在 `.atom/style.less` 文件上完成
+
+```css
+// my-add
+atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left .tab-bar {display:none;}
+atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left .header.list-item.project-root-header{z-index: 2;}
+.tree-view:focus .selected:before {background-color:rgba(90,138,233,.3);}
+.list-group li:not(.list-nested-item),.list-tree li:not(.list-nested-item),.list-group li.list-nested-item > .list-item,.list-tree li.list-nested-item > .list-item {line-height:2.5rem;}
+.list-group .selected::before,.list-tree .selected::before {height:2.5rem;}
+
+
+.list-inline.tab-bar.inset-panel {height:3.5rem;}
+.list-inline.tab-bar.inset-panel > li {line-height:3.5rem;}
+.list-inline.tab-bar.inset-panel > li.active {border-bottom:2px solid rgba(90,138,233,.3);}
+.tab-bar .tab .close-icon {top:0;bottom:0;margin:auto 0;}
+.tab-bar .tab .close-icon:hover,.tab-bar .tab .close-icon:active {cursor:pointer;}
+.left .tree-view .project-root-header {border-bottom:2px solid rgba(90,138,233,.3);font-size:1.2em;height:3.5rem;}
+.tree-view .project-root.project-root:before {height:3.5rem;}
+.tree-view .tree-view-root{padding:0;}
+
+.line.cursor-line {background-color:rgba(90,138,233,.1);}
+.minimap .cursor-line {background-color:rgb(90,138,233);}
+```
