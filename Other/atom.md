@@ -40,12 +40,9 @@
 
 | 主题                     | 主题说明  |
 | ---------------------- | ----- |
-| `chester-atom-syntax`  | 代码样式1 |
-| `city-lights-syntax`   | 代码样式2 |
-| `monokai`              | 代码样式3 |
-| `nord-atom-syntax`     | 代码样式4 |
-| `atom-material-syntax` | 代码样式5 |
-| `seti-syntax`          | 代码样式5 |
+| `monokai`              | 代码样式1 |
+| `nord-atom-syntax`     | 代码样式2 |
+| `atom-material-syntax` | 代码样式3 |
 
 | git相关插件                | 插件说明                  |
 | ---------------------- | --------------------- |
@@ -66,6 +63,8 @@
 | `project-viewer`                 | 项目管理插件                |
 | `sync-settings`                  | atom配置同步插件            |
 | `markdown-scroll-sync`           | markdown文件预览时同步       |
+| `regex-railroad-diagram`         | 正则表达式图形界面             |
+| `platformio-ide-terminal`        | 比较好用的控制台              |
 
 | minimap相关插件                  | 插件说明          |
 | ---------------------------- | ------------- |
@@ -83,8 +82,6 @@
 | `atom-ide-ui`    | atom的ide基础包    |
 | `ide-php`        | php的ide        |
 | `ide-typescript` | JavaScript的ide |
-| `ide-html`       | html的ide       |
-| `ide-css`        | css的ide        |
 
 | 符号对齐相关插件             | 插件说明    |
 | -------------------- | ------- |
@@ -114,13 +111,20 @@
 | `open-in-browser`           | html页面从默认浏览器打开 |
 | `color-picker`              | 颜色选择           |
 | `autocomplete-font-awesome` | 字体图标库          |
-| `atom-bootstrap4`           | bootstrap4     |
 
 | vim相关插件            | 插件说明           |
 | ------------------ | -------------- |
 | `vim-mode-plus`    | vim插件基础包       |
 | `relative-numbers` | vim普通模式下显示先对行号 |
 | `ex-mode`          | atom下的ex单行编辑器  |
+
+> 插件管理
+
+| 说明   | 指令                                                        |
+| ---- | --------------------------------------------------------- |
+| 安装插件 | `apm install package1 [package2 package3 ...]`            |
+| 卸载插件 | `apm <uninstall|remove> package1 [package2 package3 ...]` |
+| 禁用插件 | `apm disable package1 [package2 package3 ...]`            |
 
 ## 配置插件
 
