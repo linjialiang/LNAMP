@@ -107,7 +107,6 @@
 | `autoprefixer`              | css3后缀自动完成     |
 | `open-in-browser`           | html页面从默认浏览器打开 |
 | `color-picker`              | 颜色选择           |
-| `autocomplete-font-awesome` | 字体图标库          |
 
 | vim相关插件            | 插件说明           |
 | ------------------ | -------------- |
