@@ -122,6 +122,7 @@
 | 卸载插件 | `apm uninstall package1 [package2 package3 ...]`  |
 | 移除插件 | `apm remove package1 [package2 package3 ...]`  |
 | 禁用插件 | `apm disable package1 [package2 package3 ...]` |
+| 启用插件 | `apm enable package1 [package2 package3 ...]` |
 
 ## 配置插件
 
