@@ -119,7 +119,8 @@
 | 说明   | 指令                                             |
 | ---- | ---------------------------------------------- |
 | 安装插件 | `apm install package1 [package2 package3 ...]` |
-| 卸载插件 | `apm remove package1 [package2 package3 ...]`  |
+| 卸载插件 | `apm uninstall package1 [package2 package3 ...]`  |
+| 移除插件 | `apm remove package1 [package2 package3 ...]`  |
 | 禁用插件 | `apm disable package1 [package2 package3 ...]` |
 
 ## 配置插件
