@@ -43,6 +43,7 @@
 | `monokai`              | 代码样式1 |
 | `nord-atom-syntax`     | 代码样式2 |
 | `atom-material-syntax` | 代码样式3 |
+| `chester-atom-syntax`  | 代码样式4 |
 
 | git相关插件                | 插件说明                  |
 | ---------------------- | --------------------- |
@@ -55,16 +56,14 @@
 | 其它实用插件                           | 插件说明                  |
 | -------------------------------- | --------------------- |
 | `highlight-selected`             | 选择高亮                  |
-| `advanced-open-file`             | 打开、创建文件的另一种方式         |
 | `atom-beautify`                  | 格式化源代码                |
 | `docblockr`                      | 注释神器                  |
 | `Sublime-Style-Column-Selection` | 复制任意区域，比如：复制联系数行的中间区域 |
-| `autocomplete-paths`             | 文件自动不全插件              |
+| `autocomplete-paths`             | 文件自动补全插件              |
 | `project-viewer`                 | 项目管理插件                |
 | `sync-settings`                  | atom配置同步插件            |
 | `markdown-scroll-sync`           | markdown文件预览时同步       |
 | `regex-railroad-diagram`         | 正则表达式图形界面             |
-| `platformio-ide-terminal`        | 比较好用的控制台              |
 
 | minimap相关插件                  | 插件说明          |
 | ---------------------------- | ------------- |
@@ -101,12 +100,12 @@
 | `atom-clock` | 时钟   |
 | `file-icons` | 文件图标 |
 
-| html相关插件                    | 插件说明           |
-| --------------------------- | -------------- |
-| `atom-html-preview`         | atom内嵌浏览器      |
-| `autoprefixer`              | css3后缀自动完成     |
-| `open-in-browser`           | html页面从默认浏览器打开 |
-| `color-picker`              | 颜色选择           |
+| html相关插件            | 插件说明           |
+| ------------------- | -------------- |
+| `atom-html-preview` | atom内嵌浏览器      |
+| `autoprefixer`      | css3后缀自动完成     |
+| `open-in-browser`   | html页面从默认浏览器打开 |
+| `color-picker`      | 颜色选择           |
 
 | vim相关插件            | 插件说明           |
 | ------------------ | -------------- |
@@ -116,13 +115,13 @@
 
 > 插件管理
 
-| 说明   | 指令                                             |
-| ---- | ---------------------------------------------- |
-| 安装插件 | `apm install package1 [package2 package3 ...]` |
-| 卸载插件 | `apm uninstall package1 [package2 package3 ...]`  |
-| 移除插件 | `apm remove package1 [package2 package3 ...]`  |
-| 禁用插件 | `apm disable package1 [package2 package3 ...]` |
-| 启用插件 | `apm enable package1 [package2 package3 ...]` |
+| 说明   | 指令                                               |
+| ---- | ------------------------------------------------ |
+| 安装插件 | `apm install package1 [package2 package3 ...]`   |
+| 卸载插件 | `apm uninstall package1 [package2 package3 ...]` |
+| 移除插件 | `apm remove package1 [package2 package3 ...]`    |
+| 禁用插件 | `apm disable package1 [package2 package3 ...]`   |
+| 启用插件 | `apm enable package1 [package2 package3 ...]`    |
 
 ## 配置插件
 
