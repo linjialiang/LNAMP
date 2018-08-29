@@ -229,7 +229,6 @@ lineEles = @editorView.querySelectorAll '.lines .line[data-screen-row]'
 ```css
 // my-add
 atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left .tab-bar {display:none;}
-atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left .header.list-item.project-root-header{z-index: 2;}
 .tree-view:focus .selected:before {background-color:rgba(90,138,233,.3);}
 .list-group li:not(.list-nested-item),.list-tree li:not(.list-nested-item),.list-group li.list-nested-item > .list-item,.list-tree li.list-nested-item > .list-item {line-height:2.5rem;}
 .list-group .selected::before,.list-tree .selected::before {height:2.5rem;}
