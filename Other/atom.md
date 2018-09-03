@@ -106,6 +106,7 @@
 | `autoprefixer`      | css3后缀自动完成     |
 | `open-in-browser`   | html页面从默认浏览器打开 |
 | `color-picker`      | 颜色选择           |
+| `double-tag`        | html结束标签同步修改   |
 
 | vim相关插件            | 插件说明           |
 | ------------------ | -------------- |
