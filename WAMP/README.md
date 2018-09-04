@@ -92,3 +92,5 @@
 配置php         | [php](配置php.md)
 配置mariadb     | [mariadb](配置mariadb.md)
 wamp组件维护      | [组件维护](wamp组件维护.md)
+
+>  链接： [https://pan.baidu.com/s/15DQZdjYtPenf6JIUf5VUEA](https://pan.baidu.com/s/15DQZdjYtPenf6JIUf5VUEA)  密码：`snt0`
