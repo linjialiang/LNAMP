@@ -34,12 +34,10 @@
 
     ![设置界面-5](./atom/设置界面-5.png)
 
-### 字体
+### atom 推荐字体组合
 
-> atom 推荐字体组合
->
-> - `Source Code Variable, '微软雅黑'`
-> - `Menlo for Powerline, '微软雅黑'`
+-   `Source Code Variable, '微软雅黑'`
+-   `Menlo for Powerline, '微软雅黑'`
 
 ## atom 插件|主题汇总
 
