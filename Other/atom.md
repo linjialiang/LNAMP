@@ -35,7 +35,8 @@
     ![设置界面-5](./atom/设置界面-5.png)
 
 ### 字体
-> atom 当前最新的字体组合 `Source Code Variable, '微软雅黑'`
+
+> atom 推荐字体组合 `Source Code Variable, '微软雅黑'`
 
 ## atom 插件|主题汇总
 
