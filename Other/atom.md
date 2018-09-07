@@ -8,7 +8,7 @@
 
 -   动画-atom基本设置
 
-    ![动画-atom基本设置](./atom/atom基本设置.gif)
+    ![动画-atom基本设置]（//。(./atom/atom基本设置.gif)））
 
 -   设置界面
 
@@ -36,7 +36,10 @@
 
 ### 字体
 
-> atom 推荐字体组合 `Source Code Variable, '微软雅黑'`
+> atom 推荐字体组合
+>
+> - `Source Code Variable, '微软雅黑'`
+> - `Menlo for Powerline, '微软雅黑'`
 
 ## atom 插件|主题汇总
 
