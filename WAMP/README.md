@@ -90,7 +90,18 @@
 │
 ├─vc                            运行库存放目录
 │
-└─phpmyadmin                    网页版mariadb数据库管理平台（编程语言是php）
+├─phpmyadmin                    网页版mariadb数据库管理平台（编程语言是php）
+│
+├─install.bat                   安装wamp相关服务到系统服务
+│
+├─uninstall.bat                 从系统服务卸载wamp相关服务
+│
+├─便捷指令.bat                   日常经常用到的wamp相关指令
+│
+├─强制删除.bat                   使用net指令来删除wamp相关服务
+│
+└─安装运行库.bat                 安装wmap必备的运行库
+
 ```
 
 > 文章列表
