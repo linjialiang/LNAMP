@@ -8,23 +8,30 @@
 
 ### 推荐版（64位）安装包列表
 
-> 需要安装运行库版本 `vc15_x64`
-
-1. `httpd-2.4.34-win64-VC15.zip`
-2. `mariadb-10.3.9-winx64.zip`
-3. `php-7.2.9-Win32-VC15-x64.zip`
-4. `phpMyAdmin-4.8.3-all-languages.zip`
-5. `MSVBCRT_AIO_2018.07.30_X86+X64.exe`
+1.  `httpd-2.4.34-win64-VC15.zip`
+2.  `mariadb-10.3.9-winx64.zip`
+3.  `php-7.2.9-Win32-VC15-x64.zip`
 
 ### 兼容版（32位）安装包列表
 
-> 需要安装运行库版本 `vc11_x86`
+1.  `httpd-2.4.34-win32-VC11.zip`
+2.  `mariadb-10.0.36-win32.zip`
+3.  `php-5.6.37-Win32-VC11-x86.zip`
 
-1. `httpd-2.4.34-win32-VC11.zip`
-2. `mariadb-10.0.36-win32.zip`
-3. `php-5.6.37-Win32-VC11-x86.zip`
-4. `phpMyAdmin-4.8.3-all-languages.zip`
-5. `MSVBCRT_AIO_2018.07.30_X86.exe`
+### 其它安装包列表
+
+> mariadb网页版管理工具
+
+1.  `phpMyAdmin-4.8.3-all-languages.zip`
+
+> 推荐版（64位）所需运行库
+
+1.  `vc15_x64.exe`
+
+> 兼容版（32位）所需运行库
+
+1.  `vc11_x86.exe`
+2.  `vc15_x86.exe`
 
 ### 目录结构如下：
 
@@ -81,16 +88,18 @@
 │
 ├─data                          mariadb数据库存放目录
 │
+├─vc                            运行库存放目录
+│
 └─phpmyadmin                    网页版mariadb数据库管理平台（编程语言是php）
 ```
 
 > 文章列表
 
-文章标题          | 导航链接
-------------- | -------------------------
-配置apache24 | [apache24](配置apache24.md)
-配置php         | [php](配置php.md)
-配置mariadb     | [mariadb](配置mariadb.md)
-wamp组件维护      | [组件维护](wamp组件维护.md)
+| 文章标题       | 导航链接                      |
+| ---------- | ------------------------- |
+| 配置apache24 | [apache24](配置apache24.md) |
+| 配置php      | [php](配置php.md)           |
+| 配置mariadb  | [mariadb](配置mariadb.md)   |
+| wamp组件维护   | [组件维护](wamp组件维护.md)       |
 
->  安装包链接： [https://pan.baidu.com/s/15DQZdjYtPenf6JIUf5VUEA](https://pan.baidu.com/s/15DQZdjYtPenf6JIUf5VUEA)  密码：`snt0`
+>  安装包链接： <https://pan.baidu.com/s/15DQZdjYtPenf6JIUf5VUEA>  密码：`snt0`
