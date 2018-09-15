@@ -192,13 +192,13 @@ error_reporting(错误级别别名与位运算符组合);
 1.  32位php的php.ini文件内容
 
 ```shell
-# 见wamp安装包内容
+# 详情见 c:/wamp/32/php/php.ini
 ```
 
 2.  64位php的php.ini文件内容
 
 ```shell
-# 见wamp安装包内容
+# 详情见 c:/wamp/64/php/php.ini
 ```
 
 ## 备注
