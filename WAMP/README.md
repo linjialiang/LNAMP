@@ -10,13 +10,13 @@
 
 1.  `httpd-2.4.34-win64-VC15.zip`
 2.  `mariadb-10.3.9-winx64.zip`
-3.  `php-7.2.9-Win32-VC15-x64.zip`
+3.  `php-7.2.10-Win32-VC15-x64.zip`
 
 ### 兼容版（32位）安装包列表
 
-1.  `httpd-2.4.34-win32-VC11.zip`
+1.  `httpd-2.4.34-win32-VC15.zip`
 2.  `mariadb-10.0.36-win32.zip`
-3.  `php-5.6.37-Win32-VC11-x86.zip`
+3.  `php-5.6.38-Win32-VC11-x86.zip`
 
 ### 其它安装包列表
 
