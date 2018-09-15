@@ -71,81 +71,13 @@
 > 兼容版 httpd.conf 内容
 
 ```shell
-Define WAMPROOT "c:/wamp"
-Define BITPATH "${WAMPROOT}/32"
-Define SRVROOT "${BITPATH}/apache24"
-Define PHPVERSION "php5"
-
-ServerRoot "${SRVROOT}"
-
-Listen 80
-
-LoadModule access_compat_module modules/mod_access_compat.so
-LoadModule actions_module modules/mod_actions.so
-LoadModule alias_module modules/mod_alias.so
-LoadModule allowmethods_module modules/mod_allowmethods.so
-LoadModule asis_module modules/mod_asis.so
-LoadModule auth_basic_module modules/mod_auth_basic.so
-LoadModule authn_core_module modules/mod_authn_core.so
-LoadModule authn_file_module modules/mod_authn_file.so
-LoadModule authz_core_module modules/mod_authz_core.so
-LoadModule authz_groupfile_module modules/mod_authz_groupfile.so
-LoadModule authz_host_module modules/mod_authz_host.so
-LoadModule authz_user_module modules/mod_authz_user.so
-LoadModule autoindex_module modules/mod_autoindex.so
-LoadModule cgi_module modules/mod_cgi.so
-LoadModule dir_module modules/mod_dir.so
-LoadModule env_module modules/mod_env.so
-LoadModule include_module modules/mod_include.so
-LoadModule isapi_module modules/mod_isapi.so
-LoadModule log_config_module modules/mod_log_config.so
-LoadModule mime_module modules/mod_mime.so
-LoadModule negotiation_module modules/mod_negotiation.so
-LoadModule setenvif_module modules/mod_setenvif.so
-
-<IfModule include_module>
-    Include "${WAMPROOT}/conf/apache24.conf"
-</IfModule>
+# 详情见 c:/wamp/32/apache24/httpd.conf
 ```
 
 > 推荐版 httpd.conf 内容
 
 ```shell
-Define WAMPROOT "c:/wamp"
-Define BITPATH "${WAMPROOT}/64"
-Define SRVROOT "${BITPATH}/apache24"
-Define PHPVERSION "php7"
-
-ServerRoot "${SRVROOT}"
-
-Listen 80
-
-LoadModule access_compat_module modules/mod_access_compat.so
-LoadModule actions_module modules/mod_actions.so
-LoadModule alias_module modules/mod_alias.so
-LoadModule allowmethods_module modules/mod_allowmethods.so
-LoadModule asis_module modules/mod_asis.so
-LoadModule auth_basic_module modules/mod_auth_basic.so
-LoadModule authn_core_module modules/mod_authn_core.so
-LoadModule authn_file_module modules/mod_authn_file.so
-LoadModule authz_core_module modules/mod_authz_core.so
-LoadModule authz_groupfile_module modules/mod_authz_groupfile.so
-LoadModule authz_host_module modules/mod_authz_host.so
-LoadModule authz_user_module modules/mod_authz_user.so
-LoadModule autoindex_module modules/mod_autoindex.so
-LoadModule cgi_module modules/mod_cgi.so
-LoadModule dir_module modules/mod_dir.so
-LoadModule env_module modules/mod_env.so
-LoadModule include_module modules/mod_include.so
-LoadModule isapi_module modules/mod_isapi.so
-LoadModule log_config_module modules/mod_log_config.so
-LoadModule mime_module modules/mod_mime.so
-LoadModule negotiation_module modules/mod_negotiation.so
-LoadModule setenvif_module modules/mod_setenvif.so
-
-<IfModule include_module>
-    Include "${WAMPROOT}/conf/apache24.conf"
-</IfModule>
+# 详情见 c:/wamp/64/apache24/httpd.conf
 ```
 
 ## 配置apache24的子配置文件 `apache24.conf`
