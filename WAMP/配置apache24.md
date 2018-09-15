@@ -665,7 +665,7 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
 > 兼容版和推荐版用的都是同一个apache24.conf配置文件
 
 ```shell
-# 见配置文件 c:/wamp/conf/apache24.conf
+# 详情见配置文件 c:/wamp/conf/apache24.conf
 ```
 
 ## 虚拟主机相关配置
