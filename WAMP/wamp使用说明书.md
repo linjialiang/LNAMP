@@ -12,7 +12,7 @@
 
 2. 百度网盘下载地址
 
-	> 见 [wamp组件维护](https://www.kancloud.cn/book/madnesslin/wamp/edit) 章节
+	> 见 [wamp组件维护](https://www.kancloud.cn/madnesslin/wamp/758157) 章节
 
 ## 解压到指定目录
 
