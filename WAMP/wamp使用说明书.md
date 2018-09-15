@@ -1,11 +1,18 @@
 ## wamp 使用说明书
 
-> 这是wamp软件包使用指南，现在基于wamp-v2.0.6版本,操作步骤如下：
+> 这是wamp软件包使用指南，现在基于wamp-v2.0.7版本,操作步骤如下：
 
 ## 获得软件包
 
-> 首先要获得 `wamp-v2.0.6.7z` （ 现在仅在 `ThinkPHP快速入门二群` 提供下载）
-> 在看云上购买 [thinkphp5快速入门手册](https://www.kancloud.cn/thinkphp/thinkphp5_quickstart/) 可加入该群
+> 首先要获得文软件包
+
+1. 在 `ThinkPHP快速入门二群` 提供 `wamp-v2.0.6.7z` 下载）
+
+	> 在看云上购买 [thinkphp5快速入门手册](https://www.kancloud.cn/thinkphp/thinkphp5_quickstart/) 可加入该群
+
+2. 百度网盘下载地址
+
+	> 见 [wamp组件维护](https://www.kancloud.cn/book/madnesslin/wamp/edit) 章节
 
 ## 解压到指定目录
 
