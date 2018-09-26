@@ -235,18 +235,32 @@ lineEles = @editorView.querySelectorAll '.lines .line[data-screen-row]'
 
 ```css
 // my-add
+// 字体
+project-viewer,
+ul.list-inline.tab-bar.inset-panel,
+ol.tree-view-root.full-menu.list-tree.has-collapsable-children.focusable-panel{
+    font-family: 'Source Code Variable', '微软雅黑';
+}
+// 项目列表
+project-viewer h2.heading{font-size: 0; border-bottom:2px solid rgba(90,138,233,.3); height: 3.5rem; margin: 0 auto; position: relative;text-align: center; line-height: 3.5rem; padding: 0;}
+project-viewer h2.heading::before{content: '项目列表'; font-size: 1.5rem; position: absolute;left: 0; right: 0;}
+project-viewer div.body-content{overflow: hidden;}
+project-viewer div.body-content > ul{margin: 0;}
+project-viewer li > span, project-viewer li > span::before{font-size: 1.2em!important;}
+project-viewer li[is="project-viewer-project"].list-item:not(.selected):not(.no-paths)::before{
+height: 2.5rem;}
+
 atom-workspace > atom-workspace-axis > atom-panel-container > atom-dock.left .tab-bar {display:none;}
 .tree-view:focus .selected:before {background-color:rgba(90,138,233,.3);}
 .list-group li:not(.list-nested-item),.list-tree li:not(.list-nested-item),.list-group li.list-nested-item > .list-item,.list-tree li.list-nested-item > .list-item {line-height:2.5rem;}
 .list-group .selected::before,.list-tree .selected::before {height:2.5rem;}
-
 
 .list-inline.tab-bar.inset-panel {height:3.5rem;}
 .list-inline.tab-bar.inset-panel > li {line-height:3.5rem;}
 .list-inline.tab-bar.inset-panel > li.active {border-bottom:2px solid rgba(90,138,233,.3);}
 .tab-bar .tab .close-icon {top:0;bottom:0;margin:auto 0;}
 .tab-bar .tab .close-icon:hover,.tab-bar .tab .close-icon:active {cursor:pointer;}
-.left .tree-view .project-root-header {border-bottom:2px solid rgba(90,138,233,.3);font-size:1.2em;height:3.5rem;}
+.left .tree-view .project-root-header {z-index: 2; border-bottom:2px solid rgba(90,138,233,.3);font-size:1.2em;height:3.5rem;}
 .tree-view .project-root.project-root:before {height:3.5rem;}
 .tree-view .tree-view-root{padding:0;}
 
