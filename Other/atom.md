@@ -233,7 +233,7 @@ lineEles = @editorView.querySelectorAll '.lines .line[data-screen-row]'
 > 自定义界面样式，可以在 `.atom/style.less` 文件上完成
 
 ```css
-/* 自定义样式 */
+// 自定义样式
 // 界面字体
 
 project-viewer,
@@ -295,7 +295,13 @@ ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel > li[is="t
 
 ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel > li[is="tabs-tab"][data-type="TextEditor"].active {
     border-bottom: 2px solid rgba(90,138,233,.3);
+    transition: background-color 1s, color 1s;
 }
+
+ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel > li[is="tabs-tab"][data-type="TextEditor"] {
+    transition: background-color 1s, color 1s;
+}
+
 ul[location="right"] .close-icon,
 ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel .close-icon {
     top: 0!important;
@@ -303,20 +309,19 @@ ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel .close-ico
     margin: auto 0;
 }
 
-ul[location="right"] .close-icon{
+ul[location="right"] .close-icon {
     font-size: 1rem!important;
     line-height: 3.5rem;
 }
 
-ul[location="right"] .close-icon:hover,
 ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel .close-icon:hover {
-    transition: background-color 1s, color 1s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-ul[location="right"] .close-icon,
 ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel .close-icon {
-    transition: background-color 1s, color 1s;
+    transition: background-color 0.3s, color 0.3s;
 }
+
 ul[location="right"] .close-icon:hover,
 ul[location="right"] .close-icon:active,
 ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel .close-icon:hover,
