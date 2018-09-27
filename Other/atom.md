@@ -258,7 +258,7 @@ ul[location="left"][is="atom-tabs"] {
 
 atom-pane > ul[location="right"],
 ol.tree-view-root > li[is="tree-view-directory"] > div.header {
-    z-index: 2;
+    z-index: 3;
     font-size: 1.3rem;
     height: 3.5rem;
     line-height: 3.5rem;
