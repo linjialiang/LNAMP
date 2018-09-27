@@ -47,9 +47,8 @@
 | ---------------------- | ----- |
 | `monokai`              | 代码样式1 |
 | `nord-atom-syntax`     | 代码样式2 |
-| `atom-material-syntax` | 代码样式3 |
-| `chester-atom-syntax`  | 代码样式4 |
-| `dracula-syntax`       | 代码样式5 |
+| `chester-atom-syntax`  | 代码样式3 |
+| `dracula-syntax`       | 代码样式4 |
 
 | git相关插件                | 插件说明                  |
 | ---------------------- | --------------------- |
