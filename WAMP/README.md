@@ -90,7 +90,7 @@
 │
 ├─vc                            运行库存放目录
 │
-├─phpmyadmin                    网页版mariadb数据库管理平台（编程语言是php）
+├─phpmyadmin                    数据库管理平台，内附：adminer.php
 │
 ├─install.bat                   安装wamp相关服务到系统服务
 │
