@@ -8,13 +8,13 @@
 
 ### 推荐版（64位）安装包列表
 
-1.  `httpd-2.4.34-win64-VC15.zip`
-2.  `mariadb-10.3.9-winx64.zip`
-3.  `php-7.2.10-Win32-VC15-x64.zip`
+1.  `httpd-2.4.35-win64-VC15.zip`
+2.  `mariadb-10.3.10-winx64.zip`
+3.  `php-7.2.11-Win32-VC15-x64.zip`
 
 ### 兼容版（32位）安装包列表
 
-1.  `httpd-2.4.34-win32-VC15.zip`
+1.  `httpd-2.4.35-win32-VC15.zip`
 2.  `mariadb-10.0.36-win32.zip`
 3.  `php-5.6.38-Win32-VC11-x86.zip`
 
@@ -90,7 +90,7 @@
 │
 ├─vc                            运行库存放目录
 │
-├─phpmyadmin                    网页版mariadb数据库管理平台（编程语言是php）
+├─phpmyadmin                    数据库管理平台，内附：adminer.php
 │
 ├─install.bat                   安装wamp相关服务到系统服务
 │
