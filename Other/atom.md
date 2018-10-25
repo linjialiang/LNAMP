@@ -411,3 +411,14 @@ project-viewer li[is="project-viewer-project"].list-item:not(.selected):not(.no-
     height: 3rem;
 }
 ```
+
+## `.apmrc` 配置
+
+> `.apmrc` 文件用来让atom支持终端代理
+> - path： `C:\\Users\\username\\.atom\\.apmrc`
+
+```shell
+strict-ssl = false
+http-proxy = http://127.0.0.1:1080
+https-proxy = http://127.0.0.1:1080
+```
