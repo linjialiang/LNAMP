@@ -18,6 +18,7 @@ xdebug.profiler_output_dir ="C:\wamp\logs\xdebug"
 xdebug.trace_output_dir ="C:\wamp\logs\xdebug"
 xdebug.profiler_output_name = "cache.out.%t-%s"
 xdebug.remote_enable = 1
+xdebug.remote_autostart = 1
 xdebug.remote_handler = "dbgp"
 xdebug.remote_host = "127.0.0.1"
 xdebug.idekey= PHPSTROM
@@ -50,3 +51,12 @@ xdebug.idekey= PHPSTROM
 --------------------------------------------------------------------------------
 
 ![继续研究](./phpstrom-xdebug/继续研究.png)
+
+
+
+
+
+|dad|daf|
+|--|--|
+|daf|fafa|
+|1|12r43tg|
