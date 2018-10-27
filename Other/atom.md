@@ -69,10 +69,11 @@
 | `Sublime-Style-Column-Selection` | 复制任意区域 |
 | `sync-settings`                  | atom配置同步插件                           |
 | `highlight-selected`             | 选择高亮                                   |
-|`split-diff`| 文件对比插件|
+| `split-diff`| 文件对比插件|
 | `regex-railroad-diagram`         | 正则表达式图形界面                         |
 | `project-manager` | 项目管理|
 | `intentions`|用于显示意图的基础包|
+| `platformio-ide-terminal` | atom下出色的终端|
 
 | git相关插件            | 插件说明                                   |
 | ---------------------- | ------------------------------------------ |
@@ -123,6 +124,7 @@
 | `open-in-browser`   | html页面从默认浏览器打开 |
 | `color-picker`      | 颜色选择                 |
 | `double-tag`        | html结束标签同步修改     |
+| `autoclose-html`    | html结束标签自动闭合|
 
 | vim相关插件        | 插件说明                  |
 | ------------------ | ------------------------- |
@@ -196,9 +198,15 @@ php版本| 7.1及以上
 
 > 最后注意用 project-manager 保存项目！
 
-## atom 实用快捷键
+### `platformio-ide-terminal` 配置说明
+> windows下 `platformio-ide-terminal` 可以将终端设置成 git 下的 sh.exe
 
-> 网上关于atom快捷键的文章都是各种问题，各种抄袭，所以我这里整理了一些常用的快捷键（vim相关快捷键不做解释）
+1. 在 Settings 中找到 Platformio-ide-terminal 插件，进入设置选项
+2. 找到 Shell Override 设置选项，将其设置为 C:\Program Files\Git\Bin\sh.exe （实际根据Git的安装位置可能有所不同，以上为Git安装的默认路径）
+3. 找到 Shell Arguments ，将其设置为 --login
+
+## 快捷键说明
+> 下面快捷键是比较实用，但容易被我们忽略的：
 
 | 全局快捷键 | 功能                                 |
 | ---------- | ------------------------------------ |
@@ -257,7 +265,7 @@ php版本| 7.1及以上
 
 | 插件快捷键   | 功能                                               |
 | ------------ | -------------------------------------------------- |
-| `C-M-k`      | 选取颜色                                           |
+| `C-M-k`      | 选取颜色（自己设置的）                                         |
 | `C-M-b`      | 格式化                                             |
 | `M-t`        | 展示版本库提交的时间列表，支持跟指定的版本库做对比 |
 | `C-M-t`      | 文件对比，支持与最近提交的版本库做对比             |
