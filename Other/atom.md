@@ -27,7 +27,29 @@
 1. 核心配置
 > `ctrl-shift-p` 开启方式：`settings view: core`
 
+    ![核心配置](./atom/core.png)
 
+2. 编辑器配置
+> `ctrl-shift-p` 开启方式：`settings view: editor`
+
+    ![编辑器配置](./atom/editor.png)
+
+3. URI handling 配置
+    ![URI-handling设置](./atom/uri-handling.png)
+
+4. 系统配置
+> `ctrl-shift-p` 开启方式：`settings view: system`
+
+    ![系统设置](./atom/system.png)
+
+5. 内置插件配置
+> 1. `line-ending-selector` 插件将默认换行符修改成 `LF`
+> 2. `autosave` 插件开启自动保存
+
+    ![内置插件配置](./atom/builtInPlugIns.png)
+
+6. 内置主题UI `One Dark` `One Light`
+![内置主题UI](./atom/builtInUI.png)
 
 ## atom 插件|主题汇总
 
