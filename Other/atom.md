@@ -45,22 +45,34 @@
 5. 内置插件配置
 > 1. `line-ending-selector` 插件将默认换行符修改成 `LF`
 > 2. `autosave` 插件开启自动保存
+> 3, `markdown-preview` 插件禁用掉
 
     ![内置插件配置](./atom/builtInPlugIns.png)
 
 6. 内置主题UI `One Dark` `One Light`
 ![内置主题UI](./atom/builtInUI.png)
 
-## atom 插件|主题汇总
+## atom扩展主题
 
-> 这里罗列了我经常会用到的插件，同学们按需自己下载
-
-| 主题                  | 主题说明  |
+| atom扩展主题            | 主题说明  |
 | --------------------- | --------- |
 | `monokai`             | 代码样式1 |
 | `nord-atom-syntax`    | 代码样式2 |
-| `chester-atom-syntax` | 代码样式3 |
-| `dracula-syntax`      | 代码样式4 |
+| `atom-material-syntax` | 代码样式3 |
+
+## atom扩展插件
+
+| 实用插件                     | 插件说明                                   |
+| -------------------------------- | ------------------------------------------ |
+| `atom-beautify`                  | 格式化源代码                               |
+| `docblockr`                      | 用于注释                                   |
+| `Sublime-Style-Column-Selection` | 复制任意区域 |
+| `sync-settings`                  | atom配置同步插件                           |
+| `highlight-selected`             | 选择高亮                                   |
+|`split-diff`| 文件对比插件|
+| `regex-railroad-diagram`         | 正则表达式图形界面                         |
+| `project-manager` | 项目管理|
+| `intentions`|用于显示意图的基础包|
 
 | git相关插件            | 插件说明                                   |
 | ---------------------- | ------------------------------------------ |
@@ -68,19 +80,6 @@
 | `git-time-machine`     | 近期提交的时间列表，并支持与当前内容做对比 |
 | `merge-conflicts`      | 优秀的git合并视图                          |
 | `tree-view-git-status` | git相关                                    |
-| `split-diff`           | 可以根任何文件做对比，不需要git支持        |
-
-| 其它实用插件                     | 插件说明                                   |
-| -------------------------------- | ------------------------------------------ |
-| `highlight-selected`             | 选择高亮                                   |
-| `atom-beautify`                  | 格式化源代码                               |
-| `docblockr`                      | 注释神器                                   |
-| `Sublime-Style-Column-Selection` | 复制任意区域，比如：复制联系数行的中间区域 |
-| `autocomplete-paths`             | 文件自动补全插件                           |
-| `project-viewer`                 | 项目管理插件                               |
-| `sync-settings`                  | atom配置同步插件                           |
-| `markdown-scroll-sync`           | markdown文件预览时同步                     |
-| `regex-railroad-diagram`         | 正则表达式图形界面                         |
 
 | minimap相关插件              | 插件说明               |
 | ---------------------------- | ---------------------- |
@@ -96,8 +95,8 @@
 | ide相关插件      | 插件说明        |
 | ---------------- | --------------- |
 | `atom-ide-ui`    | atom的ide基础包 |
-| `ide-php`        | php的ide        |
-| `ide-typescript` | JavaScript的ide |
+| `php-ide-serenata`| 优秀的php的ide插件包        |
+| `ide-typescript` | js和tyjs的ide插件包 |
 
 | 符号对齐相关插件     | 插件说明       |
 | -------------------- | -------------- |
@@ -131,7 +130,7 @@
 | `relative-numbers` | vim普通模式下显示先对行号 |
 | `ex-mode`          | atom下的ex单行编辑器      |
 
-> 插件管理
+## 终端下对 `atom` 插件管理
 
 | 说明     | 指令                                             |
 | -------- | ------------------------------------------------ |
@@ -141,11 +140,11 @@
 | 禁用插件 | `apm disable package1 [package2 package3 ...]`   |
 | 启用插件 | `apm enable package1 [package2 package3 ...]`    |
 
-## 配置插件
+## 扩展插件配置说明
 
-> 有些插件需要我们进一步配置，才能更有效提升工作效率
+> 一些插件需要我们进一步说明
 
-### 1、 `sync-settings` 插件配置
+### `sync-settings` 配置说明
 
 > 这是atom配置同步插件配置也很简单，填入正确的token跟gistid即可
 
@@ -156,21 +155,46 @@
 | `sync-settings:view-backup`  | 这条是当你执行备份后到线上查询你的备份的,也就是到你的 `gist code` 里的内容 |
 | `sync-settings:check-backup` | 这条是查询最后一次是否正常                                                 |
 
-### 2、 `atom-beautify` 插件配置
+### `atom-beautify` 配置说明
 
 > `atom-beautify` 有些语言的格式化需要依赖与其它工具，遇到问题可以查看插件说明
 
-### 3、 `markdown-scroll-sync` 插件配置
+### `php-ide-serenata` 配置说明
+> `php-ide-serenata` 插件比官方推荐的 `php-ide` 更加优秀，当然配置也相对复杂一些
 
-> 比较遗憾，这个插件的作者似乎并不愿意更新了，需要解决问题如下
+排序|依赖插件（3）
+---|---
+1|`atom-ide-ui`
+2|`intentions`
+3|`project-manager`
 
-```coffee
-# 路径 C:\Users\username\.atom\packages\markdown-scroll-sync\lib\utils.coffee
-# 12行修改前
-lineEles = @editorView.shadowRoot.querySelectorAll '.lines .line[data-screen-row]'
-# 12行修改后
-lineEles = @editorView.querySelectorAll '.lines .line[data-screen-row]'
-```
+对php的要求|说明
+---|---
+php版本| 7.1及以上
+`php.ini`(必须开启)| `mbstring` `openssl` `pdo_sqlite` 扩展
+`php.ini`(下载服务时开启)| `curl` `xml` 扩展
+
+> 刚刚下载好插件会有一个提示，如果server没有创建成功也会有这个提示：
+
+![serenata 服务下载提示](./atom/ide-php-serenata-1.png)
+
+> 点击 `open package settings` 按钮进入配置界面（如果没有特别要求就不需要配置）
+
+![serenata 服务下载提示](./atom/ide-php-serenata-2.png)
+
+> 接着点击 `Ready, install the server` 下载服务（下载成功和失败都会有提示）
+
+![serenata 开始下载服务](./atom/ide-php-serenata-3.png)
+
+> 下载服务报错信息
+
+![serenata 开始下载服务](./atom/ide-php-serenata-error.png)
+
+> 服务下载成功后，我们可以通过下图的方式对项目进行相关索引
+
+![serenata 开始下载服务](./atom/ide-php-serenata-5.png)
+
+> 最后注意用 project-manager 保存项目！
 
 ## atom 实用快捷键
 
@@ -239,195 +263,12 @@ lineEles = @editorView.querySelectorAll '.lines .line[data-screen-row]'
 | `C-M-t`      | 文件对比，支持与最近提交的版本库做对比             |
 | `M-鼠标左键` | 选取多行的中间部分内容                             |
 
-> `C-S-p` 下面有大量的指令，这些指令将会大大提升我们的工作效力，并且能让我们真正意义上拜托鼠标，希望同学们自行多多研究！
-
-## 自定义界面样式
-
-> 自定义界面样式，可以在 `.atom/style.less` 文件上完成
-
-```css
-// 自定义样式
-// 界面字体
-
-project-viewer,
-ul[is="atom-tabs"] > li[is="tabs-tab"] > div,
-li[is="tree-view-directory"] {
-    font-family: 'Source Code Variable', '微软雅黑';
-}
-// 当前行高亮
-
-.line.cursor-line {
-    background-color: rgba(90,138,233,.1);
-}
-
-.minimap .cursor-line {
-    background-color: rgb(90,138,233);
-}
-// 目录树
-
-ul[location="left"][is="atom-tabs"] {
-    display: none;
-}
-
-atom-pane > ul[location="right"],
-ol.tree-view-root > li[is="tree-view-directory"] > div.header {
-    z-index: 3;
-    font-size: 1.3rem;
-    height: 3.5rem;
-    line-height: 3.5rem;
-}
-
-atom-pane > ul[location="right"] > li.active,
-ol.tree-view-root > li[is="tree-view-directory"] > div.header {
-    border-bottom: 2px solid rgba(90,138,233, .3);
-}
-
-ol.list-tree > li[is="tree-view-directory"] div.list-item:not(.project-root-header),
-ol.list-tree li[is="tree-view-directory"]::before,
-ol.list-tree li[is="tree-view-file"],
-ol.list-tree li[is="tree-view-file"]::before,
- {
-    height: 2.5rem;
-    line-height: 2.5rem;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-ol.list-tree li[is="tree-view-file"] {
-    margin-left: 17px!important;
-}
-
-ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel {
-    height: 3.5rem;
-}
-
-ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel > li[is="tabs-tab"][data-type="TextEditor"],
-ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel > li[is="tabs-tab"][data-type="SettingsView"] {
-    line-height: 3.5rem;
-}
-
-ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel > li[is="tabs-tab"][data-type="TextEditor"].active {
-    border-bottom: 2px solid rgba(90,138,233,.3);
-    transition: background-color 1s, color 1s;
-}
-
-ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel > li[is="tabs-tab"][data-type="TextEditor"] {
-    transition: background-color 1s, color 1s;
-}
-
-ul[location="right"] .close-icon,
-ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel .close-icon {
-    top: 0!important;
-    bottom: 0;
-    margin: auto 0;
-}
-
-ul[location="right"] .close-icon {
-    font-size: 1rem!important;
-    line-height: 3.5rem;
-}
-
-ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel .close-icon:hover {
-    transition: background-color 0.3s, color 0.3s;
-}
-
-ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel .close-icon {
-    transition: background-color 0.3s, color 0.3s;
-}
-
-ul[location="right"] .close-icon:hover,
-ul[location="right"] .close-icon:active,
-ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel .close-icon:hover,
-ul[location="center"][is="atom-tabs"].list-inline.tab-bar.inset-panel .close-icon:active {
-    cursor: pointer;
-}
-
-.tree-view .selected:before,
-li.list-item.selected:focus::before {
-    background-color: transparent!important;
-}
-
-li[is="tree-view-directory"].selected > .header,
-li[is="tree-view-file"].selected {
-    background: rgba(90,138,233, .6);
-    height: 3rem;
-    line-height: 3rem;
-}
-
-li[is="tree-view-directory"]:not(.selected) > .header:not(.project-root-header):hover,
-li[is="tree-view-file"]:not(.selected):hover {
-    background: rgba(90,138,233, .3);
-    height: 3rem;
-    line-height: 3rem;
-}
-
-li[is="tree-view-directory"].selected > .header:not(.project-root-header) span,
-li[is="tree-view-directory"].selected > .header:not(.project-root-header) span::before,
-li[is="tree-view-directory"]:not(.selected) > .header:not(.project-root-header):hover,
-li[is="tree-view-file"].selected span,
-li[is="tree-view-file"].selected span::before,
-li[is="tree-view-file"]:not(.selected):hover,
-li[is="tree-view-file"]:not(.selected):hover span::before {
-    font-size: 1.2em;
-    color: white;
-    transition: background-color 0.3s, color 0.3s, font-size 0.3s;
-}
-
-li[is="tree-view-file"] span,
-li[is="tree-view-file"] span::before,
-li[is="tree-view-directory"] .header:not(.project-root-header) span {
-    transition: font-size 0.3s;
-}
-// 项目列表
-
-project-viewer h2.heading {
-    font-size: 0;
-    border-bottom: 2px solid rgba(90,138,233,.3);
-    height: 3.5rem;
-    margin: 0 auto;
-    position: relative;
-    text-align: center;
-    line-height: 3.5rem;
-    padding: 0;
-}
-
-project-viewer h2.heading::before {
-    content: '项目列表';
-    font-size: 1.3rem;
-    position: absolute;
-    left: 0;
-    right: 0;
-}
-
-project-viewer div.body-content {
-    overflow: hidden;
-}
-
-project-viewer div.body-content > ul {
-    margin: 0;
-}
-
-project-viewer li[is="project-viewer-project"],
-project-viewer li.selected[is="project-viewer-project"]::before {
-    line-height: 3rem;
-    height: 3rem;
-}
-
-project-viewer li[is="project-viewer-project"] > span,
-project-viewer li[is="project-viewer-project"] > span::before {
-    font-size: 1.3em!important;
-    line-height: 3rem;
-}
-
-project-viewer li[is="project-viewer-project"].list-item:not(.selected):not(.no-paths)::before {
-    height: 3rem;
-}
-```
+> `Ctrl-Shift-p` 下面有大量的指令，这些指令将会大大提升我们的工作效力！
 
 ## `.apmrc` 配置
 
-> `.apmrc` 文件用来让atom支持终端代理
-> - path： `C:\\Users\\username\\.atom\\.apmrc`
+> `.apmrc` 文件用来让 `atom` 支持终端代理
+> - `.apmrc` 文件路径： `.atom\\.apmrc`
 
 ```shell
 strict-ssl = false
