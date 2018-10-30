@@ -74,6 +74,7 @@
 | `project-manager` | 项目管理|
 | `intentions`|用于显示意图的基础包|
 | `platformio-ide-terminal` | atom下出色的终端|
+| `markdown-preview-enhanced` | markdown预览|
 
 | git相关插件            | 插件说明                                   |
 | ---------------------- | ------------------------------------------ |
