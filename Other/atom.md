@@ -222,6 +222,13 @@ project manager: save project
 2.  找到 Shell Override 设置选项，将其设置为 C:\\Program Files\\Git\\Bin\\sh.exe （实际根据Git的安装位置可能有所不同，以上为Git安装的默认路径）
 3.  找到 Shell Arguments ，将其设置为 --login
 
+### `atom-beautify` 之php格式化配置
+
+> php 格式化需要 `php-cs-fixer-v2.phar` 支持，我们为它制定正确路径即可
+
+![serenata 开启项目索引](./atom/ide-php-serenata-8.png)
+![serenata 开启项目索引](./atom/ide-php-serenata-9.png)
+
 ## 快捷键说明
 
 > 下面快捷键是比较实用，但容易被我们忽略的：
