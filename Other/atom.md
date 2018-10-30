@@ -122,15 +122,13 @@
 | `atom-clock` | 时钟   |
 | `file-icons` | 文件图标 |
 
-| html相关插件(7)         | 插件说明           |
+| html相关插件(5)         | 插件说明           |
 | ------------------- | -------------- |
 | `atom-html-preview` | atom内嵌浏览器      |
 | `autoprefixer`      | css3后缀自动完成     |
 | `open-in-browser`   | html页面从默认浏览器打开 |
 | `color-picker`      | 颜色选择           |
 | `double-tag`        | html结束标签同步修改   |
-| `autoclose-html`    | html结束标签自动闭合   |
-| `emmet`             | 前端神器           |
 
 | vim相关插件(3)         | 插件说明           |
 | ------------------ | -------------- |
