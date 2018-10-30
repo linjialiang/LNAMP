@@ -129,5 +129,8 @@
 
 ### wamp-v3.2.1更新说明
 
-1. 将 `php` 除了 `php_xdebug` 以外的所有扩展都禁用掉；
-2. 为 `php` 增加了 `composer` ，只需要将指定php根目录加入环境变量中即可。
+1. 将 `php` 除了 `php_xdebug` 以外的所有扩展都禁用掉，需要的话自定开启；
+2. 为 `php` 增加了 `composer` ，只需要将指定php根目录加入环境变量中即可在终端中使用：
+    ```shell
+    $ composer -V
+    ```

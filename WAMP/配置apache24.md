@@ -606,7 +606,8 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
 
 ### 一、别名配置
 
-> 站点配置目录下新建文件 `phpmyadmin.conf` ，下面直接贴代码：
+> 以 `phpmtadmin` 和 `adminer.php` 为例：
+> - 站点配置目录下新建文件 `phpmyadmin.conf` ，下面直接贴代码：
 
 ```shell
 Alias /phpmyadmin ${WAMPROOT}/phpmyadmin
@@ -623,6 +624,7 @@ Alias /phpmyadmin ${WAMPROOT}/phpmyadmin
 <Directory ${WAMPROOT}/phpmyadmin/setup/lib>
     Require all denied
 </Directory>
+Alias /adminer ${WAMPROOT}/phpmyadmin/adminer.php
 ```
 
 ### 二、配置虚拟主机
