@@ -200,7 +200,16 @@ php版本| 7.1及以上
 
 ![serenata 开启项目索引](./atom/ide-php-serenata-6.png)
 
-> 最后注意用 project-manager 保存项目！
+> 最后注意用 `project-manager` 保存项目！
+
+```Shell
+ctrl-shift-p
+project manager: save project
+```
+
+> 注意：有时候框架写的不是很完整，对文档描述不符合规范，我们可以将文档描述提示关闭
+
+![serenata 开启项目索引](./atom/ide-php-serenata-7.png)
 
 ### `platformio-ide-terminal` 配置说明
 > windows下 `platformio-ide-terminal` 可以将终端设置成 git 下的 sh.exe
