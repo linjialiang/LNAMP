@@ -192,9 +192,13 @@ php版本| 7.1及以上
 
 ![serenata 开始下载服务](./atom/ide-php-serenata-error.png)
 
-> 服务下载成功后，我们可以通过下图的方式对项目进行相关索引
+> 开启索引方法一：可以通过菜单栏项目进行相关索引
 
 ![serenata 开始下载服务](./atom/ide-php-serenata-5.png)
+
+> 开启索引方法二：`ctrl-shift-p` 下执行 `php ide serenata: set up current project` 命令
+
+![serenata 开启项目索引](./atom/ide-php-serenata-6.png)
 
 > 最后注意用 project-manager 保存项目！
 
