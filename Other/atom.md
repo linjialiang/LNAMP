@@ -20,9 +20,9 @@
 
 | 文件                   | 作用描述             |
 | -------------------- | ---------------- |
-| `.atom\\config.cson` | 用户及插件配置信息都会在这里记录 |
-| `.atom\\keymap.cson` | 所有自定义快捷键都会在这里记录  |
-| `.atom\\styles.less` | 所有自定义样式都会在这里记录   |
+| `.atom\config.cson` | 用户及插件配置信息都会在这里记录 |
+| `.atom\keymap.cson` | 所有自定义快捷键都会在这里记录  |
+| `.atom\styles.less` | 所有自定义样式都会在这里记录   |
 
 1.  核心配置
 
@@ -219,7 +219,7 @@ project manager: save project
 > windows下 `platformio-ide-terminal` 可以将终端设置成 git 下的 sh.exe
 
 1.  在 Settings 中找到 Platformio-ide-terminal 插件，进入设置选项
-2.  找到 Shell Override 设置选项，将其设置为 C:\\Program Files\\Git\\Bin\\sh.exe （实际根据Git的安装位置可能有所不同，以上为Git安装的默认路径）
+2.  找到 Shell Override 设置选项，将其设置为 `C:\Program Files\Git\Bin\sh.exe` （实际根据Git的安装位置可能有所不同，以上为Git安装的默认路径）
 3.  找到 Shell Arguments ，将其设置为 --login
 
 ### `atom-beautify` 之php格式化配置
@@ -310,7 +310,7 @@ project manager: save project
 
 > `.apmrc` 文件用来让 `atom` 支持终端代理
 >
-> -   `.apmrc` 文件路径： `.atom\\.apmrc`
+> -   `.apmrc` 文件路径： `.atom\.apmrc`
 
 ```shell
 strict-ssl = false
