@@ -226,8 +226,16 @@ project manager: save project
 
 > php 格式化需要 `php-cs-fixer-v2.phar` 支持，我们为它制定正确路径即可
 
-![serenata 开启项目索引](./atom/ide-php-serenata-8.png)
-![serenata 开启项目索引](./atom/ide-php-serenata-9.png)
+![serenata 开启项目索引](./atom/atom-beautify-1.png)
+![serenata 开启项目索引](./atom/atom-beautify-2.png)
+
+### `sync-settings` 同步插件
+
+1. 配置
+  ![serenata 开启项目索引](./atom/sync-settings-config.png)
+
+2. 快捷键
+  ![serenata 开启项目索引](./atom/sync-settings-key.png)
 
 ## 快捷键说明
 
