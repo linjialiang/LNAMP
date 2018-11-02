@@ -1,9 +1,9 @@
 # <center>《PHP开发者眼中的ATOM》</center>
 
 > `Atom` 是一款现代化的编辑器，写这篇文章只是我个人喜欢用而已，它还有很多问题需要解决：
-> 1\. 用户群体如今已经被 `vscode` 完全超越，
-> 2\. 普通人群会选择 `vscode` 因为它功能很足，并且流畅，但个人认为： `vscode` 细节方面做的并不出色
-> 3\. `atom` 虽然有很多弊端，但是当你熟悉了这款编辑器以后，就会发现它很强大，并且能为我们节省很多时间，最重要的是：它很优雅！
+> 1. 用户群体如今已经被 `vscode` 完全超越，
+> 2. 普通人群会选择 `vscode` 因为它功能很足，并且流畅，但个人认为： `vscode` 细节方面做的并不出色
+> 3. `atom` 虽然有很多弊端，但是当你熟悉了这款编辑器以后，就会发现它很强大，并且能为我们节省很多时间，最重要的是：它很优雅！
 
 ## atom 推荐字体
 
@@ -18,8 +18,8 @@
 | 快捷键开启方式              | `ctrl-,`              |
 | `ctrl-shift-p` 开启方式： | `settings view: open` |
 
-| 文件                   | 作用描述             |
-| -------------------- | ---------------- |
+| 文件                  | 作用描述             |
+| ------------------- | ---------------- |
 | `.atom\config.cson` | 用户及插件配置信息都会在这里记录 |
 | `.atom\keymap.cson` | 所有自定义快捷键都会在这里记录  |
 | `.atom\styles.less` | 所有自定义样式都会在这里记录   |
@@ -66,7 +66,7 @@
 
 ## atom扩展插件
 
-| 实用插件(11)                         | 插件说明       |
+| 实用插件(12)                         | 插件说明       |
 | -------------------------------- | ---------- |
 | `atom-beautify`                  | 格式化源代码     |
 | `docblockr`                      | 用于注释       |
@@ -79,6 +79,7 @@
 | `intentions`                     | 用于显示意图的基础包 |
 | `platformio-ide-terminal`        | atom下出色的终端 |
 | `markdown-preview-enhanced`      | markdown预览 |
+| `autocomplete-paths`             | 路径自动补全     |
 
 | git相关插件(4)             | 插件说明                  |
 | ---------------------- | --------------------- |
@@ -111,24 +112,27 @@
 | `aligner-javascript` | js对齐    |
 | `aligner-php`        | php对齐   |
 
-| 语法相关插件(3)         | 插件说明           |
+| 语法相关插件(2)         | 插件说明           |
 | ----------------- | -------------- |
 | `language-apache` | apache配置文件语法高亮 |
 | `language-ini`    | ini扩展文件语法高亮    |
-| `language-nginx`  | nginx配置文件语法高亮  |
 
 | 界面优化插件(2)    | 插件说明 |
 | ------------ | ---- |
 | `atom-clock` | 时钟   |
 | `file-icons` | 文件图标 |
 
-| html相关插件(5)         | 插件说明           |
-| ------------------- | -------------- |
-| `atom-html-preview` | atom内嵌浏览器      |
-| `autoprefixer`      | css3后缀自动完成     |
-| `open-in-browser`   | html页面从默认浏览器打开 |
-| `color-picker`      | 颜色选择           |
-| `double-tag`        | html结束标签同步修改   |
+| html相关插件(9)           | 插件说明            |
+| --------------------- | --------------- |
+| `atom-html-preview`   | atom内嵌浏览器       |
+| `autoprefixer`        | css3后缀自动完成      |
+| `open-in-browser`     | html页面从默认浏览器打开  |
+| `color-picker`        | 颜色选择            |
+| `autoclose-html`      | html结束自动关闭      |
+| `double-tag`          | html开始和结束标签同步修改 |
+| `emmet`               | 前端神器            |
+| `javascript-snippets` | javascript片段    |
+| `jquery-snippets`     | jquery片段        |
 
 | vim相关插件(3)         | 插件说明           |
 | ------------------ | -------------- |
@@ -229,11 +233,11 @@ project manager: save project
 
 ### `sync-settings` 同步插件
 
-1. 配置
-  ![serenata 开启项目索引](./atom/sync-settings-config.png)
+1.  配置
+    ![serenata 开启项目索引](./atom/sync-settings-config.png)
 
-2. 快捷键
-  ![serenata 开启项目索引](./atom/sync-settings-key.png)
+2.  快捷键
+    ![serenata 开启项目索引](./atom/sync-settings-key.png)
 
 ## 快捷键说明
 
