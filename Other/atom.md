@@ -1,9 +1,9 @@
 # <center>《PHP开发者眼中的ATOM》</center>
 
 > `Atom` 是一款现代化的编辑器，写这篇文章只是我个人喜欢用而已，它还有很多问题需要解决：
-> 1. 用户群体如今已经被 `vscode` 完全超越，
-> 2. 普通人群会选择 `vscode` 因为它功能很足，并且流畅，但个人认为： `vscode` 细节方面做的并不出色
-> 3. `atom` 虽然有很多弊端，但是当你熟悉了这款编辑器以后，就会发现它很强大，并且能为我们节省很多时间，最重要的是：它很优雅！
+> 1\. 用户群体如今已经被 `vscode` 完全超越，
+> 2\. 普通人群会选择 `vscode` 因为它功能很足，并且流畅，但个人认为： `vscode` 细节方面做的并不出色
+> 3\. `atom` 虽然有很多弊端，但是当你熟悉了这款编辑器以后，就会发现它很强大，并且能为我们节省很多时间，最重要的是：它很优雅！
 
 ## atom 推荐字体
 
@@ -66,20 +66,21 @@
 
 ## atom扩展插件
 
-| 实用插件(12)                         | 插件说明       |
-| -------------------------------- | ---------- |
-| `atom-beautify`                  | 格式化源代码     |
-| `docblockr`                      | 用于注释       |
-| `Sublime-Style-Column-Selection` | 复制任意区域     |
-| `sync-settings`                  | atom配置同步插件 |
-| `highlight-selected`             | 选择高亮       |
-| `split-diff`                     | 文件对比插件     |
-| `regex-railroad-diagram`         | 正则表达式图形界面  |
-| `project-manager`                | 项目管理       |
-| `intentions`                     | 用于显示意图的基础包 |
-| `platformio-ide-terminal`        | atom下出色的终端 |
-| `markdown-preview-enhanced`      | markdown预览 |
-| `autocomplete-paths`             | 路径自动补全     |
+| 实用插件(12)                         | 插件说明          |
+| -------------------------------- | ------------- |
+| `atom-beautify`                  | 格式化源代码        |
+| `docblockr`                      | 用于注释          |
+| `Sublime-Style-Column-Selection` | 复制任意区域        |
+| `sync-settings`                  | atom配置同步插件    |
+| `highlight-selected`             | 选择高亮          |
+| `split-diff`                     | 文件对比插件        |
+| `regex-railroad-diagram`         | 正则表达式图形界面     |
+| `project-manager`                | 项目管理          |
+| `intentions`                     | 用于显示意图的基础包    |
+| `platformio-ide-terminal`        | atom下出色的终端    |
+| `markdown-preview-enhanced`      | markdown预览    |
+| `autocomplete-paths`             | 路径自动补全        |
+| `remote-ftp`                     | atom下好用的ftp插件 |
 
 | git相关插件(4)             | 插件说明                  |
 | ---------------------- | --------------------- |
