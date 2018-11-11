@@ -225,7 +225,7 @@ project manager: save project
 
 > windows下 `platformio-ide-terminal` 可以将终端设置成 git 下的 sh.exe
 >
-> -   建议：默认的shell比git下的sh.exe好用
+> -   建议：可以考虑使用 `Cmder` 来替代，虽然会另起一个窗口，但是功能非常强大
 
 1.  在 Settings 中找到 Platformio-ide-terminal 插件，进入设置选项
 2.  找到 Shell Override 设置选项，将其设置为 `C:\Program Files\Git\Bin\sh.exe` （实际根据Git的安装位置可能有所不同，以上为Git安装的默认路径）
