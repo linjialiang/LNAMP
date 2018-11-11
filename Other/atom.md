@@ -58,15 +58,18 @@
 
 ## atom扩展主题
 
-| atom扩展主题(3)            | 主题说明  |
+| atom扩展主题(6)            | 主题说明  |
 | ---------------------- | ----- |
 | `monokai`              | 代码样式1 |
 | `nord-atom-syntax`     | 代码样式2 |
 | `atom-material-syntax` | 代码样式3 |
+| `atom-eclipse-syntax`  | 代码样式4 |
+| `city-lights-syntax`   | 代码样式5 |
+| `dracula-syntax`       | 代码样式6 |
 
 ## atom扩展插件
 
-| 实用插件(12)                         | 插件说明          |
+| 实用插件(15)                         | 插件说明          |
 | -------------------------------- | ------------- |
 | `atom-beautify`                  | 格式化源代码        |
 | `docblockr`                      | 用于注释          |
@@ -81,6 +84,8 @@
 | `markdown-preview-enhanced`      | markdown预览    |
 | `autocomplete-paths`             | 路径自动补全        |
 | `remote-ftp`                     | atom下好用的ftp插件 |
+| `file-header`                    | 文件头信息         |
+| `advanced-open-file`             | 快速打开文件        |
 
 | git相关插件(4)             | 插件说明                  |
 | ---------------------- | --------------------- |
@@ -123,17 +128,16 @@
 | `atom-clock` | 时钟   |
 | `file-icons` | 文件图标 |
 
-| html相关插件(9)           | 插件说明            |
-| --------------------- | --------------- |
-| `atom-html-preview`   | atom内嵌浏览器       |
-| `autoprefixer`        | css3后缀自动完成      |
-| `open-in-browser`     | html页面从默认浏览器打开  |
-| `color-picker`        | 颜色选择            |
-| `autoclose-html`      | html结束自动关闭      |
-| `double-tag`          | html开始和结束标签同步修改 |
-| `emmet`               | 前端神器            |
-| `javascript-snippets` | javascript片段    |
-| `jquery-snippets`     | jquery片段        |
+| html相关插件(8)         | 插件说明            |
+| ------------------- | --------------- |
+| `atom-html-preview` | atom内嵌浏览器       |
+| `autoprefixer`      | css3后缀自动完成      |
+| `open-in-browser`   | html页面从默认浏览器打开  |
+| `color-picker`      | 颜色选择            |
+| `autoclose-html`    | html结束自动关闭      |
+| `double-tag`        | html开始和结束标签同步修改 |
+| `emmet`             | 前端神器            |
+| `svg-preview`       | svg预览           |
 
 | vim相关插件(3)         | 插件说明           |
 | ------------------ | -------------- |
@@ -220,7 +224,8 @@ project manager: save project
 ### `platformio-ide-terminal` 配置说明
 
 > windows下 `platformio-ide-terminal` 可以将终端设置成 git 下的 sh.exe
-> - 建议：默认的shell比git下的sh.exe好用
+>
+> -   建议：默认的shell比git下的sh.exe好用
 
 1.  在 Settings 中找到 Platformio-ide-terminal 插件，进入设置选项
 2.  找到 Shell Override 设置选项，将其设置为 `C:\Program Files\Git\Bin\sh.exe` （实际根据Git的安装位置可能有所不同，以上为Git安装的默认路径）
