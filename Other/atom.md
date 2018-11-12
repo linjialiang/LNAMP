@@ -1,15 +1,15 @@
 # <center>《PHP开发者眼中的ATOM》</center>
 
 > `Atom` 是一款现代化的编辑器，写这篇文章只是我个人喜欢用而已，它还有很多问题需要解决：
-> 1. 用户群体如今已经被 `vscode` 完全超越，
-> 2. 普通人群会选择 `vscode` 因为它功能很足，并且流畅，但个人认为： `vscode` 细节方面做的并不出色
-> 3. `atom` 虽然有很多弊端，但是当你熟悉了这款编辑器以后，就会发现它很强大，并且能为我们节省很多时间，最重要的是：它很优雅！
+> 1\. 用户群体如今已经被 `vscode` 完全超越，
+> 2\. 普通人群会选择 `vscode` 因为它功能很足，并且流畅，但个人认为： `vscode` 细节方面做的并不出色
+> 3\. `atom` 虽然有很多弊端，但是当你熟悉了这款编辑器以后，就会发现它很强大，并且能为我们节省很多时间，最重要的是：它很优雅！
 
 ## atom 推荐字体
 
-> - 推荐一： `hack`
-> - 推荐二： `'Source Code Variable'`
-> - 推荐三： `'Source Code Variable', '思源黑体'`
+> -   推荐一： `hack`
+> -   推荐二： `'Source Code Variable'`
+> -   推荐三： `'Source Code Variable', '思源黑体'`
 
 ## atom 基本配置
 
@@ -257,23 +257,23 @@ project manager: save project
 
 > 在 `settings` 界面指定自定义模板所在位置：
 
-| 信息             | 说明                 |
-| -------------- | ------------------ |
-| `templates` 目录 | 目录下面存放头信息模板        |
+| 信息                     | 说明                 |
+| ---------------------- | ------------------ |
+| `templates` 目录         | 目录下面存放头信息模板        |
 | `lang-mapping.json` 文件 | 将不同的文件类型指向特定的头信息模板 |
-| `头信息文件格式` | `.tmpl`|
+| `头信息文件格式`              | `.tmpl`            |
 
 > `lang-mapping.json` 文件写法案例（注意：最后一组语句后面是不能带上逗号的）：
 
 ```json
 {
-  "source.css": "emad_Css.tmpl",
-  "source.js": "emad_Lan.tmpl",
-  "source.sql": "emad_Sql.tmpl",
-  "text.html.basic": "emad_HTML.tmpl",
-  "text.html.php": "emad_Lan.tmpl",
-  "text.plain": "emad_Default.tmpl",
-  "text.plain.null-grammar": "emad_Default.tmpl"
+  "source.css": "css.tmpl",
+  "source.js": "lang.tmpl",
+  "source.sql": "sql.tmpl",
+  "text.html.basic": "html.tmpl",
+  "text.html.php": "lang.tmpl",
+  "text.plain": "default.tmpl",
+  "text.plain.null-grammar": "default.tmpl"
 }
 ```
 
