@@ -1,9 +1,9 @@
 # <center>《PHP开发者眼中的ATOM》</center>
 
 > `Atom` 是一款现代化的编辑器，写这篇文章只是我个人喜欢用而已，它还有很多问题需要解决：
-> 1\. 用户群体如今已经被 `vscode` 完全超越，
-> 2\. 普通人群会选择 `vscode` 因为它功能很足，并且流畅，但个人认为： `vscode` 细节方面做的并不出色
-> 3\. `atom` 虽然有很多弊端，但是当你熟悉了这款编辑器以后，就会发现它很强大，并且能为我们节省很多时间，最重要的是：它很优雅！
+> 1. 用户群体如今已经被 `vscode` 完全超越，
+> 2. 普通人群会选择 `vscode` 因为它功能很足，并且流畅，但个人认为： `vscode` 细节方面做的并不出色
+> 3. `atom` 虽然有很多弊端，但是当你熟悉了这款编辑器以后，就会发现它很强大，并且能为我们节省很多时间，最重要的是：它很优雅！
 
 ## atom 推荐字体
 
@@ -30,32 +30,34 @@
 
     > `ctrl-shift-p` 开启方式：`settings view: core`
 
-        ![核心配置](./atom/core.png)
+    ![核心配置](./atom/core.png)
 
 2.  编辑器配置
 
     > `ctrl-shift-p` 开启方式：`settings view: editor`
 
-        ![编辑器配置](./atom/editor.png)
+    ![编辑器配置](./atom/editor.png)
 
 3.  URI handling 配置
+
     ![URI-handling设置](./atom/uri-handling.png)
 
 4.  系统配置
 
     > `ctrl-shift-p` 开启方式：`settings view: system`
 
-        ![系统设置](./atom/system.png)
+    ![系统设置](./atom/system.png)
 
 5.  内置插件配置
 
     > 1.  `line-ending-selector` 插件将默认换行符修改成 `LF`
     > 2.  `autosave` 插件开启自动保存
-    >     3, `markdown-preview` 插件禁用掉
+    > 3.  `markdown-preview` 插件禁用掉
 
-        ![内置插件配置](./atom/builtInPlugIns.png)
+    ![内置插件配置](./atom/builtInPlugIns.png)
 
 6.  内置主题UI `One Dark` `One Light`
+
     ![内置主题UI](./atom/builtInUI.png)
 
 ## atom扩展主题
@@ -238,14 +240,17 @@ project manager: save project
 > php 格式化需要 `php-cs-fixer-v2.phar` 支持，我们为它制定正确路径即可
 
 ![serenata 开启项目索引](./atom/atom-beautify-1.png)
+
 ![serenata 开启项目索引](./atom/atom-beautify-2.png)
 
 ### `sync-settings` 同步插件
 
 1.  配置
+
     ![serenata 开启项目索引](./atom/sync-settings-config.png)
 
 2.  快捷键
+
     ![serenata 开启项目索引](./atom/sync-settings-key.png)
 
 ### `file-header` 自定义头信息模板
@@ -253,6 +258,7 @@ project manager: save project
 > `file-header` 文件可以自定义头信息模板，操作如下：
 
 ![头信息的设置说明](./atom/file-header-1.png)
+
 ![头信息的设置说明](./atom/file-header-2.png)
 
 > 在 `settings` 界面指定自定义模板所在位置：
