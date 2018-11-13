@@ -217,6 +217,12 @@
 
 ![atom-beautify 支持php格式化](./atom/atom-ide-ui-4.png)
 
+### `markdown-preview-enhanced` 更改样式
+
+> 直接贴图：
+
+![修改markdown预览样式](./atom/markdown-1.png)
+
 ### ~~`php-ide-serenata` 配置说明（我最终选择了 `ide-php`）~~
 
 > `php-ide-serenata` 插件比官方推荐的 `php-ide` 更加优秀，当然配置也相对复杂一些
