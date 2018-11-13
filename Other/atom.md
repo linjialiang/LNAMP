@@ -73,23 +73,23 @@
 
 ## atom扩展插件
 
-| 实用插件(15)                         | 插件说明          |
-| -------------------------------- | ------------- |
-| `atom-beautify`                  | 格式化源代码        |
-| `docblockr`                      | 用于注释          |
-| `Sublime-Style-Column-Selection` | 复制任意区域        |
-| `sync-settings`                  | atom配置同步插件    |
-| `highlight-selected`             | 选择高亮          |
-| `split-diff`                     | 文件对比插件        |
-| `regex-railroad-diagram`         | 正则表达式图形界面     |
-| `project-manager`                | 项目管理          |
-| `intentions`                     | 用于显示意图的基础包    |
-| `platformio-ide-terminal`        | atom下出色的终端    |
-| `markdown-preview-enhanced`      | markdown预览    |
-| `autocomplete-paths`             | 路径自动补全        |
-| `remote-ftp`                     | atom下好用的ftp插件 |
-| `file-header`                    | 文件头信息         |
-| `advanced-open-file`             | 快速打开文件        |
+| 实用插件(15)                         | 插件说明           |
+| -------------------------------- | -------------- |
+| `atom-beautify`                  | 格式化源代码         |
+| `docblockr`                      | 用于注释           |
+| `Sublime-Style-Column-Selection` | 复制任意区域         |
+| `sync-settings`                  | atom配置同步插件     |
+| `highlight-selected`             | 选择高亮           |
+| `split-diff`                     | 文件对比插件         |
+| `regex-railroad-diagram`         | 正则表达式图形界面      |
+| `project-manager`                | 项目管理           |
+| ~~`intentions`~~                 | ~~用于显示意图的基础包~~ |
+| `platformio-ide-terminal`        | atom下出色的终端     |
+| `markdown-preview-enhanced`      | markdown预览     |
+| `autocomplete-paths`             | 路径自动补全         |
+| `remote-ftp`                     | atom下好用的ftp插件  |
+| `file-header`                    | 文件头信息          |
+| `advanced-open-file`             | 快速打开文件         |
 
 | git相关插件(4)             | 插件说明                  |
 | ---------------------- | --------------------- |
@@ -109,11 +109,12 @@
 | `minimap-selection`          | 代码小窗口-选择块高亮   |
 | `minimap-split-diff`         | 代码小窗口-对比高亮    |
 
-| ide相关插件(3)         | 插件说明           |
-| ------------------ | -------------- |
-| `atom-ide-ui`      | atom的ide基础包    |
-| `php-ide-serenata` | 优秀的php的ide插件包  |
-| `ide-typescript`   | js和tyjs的ide插件包 |
+| ide相关插件(3)             | 插件说明              |
+| ---------------------- | ----------------- |
+| `atom-ide-ui`          | atom的ide基础包       |
+| ~~`php-ide-serenata`~~ | ~~优秀的php的ide插件包~~ |
+| `ide-typescript`       | js和tyjs的ide插件包    |
+| `ide-php`              | php的ide插件包        |
 
 | 符号对齐相关插件(4)          | 插件说明    |
 | -------------------- | ------- |
@@ -163,7 +164,7 @@
 
 > 一些插件需要我们进一步说明
 
-### `sync-settings` 配置说明
+### `sync-settings` 同步插件
 
 > 这是atom配置同步插件配置也很简单，填入正确的token跟gistid即可
 
@@ -174,11 +175,49 @@
 | `sync-settings:view-backup`  | 这条是当你执行备份后到线上查询你的备份的,也就是到你的 `gist code` 里的内容 |
 | `sync-settings:check-backup` | 这条是查询最后一次是否正常                                |
 
+1.  配置
+
+    ![sync-settings 配置](./atom/sync-settings-config.png)
+
+2.  快捷键
+
+    ![sync-settings 快捷键](./atom/sync-settings-key.png)
+
+3.  新增同步文件
+
+    ![sync-settings 新增同步文件](./atom/sync-settings-3.png)
+
 ### `atom-beautify` 配置说明
 
 > `atom-beautify` 有些语言的格式化需要依赖与其它工具，遇到问题可以查看插件说明
 
-### `php-ide-serenata` 配置说明
+1.  增加php格式化支持文件 `php-cs-fixer-v2.phar`
+
+![atom-beautify 支持php格式化](./atom/atom-beautify-1.png)
+
+![atom-beautify 支持php格式化](./atom/atom-beautify-2.png)
+
+### `atom-ide-ui` 关闭几个没必要的功能
+
+> `atom-ide-ui` 几个并不好用的功能建议关闭：
+
+| 功能   | 缺陷描述                           |
+| ---- | ------------------------------ |
+| 断点调式 | php暂时没有好用断电调式插件                |
+| 格式化  | `atom-beautify` 格式化神器在手        |
+| 终端   | 被 `platformio-ide-terminal` 完虐 |
+
+> 关闭方式
+
+![atom-beautify 支持php格式化](./atom/atom-ide-ui-1.png)
+
+![atom-beautify 支持php格式化](./atom/atom-ide-ui-2.png)
+
+![atom-beautify 支持php格式化](./atom/atom-ide-ui-3.png)
+
+![atom-beautify 支持php格式化](./atom/atom-ide-ui-4.png)
+
+### ~~`php-ide-serenata` 配置说明（我最终选择了 `ide-php`）~~
 
 > `php-ide-serenata` 插件比官方推荐的 `php-ide` 更加优秀，当然配置也相对复杂一些
 
@@ -190,7 +229,7 @@
 
 | 对php的要求            | 说明                                   |
 | ------------------ | ------------------------------------ |
-| php版本              | 7.1及以上                               |
+| `php版本`            | 7.1及以上                               |
 | `php.ini`(必须开启)    | `mbstring` `openssl` `pdo_sqlite` 扩展 |
 | `php.ini`(下载服务时开启) | `curl` `xml` 扩展                      |
 
@@ -242,16 +281,6 @@ project manager: save project
 ![serenata 开启项目索引](./atom/atom-beautify-1.png)
 
 ![serenata 开启项目索引](./atom/atom-beautify-2.png)
-
-### `sync-settings` 同步插件
-
-1.  配置
-
-    ![serenata 开启项目索引](./atom/sync-settings-config.png)
-
-2.  快捷键
-
-    ![serenata 开启项目索引](./atom/sync-settings-key.png)
 
 ### `file-header` 自定义头信息模板
 
