@@ -7,8 +7,8 @@
 
 ## atom 推荐字体
 
-> -   推荐一： `hack`
-> -   推荐二： `'Source Code Variable'`
+> -   推荐一： `hack, 微软雅黑`
+> -   推荐二： `'Source Code Variable, 微软雅黑'`
 > -   推荐三： `'Source Code Variable', '思源黑体'`
 
 ## atom 基本配置
