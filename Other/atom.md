@@ -1,9 +1,9 @@
 # <center>《PHP开发者眼中的ATOM》</center>
 
 > `Atom` 是一款现代化的编辑器，写这篇文章只是我个人喜欢用而已，它还有很多问题需要解决：
-> 1. 用户群体如今已经被 `vscode` 完全超越，
-> 2. 普通人群会选择 `vscode` 因为它功能很足，并且流畅，但个人认为： `vscode` 细节方面做的并不出色
-> 3. `atom` 虽然有很多弊端，但是当你熟悉了这款编辑器以后，就会发现它很强大，并且能为我们节省很多时间，最重要的是：它很优雅！
+> 1\. 用户群体如今已经被 `vscode` 完全超越，
+> 2\. 普通人群会选择 `vscode` 因为它功能很足，并且流畅，但个人认为： `vscode` 细节方面做的并不出色
+> 3\. `atom` 虽然有很多弊端，但是当你熟悉了这款编辑器以后，就会发现它很强大，并且能为我们节省很多时间，最重要的是：它很优雅！
 
 ## atom 推荐字体
 
@@ -430,3 +430,30 @@ strict-ssl = false
 http-proxy = http://127.0.0.1:1080
 https-proxy = http://127.0.0.1:1080
 ```
+
+* * *
+
+## 开始创建atom插件
+
+> 写atom插件是比较容易的:
+>     \-- 最低要求：熟悉 css 和 javascript
+>     \-- 建议满足：熟悉 less 和 coffeescript
+
+1.  使用 `Package Generator` 包来创建新包
+
+> 创建一个package最简单的方式就是使用atom里自带的生成器，使用命令面板 `ctrl-shift-p` :
+
+| 面板命令                                           | 描述      |
+| ---------------------------------------------- | ------- |
+| `Package Generator: Generate Package`          | 创建一个新包  |
+| `Package Generator: Generate Syntax Theme`     | 创建一个新主题 |
+| `Package Generator: Generate Language Package` | 创建一个语言包 |
+
+> 选择以后，atom会让你输入这个新包名和指定的路径，
+> - 并且这个路径会被atom映射到插件目录中，这样我们修改了插件内容，本机上的atom就会立马生效！
+
+* * *
+
+## 如何发布atom插件
+
+> atom 插件发布也是比较容易的，不过有几点需要注意的：
