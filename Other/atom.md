@@ -1,9 +1,9 @@
 # <center>《PHP开发者眼中的ATOM》</center>
 
 > `Atom` 是一款现代化的编辑器，写这篇文章只是我个人喜欢用而已，它还有很多问题需要解决：
-> 1\. 用户群体如今已经被 `vscode` 完全超越，
-> 2\. 普通人群会选择 `vscode` 因为它功能很足，并且流畅，但个人认为： `vscode` 细节方面做的并不出色
-> 3\. `atom` 虽然有很多弊端，但是当你熟悉了这款编辑器以后，就会发现它很强大，并且能为我们节省很多时间，最重要的是：它很优雅！
+> 1. 用户群体如今已经被 `vscode` 完全超越，
+> 2. 普通人群会选择 `vscode` 因为它功能很足，并且流畅，但个人认为： `vscode` 细节方面做的并不出色
+> 3. `atom` 虽然有很多弊端，但是当你熟悉了这款编辑器以后，就会发现它很强大，并且能为我们节省很多时间，最重要的是：它很优雅！
 
 ## atom 推荐字体
 
@@ -417,6 +417,21 @@ project manager: save project
 | `C-M-t`  | 文件对比，支持与最近提交的版本库做对比       |
 | `M-鼠标左键` | 选取多行的中间部分内容               |
 
+### 新增的几个快捷键
+> 增加了 `ctrl-k` `ctrl-j` ，在 `代码片段提示` 和 `命令窗口` 上下移动
+
+```shell
+# When autocomplete plus pop-up active in insert-mode
+'atom-text-editor.vim-mode-plus.insert-mode.autocomplete-active':
+  'ctrl-k': 'core:move-up'
+  'ctrl-j': 'core:move-down'
+
+# In select-list such like fuzzy-finder
+'.select-list atom-text-editor':
+  'ctrl-k': 'core:move-up'
+  'ctrl-j': 'core:move-down'
+```
+
 > `Ctrl-Shift-p` 下面有大量的指令，这些指令将会大大提升我们的工作效力！
 
 ## `.apmrc` 配置
@@ -433,11 +448,11 @@ https-proxy = http://127.0.0.1:1080
 
 * * *
 
-## 开始创建atom插件
+## 开始创建atom包
 
-> 写atom插件是比较容易的:
->     \-- 最低要求：熟悉 css 和 javascript
->     \-- 建议满足：熟悉 less 和 coffeescript
+> 写atom包是比较容易的:
+>     \- 最低要求：熟悉 css 和 javascript
+>     \- 建议满足：熟悉 less 和 coffeescript
 
 1.  使用 `Package Generator` 包来创建新包
 
@@ -450,10 +465,41 @@ https-proxy = http://127.0.0.1:1080
 | `Package Generator: Generate Language Package` | 创建一个语言包 |
 
 > 选择以后，atom会让你输入这个新包名和指定的路径，
-> - 并且这个路径会被atom映射到插件目录中，这样我们修改了插件内容，本机上的atom就会立马生效！
+>
+> -   并且这个路径会被atom映射到包目录中，这样我们修改了插件内容，本机上的atom就会立马生效！
 
 * * *
 
-## 如何发布atom插件
+## 如何发布atom包
 
-> atom 插件发布也是比较容易的，不过有几点需要注意的：
+> atom 包发布也是比较容易的，不过有几点需要注意的：
+
+1.  API授权问题
+
+> 终端下输入 `apm login` 用于API授权，也可以更换授权码
+
+```shell
+apm login
+```
+
+![API授权](./atom/API-1.png)
+
+2.  `apm publish <version-type>` 发布插件指令
+
+> atom包可以使用apm发布，通过提升版本并发布插件！
+
+| version-type | 版本类型描述 | 发布案例  | git 标签案例 |
+| ------------ | ------ | ----- | -------- |
+| major        | 主版本提升1 | 1.0.0 | v1.0.0   |
+| minor        | 此版本提升1 | 0.1.0 | v0.1.0   |
+| patch        | 小版本提升1 | 0.0.1 | v0.0.1   |
+
+> 更多内容可以通过 `apm help <command>` 指令查看所有帮助说明
+
+3.  版本发布的一些建议：
+
+| 版本类型  | 兼容性     | 例子           |
+| ----- | ------- | ------------ |
+| major | 不兼容之前版本 | 更改默认值或删除功能   |
+| minor | 兼容之前版本  | 添加新功能或添加选项   |
+| patch | 兼容之前版本  | 包配置不变，仅仅做了优化 |
