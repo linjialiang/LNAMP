@@ -4,27 +4,14 @@
 
 > my.ini 是 mariadb 配置文件，我们在mariadb根目录上创建my.ini，并输入以下内容
 
-1. 32位版本
+```shell
+[client]
+port = 3306
 
-  ```shell
-  [client]
-  port = 3306
-
-  [mysqld]
-  port = 3306
-  datadir = "c:/wamp/data/32"
-  ```
-
-2. 64位版本
-
-  ```shell
-  [client]
-  port = 3306
-
-  [mysqld]
-  port = 3306
-  datadir = "c:/wamp/data/64"
-  ```
+[mysqld]
+port = 3306
+datadir = "c:/wamp/data"
+```
 
 > - 提示：`innodb` 索引扩展默认会跟 `datadir` 同级，如无必要不用配置
 > - 注意：需要将mariadb根目录下的data目录下的全部数据复制到指定的路径下

@@ -6,13 +6,13 @@
 
 > 首先要获得文软件包
 
-1. 在 `ThinkPHP快速入门二群` 提供 `wamp-v2.0.6.7z` 下载）
+1.  在 `ThinkPHP快速入门二群` 提供 `wamp-v2.0.6.7z` 下载）
 
-	> 在看云上购买 [thinkphp5快速入门手册](https://www.kancloud.cn/thinkphp/thinkphp5_quickstart/) 可加入该群
+    > 在看云上购买 [thinkphp5快速入门手册](https://www.kancloud.cn/thinkphp/thinkphp5_quickstart/) 可加入该群
 
-2. 百度网盘下载地址
+2.  百度网盘下载地址
 
-	> 见 [wamp组件维护](https://www.kancloud.cn/madnesslin/wamp/758157) 章节
+    > 见 [wamp组件维护](https://www.kancloud.cn/madnesslin/wamp/758157) 章节
 
 ## 解压到指定目录
 
@@ -27,6 +27,12 @@
 | --- | ------------------------ |
 | 兼容版 | `c:\wamp\32\php\php.ini` |
 | 推荐版 | `c:\wamp\64\php\php.ini` |
+
+> v4版本开始移除了32位的兼容版
+
+| 版本       | php.ini路径             |
+| -------- | --------------------- |
+| `v4.x.x` | `c:\wamp\php\php.ini` |
 
 ## 为wamp环境安装必备运行库
 

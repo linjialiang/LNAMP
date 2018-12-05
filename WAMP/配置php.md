@@ -25,10 +25,9 @@
 
 > Windows系统默认情况下php扩展的默认存放目录是 `c:\php\etc`，我们需要修改成正确的目录路径
 
-| 位数  | 所在行  | 修改前                       | 修改后                                    |
-| --- | ---- | ------------------------- | -------------------------------------- |
-| 32  | 734行 | `; extension_dir = "ext"` | `extension_dir = "c:\wamp\32\php\etc"` |
-| 64  | 732行 | `; extension_dir = "ext"` | `extension_dir = "c:\wamp\64\php\etc"` |
+| 所在行  | 修改前                       | 修后                                  |
+| ---- | ------------------------- | ----------------------------------- |
+| 732行 | `; extension_dir = "ext"` | `extension_dir = "c:\wamp\php\etc"` |
 
 ### 开启几个默认的并且重要的php扩展
 
@@ -47,7 +46,7 @@
 
 > php扩展写入php.ini格式
 
-| 扩展文件名               | 格式1                             | 格式2（不支持兼容版）             |
+| 扩展文件名               | 格式1                             | 格式2                     |
 | ------------------- | ------------------------------- | ----------------------- |
 | `php_别名.dll`        | `extension=php_别名.dll`          | `extension=别名`          |
 | `php_mbstring.dll`  | `extension=php_mbstring.dll`    | `extension=mbstring`    |
@@ -189,23 +188,15 @@ error_reporting(错误级别别名与位运算符组合);
 
 > 主要就是删除php.ini文件下的备注行，下面展示php.ini文件的所有内容
 
-1.  32位php的php.ini文件内容
-
 ```shell
-# 详情见 c:/wamp/32/php/php.ini
-```
-
-2.  64位php的php.ini文件内容
-
-```shell
-# 详情见 c:/wamp/64/php/php.ini
+# 详情见 c:/wamp/php/php.ini
 ```
 
 ## 备注
 
-1. php所有扩展都已经备注，需自行去 `php.ini` 开启；
-2. `php_xdebug` 写在 `php.ini` 最底部，也已经备注
-3. php_xdebug扩展默认配置支持phpstrom，如果使用其它ide开发项目，请自行配置
+1.  php所有扩展都已经备注，需自行去 `php.ini` 开启；
+2.  `php_xdebug` 写在 `php.ini` 最底部，也已经备注
+3.  php_xdebug扩展默认配置支持phpstrom，如果使用其它ide开发项目，请自行配置
 
 ## 结束语
 
