@@ -46,11 +46,9 @@
 │
 ├─www                           Web根目录
 │
-├─www-default                   apache24站点缺省位置
+├─000-default                   apache24站点缺省位置
 │
 ├─data                          mariadb数据库存放目录
-│
-├─vc                            运行库存放目录
 │
 ├─phpmyadmin                    数据库管理平台，内附：adminer.php
 │
