@@ -7,9 +7,8 @@
 
 ## atom 推荐字体
 
-> -   推荐一： `hack, 微软雅黑`
-> -   推荐二： `'Source Code Variable, 微软雅黑'`
-> -   推荐三： `'Source Code Variable', '思源黑体'`
+> -   推荐一： `Ubuntu Mono, 微软雅黑`
+> -   推荐二： `hack, 微软雅黑`
 
 ## atom 基本配置
 
@@ -64,12 +63,12 @@
 
 | atom扩展主题(6)            | 主题说明  |
 | ---------------------- | ----- |
+| `atom-eclipse-syntax`  | 代码样式4 |
 | `monokai`              | 代码样式1 |
 | `nord-atom-syntax`     | 代码样式2 |
 | `atom-material-syntax` | 代码样式3 |
-| `atom-eclipse-syntax`  | 代码样式4 |
-| `city-lights-syntax`   | 代码样式5 |
 | `dracula-syntax`       | 代码样式6 |
+| `city-lights-syntax`   | 代码样式5 |
 
 ## atom扩展插件
 
