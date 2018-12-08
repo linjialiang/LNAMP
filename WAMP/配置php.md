@@ -27,7 +27,7 @@
 
 | 所在行  | 修改前                       | 修后                                  |
 | ---- | ------------------------- | ----------------------------------- |
-| 732行 | `; extension_dir = "ext"` | `extension_dir = "c:\wamp\php\etc"` |
+| 732行 | `; extension_dir = "ext"` | `extension_dir = "c:\wamp\base\php\etc"` |
 
 ### 开启几个默认的并且重要的php扩展
 

@@ -20,7 +20,7 @@ C:/wamp/apache24/conf/httpd.conf
 
 | 替换前                            | 替换后                                    |
 | ------------------------------ | -------------------------------------- |
-| `Define SRVROOT "c:/Apache24"` | `Define SRVROOT "${WAMPROOT}/apache24"` |
+| `Define SRVROOT "c:/Apache24"` | `Define SRVROOT "${WAMPBASE}/apache24"` |
 
 ### httpd.conf下设置路径变量
 
@@ -28,14 +28,20 @@ C:/wamp/apache24/conf/httpd.conf
 -   定义格式： `Define 变量名 变量值`
 -   使用格式： `${变量名}`
 
-> 定义变量：wamp开发环境根目录变量（ `WAMPROOT` 应该在 `SRVROOT` 之前 ）
+> 定义变量：wamp开发环境根目录路径变量（ `WAMPROOT` 应该在 `SRVROOT` 之前 ）
 
 ```shell
 Define WAMPROOT "c:/wamp"
 ```
 
+> 定义变量：wamp开发环境核心目录路径变量（ `WAMPBASE` 应该在 `SRVROOT` 之前 ）
+
+```shell
+Define WAMPBASE "${WAMPBASE}/base"
+```
+
 -   说明：如不需要，尽量不要定义变量
--   注意：至少要保证变量 `${WAMPROOT}` 是第一次出现，这是符合逻辑的定义方式！
+-   注意：至少要保证变量 `${WAMPROOT}` `${WAMPBASE}` 是第一次出现，这是符合逻辑的定义方式！
 -   提示：由于 `Define` 是apache24自带的，并不需要模块支持，所以允许定义到配置文件最顶部！
 
 ### httpd.conf下为apache24增加子配置文件
@@ -45,7 +51,7 @@ Define WAMPROOT "c:/wamp"
 
 ```shell
 <IfModule include_module>
-    Include "${WAMPROOT}/conf/apache24.conf"
+    Include "${WAMPBASE}/conf/apache24.conf"
 </IfModule>
 ```
 
@@ -69,7 +75,7 @@ Define WAMPROOT "c:/wamp"
 > apache24.conf路径
 
 ```shell
-C:/wamp/conf/apache24.conf
+C:/wamp/base/conf/apache24.conf
 ```
 
 ### 一、加载必要模块
@@ -99,14 +105,14 @@ Define PHPVERSION "php7"
 1.  加载php模块
 
     ```shell
-    LoadModule ${PHPVERSION}_module ${WAMPROOT}/php/${PHPVERSION}apache2_4.dll
+    LoadModule ${PHPVERSION}_module ${WAMPBASE}/php/${PHPVERSION}apache2_4.dll
     ```
 
 2.  获取php配置文件所在目录（php.ini）
 
     ```shell
     <IfModule ${PHPVERSION}_module>
-        PHPINIDir "${WAMPROOT}/php"
+        PHPINIDir "${WAMPBASE}/php"
     </IfModule>
     ```
 
@@ -165,24 +171,24 @@ Define PHPVERSION "php7"
     > -   `DocumentRoot` 是会被探针识别为站点目录的，安全起见不应该与其它站点设置在同一个根目录下
 
     ```shell
-    DocumentRoot "${WAMPROOT}/000-default"
+    DocumentRoot "${WAMPBASE}/default"
     ```
 
     > 为站点缺省位置配置访问权限（不配置会禁止所有人访问--继承于 `<Directory />` 的配置，）
 
     ```shell
-    <Directory "${WAMPROOT}/000-default">
+    <Directory "${WAMPBASE}/default">
         Options FollowSymLinks
         AllowOverride None
         Require all granted
     </Directory>
     ```
 
-    > 由于apache24的第一个 `<VirtualHost>` 设置的站点目录为 `${WAMPROOT}/www-default` ，因此缺省站点都会访问该目录！
+    > 由于apache24的第一个 `<VirtualHost>` 设置的站点目录为 `${WAMPBASE}/www-default` ，因此缺省站点都会访问该目录！
 
     ```shell
     <VirtualHost *:80>
-        DocumentRoot "${WAMPROOT}/000-default"
+        DocumentRoot "${WAMPBASE}/default"
     </VirtualHost>
     ```
 
@@ -261,13 +267,13 @@ Require all denied
     > 所有的错误日志写在一个文件内
 
     ```shell
-    ErrorLog "${WAMPROOT}/logs/apache24/error/error.log"
+    ErrorLog "${WAMPBASE}/logs/apache24/error/error.log"
     ```
 
     > 错误日志超过5M会截断一次，并且按截断时间来命名
 
     ```shell
-    ErrorLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/error/error_log.%Y-%m-%d-%H_%M_%S 5M 480"
+    ErrorLog "|${WAMPBASE}/apache24/bin/rotatelogs.exe -t ${WAMPBASE}/logs/apache24/error/error_log.%Y-%m-%d-%H_%M_%S 5M 480"
     ```
 
 2.  LogLevel 大众设置，老手都应该按需来调节它
@@ -380,7 +386,7 @@ ErrorLogFormat [connection|request] [格式1] [格式2] ...
 
 ```shell
 LogFormat "%h %l %u %t \"%r\" %>s %b" common
-CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
+CustomLog ${WAMPBASE}/logs/apache24/access/access_log common
 ```
 
 > 默认的访问日志配置代码
@@ -394,7 +400,7 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
 
-    CustomLog "${WAMPROOT}/logs/apache24/access/access_log" common
+    CustomLog "${WAMPBASE}/logs/apache24/access/access_log" common
 </IfModule>
 ```
 
@@ -410,7 +416,7 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
 
-    CustomLog "${WAMPROOT}/logs/apache24/access/access_log" newlogformat
+    CustomLog "${WAMPBASE}/logs/apache24/access/access_log" newlogformat
 </IfModule>
 ```
 
@@ -427,7 +433,7 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
 
-    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access/access_log 86400 480" newlogformat
+    CustomLog "|${WAMPBASE}/apache24/bin/rotatelogs.exe -t ${WAMPBASE}/logs/apache24/access/access_log 86400 480" newlogformat
 </IfModule>
 ```
 
@@ -444,7 +450,7 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
 
-    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat
+    CustomLog "|${WAMPBASE}/apache24/bin/rotatelogs.exe -t ${WAMPBASE}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat
 </IfModule>
 ```
 
@@ -464,7 +470,7 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
 
     SetEnvIf Request_URI "\.(ico|gif|jpg|png|bmp|swf|css|js)$" dontlog
 
-    CustomLog "|${BITPATH}/apache24/bin/rotatelogs.exe -t ${WAMPROOT}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat env=!dontlog
+    CustomLog "|${WAMPBASE}/apache24/bin/rotatelogs.exe -t ${WAMPBASE}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat env=!dontlog
 </IfModule>
 ```
 
@@ -580,7 +586,7 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
 > 兼容版和推荐版用的都是同一个apache24.conf配置文件
 
 ```shell
-# 详情见配置文件 c:/wamp/conf/apache24.conf
+# 详情见配置文件 c:/wamp/base/conf/apache24.conf
 ```
 
 ## 虚拟主机相关配置
@@ -594,21 +600,21 @@ CustomLog ${WAMPROOT}/logs/apache24/access/access_log common
 > -   站点配置目录下新建文件 `phpmyadmin.conf` ，下面直接贴代码：
 
 ```shell
-Alias /phpmyadmin ${WAMPROOT}/phpmyadmin
-<Directory ${WAMPROOT}/phpmyadmin>
+Alias /phpmyadmin ${WAMPBASE}/phpmyadmin
+<Directory ${WAMPBASE}/phpmyadmin>
     Options FollowSymLinks
     DirectoryIndex index.php
     <RequireAll>
         Require local
     </RequireAll>
 </Directory>
-<Directory ${WAMPROOT}/phpmyadmin/libraries>
+<Directory ${WAMPBASE}/phpmyadmin/libraries>
     Require all denied
 </Directory>
-<Directory ${WAMPROOT}/phpmyadmin/setup/lib>
+<Directory ${WAMPBASE}/phpmyadmin/setup/lib>
     Require all denied
 </Directory>
-Alias /adminer ${WAMPROOT}/phpmyadmin/adminer.php
+Alias /adminer ${WAMPBASE}/phpmyadmin/adminer.php
 ```
 
 ### 二、配置虚拟主机
@@ -623,8 +629,8 @@ Alias /adminer ${WAMPROOT}/phpmyadmin/adminer.php
     ServerAlias www.test1.com test1.com www.test2.com test2.com
     ErrorDocument 404 /Error.html
 
-    ErrorLog "${WAMP}/logs/apache24/域名1-error.log"
-    CustomLog "${WAMP}/logs/apache24/域名1-access.log" common
+    ErrorLog "${WAMPBASE}/logs/apache24/域名1-error.log"
+    CustomLog "${WAMPBASE}/logs/apache24/域名1-access.log" common
 
     RewriteEngine on
     RewriteCond %{HTTP_HOST} ^test1.com$ [NC]
