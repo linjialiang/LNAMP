@@ -17,48 +17,54 @@
 
 ### 目录结构如下：
 
-```shell
-├─ ============================ wamp环境部署目录
-├─apache24                      Web服务器
-│  ├─bin                        阿帕奇可执行程序目录
-│  ├─conf                       配置
-│  │  ├─httpd.conf              阿帕奇主配置文件
-│  │  └─ ...
-│  └─ ...
-│
-├─mariadb                       mariadb 10.3版本
-│  ├─bin                        mariadb可执行程序目录
-│  └─ ...
-│
-├─php                           php 7.2版本
-│  ├─ext                        模块目录
-│  ├─php.ini                    php主配置文件
-│  └─ ...
-│
-├─conf                          公用配置文件目录
-│
-├─logs                          服务器相关日志文件目录
-│  │  ├─apache24                apache24日志目录
-│  │  ├─mariadb                 mariadb日志目录
-│  │
-│
-├─sites                         站点配置文件目录
-│
-├─www                           Web根目录
-│
-├─000-default                   apache24站点缺省位置
-│
-├─data                          mariadb数据库存放目录
-│
-├─phpmyadmin                    数据库管理平台，内附：adminer.php
-│
-├─install.bat                   安装wamp相关服务到系统服务
-│
-├─uninstall.bat                 从系统服务卸载wamp相关服务
-│
-├─便捷指令.bat                   日常经常用到的wamp相关指令
-│
-└─强制删除.bat                   使用net指令来删除wamp相关服务
+```php
+// =============================================================================
+//                              【wamp环境部署目录】
+// =============================================================================
+├─ base                                     wamp核心目录
+|   ├─apache24                              Web服务器
+|   |  ├─bin                                阿帕奇可执行程序目录
+|   |  ├─conf                               配置
+|   |  |  ├─httpd.conf                      阿帕奇主配置文件
+|   |  |  └─ ...
+|   |  └─ ...
+|   |
+|   ├─mariadb                               mariadb 10.3版本
+|   |  ├─bin                                mariadb可执行程序目录
+|   |  └─ ...
+|   |
+|   ├─php                                   php 7.2版本
+|   |  ├─ext                                模块目录
+|   |  ├─php.ini                            php主配置文件
+|   |  └─ ...
+|   |
+|   ├─phpmyadmin                            数据库管理平台，内附：adminer.php
+|   |
+|   ├─conf                                  公用配置文件目录
+|   |   |  ├─apache24.conf                  apache24的公用配置文件
+|   |
+|   ├─logs                                  服务器相关日志文件目录
+|   |  |  ├─apache24                        apache24日志目录
+|   |  |  ├─mariadb                         mariadb日志目录
+|   |  |  ├─xdebug                          xdebug日志目录
+|   |  |
+|   |
+|   ├─default                               apache24站点缺省位置
+|   |
+|
+├─sites                                     站点配置文件目录
+|
+├─www                                       Web根目录
+|
+├─data                                      mariadb数据库存放目录
+|
+├─install.bat                               安装wamp相关服务到系统服务
+|
+├─uninstall.bat                             从系统服务卸载wamp相关服务
+|
+├─便捷指令.bat                              日常经常用到的wamp相关指令
+|
+└─强制删除.bat                              使用net指令来删除wamp相关服务
 ```
 
 > 文章列表
@@ -83,6 +89,10 @@
 ## 更新说明
 
 > 更新说明从v3.2.1版本开始
+
+### wamp-v4.0.1更新说明
+
+1. 在 `v4.0.0` 的基础上，重新设计了目录结构
 
 ### wamp-v4.0.0更新说明
 
