@@ -9,7 +9,6 @@
 
 > -   中英文对齐： `Ubuntu Mono, 微软雅黑` (size=>14)
 > -   美观度最佳： `hack, 微软雅黑` (size=>14)
-> -   渲染最高效： `hack` (size=>14)
 
 ## atom 基本配置
 
