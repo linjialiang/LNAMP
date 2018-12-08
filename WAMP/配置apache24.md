@@ -18,8 +18,8 @@ C:/wamp/apache24/conf/httpd.conf
 -   描述：默认情况下apache24路径是 `c:/Apache2.4` ，需要修改成apache24当前所在目录
 -   注意：新版本开始引入了 `Define` 变量定义，所以我们只需要修改一个位置
 
-| 替换前                            | 替换后                                    |
-| ------------------------------ | -------------------------------------- |
+| 替换前                            | 替换后                                     |
+| ------------------------------ | --------------------------------------- |
 | `Define SRVROOT "c:/Apache24"` | `Define SRVROOT "${WAMPBASE}/apache24"` |
 
 ### httpd.conf下设置路径变量
@@ -28,20 +28,17 @@ C:/wamp/apache24/conf/httpd.conf
 -   定义格式： `Define 变量名 变量值`
 -   使用格式： `${变量名}`
 
-> 定义变量：wamp开发环境根目录路径变量（ `WAMPROOT` 应该在 `SRVROOT` 之前 ）
-
-```shell
-Define WAMPROOT "c:/wamp"
-```
-
-> 定义变量：wamp开发环境核心目录路径变量（ `WAMPBASE` 应该在 `SRVROOT` 之前 ）
-
-```shell
-Define WAMPBASE "${WAMPBASE}/base"
-```
+| 定义变量                                        | 变量输出            | 说明           |
+| ------------------------------------------- | --------------- | ------------ |
+| `Define WAMPROOT "c:/wamp"`                 | `${WAMPROOT}`   | wamp根目录路径    |
+| `Define WAMPBASE "${WAMPBASE}/base"`        | `${WAMPBASE}`   | wamp核心目录路径   |
+| `Define SRVROOT "${WAMPBASE}/apache24"`     | `${SRVROOT}`    | 阿帕奇自带        |
+| `Define PHPVERSION "php7"`                  | `${PHPVERSION}` | wamp的php主版本号 |
+| `Define HTDOCS "${WAMPROOT}/www"`           | `${HTDOCS}`     | web站点主目录     |
+| `Define HTLOGS "${WAMPBASE}/logs/apache24"` | `${HTLOGS}`     | 阿帕奇日志目录      |
 
 -   说明：如不需要，尽量不要定义变量
--   注意：至少要保证变量 `${WAMPROOT}` `${WAMPBASE}` 是第一次出现，这是符合逻辑的定义方式！
+-   注意：变量输出前一定要先定义，例如： `Define WAMPROOT "c:/wamp"` 必须在 `${WAMPROOT}` 第一次调用前就预先定义好，这是符合逻辑的定义方式！
 -   提示：由于 `Define` 是apache24自带的，并不需要模块支持，所以允许定义到配置文件最顶部！
 
 ### httpd.conf下为apache24增加子配置文件
@@ -64,19 +61,12 @@ Define WAMPBASE "${WAMPBASE}/base"
 -   删除2：由于apache24支持相对路径，因此 `定义模块之后的内容` 都可以删除或转移到apache24.conf
 -   福利：为了能更直观理解apache24配置，我会将模块往后的内容全部挪移到apache24.conf这个子配置文件里
 
-> httpd.conf 内容
-
-```shell
-# 详情见 c:/wamp/apache24/httpd.conf
-```
+>  [点击查看httpd.conf详情](./source/httpd.conf)
 
 ## 配置apache24的子配置文件 `apache24.conf`
 
-> apache24.conf路径
+>  [点击查看httpd.conf详情](./source/apache24.conf)
 
-```shell
-C:/wamp/base/conf/apache24.conf
-```
 
 ### 一、加载必要模块
 
@@ -197,7 +187,7 @@ Define PHPVERSION "php7"
     > 通俗讲：指定一个位置，允许访问者访问
 
     ```shell
-    <Directory "${WAMPROOT}/www">
+    <Directory "${HTDOCS}">
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
@@ -262,18 +252,18 @@ Require all denied
 | core | LogLevel       | 控制ErrorLog的详细程度（附录表格）      |
 | core | ErrorLogFormat | 错误日志写入的格式（附录表格）            |
 
-1.  ErrorLog，为了统一兼容版和推荐版的错误日志，我们使用绝对路径指定
+1.  ErrorLog，为了统一兼容版和推荐版的错误日志，我们使用绝对路径指定（个别版本仅有推荐版）
 
     > 所有的错误日志写在一个文件内
 
     ```shell
-    ErrorLog "${WAMPBASE}/logs/apache24/error/error.log"
+    ErrorLog "${HTLOGS}/error/error.log"
     ```
 
     > 错误日志超过5M会截断一次，并且按截断时间来命名
 
     ```shell
-    ErrorLog "|${WAMPBASE}/apache24/bin/rotatelogs.exe -t ${WAMPBASE}/logs/apache24/error/error_log.%Y-%m-%d-%H_%M_%S 5M 480"
+    ErrorLog "|${SRVROOT}/bin/rotatelogs.exe -t ${HTLOGS}/error/error_log.%Y-%m-%d-%H_%M_%S 5M 480"
     ```
 
 2.  LogLevel 大众设置，老手都应该按需来调节它
@@ -433,7 +423,7 @@ CustomLog ${WAMPBASE}/logs/apache24/access/access_log common
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
 
-    CustomLog "|${WAMPBASE}/apache24/bin/rotatelogs.exe -t ${WAMPBASE}/logs/apache24/access/access_log 86400 480" newlogformat
+    CustomLog "|${SRVROOT}/bin/rotatelogs.exe -t ${WAMPBASE}/logs/apache24/access/access_log 86400 480" newlogformat
 </IfModule>
 ```
 
@@ -450,7 +440,7 @@ CustomLog ${WAMPBASE}/logs/apache24/access/access_log common
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
 
-    CustomLog "|${WAMPBASE}/apache24/bin/rotatelogs.exe -t ${WAMPBASE}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat
+    CustomLog "|${SRVROOT}/bin/rotatelogs.exe -t ${WAMPBASE}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat
 </IfModule>
 ```
 
@@ -470,7 +460,7 @@ CustomLog ${WAMPBASE}/logs/apache24/access/access_log common
 
     SetEnvIf Request_URI "\.(ico|gif|jpg|png|bmp|swf|css|js)$" dontlog
 
-    CustomLog "|${WAMPBASE}/apache24/bin/rotatelogs.exe -t ${WAMPBASE}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat env=!dontlog
+    CustomLog "|${SRVROOT}/bin/rotatelogs.exe -t ${WAMPBASE}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat env=!dontlog
 </IfModule>
 ```
 
@@ -583,11 +573,7 @@ CustomLog ${WAMPBASE}/logs/apache24/access/access_log common
 
 ### apache24.conf内容
 
-> 兼容版和推荐版用的都是同一个apache24.conf配置文件
-
-```shell
-# 详情见配置文件 c:/wamp/base/conf/apache24.conf
-```
+> 兼容版和推荐版用的都是同一个 [apache24.conf](./soure/apache24.conf) 配置文件
 
 ## 虚拟主机相关配置
 
@@ -624,13 +610,13 @@ Alias /adminer ${WAMPBASE}/phpmyadmin/adminer.php
 ```shell
 <VirtualHost *:80>
     ServerAdmin admin@example.com
-    DocumentRoot "${WAMPROOT}/www/www_test_com"
+    DocumentRoot "${HTDOCS}/www_test_com"
     ServerName www.test1.com
     ServerAlias www.test1.com test1.com www.test2.com test2.com
     ErrorDocument 404 /Error.html
 
-    ErrorLog "${WAMPBASE}/logs/apache24/域名1-error.log"
-    CustomLog "${WAMPBASE}/logs/apache24/域名1-access.log" common
+    ErrorLog "${HTLOGS}/error/test.log"
+    CustomLog "${HTLOGS}/access/test.log" common
 
     RewriteEngine on
     RewriteCond %{HTTP_HOST} ^test1.com$ [NC]
@@ -644,7 +630,7 @@ Alias /adminer ${WAMPBASE}/phpmyadmin/adminer.php
 
 ```shell
 <VirtualHost *:80>
-    DocumentRoot "${WAMPROOT}/www/www_test_com"
+    DocumentRoot "${HTDOCS}/www_test_com"
     ServerName www.test1.com
 </VirtualHost>
 ```
@@ -655,7 +641,7 @@ Alias /adminer ${WAMPBASE}/phpmyadmin/adminer.php
 <VirtualHost *:80>
     ServerName www.test.com
     ServerAlias test.com www.test.com
-    DocumentRoot "${WAMPROOT}/www/www_test_com"
+    DocumentRoot "${HTDOCS}/www_test_com"
 
     RewriteEngine on
     RewriteCond %{SERVER_PORT} 80 [NC]
@@ -665,7 +651,7 @@ Alias /adminer ${WAMPBASE}/phpmyadmin/adminer.php
 <virtualhost *:443>
     ServerName www.test.com
     ServerAlias test.com www.test.com
-    DocumentRoot "${WAMPROOT}/www/www_test_com"
+    DocumentRoot "${HTDOCS}/www_test_com"
 
     RewriteEngine on
     RewriteCond %{HTTP_HOST} ^test.com$ [NC]
