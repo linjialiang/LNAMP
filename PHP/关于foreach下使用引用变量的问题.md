@@ -92,7 +92,6 @@ public function demo1()
 
 ![foreach结束会保留最后的value值](./foreach/001.png)
 
-
 > 除非使用 `unset($value)` 手动注销value变量，否则 `$value = $arr[最后一个指针定位值]` 会一直存在；
 
 ## 案例说明
@@ -120,6 +119,8 @@ public function demo1()
         var_dump($b);
     }
     ```
+
+    ![引用变量的简单案例](./foreach/002.png)
 
     > 简单说：引用值的作用就是让两个变量的值一直相同
 
@@ -150,7 +151,9 @@ public function demo1()
     }
     ```
 
-    > 有了上层认识，下面我们再来看一个问题
+    ![带引用值的foreach](./foreach/003.png)
+
+    > 有了上层认识，下面我们再来看下面这个案例
 
     ```php
     public function demo()
@@ -169,3 +172,7 @@ public function demo1()
         }
     }
     ```
+
+    ![带引用值的foreach](./foreach/005.png)
+
+> 到此 `关于foreach下使用引用变量的问题` 的讲解就先告以段落！
