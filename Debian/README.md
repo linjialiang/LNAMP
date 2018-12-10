@@ -1,4 +1,4 @@
-# 《PHP开发者的 Debian 手册》
+# 《PHP开发者眼中的 Debian》
 
 > 主要讲解 `php 开发者` 可能会用到的 `Debian` 知识点!
 
