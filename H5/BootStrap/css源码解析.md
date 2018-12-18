@@ -22,6 +22,8 @@ html{font-size:14px}
 ## 网格
 
 > `bootstrap` 中的网格基本代码
+>
+> -   必须是在 `.row类` 下的标签才生效
 
 ```html
 <div class="container-fluid">
@@ -65,10 +67,10 @@ html{font-size:14px}
 | 11   | 与`1`配合独占一行   | `col-11`            |
 | 12   | 屏幕单行分1个网格    | `col-12`            |
 
-| 代号         | 比较结果         | width值       |
-| ---------- | ------------ | ------------ |
-| `col`      | 宽度不会超出屏幕最大宽度 | `width:100%` |
-| `col-auto` | 会超出屏幕最大宽度    | `width:auto` |
+| 代号         | 结果1          | 结果2       | width值       |
+| ---------- | ------------ | --------- | ------------ |
+| `col`      | 宽度不会超出屏幕最大宽度 | 内容会铺满屏幕宽度 | `width:100%` |
+| `col-auto` | 会超出屏幕最大宽度    | 宽度看内容所占像素 | `width:auto` |
 
 > 测试下就会发现将序号先加等于`12`的就会是独立的一行，下举例都是独立一行的
 
@@ -127,3 +129,50 @@ html{font-size:14px}
 ```
 
 > PS：媒体屏幕越大，优先级越高，即：`col-xl-`优先级最高， `col-`优先级最低
+
+## 布局顺序
+
+> bootstrap 使用一系列的 `order` 来对同级标签来修改布局顺序
+>
+> -   必须是在 `.row类` 下的标签才生效
+
+```html
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-auto bg-warning">1</div>
+        <div class="col-auto bg-info">2</div>
+        <div class="col-auto bg-danger">3</div>
+        <div class="col-auto bg-warning">4</div>
+        <div class="col-auto bg-info">5</div>
+        <div class="col-auto bg-danger">6</div>
+        <div class="col-auto bg-warning">7</div>
+        <div class="col-auto bg-info">8</div>
+        <div class="col-auto bg-danger">9</div>
+        <div class="col-auto bg-warning">10</div>
+        <div class="col-auto bg-info">11</div>
+        <div class="col-auto bg-danger">12</div>
+    </div>
+</div>
+```
+
+### 响应式布局
+
+> `bootstrap` 中不同的屏幕大小可以使用不同的布局顺序
+
+| 网格代号       | 类型         |
+| ---------- | ---------- |
+| order系列    | 全局网格系列     |
+| order-sm系列 | 屏幕大于576px  |
+| order-md系列 | 屏幕大于768px  |
+| order-lg系列 | 屏幕大于992px  |
+| order-xl系列 | 屏幕大于1200px |
+
+### 布局代号
+
+> `order` 的各种代号及布局顺序优先级
+
+| 布局代号    | 优先级       | 举例                             |
+| ------- | --------- | ------------------------------ |
+| `first` | 会排在第一位    | `order-first` `order-sm-first` |
+| `last`  | 会排在最后一位   | `order-last` `order-xl-last`   |
+| `1-12`  | 数字越小排位越靠前 | `order-1` `order-md-12`        |
