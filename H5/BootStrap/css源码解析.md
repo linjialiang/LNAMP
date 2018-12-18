@@ -128,7 +128,7 @@ html{font-size:14px}
 </div>
 ```
 
-> PS：媒体屏幕越大，优先级越高，即：`col-xl-`优先级最高， `col-`优先级最低
+> PS：媒体屏幕越大优先级越高，因为媒体越大越靠后，即：`col-xl-`优先级最高， `col-`优先级最低
 
 ## 布局顺序
 
@@ -167,6 +167,8 @@ html{font-size:14px}
 | order-lg系列 | 屏幕大于992px  |
 | order-xl系列 | 屏幕大于1200px |
 
+> 优先级：屏幕越大优先级越高，因为源码中媒体越大越靠后
+
 ### 布局代号
 
 > `order` 的各种代号及布局顺序优先级
@@ -176,3 +178,36 @@ html{font-size:14px}
 | `first` | 会排在第一位    | `order-first` `order-sm-first` |
 | `last`  | 会排在最后一位   | `order-last` `order-xl-last`   |
 | `1-12`  | 数字越小排位越靠前 | `order-1` `order-md-12`        |
+
+> 案例
+
+```html
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-auto order-1  bg-warning">1</div>
+        <div class="col-auto order-1  order-sm-first order-lg-last bg-info">2</div>
+        <div class="col-auto order-1  bg-danger">3</div>
+        <div class="col-auto order-2  bg-warning">4</div>
+        <div class="col-auto order-3  bg-info">5</div>
+        <div class="col-auto order-4  bg-danger">6</div>
+        <div class="col-auto order-5  bg-warning">7</div>
+        <div class="col-auto order-6  bg-info">8</div>
+        <div class="col-auto order-7  bg-danger">9</div>
+        <div class="col-auto order-8  bg-warning">10</div>
+        <div class="col-auto order-9  bg-info">11</div>
+        <div class="col-auto order-10  bg-danger">12</div>
+    </div>
+</div>
+```
+
+> 案例分析-第2个子标签顺序
+
+| 代码               | 触发条件      | 优先级 | 输出结果 |
+| ---------------- | --------- | --- | ---- |
+| `order-1`        | 全局        | 最低  | 正常顺序 |
+| `order-sm-first` | 屏幕大于576px | 较高  | 第一位  |
+| `order-lg-last`  | 屏幕大于992px | 最高  | 末位   |
+
+## 偏移
+
+> bootstrap 用一系列的 `offset` 来进行向右偏移
