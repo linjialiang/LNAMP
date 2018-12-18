@@ -44,27 +44,33 @@ html{font-size:14px}
 | col-lg系列 | 屏幕大于992px  |
 | col-xl系列 | 屏幕大于1200px |
 
-### 网格序号
+### 网格代号
 
-> 序号不同，单行显示的网格数量也不同
+> 代号不同，单行显示的网格数量也不同
 
-| 网格序号 | 单行网格数量       | 举例         |
-| ---- | ------------ | ---------- |
-| auto | 网格宽度随内容而发生变化 | `col-auto` |
-| 1    | 屏幕单行分12个网格   | `col-sm-1` |
-| 2    | 屏幕单行分6个网格    | `col-md-2` |
-| 3    | 屏幕单行分4个网格    | `col-lg-3` |
-| 4    | 屏幕单行分3个网格    | `col-xl-4` |
-| 5    | 与`7`配合独占一行   | `col-5`    |
-| 6    | 屏幕单行分2个网格    | `col-6`    |
-| 7    | 与`5`配合独占一行   | `col-7`    |
-| 8    | 与`4`配合独占一行   | `col-8`    |
-| 9    | 与`3`配合独占一行   | `col-9`    |
-| 10   | 与`2`配合独占一行   | `col-10`   |
-| 11   | 与`1`配合独占一行   | `col-11`   |
-| 12   | 屏幕单行分1个网格    | `col-12`   |
+| 网格代号 | 单行网格数量       | 举例                  |
+| ---- | ------------ | ------------------- |
+| 空    | 网格宽度随内容而发生变化 | `col` `col-sm`      |
+| auto | 网格宽度随内容而发生变化 | `col-auto` `col-xl` |
+| 1    | 屏幕单行分12个网格   | `col-sm-1`          |
+| 2    | 屏幕单行分6个网格    | `col-md-2`          |
+| 3    | 屏幕单行分4个网格    | `col-lg-3`          |
+| 4    | 屏幕单行分3个网格    | `col-xl-4`          |
+| 5    | 与`7`配合独占一行   | `col-5`             |
+| 6    | 屏幕单行分2个网格    | `col-6`             |
+| 7    | 与`5`配合独占一行   | `col-7`             |
+| 8    | 与`4`配合独占一行   | `col-8`             |
+| 9    | 与`3`配合独占一行   | `col-9`             |
+| 10   | 与`2`配合独占一行   | `col-10`            |
+| 11   | 与`1`配合独占一行   | `col-11`            |
+| 12   | 屏幕单行分1个网格    | `col-12`            |
 
-> PS：测试下就会发现将序号先加等于`12`的就会是独立的一行，下举例都是独立一行的
+| `col` vs `col-auto` | 比较结果         |
+| ------------------- | ------------ |
+| `col`               | 宽度不会超出屏幕最大宽度 |
+| `col-auto`          | 会超出屏幕最大宽度    |
+
+> 测试下就会发现将序号先加等于`12`的就会是独立的一行，下举例都是独立一行的
 
 ```html
 <div class="container-fluid">
@@ -104,12 +110,20 @@ html{font-size:14px}
 ```html
 <div class="container-fluid">
     <div class="row">
-        <div class="col-4 bg-warning">1</div>
-        <div class="col-4 bg-info">2</div>
-        <div class="col-4 bg-danger">3</div>
-        <div class="col-4 bg-info">4</div>
-        <div class="col-4 bg-info">5</div>
-        <div class="col-4 bg-info">6</div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-1 bg-warning">1</div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-1 bg-info">2</div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-1 bg-danger">3</div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-1 bg-warning">4</div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-1 bg-info">5</div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-1 bg-danger">6</div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-1 bg-warning">7</div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-1 bg-info">8</div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-1 bg-danger">9</div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-1 bg-warning">10</div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-1 bg-info">11</div>
+        <div class="col-12 col-sm-4 col-lg-3 col-xl-1 bg-danger">12</div>
     </div>
 </div>
 ```
+
+> PS：媒体屏幕越大，优先级越高，即：`col-xl-`优先级最高， `col-`优先级最低
