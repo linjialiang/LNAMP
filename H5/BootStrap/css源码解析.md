@@ -2,7 +2,7 @@
 
 > BootStrap 样式功能非常完整，满足各类网页开发
 
-## `bootstrap` 像素大小
+## 像素大小
 
 > 所有标签都使用rem来表示像素大小，我们需要为html标签定义一个px来表示，例如：
 
@@ -10,7 +10,7 @@
 html{font-size:14px}
 ```
 
-## `bootstrap` 的容器
+## 容器
 
 > `bootstrap` 有两个的容器：`.container` 和 `.container-fluid`
 
@@ -18,3 +18,98 @@ html{font-size:14px}
 | ------------------ | ------ |
 | `.container`       | 有最大宽度  |
 | `.container-fluid` | 永远100% |
+
+## 网格
+
+> `bootstrap` 中的网格基本代码
+
+```html
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">1</div>
+        <div class="col">2</div>
+    </div>
+</div>
+```
+
+### 网格类型
+
+> `bootstrap` 中的网格设计了很多种类型
+
+| 网格代码     | 类型         |
+| -------- | ---------- |
+| col系列    | 全局网格系列     |
+| col-sm系列 | 屏幕大于576px  |
+| col-md系列 | 屏幕大于768px  |
+| col-lg系列 | 屏幕大于992px  |
+| col-xl系列 | 屏幕大于1200px |
+
+### 网格序号
+
+> 序号不同，单行显示的网格数量也不同
+
+| 网格序号 | 单行网格数量       | 举例         |
+| ---- | ------------ | ---------- |
+| auto | 网格宽度随内容而发生变化 | `col-auto` |
+| 1    | 屏幕单行分12个网格   | `col-sm-1` |
+| 2    | 屏幕单行分6个网格    | `col-md-2` |
+| 3    | 屏幕单行分4个网格    | `col-lg-3` |
+| 4    | 屏幕单行分3个网格    | `col-xl-4` |
+| 5    | 与`7`配合独占一行   | `col-5`    |
+| 6    | 屏幕单行分2个网格    | `col-6`    |
+| 7    | 与`5`配合独占一行   | `col-7`    |
+| 8    | 与`4`配合独占一行   | `col-8`    |
+| 9    | 与`3`配合独占一行   | `col-9`    |
+| 10   | 与`2`配合独占一行   | `col-10`   |
+| 11   | 与`1`配合独占一行   | `col-11`   |
+| 12   | 屏幕单行分1个网格    | `col-12`   |
+
+> PS：测试下就会发现将序号先加等于`12`的就会是独立的一行，下举例都是独立一行的
+
+```html
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1 bg-warning">1</div>
+        <div class="col-2 bg-danger">2</div>
+        <div class="col-9 bg-info">9</div>
+    </div>
+</div>
+```
+
+```html
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 bg-warning">3</div>
+        <div class="col-4 bg-danger">4</div>
+        <div class="col-5 bg-info">5</div>
+    </div>
+</div>
+```
+
+```html
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1 bg-warning">1</div>
+        <div class="col-4 bg-info">4</div>
+        <div class="col-3 bg-danger">3</div>
+        <div class="col-4 bg-info">4</div>
+    </div>
+</div>
+```
+
+### 响应式网格设计
+
+> 屏幕宽度不同，单行显示的网格数也不同
+
+```html
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4 bg-warning">1</div>
+        <div class="col-4 bg-info">2</div>
+        <div class="col-4 bg-danger">3</div>
+        <div class="col-4 bg-info">4</div>
+        <div class="col-4 bg-info">5</div>
+        <div class="col-4 bg-info">6</div>
+    </div>
+</div>
+```
