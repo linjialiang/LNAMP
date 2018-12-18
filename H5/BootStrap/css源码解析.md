@@ -238,10 +238,22 @@ html{font-size:14px}
 
 > 向右偏移量 == 序号/12，序号越大偏移量就越大
 
+### 偏移案例
+
+> 案例源码
+
 ```html
 <div class="container-fluid">
     <div class="bg-warning">1</div>
-    <div class="bg-info offset-11">2</div>
+    <div class="bg-info offset-1 offset-sm-6 offset-xl-11">2</div>
     <div class="bg-danger">3</div>
 </div>
 ```
+
+> 案例分析：
+
+| 屏幕宽度     | 偏移量   |
+| -------- | ----- |
+| 小于576px  | 1/12  |
+| 大于756px  | 1/2   |
+| 大于1200px | 11/12 |
