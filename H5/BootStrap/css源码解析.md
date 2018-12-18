@@ -19,6 +19,8 @@ html{font-size:14px}
 | `.container`       | 有最大宽度  |
 | `.container-fluid` | 永远100% |
 
+> PS：尽量在容器内完成页面的工作
+
 ## 网格
 
 > `bootstrap` 中的网格基本代码
