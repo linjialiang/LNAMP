@@ -19,6 +19,54 @@ html{font-size:14px}
 | `.container`       | 有最大宽度  |
 | `.container-fluid` | 永远100% |
 
+> `.container` 源码
+
+```css
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+```
+
+> `.container-fluid`
+
+```css
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+```
+
 > PS：尽量在容器内完成页面的工作
 
 ## 章节导航
