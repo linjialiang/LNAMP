@@ -61,14 +61,14 @@
 
 ## atom扩展主题
 
-| atom扩展主题(6)              | 主题说明      |
-| ------------------------ | --------- |
-| `atom-eclipse-syntax`    | 亮系主题      |
-| `atom-material-syntax`   | 最高下载量主题   |
-| `nord-atom-syntax`       | 暗系主题      |
-| ~~`monokai`~~            | ~~代码样式4~~ |
-| ~~`city-lights-syntax`~~ | ~~代码样式5~~ |
-| ~~`dracula-syntax`~~     | ~~代码样式6~~ |
+| atom扩展主题(6)                | 主题说明        |
+| -------------------------- | ----------- |
+| `atom-eclipse-syntax`      | 亮系主题        |
+| `monokai`                  | 支持各大编辑器的主题  |
+| `nord-atom-syntax`         | 暗系主题        |
+| ~~`atom-material-syntax`~~ | ~~最高下载量主题~~ |
+| ~~`city-lights-syntax`~~   | ~~代码样式5~~   |
+| ~~`dracula-syntax`~~       | ~~代码样式6~~   |
 
 ## atom扩展插件
 
