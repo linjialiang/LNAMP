@@ -138,8 +138,9 @@
 | `autoprefixer`                 | css3 后缀自动完成               |
 | `open-in-browser`              | html 页面从默认浏览器打开       |
 | `color-picker`                 | 颜色选择                        |
-| `autoclose-html`               | html 结束自动关闭               |
+| ~~`autoclose-html`~~           | ~~html 结束自动关闭~~           |
 | `double-tag`                   | html 开始和结束标签同步修改     |
+| `tag`                          | `</ & cmd-alt-.` 自动闭合标签   |
 | `emmet`                        | 前端神器                        |
 | `svg-preview`                  | svg 预览                        |
 | `pigments`                     | css 下显示真实颜色              |
