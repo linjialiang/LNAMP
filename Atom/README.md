@@ -59,29 +59,29 @@
 
     ![内置主题UI](./img/builtInUI.png)
 
-## atom 扩展主题
+## atom扩展主题
 
-| atom 扩展主题(6)         | 主题说明       |
-| ------------------------ | -------------- |
-| `atom-eclipse-syntax`    | 亮系主题       |
-| `atom-material-syntax`   | 最高下载量主题 |
-| `nord-atom-syntax`       | 暗系主题       |
-| `monokai`                | 代码样式 4     |
-| ~~`city-lights-syntax`~~ | ~~代码样式 5~~ |
-| ~~`dracula-syntax`~~     | ~~代码样式 6~~ |
+| atom扩展主题(6)                | 主题说明        |
+| -------------------------- | ----------- |
+| `atom-eclipse-syntax`      | 亮系主题        |
+| `monokai`                  | 支持各大编辑器的主题  |
+| `nord-atom-syntax`         | 暗系主题        |
+| ~~`atom-material-syntax`~~ | ~~最高下载量主题~~ |
+| ~~`city-lights-syntax`~~   | ~~代码样式5~~   |
+| ~~`dracula-syntax`~~       | ~~代码样式6~~   |
 
-## atom 扩展插件
+## atom扩展插件
 
-| 实用插件(15)                     | 插件说明                 |
-| -------------------------------- | ------------------------ |
-| `atom-beautify`                  | 格式化源代码             |
-| `docblockr`                      | 用于注释                 |
-| `Sublime-Style-Column-Selection` | 复制任意区域             |
-| `sync-settings`                  | atom 配置同步插件        |
-| `highlight-selected`             | 选择高亮                 |
-| `split-diff`                     | 文件对比插件             |
-| `regex-railroad-diagram`         | 正则表达式图形界面       |
-| `project-manager`                | 项目管理                 |
+| 实用插件(15)                         | 插件说明           |
+| -------------------------------- | -------------- |
+| `atom-beautify`                  | 格式化源代码         |
+| `docblockr`                      | 用于注释           |
+| `Sublime-Style-Column-Selection` | 复制任意区域         |
+| `sync-settings`                  | atom配置同步插件     |
+| `highlight-selected`             | 选择高亮           |
+| `split-diff`                     | 文件对比插件         |
+| `regex-railroad-diagram`         | 正则表达式图形界面      |
+| `project-manager`                | 项目管理           |
 | ~~`intentions`~~                 | ~~用于显示意图的基础包~~ |
 | `platformio-ide-terminal`        | atom 下出色的终端        |
 | `markdown-preview-enhanced`      | markdown 预览            |
