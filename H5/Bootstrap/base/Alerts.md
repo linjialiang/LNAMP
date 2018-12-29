@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2018-12-29 22:03:52
+| @Last modified time: 2018-12-29 23:20:28
 +===============================================================================
 -->
 
@@ -70,3 +70,98 @@
 | ----------------- | --------------------------------------------- |
 | `close.bs.alert`  | 当调用 close 实例方法时，该事件立即触发。     |
 | `closed.bs.alert` | 该事件在警报关闭时触发(将等待 CSS 转换完成)。 |
+
+## 案例
+
+> 用例子来说明 Alerts 组件
+
+### Alerts 组件的颜色类效果
+
+![Alerts组件-颜色列表](./static/Alerts组件-颜色列表.png)
+
+```html
+<div class="container">
+    <h3 class="text-center">Alerts组件的颜色类效果</h3>
+    <div class="alert alert-primary">
+        <p class="mb-0">这是主要颜色!</p>
+    </div>
+    <div class="alert alert-secondary">
+        <p class="mb-0">这是次要颜色!</p>
+    </div>
+    <div class="alert alert-success">
+        <p class="mb-0">这是返回成功!</p>
+    </div>
+    <div class="alert alert-danger">
+        <p class="mb-0">这是返回危险！</p>
+    </div>
+    <div class="alert alert-warning">
+        <p class="mb-0">这是返回警告！</p>
+    </div>
+    <div class="alert alert-info">
+        <p class="mb-0">这是信息！</p>
+    </div>
+    <div class="alert alert-light">
+        <p class="mb-0">这是亮系</p>
+    </div>
+    <div class="alert alert-dark">
+        <p class="mb-0">这是暗系</p>
+    </div>
+</div>
+```
+
+### Alerts 组件-带链接
+
+![Alerts组件-带链接](./static/Alerts组件-带链接.png)
+
+```html
+<div class="container">
+    <h3 class="text-center">Alerts组件-带链接</h3>
+    <div class="alert alert-primary">
+        <p class="mb-0">这是主要颜色!<a href="javascript:void(0);" class="alert-link">这里是链接</a></p>
+    </div>
+    <div class="alert alert-warning">
+        <p class="mb-0">这里返回警告信息!<a href="javascript:void(0);" class="alert-link text-danger">用.text-danger改变链接的颜色</a></p>
+    </div>
+</div>
+```
+
+### Alerts 组件-其它特殊标签
+
+![Alerts组件-其它特殊标签](./static/Alerts组件-其它特殊标签.png)
+
+```html
+<div class="container">
+    <h3 class="text-center">Alerts组件-其它特殊标签</h3>
+    <div class="alert alert-warning">
+        <h4 class="alert-heading text-center">警告信息</h4>
+        <hr>
+        <p class="mb-0 text-right">这里返回带警告的信息!</p>
+    </div>
+</div>
+```
+
+### Alerts 组件-关闭按钮
+
+> 关闭按钮样式是 js 行为的载体，所以必须掌握
+
+![Alerts组件-关闭按钮](./static/Alerts组件-关闭按钮.png)
+
+```html
+<div class="container">
+    <h3 class="text-center">Alerts组件-其它特殊标签</h3>
+    <div class="alert alert-success">
+        <button type="button" name="close" class="close"> &times; </button>
+        <p class="mb-0">这里成功返回信息!</p>
+    </div>
+    <div class="alert alert-warning">
+        <button type="button" name="close" class="close">&times;</button>
+        <h4 class="alert-heading text-center">警告信息</h4>
+        <hr>
+        <p class="mb-0 text-right">这里返回带警告的信息!</p>
+    </div>
+</div>
+```
+
+### js 方法
+
+### js 事件
