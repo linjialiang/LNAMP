@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2018-12-30 11:20:32
+| @Last modified time: 2018-12-30 15:46:44
 +===============================================================================
 -->
 
@@ -58,11 +58,11 @@
 
 ### 触发方法
 
-| 方法                   | 描述                                                                                                          |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `$().alert()`          | 在具有 `data-dismiss="alert"` 属性的子代元素上发出警告侦听单击事件。(在使用数据 api 的自动初始化时没有必要。) |
-| `$().alert('close')`   | 通过从 DOM 中删除警报来关闭。如果元素上有 `.fade & .show` 类，警告将在移除之前淡出。                          |
-| `$().alert('dispose')` | 破坏元素的警告。                                                                                              |
+| 方法                   | 描述                                                                                                                               |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `$().alert()`          | 在具有 `data-dismiss="alert"` 属性的子代元素上发出警告侦听单击事件。(在使用数据 api 的自动初始化时没有必要。)                      |
+| `$().alert('close')`   | 从 DOM 中直接删除`祖级及本身`标签中最近出现 `.alert` 样式类的整个块来关闭。如果元素上有 `.fade & .show` 类，警告将在移除之前淡出。 |
+| `$().alert('dispose')` | 破坏元素的警告，用于处理事件（暂时没发现用处）                                                                                     |
 
 ### 触发事件
 
@@ -188,7 +188,7 @@
 <script src="/static/base/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
     $('button.close').on('click', function(){
-        $(this).alert('close');
+        $(this).parent().alert('close');
     });
 </script>
 ```
@@ -209,7 +209,7 @@
 <script src="/static/base/js/bootstrap.bundle.min.js"></script>
 ```
 
-> Alerts组件-实现淡出效果
+> Alerts 组件-实现淡出效果
 
 ![Alerts组件-淡出后再关闭](./static/Alerts组件-淡出后再关闭.gif)
 
@@ -226,5 +226,50 @@
 <script src="/static/base/js/jquery.min.js"></script>
 <script src="/static/base/js/bootstrap.bundle.min.js"></script>
 ```
+
+> 可以子级指定要关闭的通知块
+
+![Alerts组件-指定关闭的块级](./static/Alerts组件-指定关闭的块级.gif)
+
+```html
+<div class="container">
+    <h3 class="text-center">Alerts组件-指定关闭的块级</h3>
+    <div class="alert alert-primary alert-dismissible fade show" id="top">
+        <button type="button" name="close" class="close">&times;</button>
+        <h3 class="alert-heading text-center">带<code>.alert</code>的父级div块</h3>
+        <p class="mb-0 text-right">该div块已经没有带<code>.alert</code>的上级，id值：<code>#top</code>，按钮关闭<code>父级div</code></p>
+        <hr>
+        <div class="alert alert-warning fade show" id="main1">
+            <button type="button" name="close" class="close">&times;</button>
+            <p class="mb-0">带<code>.alert</code>的最小子级，id值：<code>#main1</code>，按钮关闭 <code>#main2</code></p>
+        </div>
+        <div class="alert alert-danger fade show" id="main2">
+            <button type="button" name="close" class="close">&times;</button>
+            <p class="mb-0">带<code>.alert</code>的最小子级，id值：<code>#main2</code>，按钮关闭 <code>#top</code></p>
+        </div>
+    </div>
+</div>
+<script src="/static/base/js/jquery.min.js"></script>
+<script src="/static/base/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+    // 点击触发最近的子级
+    $('.close').on('click', function() {
+        let parent = $(this).parent();  /*按钮父级*/
+        switch (parent.attr('id')) {
+            case 'main1':
+                $('#main2').alert('close');
+                break;
+            case 'main2':
+                parent.parent('#top').alert('close');
+                break;
+            default:
+                parent.alert('close');
+                break;
+        }
+    });
+</script>
+```
+
+> PS：事实上，触发按钮上的 `$(this).alert('close')` 也可以直接按钮删除上级 div 块
 
 ### js 事件
