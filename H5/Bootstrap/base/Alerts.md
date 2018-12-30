@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2018-12-30 15:46:44
+| @Last modified time: 2018-12-30 16:12:34
 +===============================================================================
 -->
 
@@ -252,7 +252,6 @@
 <script src="/static/base/js/jquery.min.js"></script>
 <script src="/static/base/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
-    // 点击触发最近的子级
     $('.close').on('click', function() {
         let parent = $(this).parent();  /*按钮父级*/
         switch (parent.attr('id')) {
@@ -273,3 +272,34 @@
 > PS：事实上，触发按钮上的 `$(this).alert('close')` 也可以直接按钮删除上级 div 块
 
 ### js 事件
+
+> 事件用到的地方比较小，我们直接贴案例
+
+![Alerts组件-js事件](./static/Alerts组件-js事件.gif)
+
+```html
+<div class="container">
+    <h3 class="text-center">Alerts组件-js事件（很少用到）</h3>
+    <div class="alert alert-warning fade show" id="main1">
+        <button type="button" name="close" class="close">&times;</button>
+        <p class="mb-0"><code>close.bs.alert</code>事件立即执行，再触发淡出和DOM移除</p>
+    </div>
+    <div class="alert alert-danger fade show" id="main2">
+        <button type="button" name="close" class="close">&times;</button>
+        <p class="mb-0">先触发淡出和DOM移除，接着再执行<code>closed.bs.alert</code>事件</p>
+    </div>
+</div>
+<script src="/static/base/js/jquery.min.js"></script>
+<script src="/static/base/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+    $('.close').on('click', function() {
+        $(this).parent().alert('close');
+    });
+    $('#main1').on('close.bs.alert', function() {
+        alert('close.bs.alert 事件在前');
+    });
+    $('#main2').on('closed.bs.alert', function() {
+        alert('closed.bs.alert 事件在后');
+    });
+</script>
+```
