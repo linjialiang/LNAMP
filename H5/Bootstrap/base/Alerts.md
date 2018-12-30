@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2018-12-29 23:20:28
+| @Last modified time: 2018-12-30 11:20:32
 +===============================================================================
 -->
 
@@ -41,14 +41,16 @@
 
 ### 结构类表
 
-| 结构类               | 描述                                           |
-| -------------------- | ---------------------------------------------- |
-| `.alert`             | 颜色类的基础，与颜色类处于同一标签             |
-| `.alert-link`        | 字体变粗，并改变颜色                           |
-| `<hr>`               | 每个颜色类下的`<hr>`标签都有对应的效果         |
-| `.alert-heading`     | 通知信息的标题，标题标签的颜色值对应颜色类     |
-| `.alert-dismissible` | 消息的关闭行为相关类                           |
-| `.close`             | `.alert-dismissible`对应标签下的关闭按钮样式类 |
+| 结构类               | 描述                                                                    |
+| -------------------- | ----------------------------------------------------------------------- |
+| `.alert`             | 颜色类的基础，与颜色类处于同一标签                                      |
+| `.alert-link`        | 字体变粗，并改变颜色                                                    |
+| `<hr>`               | 每个颜色类下的`<hr>`标签都有对应的效果                                  |
+| `.alert-heading`     | 通知信息的标题，标题标签的颜色值对应颜色类                              |
+| `.alert-dismissible` | 为消息按钮提供样式，正常情况下，每个关闭按钮都应该使用它                |
+| `.close`             | 关闭按钮样式类，并且 js 行为中需要它                                    |
+| `.fade`              | 父级样式类， 让`Alerts块`在淡出 0.15 秒后移除，需要与`show`一起才能生效 |
+| `.show`              | 父级样式类，没有样式，配合 `.fade` 专为 `js 行为` 而存在                |
 
 ## js 行为
 
@@ -163,5 +165,66 @@
 ```
 
 ### js 方法
+
+> 最简单的移除案例
+
+![Alerts组件-关闭按钮](./static/Alerts组件-关闭按钮.gif)
+
+```html
+<div class="container">
+    <h3 class="text-center">Alerts组件-关闭按钮</h3>
+    <div class="alert alert-success">
+        <button type="button" name="close" class="close"> &times; </button>
+        <p class="mb-0">关闭按钮父级元素没有带 <code>.alert-dismissible</code> 样式，按钮边距会很窄！</p>
+    </div>
+    <div class="alert alert-warning alert-dismissible">
+        <button type="button" name="close" class="close">&times;</button>
+        <h4 class="alert-heading text-center">警告信息</h4>
+        <hr>
+        <p class="mb-0 text-right">关闭按钮父级元素带 <code>.alert-dismissible</code> 样式后，按钮边距变的更加合理!</p>
+    </div>
+</div>
+<script src="/static/base/js/jquery.min.js"></script>
+<script src="/static/base/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+    $('button.close').on('click', function(){
+        $(this).alert('close');
+    });
+</script>
+```
+
+> 使用 `bootstrap` 对按钮自定义属性 `data-dismiss="alert"` 来实现点击关闭效果
+
+![Alerts组件-按钮属性实现关闭](./static/Alerts组件-按钮属性实现关闭.gif)
+
+```html
+<div class="container">
+    <h3 class="text-center">Alerts组件-按钮属性<code>data-dismiss="alert"</code>实现关闭</h3>
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" name="close" class="close" data-dismiss="alert">&times;</button>
+        <p class="mb-0">关闭按钮父级元素没有带 <code>.alert-dismissible</code> 样式，按钮边距会很窄！</p>
+    </div>
+</div>
+<script src="/static/base/js/jquery.min.js"></script>
+<script src="/static/base/js/bootstrap.bundle.min.js"></script>
+```
+
+> Alerts组件-实现淡出效果
+
+![Alerts组件-淡出后再关闭](./static/Alerts组件-淡出后再关闭.gif)
+
+```html
+<div class="container">
+    <h3 class="text-center">Alerts组件-淡出后再关闭</h3>
+    <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" name="close" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading text-center">返回成功</h4>
+        <hr>
+        <p class="mb-0 text-right">点击按钮后，会淡出后再移除该div块!</p>
+    </div>
+</div>
+<script src="/static/base/js/jquery.min.js"></script>
+<script src="/static/base/js/bootstrap.bundle.min.js"></script>
+```
 
 ### js 事件
