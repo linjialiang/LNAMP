@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2018-12-31 12:27:18
+| @Last modified time: 2018-12-31 12:59:45
 +===============================================================================
 -->
 
@@ -42,6 +42,11 @@
     <button type="button" name="button" class="btn btn-primary">这是正常大小按钮</button>
     <button type="button" name="button" class="btn btn-primary btn-sm">这是小按钮</button>
     <hr>
+    <h3>btn-活动按钮</h3>
+    <button type="button" name="button" class="btn btn-primary">正常</button>
+    <button type="button" name="button" class="btn btn-primary active">活动按钮颜色深</button>
+    <button type="button" name="button" class="btn btn-primary">正常</button>
+    <hr>
     <button type="button" name="button" class="btn btn-primary btn-block">这是块级按钮</button>
     <hr>
     <h3>btn-禁用按钮， <code>&lt;button&gt;</code> 和 <code>a</code> 有所不同</h3>
@@ -56,4 +61,4 @@
 
 > 使用按钮组将一系列按钮组合在一行上，并允许使用JavaScript对它们进行处理
 
-### 
+###
