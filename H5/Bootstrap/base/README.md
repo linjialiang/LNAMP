@@ -18,6 +18,7 @@
 | 6    | [`bootstrap` 表单](./../SourceCode/表单.md)     |
 | 7    | [`bootstrap组件` - 通知](./Alerts.md)           |
 | 8    | [`bootstrap组件` - 徽章](./Badges.md)           |
-| 8    | [`bootstrap组件` - 面包屑导航](./Breadcrumb.md) |
-| 9    | [`bootstrap组件` - 按钮组](./ButtonGroup.md)    |
-| 8    | [`bootstrap组件` - 卡片](./Cards.md)            |
+| 9    | [`bootstrap组件` - 面包屑导航](./Breadcrumb.md) |
+| 10    | [`bootstrap组件` - 按钮组](./ButtonGroup.md)    |
+| 11   | [`bootstrap组件` - 卡片](./Cards.md)            |
+| 12   | [`bootstrap组件` - 旋转木马](./Carousel.md)            |
