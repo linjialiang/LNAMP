@@ -27,7 +27,9 @@
 
 > PS：除此之外，还有 js 方法和事件，以及其他嵌入操作，如表单嵌入等...
 
-## 案例1：简单的下拉菜单
+## 案例
+
+![下拉菜单组件](./static/下拉菜单组件.gif)
 
 ```html
 <div class="container mt-3">
@@ -40,7 +42,7 @@
         </div>
     </div>
     <div class="dropright mt-2">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="badge badge-warning">a链接</i> 下拉菜单</button>
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">按钮方向向右</button>
         <div class="dropdown-menu">
             <h3 class="dropdown-header" href="#">按钮方向向右</h3>
             <a class="dropdown-item disabled" href="#">禁用该项-a方法</a>
@@ -49,6 +51,77 @@
             <h3 class="dropdown-header" href="#">头部2</h3>
             <a class="dropdown-item" href="#">头部1和头部2之间使用了分割线</a>
         </div>
+    </div>
+    <div class="btn-group dropdown mt-2">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">按钮组</button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">按钮组的布局是内联的</a>
+        </div>
+    </div>
+    <div class="btn-group dropup mt-2">
+        <button class="btn btn-primary" type="button">按钮被分割</button>
+        <button class="btn btn-primary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown"></button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">需要用到按钮组</a>
+        </div>
+    </div>
+    <div class="btn-group dropup mt-2">
+        <button class="btn btn-primary" type="button">偏移量-<i class="badge badge-danger">offset</i></button>
+        <button class="btn btn-primary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" data-offset="-50,10"></button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">data-offset按像素偏移</a>
+        </div>
+    </div>
+    <div class="btn-group dropdown mt-2">
+        <button class="btn btn-primary" type="button">偏移量-<i class="badge badge-danger">reference</i></button>
+        <button class="btn btn-primary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" data-reference="parent"></button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#"><span class="badge badge-danger">data-reference</span> 按系统设置好的效果来偏移</a>
+            <a class="dropdown-item" href="#"><span class="badge badge-danger">data-reference="parent"</span> 偏移到按钮组最左端</a>
+        </div>
+    </div>
+    <div class="btn-group dropdown mt-2">
+        <button class="btn btn-primary" type="button">偏移量-<i class="badge badge-danger">reference & offset</i></button>
+        <button class="btn btn-primary dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown" data-reference="toggle" data-offset="-50, 20"></button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#"><span class="badge badge-danger">data-reference="toggle"</span>是默认值</a>
+            <a class="dropdown-item" href="#"><span class="badge badge-danger">data-offset</span> 按像素偏移</a>
+            <a class="dropdown-item" href="#">两者可以组合使用</a>
+        </div>
+    </div>
+    <hr>
+    <div class="dropdown-menu" style="position: static; display: block;">
+        <h2 class="dropdown-header">菜单内容-需要两个样式支持</h2>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#"><code>position: static</code></a>
+        <a class="dropdown-item" href="#"><code>display: block</code></a>
+    </div>
+    <div class="dropdown-menu p-4 ml-3 text-muted" style="position: static; display: block;">
+        <h6>文本内容</h6>
+        <p>下拉菜单可以直接输入文本内容</p>
+    </div>
+    <div class="dropdown-menu ml-3" style="position: static; display: block;">
+        <form class="p-4" action="index.html" method="post">
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" class="form-control" id="username" placeholder="请输入用户名">
+            </div>
+            <div class="form-group">
+                <label for="passwd">密码</label>
+                <input type="password" class="form-control" id="passwd" placeholder="请输入你的密码">
+            </div>
+            <div class="form-group custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="Remember">
+                <label class="custom-control-label text-muted" for="Remember">记住密码</label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block btn-primary">登录</button>
+                <button type="reset" class="btn btn-block btn-warning">重置</button>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="#">注册新用户</a>
+            <a class="dropdown-item small" href="#">忘记密码 ？</a>
+        </form>
     </div>
 </div>
 <script src="/static/base/js/jquery.min.js"></script>
