@@ -127,3 +127,5 @@
 <script src="/static/base/js/jquery.min.js"></script>
 <script src="/static/base/js/bootstrap.bundle.min.js"></script>
 ```
+
+> PS： 想要直接显示下拉菜单信息，`.dropdown-menu` 需要加上 `position: static; display: block;` 这两个样式
