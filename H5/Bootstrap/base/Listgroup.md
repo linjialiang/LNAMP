@@ -25,3 +25,23 @@
 | `.list-group-item-info`      | 信息 |
 | `.list-group-item-light`     | 亮系 |
 | `.list-group-item-dark`      | 暗系 |
+
+## 案例
+
+> 最基本列表
+
+![列表组-基本](./static/列表组-基本.png)
+
+```html
+<div class="container mt-3">
+    <h3 class="text-center">最基本的列表</h3>
+    <ul class="list-group">
+        <li class="list-group-item">列表第1列</li>
+        <li class="list-group-item">列表第2列</li>
+        <li class="list-group-item">列表第3列</li>
+        <li class="list-group-item">列表第4列</li>
+        <li class="list-group-item">列表第5列</li>
+        <li class="list-group-item">列表第6列</li>
+    </ul>
+</div>
+```
