@@ -49,3 +49,24 @@
     </ul>
 </div>
 ```
+
+> 多功能的列表组
+
+![多功能列表](./static/列表组-多功能列表.gif)
+
+```html
+<div class="container mt-3">
+    <h3 class="text-center">多功能的列表组</h3>
+    <ul class="list-group">
+        <li class="list-group-item">这是一段文本</li>
+        <a class="list-group-item" href="javascript:void(0)">这是一个 <code>&lt;a&gt;</code> 标签</a>
+        <button type="button" class="list-group-item text-left">这是一个 <code>&lt;button&gt;</code> 标签</button>
+        <li class="list-group-item active">当前列带 <code>.active</code></li>
+        <li class="list-group-item list-group-item-action">当前列带 <code>.list-group-item-action</code></li>
+        <li class="list-group-item list-group-item-primary">当前列带 <code>.list-group-item-primary</code></li>
+        <li class="list-group-item list-group-item-primary list-group-item-action">当前列带 <code>.list-group-item-primary.list-group-item-action</code></li>
+        <button type="button" class="list-group-item list-group-item-warning list-group-item-action">警告：所有子类背景颜色都会被`.active`覆盖</button>
+        <a href="javascript:void(0)" class="list-group-item list-group-item-warning list-group-item-action">警告：<code>.list-group-item-action</code>会被`.active`覆盖</a>
+    </ul>
+</div>
+```
