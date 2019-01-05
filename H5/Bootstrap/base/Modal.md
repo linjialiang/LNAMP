@@ -120,3 +120,99 @@
 | `$().modal('hide')`         | 仅隐藏                                                             |
 | `$().modal('handleUpdate')` | 如果模态打开时高度发生变化(例如出现滚动条)，则手动调整模态的位置。 |
 | `$().modal('dispose')`      | 销毁元素的模态。                                                   |
+
+## js 选项
+
+> js 选项有 4 个，默认全部为 `true`
+
+| 选项名     | 取值              | 描述                        |
+| ---------- | ----------------- | --------------------------- |
+| `backdrop` | 布尔值或 `static` | 模态框背景                  |
+| `keyboard` | 布尔值            | 按下 `esc` 按键时关闭模态框 |
+| `focus`    | 布尔值            | 在初始化时将焦点放在模态上  |
+| `show`     | 布尔值            | 显示初始化时的模态框        |
+
+> `backdrop` 为 `static` 时，有背景色，但点击背景无法关闭模态框
+
+1. js 选项定义
+   > js4 个选项组成了一个数组，使用 `$().modal({})` 来定义
+
+```js
+$("#selector").modal({
+  keyboard: false, // 取消键盘绑定
+  backdrop: static // 取消点击背景色事件
+});
+```
+
+> 案例
+
+![modal-js方法](./static/modal-js方法.gif)
+
+```html
+<div class="container mt-3">
+    <h3 class="text-center">模态框</h3>
+    <button type="button" class="btn btn-primary" id="js-modal"> js方法 </button>
+    <div class="modal fade" id="modal002">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">js方法</h5>
+                    <button type="button" class="close modal-close">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>该模态框使用 <span class="badge badge-danger">js方法</span> 来展示和隐藏，需要我们添加js方法!</p>
+                    <dl class="">
+                        <dt><code>$().modal('show');</code> 用于展示模态框</dt>
+                        <dd>一般用于 <span class="badge badge-primary">页面本身存在的 &lt;button&gt; &lt;a&gt;</span> 里，通过点击事件来触发模态框显示</dd>
+                        <hr>
+                        <dt><code>$().modal('hide');</code> 用于隐藏模态框</dt>
+                        <dd><span class="badge badge-primary">模态框内所有用于关闭模态框的 &lt;button&gt; &lt;a&gt;</span> ，通过点击事件来触发模态框隐藏</dd>
+                        <hr>
+                        <dt><code>$().modal('toggle');</code> 用于展示、隐藏模态框</dt>
+                        <dd>可替带，以下两个中的任意一个：
+    <pre>
+    $().modal('show');
+    $().modal('hide');
+    </pre>
+                        </dd>
+                        <hr>
+                        <dt><code>data-target="#selector"</code> 将 <span class="badge badge-primary">&lt;button&gt; &lt;a&gt;</span> 映射到指定id的模态框</dt>
+                        <dd>用于 <span class="badge badge-primary">页面本身存在的 &lt;button&gt; &lt;a&gt;</span> 里，用于映射到指定id的模态框</dd>
+                    </dl>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary modal-close">关闭</button>
+                    <button type="button" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/base/js/jquery.min.js"></script>
+<script src="/static/base/js/bootstrap.bundle.js"></script>
+<script type="text/javascript">
+    $('#js-modal').on('click', function() {
+        $('#modal002').modal('show');
+    });
+    $('#modal002 .modal-close').on('click', function() {
+        $('#modal002').modal('hide');
+    });
+</script>
+```
+
+> 如无必要，请不要使用 js 方法了，因为用 html 更加简单更加直观
+
+## js 事件
+
+> 模态框组件支持 4 个 js 事件，所有事件都是在 modal 本身发生的（就是在`<div class="modal">`这个 div 上发生）
+
+| 事件              | 描述                                                                                                                       |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `show.bs.modal`   | 当调用 show 实例方法时，此事件立即触发。如果是由单击引起的，则单击的元素作为事件的`relatedTarget`属性可用。                |
+| `shown.bs.modal`  | 当模式对用户可见时，将触发此事件(将等待 CSS 转换完成)。如果是由单击引起的，则单击的元素作为事件的`relatedTarget`属性可用。 |
+| `hide.bs.modal`   | 当调用 hide 实例方法时，将立即触发此事件。                                                                                 |
+| `hidden.bs.modal` | 当模态对用户隐藏完成时(将等待 CSS 转换完成)触发此事件。                                                                    |
+
+> 在这里不详细讲解 js 事件，有需要可自行研究
