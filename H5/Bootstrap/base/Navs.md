@@ -7,9 +7,9 @@
 | 样式类           | 描述                                                                  |
 | ---------------- | --------------------------------------------------------------------- |
 | `.nav`           | 父级，基类                                                            |
-| `.nav-pills`     | 父级，让子类带背景框                                                  |
 | `.nav-fill`      | 父级，让子类充满整行（但子类宽度不统一）                              |
 | `.nav-justified` | 父级，让子类充满整行（并且子类宽度一致）                              |
+| `.nav-pills`     | 父级，让子类带背景框                                                  |
 | `.nav-tabs`      | 父级，让子类带选项卡效果                                              |
 | `.nav-item`      | 子级，导航基类的下级，为`.nav-tabs & .nav-justified & .nav-fill` 而生 |
 | `.nav-link`      | `<a>` 标签级，水平、垂直对齐，`<a>` 链接的样式(`.nav-item`同级或子级) |
@@ -110,3 +110,37 @@
 | `.fade`          | 子级，支持淡入淡出                                            |
 | `.show`          | 子级，`.fade` 默认会隐藏`.active`,需要使用`.show`配置才能显示 |
 | `id="#selector"` | 子级，带有选择器就会被导航区的一一映射                        |
+
+> js行为案例
+
+![导航组件-选项卡](./static/导航组件-选项卡.gif)
+
+```html
+<div class="container mt-3">
+    <h1 class="text-center">导航-js行为</h1>
+    <h3 class="mt-3"><code>.nav-tabs</code> 风格</h3>
+    <nav class="nav nav-tabs mb-3">
+        <a class="nav-item nav-link active" data-toggle="tab" href="#nav-1">标题1</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#nav-2">标题2</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#nav-3">标题3</a>
+    </nav>
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="nav-1">内容1</div>
+        <div class="tab-pane fade" id="nav-2">内容2</div>
+        <div class="tab-pane fade" id="nav-3">内容3</div>
+    </div>
+    <h3 class="mt-3"><code>.nav-pills</code> 风格</h3>
+    <nav class="nav nav-pills mb-3">
+        <a class="nav-item nav-link active" data-toggle="tab" href="#nav-2-1">标题1</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#nav-2-2">标题2</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#nav-2-3">标题3</a>
+    </nav>
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="nav-2-1">内容1</div>
+        <div class="tab-pane fade" id="nav-2-2">内容2</div>
+        <div class="tab-pane fade" id="nav-2-3">内容3</div>
+    </div>
+</div>
+<script src="/static/base/js/jquery.min.js"></script>
+<script src="/static/base/js/bootstrap.bundle.min.js"></script>
+```
