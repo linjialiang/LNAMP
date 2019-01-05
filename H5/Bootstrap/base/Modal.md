@@ -66,38 +66,57 @@
 ![modal-数据属性](./static/modal-数据属性.gif)
 
 ```html
-<h3 class="text-center">模态框</h3>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal001"> 数据属性 </button>
-<div class="modal fade" id="modal001">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">数据属性</h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <span>&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>该模态框使用 <span class="badge badge-danger">数据属性</span> 来展示和隐藏，不需要额外的js方法!</p>
-                <dl class="">
-                    <dt><code>data-toggle="modal"</code> 用于展示模态框</dt>
-                    <dd>一般用于 <span class="badge badge-primary">页面本身存在的 &lt;button&gt; &lt;a&gt;</span> 里，通过点击事件来触发模态框显示</dd>
-                    <hr>
-                    <dt><code>data-dismiss="modal"</code> 用于隐藏模态框</dt>
-                    <dd><span class="badge badge-primary">模态框内所有用于关闭模态框的 &lt;button&gt; &lt;a&gt;</span> ，通过点击事件来触发模态框隐藏</dd>
-                    <hr>
-                    <dt><code>data-target="#selector"</code> 将 <span class="badge badge-primary">&lt;button&gt; &lt;a&gt;</span> 映射到指定id的模态框</dt>
-                    <dd>用于 <span class="badge badge-primary">页面本身存在的 &lt;button&gt; &lt;a&gt;</span> 里，用于映射到指定id的模态框</dd>
-                </dl>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">保存</button>
+<div class="container mt-3">
+    <h3 class="text-center">模态框</h3>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal001"> 数据属性 </button>
+    <div class="modal fade" id="modal001">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">数据属性</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>该模态框使用 <span class="badge badge-danger">数据属性</span> 来展示和隐藏，不需要额外的js方法!</p>
+                    <dl class="">
+                        <dt><code>data-toggle="modal"</code> 用于展示模态框</dt>
+                        <dd>一般用于 <span class="badge badge-primary">页面本身存在的 &lt;button&gt; &lt;a&gt;</span> 里，通过点击事件来触发模态框显示</dd>
+                        <hr>
+                        <dt><code>data-dismiss="modal"</code> 用于隐藏模态框</dt>
+                        <dd><span class="badge badge-primary">模态框内所有用于关闭模态框的 &lt;button&gt; &lt;a&gt;</span> ，通过点击事件来触发模态框隐藏</dd>
+                        <hr>
+                        <dt><code>data-target="#selector"</code> 将 <span class="badge badge-primary">&lt;button&gt; &lt;a&gt;</span> 映射到指定id的模态框</dt>
+                        <dd>用于 <span class="badge badge-primary">页面本身存在的 &lt;button&gt; &lt;a&gt;</span> 里，用于映射到指定id的模态框</dd>
+                    </dl>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">保存</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-</div>
 <script src="/static/base/js/jquery.min.js"></script>
 <script src="/static/base/js/bootstrap.bundle.min.js"></script>
 ```
+
+## js 方法
+
+> 用 js 方法来展示模态框，一般都是用于多个模态框的应用
+
+| 数据属性               | 描述           |
+| ---------------------- | -------------- |
+| `data-dismiss="modal"` | 关闭的数据属性 |
+
+> PS：模态框内关闭事件的数据属性是必带的，因为这个写成 js 会十分麻烦
+
+| js 方法                     | 描述                                                               |
+| --------------------------- | ------------------------------------------------------------------ |
+| `$().modal('toggle')`       | 显示或隐藏                                                         |
+| `$().modal('show')`         | 仅显示                                                             |
+| `$().modal('hide')`         | 仅隐藏                                                             |
+| `$().modal('handleUpdate')` | 如果模态打开时高度发生变化(例如出现滚动条)，则手动调整模态的位置。 |
+| `$().modal('dispose')`      | 销毁元素的模态。                                                   |
