@@ -111,7 +111,7 @@
 | `.show`          | 子级，`.fade` 默认会隐藏`.active`,需要使用`.show`配置才能显示 |
 | `id="#selector"` | 子级，带有选择器就会被导航区的一一映射                        |
 
-> js行为案例
+> js 行为案例：不需要额外 js 代码
 
 ![导航组件-选项卡](./static/导航组件-选项卡.gif)
 
@@ -144,3 +144,56 @@
 <script src="/static/base/js/jquery.min.js"></script>
 <script src="/static/base/js/bootstrap.bundle.min.js"></script>
 ```
+
+### 带额外 js 的案例
+
+> 带额外 js 以后，就可以将 `data-toggle="string"` 移除了
+
+1. 额外 js 代码
+
+   ```js
+   $("#selector a").on("click", function(e) {
+     e.preventDefault(); // preventDefault() 防止<a>连接被打开
+     $(this).tab("show"); // 展示被映射的选项卡内容区
+   });
+   ```
+
+2. 案例：
+
+    ![导航组件-选项卡-带js](./static/导航组件-选项卡-带js.gif)
+
+   ```html
+   <div class="container mt-3">
+       <h1 class="text-center">导航-js行为</h1>
+       <h3 class="mt-3"><code>.nav-pills</code> 风格</h3>
+       <nav class="nav nav-pills mb-3 tab-title">
+           <a class="nav-item nav-link active" href="#nav-1">标题1</a>
+           <a class="nav-item nav-link" href="#nav-2">标题2</a>
+           <a class="nav-item nav-link" href="#nav-3">标题3</a>
+       </nav>
+       <div class="tab-content">
+           <div class="tab-pane fade show active" id="nav-1">内容1</div>
+           <div class="tab-pane fade" id="nav-2">内容2</div>
+           <div class="tab-pane fade" id="nav-3">内容3</div>
+       </div>
+       <h3 class="mt-3"><code>.nav-tabs</code> 风格</h3>
+       <ul class="nav nav-tabs mb-3 tab-title">
+           <li class="nav-item"><a class="nav-link active" href="#nav-2-1">标题1</a></li>
+           <li class="nav-item"><a class="nav-link" href="#nav-2-2">标题2</a></li>
+           <li class="nav-item"><a class="nav-link" href="#nav-2-3">标题3</a></li>
+       </ul>
+       <div class="tab-content">
+           <div class="tab-pane fade show active" id="nav-2-1">内容1</div>
+           <div class="tab-pane fade" id="nav-2-2">内容2</div>
+           <div class="tab-pane fade" id="nav-2-3">内容3</div>
+       </div>
+   </div>
+   <script src="/static/base/js/jquery.min.js"></script>
+   <script src="/static/base/js/bootstrap.bundle.min.js"></script>
+   <script type="text/javascript">
+       $('.tab-title a').on('click', function(e) {
+           e.preventDefault(); // preventDefault() 防止<a>连接被打开
+           $(this).tab('show'); // 展示被映射的选项卡内容区
+       });
+   </script>
+   ```
