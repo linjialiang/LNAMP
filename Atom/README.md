@@ -132,7 +132,7 @@
 | 符号对齐相关插件(4)  | 插件说明       |
 | -------------------- | -------------- |
 | `aligner`            | 符号对齐基础包 |
-| `aligner-css`        | css 对齐       |
+| ~~`aligner-css`~~    | ~~css 对齐~~   |
 | `aligner-javascript` | js 对齐        |
 | `aligner-php`        | php 对齐       |
 
