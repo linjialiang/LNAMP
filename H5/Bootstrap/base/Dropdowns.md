@@ -41,7 +41,7 @@
             <a class="dropdown-item" href="#">也可以是a链接</a>
         </div>
     </div>
-    <div class="dropright mt-2">
+    <div class="dropright mt-2 ">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">按钮方向向右</button>
         <div class="dropdown-menu">
             <h3 class="dropdown-header" href="#">按钮方向向右</h3>
