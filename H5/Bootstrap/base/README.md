@@ -19,6 +19,13 @@
 | 7    | [`bootstrap组件` - 通知](./Alerts.md)           |
 | 8    | [`bootstrap组件` - 徽章](./Badges.md)           |
 | 9    | [`bootstrap组件` - 面包屑导航](./Breadcrumb.md) |
-| 10    | [`bootstrap组件` - 按钮组](./ButtonGroup.md)    |
+| 10   | [`bootstrap组件` - 按钮组](./ButtonGroup.md)    |
 | 11   | [`bootstrap组件` - 卡片](./Cards.md)            |
-| 12   | [`bootstrap组件` - 旋转木马](./Carousel.md)            |
+| 12   | [`bootstrap组件` - 旋转木马](./Carousel.md)     |
+| 13   | [`bootstrap组件` - 折叠组件](./Collapse.md)     |
+| 14   | [`bootstrap组件` - 下拉菜单](./Dropdowns.md)    |
+| 15   | [`bootstrap组件` - Jumbotron](./Jumbotron.md)   |
+| 16   | [`bootstrap组件` - 列表组](./ListGroup.md)      |
+| 17   | [`bootstrap组件` - 媒体对象](./MediaObject.md)  |
+| 18   | [`bootstrap组件` - 模态框](./Modal.md)          |
+| 19   | [`bootstrap组件` - 导航组件](./Navs.md)         |
