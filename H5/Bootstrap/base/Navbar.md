@@ -29,7 +29,7 @@
 | `.navbar-expand-xl`         | 顶级，屏幕大于指定值，导航菜单展开         |
 | `.navbar-brand`             | 父级，项目名称                             |
 | `.navbar-toggler`           | 子级，隐藏菜单展示按钮的样式类             |
-| `.navbar-toggler-icon`      | `.navbar-toggler`的下级，展示按钮的图标    |
+| `.navbar-toggler-icon`      | `.navbar-toggler`的下级，展示按钮图标      |
 | `.navbar-collapse.collapse` | 父级，导航菜单的样式类，并用于隐藏菜单     |
 | `.navbar-nav`               | 子级，可作为 `Navs 组件` 的基类            |
 | `.navbar-text`              | 用于垂直居中的文本                         |
