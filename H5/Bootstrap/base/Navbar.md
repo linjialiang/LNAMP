@@ -45,9 +45,9 @@
 
 ## 案例
 
-> navbar的一些列样式
+> navbar组件的一些列样式
 
-1. 基础案例：
+### 基础案例：
 
 ![导航条-基础案例](./static/导航条-基础.gif)
 
@@ -168,6 +168,80 @@
                 <a class="nav-item nav-link" href="#">文本颜色变化</a>
             </nav>
         </div>
+    </nav>
+</div>
+<script src="/static/base/js/jquery.min.js"></script>
+<script src="/static/base/js/bootstrap.bundle.min.js"></script>
+```
+
+### 导航条内部布局案例
+
+> 导航条比较理想的有居左和居右两种布局方式
+
+![导航条-内部布局案例](./static/导航条-内部布局.gif)
+
+```html
+<div class="container">
+    <h3 class="text-center mt-3">导航条-内部布局</h3>
+    <hr>
+    <nav class="navbar navbar-dark bg-danger">
+        <button type="button" name="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-001">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-brand navbar-text"> <img src="./static/base/logo/qin/logo-32.png" width="25" alt=""> 切换按钮居左</span>
+        <div class="navbar-collapse collapse" id="navbar-001">
+            <nav class="navbar-nav">
+                <a href="#" class="nav-item nav-link">navbar组件源码中：</a>
+                <a href="#" class="nav-item nav-link">切换按钮在前</a>
+                <a href="#" class="nav-item nav-link">项目名称在后</a>
+                <a href="#" class="nav-item nav-link">则切换按钮在左侧</a>
+            </nav>
+        </div>
+    </nav>
+    <nav class="navbar navbar-dark bg-dark mt-3">
+        <span class="navbar-brand navbar-text"> <img src="./static/base/logo/qin/logo-32.png" width="25" alt=""> 切换按钮居右</span>
+        <button type="button" name="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-002">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbar-002">
+            <nav class="navbar-nav">
+                <a href="#" class="nav-item nav-link">navbar组件源码中：</a>
+                <a href="#" class="nav-item nav-link">项目名称在前</a>
+                <a href="#" class="nav-item nav-link">切换按钮在后</a>
+                <a href="#" class="nav-item nav-link">则切换按钮在右侧</a>
+            </nav>
+        </div>
+    </nav>
+    <hr>
+    <h6 class="text-center mt-3">以下的效果一般</h6>
+    <nav class="navbar navbar-dark bg-dark mt-3">
+        <div class="navbar-collapse collapse" id="navbar-003">
+            <nav class="navbar-nav">
+                <a href="#" class="nav-item nav-link">navbar组件源码中：</a>
+                <a href="#" class="nav-item nav-link">菜单栏div在最前</a>
+                <a href="#" class="nav-item nav-link">浏览器效果会显示在切换按钮上方</a>
+                <a href="#" class="nav-item nav-link">切换按钮和项目在同一栏</a>
+                <a href="#" class="nav-item nav-link">效果一般</a>
+            </nav>
+        </div>
+        <span class="navbar-brand navbar-text"> <img src="./static/base/logo/qin/logo-32.png" width="25" alt=""> 切换按钮居右</span>
+        <button type="button" name="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-003">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <nav class="navbar navbar-dark bg-dark mt-3">
+        <button type="button" name="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-005">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbar-005">
+            <nav class="navbar-nav">
+                <a href="#" class="nav-item nav-link">navbar组件源码中：</a>
+                <a href="#" class="nav-item nav-link">菜单栏div在中间</a>
+                <a href="#" class="nav-item nav-link">浏览器效果也会发生相应变化</a>
+                <a href="#" class="nav-item nav-link">效果一般</a>
+            </nav>
+        </div>
+        <span class="navbar-brand navbar-text"> <img src="./static/base/logo/qin/logo-32.png" width="25" alt=""> 切换按钮居右</span>
     </nav>
 </div>
 <script src="/static/base/js/jquery.min.js"></script>
