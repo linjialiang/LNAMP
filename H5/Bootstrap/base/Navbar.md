@@ -17,26 +17,28 @@
 
 ## 样式表
 
-| 样式类                      | 描述                                              |
-| --------------------------- | ------------------------------------------------- |
-| `.navbar`                   | 顶级，navbar 基本类                               |
-| `.navbar-dark`              | 顶级，定义暗系 navbar                             |
-| `.navbar-light`             | 顶级，定义亮系 navbar                             |
-| `.navbar-expand`            | 顶级，navbar 菜单栏水平布局                       |
-| `.navbar-expand-sm`         | 顶级，屏幕大于指定值，`navbar菜单栏` 水平布局     |
-| `.navbar-expand-md`         | 顶级，屏幕大于指定值，`navbar菜单栏` 水平布局     |
-| `.navbar-expand-lg`         | 顶级，屏幕大于指定值，`navbar菜单栏` 水平布局     |
-| `.navbar-expand-xl`         | 顶级，屏幕大于指定值，`navbar菜单栏` 水平布局     |
-| `.navbar-brand`             | 父级，navbar 项目名称                             |
-| `.navbar-toggler`           | 子级，`菜单展示按钮`的样式类，用于隐藏菜单栏      |
-| `.navbar-toggler-icon`      | `.navbar-toggler`的下级，`菜单展示按钮`的效果样式 |
-| `.navbar-collapse.collapse` | 父级，`navbar菜单栏` 的样式类，并用于隐藏菜单     |
-| `.navbar-nav`               | 子级，可作为 `navbar菜单栏` 的基类                |
-| `.navbar-text`              | 用于垂直居中的文本                                |
+| 样式类                      | 描述                                                  |
+| --------------------------- | ----------------------------------------------------- |
+| `.navbar`                   | 顶级，navbar 基本类                                   |
+| `.navbar-dark`              | 顶级，定义暗系 navbar                                 |
+| `.navbar-light`             | 顶级，定义亮系 navbar                                 |
+| `.navbar-expand`            | 顶级，navbar 菜单栏水平布局                           |
+| `.navbar-expand-sm`         | 顶级，屏幕大于指定值，`navbar菜单栏` 水平布局         |
+| `.navbar-expand-md`         | 顶级，屏幕大于指定值，`navbar菜单栏` 水平布局         |
+| `.navbar-expand-lg`         | 顶级，屏幕大于指定值，`navbar菜单栏` 水平布局         |
+| `.navbar-expand-xl`         | 顶级，屏幕大于指定值，`navbar菜单栏` 水平布局         |
+| `.navbar-brand`             | 父级，navbar 项目名称                                 |
+| `.navbar-brand.navbar-text` | 父级，处理 navbar 项目名称 的文本样式                 |
+| `.navbar-toggler`           | 子级，`菜单展示按钮`的样式类，用于隐藏菜单栏          |
+| `.navbar-toggler-icon`      | 下级，`.navbar-toggler`下级，`菜单展示按钮`的效果样式 |
+| `.navbar-collapse.collapse` | 父级，`navbar菜单栏` 的样式类，并用于隐藏菜单         |
+| `.navbar-nav`               | 子级，`navbar菜单栏` 的基类                           |
 
 ## 属性表
 
-| 属性值                    | 描述                                                 |
-| ------------------------- | ---------------------------------------------------- |
-| `data-toggle="collapse"`  | 用于展示菜单栏                                       |
-| `data-target="#selector"` | 于映射到指定的导航菜单（一个按钮可控制多个导航菜单） |
+| 属性值                    | 描述                                      |
+| ------------------------- | ----------------------------------------- |
+| `data-toggle="collapse"`  | 切换`navbar菜单栏`的状态（`展示 | 隐藏`） |
+| `data-target="#selector"` | 为`菜单展示按钮`和`navbar菜单栏`做映射    |
+
+> PS：一个 `菜单展示按钮` 可以与多个 `navbar菜单栏` 映射
