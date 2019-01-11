@@ -23,6 +23,13 @@
 | `.justify-content-center` | `ul`   | 分页组件居中 |
 | `.justify-content-end`    | `ul`   | 分页组件居右 |
 
+> 分页区域支持响应式
+
+| 响应式样式类         | 作用域 | 描述     |
+| -------------------- | ------ | -------- |
+| `.flex-wrap`         | `ul`   | 向下排序 |
+| `.flex-wrap-reverse` | `ul`   | 向上排序 |
+
 > PS：分页组件只能用 `ul > li > a` (`nav > a` 是不能用于分页的)
 
 ## 案例：
@@ -84,4 +91,49 @@
 </div>
 ```
 
->
+> 分页组件支持响应式案例：
+
+![分页组件-支持响应式](./static/分页组件-支持响应式.gif)
+
+```html
+<div class="container">
+    <h3 class="text-center mt-3">分页组件-支持响应式</h3>
+    <hr>
+    <h6 class="text-center mt-3">向下排序</h6>
+    <ul class="pagination justify-content-center flex-wrap">
+        <li class="page-item"><a class="page-link" href="#">上一页</a></li>
+        <li class="page-item"><span class="page-link" href="#">...</span></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item active"><a class="page-link" href="#">6</a></li>
+        <li class="page-item"><a class="page-link" href="#">7</a></li>
+        <li class="page-item"><a class="page-link" href="#">8</a></li>
+        <li class="page-item"><a class="page-link" href="#">9</a></li>
+        <li class="page-item"><a class="page-link" href="#">10</a></li>
+        <li class="page-item"><span class="page-link" href="#">...</span></li>
+        <li class="page-item"><a class="page-link" href="#">下一页</a></li>
+    </ul>
+    <h6 class="text-center mt-3">向上排序</h6>
+    <ul class="pagination justify-content-center flex-wrap-reverse">
+        <li class="page-item"><a class="page-link" href="#">上一页</a></li>
+        <li class="page-item"><span class="page-link" href="#">...</span></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item active"><a class="page-link" href="#">6</a></li>
+        <li class="page-item"><a class="page-link" href="#">7</a></li>
+        <li class="page-item"><a class="page-link" href="#">8</a></li>
+        <li class="page-item"><a class="page-link" href="#">9</a></li>
+        <li class="page-item"><a class="page-link" href="#">10</a></li>
+        <li class="page-item"><span class="page-link" href="#">...</span></li>
+        <li class="page-item"><a class="page-link" href="#">下一页</a></li>
+    </ul>
+</div>
+```
+
+> 分页可能出现的几种样式
+
+![分页组件-可能出现的样式](./static/分页组件-可能出现的样式.png)
