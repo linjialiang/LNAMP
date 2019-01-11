@@ -137,3 +137,62 @@
 > 分页可能出现的几种样式
 
 ![分页组件-可能出现的样式](./static/分页组件-可能出现的样式.png)
+
+> 分页组件完整案例：
+
+![分页组件-完整案例](./static/分页组件-完整案例.png)
+
+```html
+<div class="container">
+    <h3 class="text-center mt-3">分页组件-完整分页案例</h3>
+    <hr>
+    <ul class="pagination justify-content-center flex-wrap">
+        <li class="page-item"><a class="page-link" href="#">首页</a></li>
+        <li class="page-item"><a class="page-link" href="#">上一页</a></li>
+        <li class="page-item"><span class="page-link" href="#">...</span></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item active"><a class="page-link" href="#">6</a></li>
+        <li class="page-item"><a class="page-link" href="#">7</a></li>
+        <li class="page-item"><a class="page-link" href="#">8</a></li>
+        <li class="page-item"><a class="page-link" href="#">9</a></li>
+        <li class="page-item"><a class="page-link" href="#">10</a></li>
+        <li class="page-item"><span class="page-link" href="#">...</span></li>
+        <li class="page-item"><a class="page-link" href="#">下一页</a></li>
+        <li class="page-item"><a class="page-link" href="#">末页</a></li>
+        <li class="page-item disabled"><span class="page-link" href="#">共300页</span></li>
+    </ul>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>按键</th>
+                <th>描述</th>
+            </tr>
+        </thead>
+        <tbody class="thead-light">
+            <tr>
+                <th scope="row">首页</th>
+                <td>跳转到第一页</td>
+            </tr>
+            <tr>
+                <th>末页</th>
+                <td>跳转到最后一页</td>
+            </tr>
+            <tr>
+                <th scope="row">上一页</th>
+                <td>后退9页，不足9个则跳转到首页</td>
+            </tr>
+            <tr>
+                <th>下一页</th>
+                <td>前进9页，不足9个则跳转到最后一页</td>
+            </tr>
+            <tr>
+                <th scope="row">数字</th>
+                <td>跳转到指定页</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+```
