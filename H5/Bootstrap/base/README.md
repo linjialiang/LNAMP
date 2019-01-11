@@ -30,3 +30,4 @@
 | 18   | [`bootstrap组件` - 模态框](./Modal.md)          |
 | 19   | [`bootstrap组件` - 导航组件](./Navs.md)         |
 | 20   | [`bootstrap组件` - 导航条](./Navbar.md)         |
+| 21   | [`bootstrap组件` - 分页组件](./Pagination.md)   |
