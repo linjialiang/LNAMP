@@ -7,9 +7,9 @@
 | 序号  | 包名                                   | 描述           |
 | --- | ------------------------------------ | ------------ |
 | 1   | `httpd-2.4.37-win64-VC15.zip`        | web服务器包      |
-| 2   | `mariadb-10.3.11-winx64.zip`         | 数据库管理包       |
-| 3   | `php-7.3.0-Win32-VC15-x64.zip`       | php解释器（线程版）  |
-| 4   | `phpMyAdmin-4.8.3-all-languages.zip` | mysql网页版管理平台 |
+| 2   | `mariadb-10.3.12-winx64.zip`         | 数据库管理包       |
+| 3   | `php-7.3.1-Win32-VC15-x64.zip`       | php解释器（线程版）  |
+| 4   | `phpMyAdmin-4.8.4-all-languages.zip` | mysql网页版管理平台 |
 | 5   | `adminer-4.7.0-mysql-cs.php`         | mysql网页版管理平台 |
 | 6   | `php_xdebug.7z`                      | php_xdebug包  |
 | 7   | `composer.7z`                        | composer包    |
