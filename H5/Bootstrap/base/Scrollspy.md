@@ -271,9 +271,9 @@
             <div id="scrollspy-001" class="list-group">
                 <a class="list-group-item" href="#first">列表1</a>
                 <div class="list-group">
-                    <a class="list-group-item" href="#first-1">列表1-1</a>
-                    <a class="list-group-item" href="#first-2">列表1-2</a>
-                    <a class="list-group-item border-bottom-0" href="#first-3">列表1-3</a>
+                    <a class="list-group-item list-group-item-action" href="#first-1">列表1-1</a>
+                    <a class="list-group-item list-group-item-action" href="#first-2">列表1-2</a>
+                    <a class="list-group-item list-group-item-action border-bottom-0" href="#first-3">列表1-3</a>
                 </div>
                 <a class="list-group-item" href="#second">列表2</a>
                 <a class="list-group-item" href="#third">列表3</a>
