@@ -31,3 +31,5 @@
 | 19   | [`bootstrap组件` - 导航组件](./Navs.md)         |
 | 20   | [`bootstrap组件` - 导航条](./Navbar.md)         |
 | 21   | [`bootstrap组件` - 分页组件](./Pagination.md)   |
+| 22   | [`bootstrap组件` - 弹出层组件](./Popovers.md)   |
+| 23   | [`bootstrap组件` - 消息组件](./Tooltips.md)     |

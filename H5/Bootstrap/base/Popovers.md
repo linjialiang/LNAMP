@@ -126,3 +126,35 @@ $(function() {
 | `.arrow`          | 子级   | 组件箭头样式                                   |
 | `.popover-header` | 子级   | 组件的标题，对应 `title` 属性                  |
 | `.popover-body`   | 子级   | 组件的内容，对应 `content & data-content` 属性 |
+
+## 案例
+
+![弹出层组件](./static/弹出层组件.gif)
+
+```html
+<div class="container">
+    <h3 class="text-center mt-5">弹出层组件</h3>
+    <hr>
+    <button type="button" class="btn btn-primary" data-toggle="popover" data-content="按钮，如果是submit类型，不想提交信息，也可以用 preventDefault() 来阻止" title="这是一个按钮">按钮</button>
+    <a href="http://www.baidu.com" class="btn btn-danger" data-toggle="popover" data-content="链接，需要防止链接打开URL,使用 preventDefault() 可以阻止" title="这是一个链接">链接</a>
+</div>
+<script src="/static/base/js/jquery.min.js"></script>
+<script src="/static/base/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        // 如果是 <a> 标签，我们就应该防止链接打开 URL
+        // 使用 preventDefault() 可以阻止元素发生默认行为
+        $('a[data-toggle="popover"]').on('click', function(e) {
+            e.preventDefault();
+        });
+        $('[data-toggle="popover"]').popover({
+            // 这里输入弹出层公用代码
+            container: 'body',
+            delay: {
+                "show": 100,
+                "hide": 300
+            },
+        });
+    });
+</script>
+```
