@@ -132,6 +132,7 @@ $(function() {
     $('[data-toggle="tooltip"]').tooltip({
         // 这里输入提示工具条公用代码
         container: 'body',
+        trigger: 'click',
         delay: {
             "show": 500,
             "hide": 300
