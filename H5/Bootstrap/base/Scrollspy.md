@@ -147,3 +147,112 @@
 <script src="/static/base/js/jquery.min.js"></script>
 <script src="/static/base/js/bootstrap.bundle.min.js"></script>
 ```
+
+> 嵌入式导航
+
+![滚动监听组件-多层导航](./static/滚动监听组件-多层导航.gif)
+
+```html
+<div class="container">
+    <h3 class="text-center mt-3">Scrollspy - 滚动监听组件</h3>
+    <hr>
+    <h4>嵌套导航的例子</h4>
+    <div class="row">
+        <div class="col-4">
+            <nav id="scrollspy-001" class="nav nav-pills mb-3">
+                <a class="nav-item nav-link active" href="#first">标签1</a>
+                <nav class="nav nav-pills mb-3">
+                    <a class="nav-item nav-link active" href="#first-1">first-1</a>
+                    <a class="nav-item nav-link" href="#first-2">first-2</a>
+                    <a class="nav-item nav-link" href="#first-3">first-3</a>
+                </nav>
+                <a class="nav-item nav-link" href="#second">标签2</a>
+                <a class="nav-item nav-link" href="#third">标签3</a>
+            </nav>
+        </div>
+        <div class="col-8">
+            <dl data-spy="scroll" data-target="#scrollspy-001" data-offset="0" class="position-relative" style="height:260px; overflow-y:scroll;">
+                <dt id="first">
+                    <h5>被 标签1 监听</h5>
+                </dt>
+                <dd>
+                    <h5>这是id="first"的详细内容</h5>
+                    <p>由于父级加入绝对定位样式：</p>
+                    <code>style="position:relative;"</code>
+                    <br>
+                    <code>.position-relative</code>
+                    <p>所以：</p>
+                    <h5>所有标签的监听都时正常的</h5>
+                </dd>
+                <hr>
+                <dt id="first-1">
+                    <h5>被 标签1-1 监听</h5>
+                </dt>
+                <dd>
+                    <h5>这是id="first"的详细内容</h5>
+                    <p>由于父级加入绝对定位样式：</p>
+                    <code>style="position:relative;"</code>
+                    <br>
+                    <code>.position-relative</code>
+                    <p>所以：</p>
+                    <h5>所有标签的监听都时正常的</h5>
+                </dd>
+                <hr>
+                <dt id="first-2">
+                    <h5>被 标签1-2 监听</h5>
+                </dt>
+                <dd>
+                    <h5>这是id="second"的详细内容</h5>
+                    <p>由于父级加入绝对定位样式：</p>
+                    <code>style="position:relative;"</code>
+                    <br>
+                    <code>.position-relative</code>
+                    <p>所以：</p>
+                    <h5>所有标签的监听都时正常的</h5>
+                </dd>
+                <hr>
+                <dt id="first-3">
+                    <h5>被 标签1-3 监听</h5>
+                </dt>
+                <dd>
+                    <h5>这是id="third"的详细内容</h5>
+                    <p>由于父级加入绝对定位样式：</p>
+                    <code>style="position:relative;"</code>
+                    <br>
+                    <code>.position-relative</code>
+                    <p>所以：</p>
+                    <h5>所有标签的监听都时正常的</h5>
+                </dd>
+                <hr>
+                <dt id="second">
+                    <h5>被 标签2 监听</h5>
+                </dt>
+                <dd>
+                    <h5>这是id="second"的详细内容</h5>
+                    <p>由于父级加入绝对定位样式：</p>
+                    <code>style="position:relative;"</code>
+                    <br>
+                    <code>.position-relative</code>
+                    <p>所以：</p>
+                    <h5>所有标签的监听都时正常的</h5>
+                </dd>
+                <hr>
+                <dt id="third">
+                    <h5>被 标签3 监听</h5>
+                </dt>
+                <dd>
+                    <h5>这是id="third"的详细内容</h5>
+                    <p>由于父级加入绝对定位样式：</p>
+                    <code>style="position:relative;"</code>
+                    <br>
+                    <code>.position-relative</code>
+                    <p>所以：</p>
+                    <h5>所有标签的监听都时正常的</h5>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<script src="/static/base/js/jquery.min.js"></script>
+<script src="/static/base/js/bootstrap.bundle.min.js"></script>
+```
