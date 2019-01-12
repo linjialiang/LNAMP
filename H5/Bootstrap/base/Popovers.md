@@ -76,6 +76,7 @@ $(function() {
 | `delay`     | `数值|对象`                       | 0          | 延迟弹出层的显示和隐藏时间                                 |
 | `placement` | `auto|top|bottom|left|right|函数` | `'right'`  | 定义弹出层方向                                             |
 | `title`     | 字符串                            | `''`       | 弹出层标题                                                 |
+| `content`   | 字符串                            | `''`       | 弹出层内容                                                 |
 | `trigger`   | `click|hover|focus|manual`        | `'click'`  | 弹出层的触发事件                                           |
 | `template`  | 预先定义好的 div 块               | 预先定义的 | 弹出层组件的模板                                           |
 
