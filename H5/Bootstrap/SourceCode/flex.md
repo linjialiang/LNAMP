@@ -170,3 +170,100 @@
     </div>
 </div>
 ```
+
+### flex布局- `justify-content`
+
+![flex布局-justify-content](./static/flex布局-justify-content.png)
+
+```html
+<div class="container">
+    <h3 class="text-center mt-3">flex布局-<span class="badge badge-danger">justify-content</span></h3>
+    <p class="text-muted"><span class="badge badge-danger">justify-content</span>用于设置或检索弹性盒子元素在x轴方向上的对齐方式。</p>
+    <hr>
+    <div class="d-flex bg-primary p-2 mt-3 justify-content-center" style="height:60px;">
+        <span class="border bg-info p-2 text-light">父级</span>
+        <span class="border bg-info p-2 text-light">样式类</span>
+        <span class="border bg-dark p-2 text-light"><code>.justify-content-center</code></span>
+    </div>
+    <div class="d-flex bg-primary p-2 mt-3 justify-content-start" style="height:60px;">
+        <span class="border bg-info p-2 text-light">父级</span>
+        <span class="border bg-info p-2 text-light">样式类</span>
+        <span class="border bg-dark p-2 text-light"><code>.justify-content-start</code></span>
+    </div>
+    <div class="d-flex bg-primary p-2 mt-3 justify-content-end" style="height:60px;">
+        <span class="border bg-info p-2 text-light">父级</span>
+        <span class="border bg-info p-2 text-light">样式类</span>
+        <span class="border bg-dark p-2 text-light"><code>.justify-content-end</code></span>
+    </div>
+    <div class="d-flex bg-primary p-2 mt-3 justify-content-between" style="height:60px;">
+        <span class="border bg-info p-2 text-light">父级</span>
+        <span class="border bg-info p-2 text-light">样式类</span>
+        <span class="border bg-dark p-2 text-light"><code>.justify-content-between</code></span>
+    </div>
+    <div class="d-flex bg-primary p-2 mt-3 justify-content-around" style="height:60px;">
+        <span class="border bg-info p-2 text-light">父级</span>
+        <span class="border bg-info p-2 text-light">样式类</span>
+        <span class="border bg-dark p-2 text-light"><code>.justify-content-around</code></span>
+    </div>
+</div>
+```
+
+### flex布局 - `align-content`
+
+![flex布局-align-content](./static/flex布局-align-content.gif)
+
+```html
+<div class="container">
+    <h3 class="text-center mt-3">flex布局-<span class="badge badge-danger">align-content</span></h3>
+    <p class="text-muted"><span class="badge badge-danger">align-content</span>用于设置或检索弹性盒子元素在y轴方向上的对齐方式。</p>
+    <hr>
+    <div class="d-flex bg-primary mt-3 align-content-start flex-wrap" style="height:100px;">
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-content-start</code></span>
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-content-start</code></span>
+    </div>
+    <div class="d-flex bg-primary mt-3 align-content-end flex-wrap" style="height:100px;">
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-content-end</code></span>
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-content-end</code></span>
+    </div>
+    <div class="d-flex bg-primary mt-3 align-content-center flex-wrap" style="height:100px;">
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-content-center</code></span>
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-content-center</code></span>
+    </div>
+    <div class="d-flex bg-primary mt-3 align-content-between flex-wrap" style="height:100px;">
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-content-between</code></span>
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-content-between</code></span>
+    </div>
+    <div class="d-flex bg-primary mt-3 align-content-around flex-wrap" style="height:100px;">
+        <div class="border bg-info px-2 text-light">父级</div>
+        <div class="border bg-info px-2 text-light">样式类</div>
+        <div class="border bg-dark px-2 text-light"><code>.align-content-around</code></div>
+        <div class="border bg-info px-2 text-light">父级</div>
+        <div class="border bg-info px-2 text-light">样式类</div>
+        <div class="border bg-dark px-2 text-light"><code>.align-content-around</code></div>
+    </div>
+    <div class="d-flex bg-primary mt-3 align-content-stretch flex-wrap" style="height:100px;">
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-content-stretch</code></span>
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-content-stretch</code></span>
+    </div>
+</div>
+```
