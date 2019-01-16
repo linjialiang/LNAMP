@@ -4,51 +4,51 @@
 
 ## 样式类汇总
 
-| 样式类                                     | 描述                                                                            |
-| ------------------------------------------ | ------------------------------------------------------------------------------- |
-| `.d<-{sm|md|lg|xl}>-flex`                  | 基类，父级元素样式类，以弹性伸缩盒显示，上面已经讲解                            |
-| `.d<-{sm|md|lg|xl}>-inline-flex`           | 基类，父级元素样式类，以内联块级弹性伸缩盒显示，上面已经讲解                    |
-| `.flex<-{sm|md|lg|xl}>-row`                | 父级元素样式类，水平，靠左排序                                                  |
-| `.flex<-{sm|md|lg|xl}>-row-reverse`        | 父级元素样式类，水平，靠右排序                                                  |
-| `.flex<-{sm|md|lg|xl}>-column`             | 父级元素样式类，垂直，靠上排序                                                  |
-| `.flex<-{sm|md|lg|xl}>-column-reverse`     | 父级元素样式类，垂直，靠下排序                                                  |
-| `.flex<-{sm|md|lg|xl}>-fill`               | 子级元素样式类，所有子级元素占用所有可用的水平空间。                            |
-| `.flex<-{sm|md|lg|xl}>-grow-0`             | 子级元素样式类，回到默认布局                                                    |
-| `.flex<-{sm|md|lg|xl}>-grow-1`             | 子级元素样式类，布满整个水平空间                                                |
-| `.flex<-{sm|md|lg|xl}>-shrink-0`           | 子级元素样式类，没有发现作用                                                    |
-| `.flex<-{sm|md|lg|xl}>-shrink-1`           | 子级元素样式类，没有发现作用                                                    |
-| `.flex<-{sm|md|lg|xl}>-nowrap`             | 不允许换行，默认                                                                |
-| `.flex<-{sm|md|lg|xl}>-wrap`               | 允许换行，向下排列                                                              |
-| `.flex<-{sm|md|lg|xl}>-wrap-reverse`       | 允许换行，向上排列                                                              |
-| `.justify-content<-{sm|md|lg|xl}>-start`   | 父级元素样式类，水平，居左                                                      |
-| `.justify-content<-{sm|md|lg|xl}>-end}`    | 父级元素样式类，水平，居右                                                      |
-| `.justify-content<-{sm|md|lg|xl}>-center`  | 父级元素样式类，水平，居中                                                      |
-| `.justify-content<-{sm|md|lg|xl}>-between` | 父级元素样式类，水平，子级间留白                                                |
-| `.justify-content<-{sm|md|lg|xl}>-around`  | 父级元素样式类，水平，两侧、子级间都有留白                                      |
-| `.align-items<-{sm|md|lg|xl}>-start`       | 父级元素样式类，垂直，居上                                                      |
-| `.align-items<-{sm|md|lg|xl}>-end`         | 父级元素样式类，垂直，居下                                                      |
-| `.align-items<-{sm|md|lg|xl}>-center`      | 父级元素样式类，垂直，居中                                                      |
-| `.align-items<-{sm|md|lg|xl}>-baseline`    | 父级元素样式类，垂直，元素位于容器的基线上                                      |
-| `.align-items<-{sm|md|lg|xl}>-stretch`     | 父级元素样式类，垂直空间占满                                                    |
-| `.align-self<-{sm|md|lg|xl}>-start`        | 子级元素样式类，垂直，居上                                                      |
-| `.align-self<-{sm|md|lg|xl}>-end`          | 子级元素样式类，垂直，居下                                                      |
-| `.align-self<-{sm|md|lg|xl}>-center`       | 子级元素样式类，垂直，居中                                                      |
-| `.align-self<-{sm|md|lg|xl}>-baseline`     | 子级元素样式类，垂直，元素位于容器的基线上                                      |
-| `.align-self<-{sm|md|lg|xl}>-stretch`      | 子级元素样式类，垂直空间占满                                                    |
-| `.align-content<-{sm|md|lg|xl}>-start`     | 父级元素样式类，在横轴上对齐 flex 项，水平居左+垂直居上                         |
-| `.align-content<-{sm|md|lg|xl}>-end`       | 父级元素样式类，在横轴上对齐 flex 项，水平居左+垂直居下                         |
-| `.align-content<-{sm|md|lg|xl}>-center`    | 父级元素样式类，在横轴上对齐 flex 项，水平居左+垂直居中                         |
-| `.align-content<-{sm|md|lg|xl}>-between`   | 父级元素样式类，在横轴上对齐 flex 项，水平居左+垂直换行的留白对齐，子级间有留白 |
-| `.align-content<-{sm|md|lg|xl}>-around`    | 父级元素样式类，在横轴上对齐 flex 项，水平居左+垂直居中，上下、子级间都有留白   |
-| `.align-content<-{sm|md|lg|xl}>-stretch`   | 父级元素样式类，在横轴上对齐 flex 项，水平居左+垂直方向始终占满屏幕             |
-| `.m<-{sm|md|lg|xl}>-auto`                  | 子级元素样式类，当前元素对齐方式：`水平居中+垂直居中`                           |
-| `.ml<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`水平居右`                                    |
-| `.mr<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`水平居左`                                    |
-| `.mt<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`垂直居上`                                    |
-| `.mb<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`垂直居下`                                    |
-| `.mx<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`水平居中`                                    |
-| `.my<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`垂直居中`                                    |
-| `.order<-{sm|md|lg|xl}>-[0-12]`            | 更改统计元素的排序，其它章节已经讲解                                            |
+| 样式类                                     | 描述                                                         |
+| ------------------------------------------ | ------------------------------------------------------------ |
+| `.d<-{sm|md|lg|xl}>-flex`                  | 基类，父级元素样式类，以弹性伸缩盒显示，上面已经讲解         |
+| `.d<-{sm|md|lg|xl}>-inline-flex`           | 基类，父级元素样式类，以内联块级弹性伸缩盒显示，上面已经讲解 |
+| `.flex<-{sm|md|lg|xl}>-row`                | 父级元素样式类，水平，靠左排序                               |
+| `.flex<-{sm|md|lg|xl}>-row-reverse`        | 父级元素样式类，水平，靠右排序                               |
+| `.flex<-{sm|md|lg|xl}>-column`             | 父级元素样式类，垂直，靠上排序                               |
+| `.flex<-{sm|md|lg|xl}>-column-reverse`     | 父级元素样式类，垂直，靠下排序                               |
+| `.flex<-{sm|md|lg|xl}>-fill`               | 子级元素样式类，所有子级元素占用所有可用的水平空间。         |
+| `.flex<-{sm|md|lg|xl}>-grow-0`             | 子级元素样式类，回到默认布局                                 |
+| `.flex<-{sm|md|lg|xl}>-grow-1`             | 子级元素样式类，布满整个水平空间                             |
+| `.flex<-{sm|md|lg|xl}>-shrink-0`           | 子级元素样式类，没有发现作用                                 |
+| `.flex<-{sm|md|lg|xl}>-shrink-1`           | 子级元素样式类，没有发现作用                                 |
+| `.flex<-{sm|md|lg|xl}>-nowrap`             | 不允许换行，默认                                             |
+| `.flex<-{sm|md|lg|xl}>-wrap`               | 允许换行，向下排列                                           |
+| `.flex<-{sm|md|lg|xl}>-wrap-reverse`       | 允许换行，向上排列                                           |
+| `.justify-content<-{sm|md|lg|xl}>-start`   | 父级元素样式类，水平方向，居左                               |
+| `.justify-content<-{sm|md|lg|xl}>-end}`    | 父级元素样式类，水平方向，居右                               |
+| `.justify-content<-{sm|md|lg|xl}>-center`  | 父级元素样式类，水平方向，居中                               |
+| `.justify-content<-{sm|md|lg|xl}>-between` | 父级元素样式类，水平方向，子级间留白                         |
+| `.justify-content<-{sm|md|lg|xl}>-around`  | 父级元素样式类，水平方向，两侧、子级间都有留白               |
+| `.align-content<-{sm|md|lg|xl}>-start`     | 父级元素样式类，垂直方向，居上                               |
+| `.align-content<-{sm|md|lg|xl}>-end`       | 父级元素样式类，垂直方向，居下                               |
+| `.align-content<-{sm|md|lg|xl}>-center`    | 父级元素样式类，垂直方向，居中                               |
+| `.align-content<-{sm|md|lg|xl}>-between`   | 父级元素样式类，垂直方向，换行的留白对齐，子级间有留白       |
+| `.align-content<-{sm|md|lg|xl}>-around`    | 父级元素样式类，垂直方向，居中，上下、子级间都有留白         |
+| `.align-content<-{sm|md|lg|xl}>-stretch`   | 父级元素样式类，垂直方向，始终占满屏幕                       |
+| `.align-items<-{sm|md|lg|xl}>-start`       | 父级元素样式类，垂直，居上                                   |
+| `.align-items<-{sm|md|lg|xl}>-end`         | 父级元素样式类，垂直，居下                                   |
+| `.align-items<-{sm|md|lg|xl}>-center`      | 父级元素样式类，垂直，居中                                   |
+| `.align-items<-{sm|md|lg|xl}>-baseline`    | 父级元素样式类，垂直，元素位于容器的基线上                   |
+| `.align-items<-{sm|md|lg|xl}>-stretch`     | 父级元素样式类，垂直空间占满                                 |
+| `.align-self<-{sm|md|lg|xl}>-start`        | 子级元素样式类，垂直，居上                                   |
+| `.align-self<-{sm|md|lg|xl}>-end`          | 子级元素样式类，垂直，居下                                   |
+| `.align-self<-{sm|md|lg|xl}>-center`       | 子级元素样式类，垂直，居中                                   |
+| `.align-self<-{sm|md|lg|xl}>-baseline`     | 子级元素样式类，垂直，元素位于容器的基线上                   |
+| `.align-self<-{sm|md|lg|xl}>-stretch`      | 子级元素样式类，垂直空间占满                                 |
+| `.m<-{sm|md|lg|xl}>-auto`                  | 子级元素样式类，当前元素对齐方式：`水平居中+垂直居中`        |
+| `.ml<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`水平居右`                 |
+| `.mr<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`水平居左`                 |
+| `.mt<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`垂直居上`                 |
+| `.mb<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`垂直居下`                 |
+| `.mx<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`水平居中`                 |
+| `.my<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`垂直居中`                 |
+| `.order<-{sm|md|lg|xl}>-[0-12]`            | 更改统计元素的排序，其它章节已经讲解                         |
 
 > 注意：前面样式类的所有父级都应该带上 `.d<-{sm|md|lg|xl}>-flex` 样式
 
@@ -140,7 +140,7 @@
 </div>
 ```
 
-### flex布局-子级布局
+### flex 布局-子级布局
 
 ![flex布局-子级布局](./static/flex布局-子级布局.png)
 
