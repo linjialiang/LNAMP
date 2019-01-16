@@ -13,13 +13,13 @@
 | `.flex<-{sm|md|lg|xl}>-column`             | 父级元素样式类，垂直，靠上排序                                                  |
 | `.flex<-{sm|md|lg|xl}>-column-reverse`     | 父级元素样式类，垂直，靠下排序                                                  |
 | `.flex<-{sm|md|lg|xl}>-fill`               | 子级元素样式类，所有子级元素占用所有可用的水平空间。                            |
-| `.flex<-{sm|md|lg|xl}>-grow-0`             | 子级元素样式类，区块禁止放大                                                    |
-| `.flex<-{sm|md|lg|xl}>-grow-1`             | 子级元素样式类，区块放大                                                        |
-| `.flex<-{sm|md|lg|xl}>-shrink-0`           | 子级元素样式类，区块禁止缩小                                                    |
-| `.flex<-{sm|md|lg|xl}>-shrink-1`           | 子级元素样式类，区块缩小                                                        |
-| `.flex<-{sm|md|lg|xl}>-nowrap`             | 不允许换行，默认                                                        |
-| `.flex<-{sm|md|lg|xl}>-wrap`               | 允许换行，向下排列                                                |
-| `.flex<-{sm|md|lg|xl}>-wrap-reverse`       | 允许换行，向上排列                                          |
+| `.flex<-{sm|md|lg|xl}>-grow-0`             | 子级元素样式类，回到默认布局                                                    |
+| `.flex<-{sm|md|lg|xl}>-grow-1`             | 子级元素样式类，布满整个水平空间                                                |
+| `.flex<-{sm|md|lg|xl}>-shrink-0`           | 子级元素样式类，没有发现作用                                                    |
+| `.flex<-{sm|md|lg|xl}>-shrink-1`           | 子级元素样式类，没有发现作用                                                    |
+| `.flex<-{sm|md|lg|xl}>-nowrap`             | 不允许换行，默认                                                                |
+| `.flex<-{sm|md|lg|xl}>-wrap`               | 允许换行，向下排列                                                              |
+| `.flex<-{sm|md|lg|xl}>-wrap-reverse`       | 允许换行，向上排列                                                              |
 | `.justify-content<-{sm|md|lg|xl}>-start`   | 父级元素样式类，水平，居左                                                      |
 | `.justify-content<-{sm|md|lg|xl}>-end}`    | 父级元素样式类，水平，居右                                                      |
 | `.justify-content<-{sm|md|lg|xl}>-center`  | 父级元素样式类，水平，居中                                                      |
@@ -48,7 +48,7 @@
 | `.mb<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`垂直居下`                                    |
 | `.mx<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`水平居中`                                    |
 | `.my<-{sm|md|lg|xl}>-auto`                 | 子级元素样式类，当前元素对齐方式：`垂直居中`                                    |
-| `.order<-{sm|md|lg|xl}>-[0-12]`            | 更改统计元素的排序，其它章节已经讲解                                             |
+| `.order<-{sm|md|lg|xl}>-[0-12]`            | 更改统计元素的排序，其它章节已经讲解                                            |
 
 > 注意：前面样式类的所有父级都应该带上 `.d<-{sm|md|lg|xl}>-flex` 样式
 
@@ -105,7 +105,7 @@
 </div>
 ```
 
-### flex布局-排序方向
+### flex 布局-排序方向
 
 ![flex布局-排序方向](./static/flex布局-排序方向.png)
 
@@ -136,6 +136,37 @@
         <span class="border bg-info p-2 text-light d-table">flex布局</span>
         <span class="border bg-info p-2 text-light d-table">flex布局</span>
         <span class="border bg-info p-2 text-light d-table">flex布局</span>
+    </div>
+</div>
+```
+
+### flex布局-子级布局
+
+![flex布局-子级布局](./static/flex布局-子级布局.png)
+
+```html
+<div class="container">
+    <h3 class="text-center mt-3">flex布局-子级布局</h3>
+    <hr>
+    <div class="d-flex bg-primary p-2 mt-3" style="height:60px;">
+        <span class="border bg-info p-2 text-light">flex布局</span>
+        <span class="border bg-dark p-2 text-light flex-fill"><code>.flex-fill</code> 布满整个水平空间</span>
+        <span class="border bg-info p-2 text-light">flex布局</span>
+    </div>
+    <div class="d-flex bg-primary p-2 mt-3" style="height:60px;">
+        <span class="border bg-info p-2 text-light">flex布局</span>
+        <span class="border bg-dark p-2 text-light flex-grow-1"><code>.flex-grow-1</code> 布满整个水平空间</span>
+        <span class="border bg-info p-2 text-light">flex布局</span>
+    </div>
+    <div class="d-flex bg-primary p-2 mt-3" style="height:60px;">
+        <span class="border bg-info p-2 text-light">flex布局</span>
+        <span class="border bg-dark p-2 text-light flex-grow-0"><code>.flex-grow-0</code> 宽度与内容一致</span>
+        <span class="border bg-info p-2 text-light">flex布局</span>
+    </div>
+    <div class="d-flex bg-primary p-2 mt-3" style="height:60px;">
+        <span class="border bg-info p-2 text-light">flex布局</span>
+        <span class="border bg-dark p-2 text-light flex-md-shrink-1"><code>.flex-shrink-{0|1}</code> 暂时没有发现作用</span>
+        <span class="border bg-info p-2 text-light">flex布局</span>
     </div>
 </div>
 ```
