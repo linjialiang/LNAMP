@@ -104,3 +104,38 @@
     </div>
 </div>
 ```
+
+### flex布局-排序方向
+
+![flex布局-排序方向](./static/flex布局-排序方向.png)
+
+```html
+<div class="container">
+    <h3 class="text-center mt-3">flex布局-排序方向</h3>
+    <hr>
+    <h6><code>.flex-row</code> 水平排序-居左</h6>
+    <div class="d-flex flex-row bg-primary p-2 mt-3" style="height:80px;">
+        <span class="border bg-info p-2 text-light d-table">flex布局</span>
+        <span class="border bg-info p-2 text-light d-table">flex布局</span>
+        <span class="border bg-info p-2 text-light d-table">flex布局</span>
+    </div>
+    <h6 class="mt-3"><code>.flex-row-reverse</code> 水平排序-居右</h6>
+    <div class="d-flex flex-row-reverse bg-primary p-2 mt-3" style="height:80px;">
+        <span class="border bg-info p-2 text-light d-table">flex布局</span>
+        <span class="border bg-info p-2 text-light d-table">flex布局</span>
+        <span class="border bg-info p-2 text-light d-table">flex布局</span>
+    </div>
+    <h6 class="mt-3"><code>.flex-column</code> 垂直排序-居上</h6>
+    <div class="d-flex flex-column bg-primary p-2 mt-3" style="height:180px;">
+        <span class="border bg-info p-2 text-light d-table">flex布局</span>
+        <span class="border bg-info p-2 text-light d-table">flex布局</span>
+        <span class="border bg-info p-2 text-light d-table">flex布局</span>
+    </div>
+    <h6 class="mt-3"><code>.flex-column-reverse</code> 垂直排序-居下</h6>
+    <div class="d-flex flex-column-reverse bg-primary p-2 mt-3" style="height:180px;">
+        <span class="border bg-info p-2 text-light d-table">flex布局</span>
+        <span class="border bg-info p-2 text-light d-table">flex布局</span>
+        <span class="border bg-info p-2 text-light d-table">flex布局</span>
+    </div>
+</div>
+```
