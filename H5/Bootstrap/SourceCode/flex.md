@@ -171,7 +171,7 @@
 </div>
 ```
 
-### flex布局- `justify-content`
+### flex 布局- `justify-content`
 
 ![flex布局-justify-content](./static/flex布局-justify-content.png)
 
@@ -208,7 +208,7 @@
 </div>
 ```
 
-### flex布局 - `align-content`
+### flex 布局 - `align-content`
 
 ![flex布局-align-content](./static/flex布局-align-content.gif)
 
@@ -264,6 +264,70 @@
         <span class="border bg-info px-2 text-light">父级</span>
         <span class="border bg-info px-2 text-light">样式类</span>
         <span class="border bg-dark px-2 text-light"><code>.align-content-stretch</code></span>
+    </div>
+</div>
+```
+
+### flex - `align-items` 与 `align-self`
+
+> `align-items` 作用于父级，效果于 `algin-content` 类似
+>
+> - `align-self` 作用于子级，用于修改 `align-items` 下的单个元素布局方式
+
+| 对象            | 作用域                                                 |
+| --------------- | ------------------------------------------------------ |
+| `algin-content` | 父级，对多行 y 轴布局较好                              |
+| `align-items`   | 父级，效果与 `algin-content` 基本相同                  |
+| `align-self`    | 子级，仅用于改变 `align-items` 下的单个元素的 y 轴布局 |
+
+> 案例：
+
+![flex布局-align-items和align-self](./static/flex布局-align-items和align-self.gif)
+
+```html
+<div class="container">
+    <h3 class="text-center mt-3">flex布局-<span class="badge badge-danger">align-items</span> 和 <span class="badge badge-danger">align-self</span></h3>
+    <p class="text-muted"></p>
+    <hr>
+    <div class="d-flex bg-primary mt-3 align-items-start flex-wrap" style="height:100px;">
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-items-start</code></span>
+        <span class="border bg-info px-2 text-light">子级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light align-self-end"><code>.align-self-end</code></span>
+    </div>
+    <div class="d-flex bg-primary mt-3 align-items-end flex-wrap" style="height:100px;">
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-items-end</code></span>
+        <span class="border bg-info px-2 text-light">子级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light align-self-center"><code>.align-self-cemter</code></span>
+    </div>
+    <div class="d-flex bg-primary mt-3 align-items-center flex-wrap" style="height:100px;">
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-items-center</code></span>
+        <span class="border bg-info px-2 text-light">子级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light align-self-start"><code>. align-self-start</code></span>
+    </div>
+    <div class="d-flex bg-primary mt-3 align-items-baseline flex-wrap" style="height:100px;">
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-items-baseline</code></span>
+        <span class="border bg-info px-2 text-light">子级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light align-self-stretch"><code>.align-self-stretch</code></span>
+    </div>
+    <div class="d-flex bg-primary mt-3 align-items-stretch flex-wrap" style="height:100px;">
+        <span class="border bg-info px-2 text-light">父级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light"><code>.align-items-stretch</code></span>
+        <span class="border bg-info px-2 text-light">子级</span>
+        <span class="border bg-info px-2 text-light">样式类</span>
+        <span class="border bg-dark px-2 text-light align-self-baseline"><code>.align-self-baseline</code></span>
     </div>
 </div>
 ```
