@@ -16,6 +16,7 @@
 | 4    | [`bootstrap` 偏移](./../SourceCode/偏移.md)                 |
 | 5    | [`bootstrap` 表格](./../SourceCode/表格.md)                 |
 | 6    | [`bootstrap` 表单](./../SourceCode/表单.md)                 |
+| 6    | [`bootstrap` 快速管理布局](./../SourceCode/flex.md)         |
 | 6    | [`bootstrap` 其它基础样式](./../SourceCode/其它基础样式.md) |
 | 7    | [`bootstrap组件` - 通知](./Alerts.md)                       |
 | 8    | [`bootstrap组件` - 徽章](./Badges.md)                       |
