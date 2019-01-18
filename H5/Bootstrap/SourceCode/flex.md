@@ -331,3 +331,56 @@
     </div>
 </div>
 ```
+
+### flex 布局-控制 margin
+
+![flex布局-控制margin](./static/flex布局-控制margin.png)
+
+```html
+<div class="container">
+    <h3 class="text-center mt-3">flex布局-margin控制方向</h3>
+    <hr>
+    <div class="d-flex bg-primary mt-3 flex-wrap" style="height:60px;">
+        <span class="border bg-info p-1 text-light">子级</span>
+        <span class="border bg-info p-1 text-light">样式类</span>
+        <span class="border bg-dark p-1 text-light m-auto"><code>.m-auto</code></span>
+        <span class="border bg-dark p-1 text-light m-auto">效果：垂直居中+水平居中</span>
+    </div>
+    <div class="d-flex bg-primary mt-3 flex-wrap" style="height:60px;">
+        <span class="border bg-info p-1 text-light">子级</span>
+        <span class="border bg-info p-1 text-light">样式类</span>
+        <span class="border bg-dark p-1 text-light mx-auto"><code>.mx-auto</code></span>
+        <span class="border bg-dark p-1 text-light mx-auto">效果：水平居中</span>
+    </div>
+    <div class="d-flex bg-primary mt-3 flex-wrap" style="height:60px;">
+        <span class="border bg-info p-1 text-light">子级</span>
+        <span class="border bg-info p-1 text-light">样式类</span>
+        <span class="border bg-dark p-1 text-light my-auto"><code>.my-auto</code></span>
+        <span class="border bg-dark p-1 text-light my-auto">效果：垂直居中</span>
+    </div>
+    <div class="d-flex bg-primary mt-3 flex-wrap" style="height:60px;">
+        <span class="border bg-info p-1 text-light">子级</span>
+        <span class="border bg-info p-1 text-light">样式类</span>
+        <span class="border bg-dark p-1 text-light mr-auto"><code>.mr-auto</code></span>
+        <span class="border bg-dark p-1 text-light mr-auto">效果：水平居左</span>
+    </div>
+    <div class="d-flex bg-primary mt-3 flex-wrap" style="height:60px;">
+        <span class="border bg-info p-1 text-light">子级</span>
+        <span class="border bg-info p-1 text-light">样式类</span>
+        <span class="border bg-dark p-1 text-light ml-auto"><code>.ml-auto</code></span>
+        <span class="border bg-dark p-1 text-light ml-auto">效果：水平居右</span>
+    </div>
+    <div class="d-flex bg-primary mt-3 flex-wrap" style="height:60px;">
+        <span class="border bg-info p-1 text-light">子级</span>
+        <span class="border bg-info p-1 text-light">样式类</span>
+        <span class="border bg-dark p-1 text-light mb-auto"><code>.mb-auto</code></span>
+        <span class="border bg-dark p-1 text-light mb-auto">效果：垂直居上</span>
+    </div>
+    <div class="d-flex bg-primary mt-3 flex-wrap" style="height:60px;">
+        <span class="border bg-info p-1 text-light">子级</span>
+        <span class="border bg-info p-1 text-light">样式类</span>
+        <span class="border bg-dark p-1 text-light mt-auto"><code>.mt-auto</code></span>
+        <span class="border bg-dark p-1 text-light mt-auto">效果：垂直居下</span>
+    </div>
+</div>
+```
