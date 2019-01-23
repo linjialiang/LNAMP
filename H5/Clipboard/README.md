@@ -36,10 +36,13 @@
 
 > html5 数据属性表（针对触发事件的元素）
 
-| 数据属性                            | 描述                               |
-| ----------------------------------- | ---------------------------------- |
-| `data-clipboard-target="#selector"` | 指定要复制的文本，所在元素的选择器 |
-| `data-clipboard-action="copy|cut"`  | 默认为复制（copy），cut 为剪切     |
+| 数据属性                             | 描述                               |
+| ------------------------------------ | ---------------------------------- |
+| `data-clipboard-target="#selector"`  | 指定要复制的文本，所在元素的选择器 |
+| `data-clipboard-action="copy|cut"`   | 默认为复制（copy），cut 为剪切     |
+| `data-clipboard-text="要复制的内容"` | 要复制的内容                       |
+
+![001](./static/001.gif)
 
 ```html
 <div class="container">
@@ -56,6 +59,19 @@
             <button type="button" class="btn btn-outline-secondary" data-clipboard-target="#input-001" data-clipboard-action="cut">剪切</button>
         </div>
     </div>
+</div>
+<script src="/static/base/js/clipboard.min.js"></script>
+<script type="text/javascript">
+    new ClipboardJS('.btn');
+</script>
+```
+
+![002](./static/002.gif)
+
+```html
+<div class="container">
+    <h3 class="text-center mt-3"><span class="badge badge-primary">data-clipboard-text</span>属性的属性值可直接复制</h3>
+    <button type="button" class="btn btn-outline-secondary d-block m-auto" data-clipboard-text="点击按钮可以直接复制data-clipboard-text属性的属性值">复制</button>
 </div>
 <script src="/static/base/js/clipboard.min.js"></script>
 <script type="text/javascript">
