@@ -78,3 +78,39 @@
     new ClipboardJS('.btn');
 </script>
 ```
+
+> 触发成功和错误(success and error)的返回值
+
+![003](./static/003.gif)
+
+```html
+<div class="container">
+    <h3 class="text-center mt-3"><span class="badge badge-primary">事件可以触发</span>-成功和错误(success and error)的返回值</h3>
+    <div class="form-group input-group">
+        <a id="a-001" href="#" class="form-control">这是a的内容</a>
+        <div class="input-group-append">
+            <a class="btn btn-outline-secondary" data-clipboard-target="#a-001">复制</a>
+        </div>
+    </div>
+    <div class="form-group input-group">
+        <input id="input-001" type="text" value="这是input的内容..." class="form-control">
+        <div class="input-group-append">
+            <button type="button" class="btn btn-outline-secondary" data-clipboard-target="#input-001" data-clipboard-action="cut">剪切</button>
+        </div>
+    </div>
+</div>
+<script src="/static/base/js/clipboard.min.js"></script>
+<script type="text/javascript">
+    var clipboard = new ClipboardJS('.btn');
+    clipboard.on('success', function(e) {
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        e.clearSelection();
+    });
+    clipboard.on('error', function(e) {
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+    });
+</script>
+```
