@@ -10,7 +10,7 @@ port = 3306
 
 [mysqld]
 port = 3306
-datadir = "c:/wamp/data"
+datadir = "c:/wamp/web/data"
 ```
 
 > -   提示：`innodb` 索引扩展默认会跟 `datadir` 同级，如无必要不用配置
