@@ -92,6 +92,17 @@
 
 1.  目录结构做了调整，在根目录增加了 `web` 目录
 2.  并将 `sites & www & data & logs` 这 4 个目录移动到 `web` 目录下
+3.  `my.ini` 数据目录改为 `c:\wamp\web\data`
+4.  apache24 配置文件的变量名做了相应调整：
+    ```shell
+    Define WAMP_ROOT "c:/wamp"
+    Define WEB_ROOT "c:/wamp/web"
+    Define BASE_ROOT "${WAMP_ROOT}/base"
+    Define SRVROOT "${BASE_ROOT}/apache24"
+    Define PHP_VERSION "php7"
+    Define HTDOCS "${WEB_ROOT}/www"
+    Define HTLOGS "${WEB_ROOT}/logs/apache24"
+    ```
 
 > wamp-v4.2.1 更新说明
 
