@@ -6,7 +6,7 @@
 
 | 序号 | 包名                                 | 描述                 |
 | ---- | ------------------------------------ | -------------------- |
-| 1    | `httpd-2.4.37-win64-VC15.zip`        | web 服务器包         |
+| 1    | `httpd-2.4.38-win64-VC15.zip`        | web 服务器包         |
 | 2    | `mariadb-10.3.12-winx64.zip`         | 数据库管理包         |
 | 3    | `php-7.3.1-Win32-VC15-x64.zip`       | php 解释器（线程版） |
 | 4    | `phpMyAdmin-4.8.4-all-languages.zip` | mysql 网页版管理平台 |
@@ -31,6 +31,7 @@
 |   |
 |   ├─mariadb                               mariadb 10.3版本
 |   |  ├─bin                                mariadb可执行程序目录
+|   |  ├─my.ini                             mariadb配置文件
 |   |  └─ ...
 |   |
 |   ├─php                                   php 7.3版本
@@ -41,22 +42,21 @@
 |   ├─phpmyadmin                            数据库管理平台，内附：adminer.php
 |   |
 |   ├─conf                                  公用配置文件目录
-|   |   |  ├─apache24.conf                  apache24的公用配置文件
-|   |
-|   ├─logs                                  服务器相关日志文件目录
-|   |  |  ├─apache24                        apache24日志目录
-|   |  |  ├─mariadb                         mariadb日志目录
-|   |  |  ├─xdebug                          xdebug日志目录
-|   |  |
+|   |   ├─apache24.conf                  apache24的公用配置文件
 |   |
 |   ├─default                               apache24站点缺省位置
 |   |
-|
-├─sites                                     站点配置文件目录
-|
-├─www                                       Web根目录
-|
-├─data                                      mariadb数据库存放目录
+├─web                                       web根目录
+|   ├─sites                                 站点配置文件目录
+|   |
+|   ├─www                                   Web根目录
+|   |
+|   ├─data                                  mariadb数据库存放目录
+|   |
+|   ├─logs                                  服务器相关日志文件目录
+|   |  ├─apache24                           apache24日志目录
+|   |  ├─xdebug                             xdebug日志目录
+|   |
 |
 ├─install.bat                               安装wamp相关服务到系统服务
 |
@@ -87,6 +87,11 @@
 | `C`  | 小版本号，针对当前次版本的维护，会发布新版本                          |
 
 ## 更新说明
+
+> wamp-v4.3.0 更新说明
+
+1.  目录结构做了调整，在根目录增加了 `web` 目录
+2.  并将 `sites & www & data & logs` 这 4 个目录移动到 `web` 目录下
 
 > wamp-v4.2.1 更新说明
 
