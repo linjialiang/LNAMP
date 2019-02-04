@@ -9,8 +9,8 @@
 | 1    | `httpd-2.4.38-win64-VC15.zip`        | web 服务器包         |
 | 2    | `mariadb-10.3.12-winx64.zip`         | 数据库管理包         |
 | 3    | `php-7.3.1-Win32-VC15-x64.zip`       | php 解释器（线程版） |
-| 4    | `phpMyAdmin-4.8.4-all-languages.zip` | mysql 网页版管理平台 |
-| 5    | `adminer-4.7.0-mysql-cs.php`         | mysql 网页版管理平台 |
+| 4    | `phpMyAdmin-4.8.5-all-languages.zip` | mysql 网页版管理平台 |
+| 5    | `adminer-4.7.1.php`                  | mysql 网页版管理平台 |
 | 6    | `php_xdebug.7z`                      | php_xdebug 包        |
 | 7    | `composer.7z`                        | composer 包          |
 | 8    | `vc15_x64.exe`                       | 所需运行库           |
@@ -88,10 +88,17 @@
 
 ## 更新说明
 
+> wamp-v4.3.1 更新说明
+
+1. phpMyAdmin 升级至 `v4.8.5`
+2. Adminer 升级至 `v4.7.1`
+3. php_xdebug 升级至 `v2.7.0rc1`
+4. composer 升级至 `v.1.8.3`
+
 > wamp-v4.3.0 更新说明
 
 1.  目录结构做了调整，在根目录增加了 `web` 目录
-2.  并将 `sites & www & data & logs` 这 4 个目录移动到 `web` 目录下
+2.  将 `sites & www & data & logs` 这 4 个目录移动到 `web` 目录下
 3.  `my.ini` 数据目录改为 `c:\wamp\web\data`
 4.  apache24 配置文件的变量名做了相应调整：
     ```shell
