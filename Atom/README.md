@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-02-05 18:52:10
+| @Last modified time: 2019-02-05 20:28:58
 +===============================================================================
 -->
 
@@ -424,6 +424,27 @@ strict-ssl = false
 http-proxy = http://127.0.0.1:1080
 https-proxy = http://127.0.0.1:1080
 ```
+
+---
+
+## `autocomplete-paths` 配置
+
+### 开启 `HTML` 文件，路径补全功能
+
+> 在插件配置界面里将 `Enable Html Support` 勾选上，即可开启对 `HTML` 文件的支持
+
+### `HTML` 文件支持 `css` 路径补全
+
+> `HTML` 文件默认并不支持 `.css` 类型文件的自动补全，需要手动修改
+
+1. 修改文件路径：`C:\Users\username\.atom\packages\autocomplete-paths\lib\config\option-scopes.js`
+
+   > 隐藏第 11 行，并在后面增加一行
+
+   ```js
+   // extensions: ['js', 'png', 'gif', 'jpeg', 'jpg', 'tiff', 'html'],
+   extensions: ['css', 'js', 'png', 'gif', 'jpeg', 'jpg', 'tiff', 'html'],
+   ```
 
 ---
 
