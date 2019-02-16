@@ -100,9 +100,8 @@
 | `Sublime-Style-Column-Selection` | 复制任意区域           |
 | `bracket-colorizer`              | 根据括号的深度着色     |
 
-| git 相关插件(4)        | 插件描述                                   |
+| git 相关插件(3)        | 插件描述                                   |
 | ---------------------- | ------------------------------------------ |
-| `git-plus`             | 增强 Git 功能                              |
 | `git-time-machine`     | 近期提交的时间列表，并支持与当前内容做对比 |
 | `merge-conflicts`      | 解决 Atom 中的 Git 合并冲突                |
 | `tree-view-git-status` | 目录树里显示 Git 状态                      |
