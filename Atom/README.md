@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-02-18 14:03:06
+| @Last modified time: 2019-02-18 14:15:59
 +===============================================================================
 -->
 
@@ -444,6 +444,35 @@ https-proxy = http://127.0.0.1:1080
    ```js
    // extensions: ['js', 'png', 'gif', 'jpeg', 'jpg', 'tiff', 'html'],
    extensions: ['css', 'js', 'png', 'gif', 'jpeg', 'jpg', 'tiff', 'html'],
+   ```
+
+---
+
+## `language-nginx` 配置
+
+> conf 后缀文件, 既满足 `nginx` 也满足 `apache` ，为了区分开两者，我将 conf 后缀文件从 `nginx` 种移除了！
+
+1. 操作文件及路径：
+
+   > C:\Users\username\.atom\packages\language-nginx\grammars\nginx.cson
+
+2. 修改前代码(1-5 行)
+
+   ```cson
+   'fileTypes': [
+     'conf',
+     'nginx',
+     'nginxconf'
+   ]
+   ```
+
+3. 修改后代码(1-4 行)
+
+   ```cson
+   'fileTypes': [
+     'nginx',
+     'nginxconf'
+   ]
    ```
 
 ---
