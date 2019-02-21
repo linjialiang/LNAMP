@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-02-18 14:43:27
+| @Last modified time: 2019-02-21 22:29:35
 +===============================================================================
 -->
 
@@ -83,21 +83,22 @@
 
 ## atom 扩展插件
 
-| 实用插件(13)                     | 插件描述               |
-| -------------------------------- | ---------------------- |
-| `atom-beautify`                  | 格式化源代码           |
-| `docblockr`                      | 用于注释               |
-| `sync-settings`                  | atom 配置同步插件      |
-| `highlight-selected`             | 选择高亮               |
-| `split-diff`                     | 文件对比插件           |
-| `project-manager`                | 项目管理               |
-| `platformio-ide-terminal`        | atom 下出色的终端      |
-| `markdown-preview-enhanced`      | markdown 预览          |
-| `autocomplete-paths`             | 路径自动补全           |
-| `remote-ftp`                     | atom 下好用的 ftp 插件 |
-| `file-header`                    | 文件头信息             |
-| `Sublime-Style-Column-Selection` | 复制任意区域           |
-| `bracket-colorizer`              | 根据括号的深度着色     |
+| 实用插件(11)                         | 插件描述                  |
+| ------------------------------------ | ------------------------- |
+| `atom-beautify`                      | 格式化源代码              |
+| `docblockr`                          | 用于注释                  |
+| `sync-settings`                      | atom 配置同步插件         |
+| `highlight-selected`                 | 选择高亮                  |
+| `split-diff`                         | 文件对比插件              |
+| `project-manager`                    | 项目管理                  |
+| `platformio-ide-terminal`            | atom 下出色的终端         |
+| `markdown-preview-enhanced`          | markdown 预览             |
+| `autocomplete-paths`                 | 路径自动补全              |
+| `remote-ftp`                         | atom 下好用的 ftp 插件    |
+| `file-header`                        | 文件头信息                |
+| `regex-railroad-diagram`             | 正则表达式,以图形直观展示 |
+| ~~`Sublime-Style-Column-Selection`~~ | ~~复制任意区域~~          |
+| ~~`bracket-colorizer`~~              | ~~根据括号的深度着色~~    |
 
 | git 相关插件(3)        | 插件描述                                   |
 | ---------------------- | ------------------------------------------ |
@@ -122,11 +123,11 @@
 | `ide-typescript` | js 的 ide 包       |
 | `ide-php`        | php 的 ide 包      |
 
-| 符号对齐相关插件(3)  | 插件描述       |
-| -------------------- | -------------- |
-| `aligner`            | 符号对齐基础包 |
-| `aligner-javascript` | js 对齐        |
-| `aligner-php`        | php 对齐       |
+| 符号对齐相关插件(0)      | 插件描述           |
+| ------------------------ | ------------------ |
+| ~~`aligner`~~            | ~~符号对齐基础包~~ |
+| ~~`aligner-javascript`~~ | ~~js 对齐~~        |
+| ~~`aligner-php`~~        | ~~php 对齐~~       |
 
 | 语法相关插件(3)   | 插件描述                |
 | ----------------- | ----------------------- |
@@ -138,15 +139,15 @@
 | --------------- | -------- |
 | `file-icons`    | 文件图标 |
 
-| html 相关插件(7)  | 插件描述                         |
-| ----------------- | -------------------------------- |
-| `autoprefixer`    | css3 后缀自动完成                |
-| `open-in-browser` | html 页面从默认浏览器打开        |
-| `color-picker`    | 颜色选择                         |
-| `double-tag`      | html 开始和结束标签同步修改      |
-| `tag`             | `</` 或 `cmd-alt-.` 自动闭合标签 |
-| `svg-preview`     | svg 预览                         |
-| `pigments`        | css 下显示真实颜色               |
+| html 相关插件(4)  | 插件描述                             |
+| ----------------- | ------------------------------------ |
+| `autoprefixer`    | css3 后缀自动完成                    |
+| `open-in-browser` | html 页面从默认浏览器打开            |
+| `color-picker`    | 颜色选择                             |
+| `pigments`        | css 下显示真实颜色                   |
+| ~~`double-tag`~~  | ~~html 开始和结束标签同步修改~~      |
+| ~~`tag`~~         | ~~`</` 或 `cmd-alt-.` 自动闭合标签~~ |
+| ~~`svg-preview`~~ | ~~svg 预览~~                         |
 
 | vim 相关插件(3)    | 插件描述                   |
 | ------------------ | -------------------------- |
