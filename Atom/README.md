@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-02-25 12:10:10
+| @Last modified time: 2019-02-25 12:57:22
 +===============================================================================
 -->
 
@@ -333,6 +333,8 @@ project manager: save project
 ### `project-manager` 配置
 
 > `project-manager` 可以很好的管理我们的项目,更重要的是它可以让每个项目开启不同的插件组合
+>
+> - 提示：事实上 project-manager 控制插件是不明智，因为 atom 首先会全部加载所有插件，然后再由 project-manager 开启 `devMode` 模式来禁用一些插件！
 
 | 属性设置   | 属性值类型 | 描述                                                                        | 默认值                 |
 | ---------- | ---------- | --------------------------------------------------------------------------- | ---------------------- |
@@ -349,24 +351,23 @@ project manager: save project
 ```cson
 [
     {
-        devMode: true
-        settings:
-          'editor.tabLength': 4
-          'editor.showInvisibles': true
-    }
-    {
       title: 'Project Manager1'
       group: 'Atom'
       paths: [
         '/path/to/project-manager-1'
       ]
+      icon: 'atom-icon'
+      color: '#8892BF'
+      devMode: ture
     }
     {
       title: 'Project Manager2'
-      group: 'Atom'
+      group: 'github'
       paths: [
         '/path/to/project-manager-2'
       ]
+      icon: 'github-icon'
+      color: 'green'
     }
 ]
 ```
