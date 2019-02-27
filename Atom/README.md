@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-02-25 12:57:22
+| @Last modified time: 2019-02-27 08:43:29
 +===============================================================================
 -->
 
@@ -144,22 +144,23 @@
 | `relative-numbers` | vim 普通模式下显示先对行号 |
 | `ex-mode`          | atom 下的 ex 单行编辑器    |
 
-| 未使用的插件(14)                     | 插件描述                             |
-| ------------------------------------ | ------------------------------------ |
-| ~~`aligner`~~                        | ~~符号对齐基础包~~                   |
-| ~~`aligner-javascript`~~             | ~~js 对齐~~                          |
-| ~~`aligner-php`~~                    | ~~php 对齐~~                         |
-| ~~`double-tag`~~                     | ~~html 开始和结束标签同步修改~~      |
-| ~~`tag`~~                            | ~~`</` 或 `cmd-alt-.` 自动闭合标签~~ |
-| ~~`autoclose-html`~~                 | ~~html 标签自动闭合~~                |
-| ~~`svg-preview`~~                    | ~~svg 预览~~                         |
-| ~~`Sublime-Style-Column-Selection`~~ | ~~复制任意区域~~                     |
-| ~~`bracket-colorizer`~~              | ~~根据括号的深度着色~~               |
-| ~~`git-plus`~~                       | ~~git 增强工具~~                     |
-| ~~`atom-html-preview`~~              | ~~HTML 页面实时预览工具~~            |
-| ~~`atom-ternjs`~~                    | ~~js 代码补全 ~~                     |
-| ~~`language-apache`~~                | ~~apache 配置文件语法高亮~~          |
-| ~~`monokai`~~                        | ~~`sublime` 默认主题 ~~              |
+| 未使用的插件(14)                     | 插件描述                                |
+| ------------------------------------ | --------------------------------------- |
+| ~~`aligner`~~                        | ~~符号对齐基础包~~                      |
+| ~~`aligner-javascript`~~             | ~~js 对齐~~                             |
+| ~~`aligner-php`~~                    | ~~php 对齐~~                            |
+| ~~`double-tag`~~                     | ~~html 开始和结束标签同步修改~~         |
+| ~~`tag`~~                            | ~~`</` 或 `cmd-alt-.` 自动闭合标签~~    |
+| ~~`autoclose-html`~~                 | ~~html 标签自动闭合~~                   |
+| ~~`svg-preview`~~                    | ~~svg 预览~~                            |
+| ~~`Sublime-Style-Column-Selection`~~ | ~~复制任意区域~~                        |
+| ~~`bracket-colorizer`~~              | ~~根据括号的深度着色~~                  |
+| ~~`git-plus`~~                       | ~~git 增强工具~~                        |
+| ~~`atom-html-preview`~~              | ~~HTML 页面实时预览工具~~               |
+| ~~`atom-ternjs`~~                    | ~~js 代码补全 ~~                        |
+| ~~`language-apache`~~                | ~~apache 配置文件语法高亮~~             |
+| ~~`monokai`~~                        | ~~`sublime` 默认主题 ~~                 |
+| ~~`editorconfig`~~                   | ~~ 保持编码,多数编辑器都有集成或插件 ~~ |
 
 ## 终端下对 `atom` 插件管理
 
