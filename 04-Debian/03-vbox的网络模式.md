@@ -10,3 +10,7 @@
 | 04   | 内部网络              | Internal Network  |
 | 05   | 仅主机(Host-Only)网络 | Host-only Adapter |
 | 06   | 通用驱动              | Generic Driver    |
+
+## `NAT` 模式
+
+> `NAT` 模式，是从虚拟机访问外部网络的最简单方法。通常，它不需要主机网络和虚拟机上配置什么东西。出于这个原因，它是 vbox 中默认的网络模式。
