@@ -166,3 +166,9 @@
 | 虚拟电脑之间     | &#8730;  |
 | 虚拟电脑`->`外网 | &#8730;  |
 | 虚拟电脑`<-`外网 | &#215;   |
+
+> 共享网络状态下，建议将虚拟电脑设置成静态ip
+
+![Host-only-共享网络01](./static/03/Host-only-共享网络01.png)
+![Host-only-共享网络02](./static/03/Host-only-共享网络02.png)
+![Host-only-静态ip配置情况](./static/03/Host-only-共享网络03.png)
