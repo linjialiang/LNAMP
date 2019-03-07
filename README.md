@@ -38,10 +38,9 @@
 | ----------- | --------------------------- | --------------------------- |
 | 逻辑-全量   | $\forall$                   | `\forall`                   |
 | 逻辑-存在   | $\exist$                    | `\exist`                    |
-| 逻辑-属于   | $\in$                       | `\in`                       |
-| 逻辑-属于   | $\ni$                       | `\ni`                       |
-| 逻辑-不属于 | $\notin$                    | `\notin`                    |
-| 逻辑-不属于 | $\notni$                    | `\notni`                    |
+| 逻辑-属于   | $\in$ $\ni$                 | `\in` `\ni`                 |
+| 逻辑-不属于 | $\notin$ $\notni$           | `\notin` `\notni`           |
+| 子集        | $\sube$ $\supe$             | `\sube` `\supe`             |
 | 逻辑-非     | $\lnot$                     | `\lnot`                     |
 | 逻辑-空集   | $\varnothing$               | `\varnothing`               |
 | 逻辑-OR     | $\vee$                      | `\vee`                      |
@@ -53,5 +52,3 @@
 | 幂          | $\textstyle\sum_{i=1}^n$    | `\textstyle\sum_{i=1}^n`    |
 | 开根号      | $\sqrt[n]{x+y}$             | `\sqrt[n]{x+y}`             |
 | 指数        | $10^n$                      | `10^n`                      |
-| 子集        | $\sube$                     | `\sube`                     |
-| 子集        | $\supe$                     | `\supe`                     |
