@@ -1,24 +1,4 @@
-<!--
-+===============================================================================
-| @Author: madnesslin(地上马)
-+===============================================================================
-| @Phone: +86 13695746767
-+===============================================================================
-| @Date: 2018-12-29 09:52:35
-+===============================================================================
-| @Email: linjialiang@163.com
-+===============================================================================
-| @Last modified time: 2019-02-27 08:43:29
-+===============================================================================
--->
-
 # <center>《PHP 开发者眼中的 ATOM》</center>
-
-> `Atom` 是一款现代化的编辑器，写这篇文章只是我个人喜欢用而已，它还有很多问题需要解决：
->
-> - 用户群体如今已经被 `vscode` 完全超越，
-> - 普通人群会选择 `vscode` 因为它功能很足，并且流畅，但个人认为： `vscode` 细节方面做的并不出色
-> - `atom` 虽然有很多弊端，但是当你熟悉了这款编辑器以后，就会发现它很强大，并且能为我们节省很多时间，最重要的是：它很优雅！
 
 ## atom 推荐字体
 
@@ -39,39 +19,148 @@
 | `.atom\keymap.cson` | 所有自定义快捷键都会在这里记录   |
 | `.atom\styles.less` | 所有自定义样式都会在这里记录     |
 
-1.  核心配置
+> config.cson 文件
 
-    > `ctrl-shift-p` 开启方式：`settings view: core`
-
-    ![核心配置](./img/core.png)
-
-2.  编辑器配置
-
-    > `ctrl-shift-p` 开启方式：`settings view: editor`
-
-    ![编辑器配置](./img/editor.png)
-
-3.  URI handling 配置
-
-    ![URI-handling设置](./img/uri-handling.png)
-
-4.  系统配置
-
-    > `ctrl-shift-p` 开启方式：`settings view: system`
-
-    ![系统设置](./img/system.png)
-
-5.  内置插件配置
-
-    > 1.  `line-ending-selector` 插件将默认换行符修改成 `LF`
-    > 2.  `autosave` 插件开启自动保存
-    > 3.  `markdown-preview` 插件禁用掉
-
-    ![内置插件配置](./img/builtInPlugIns.png)
-
-6.  内置主题 UI `One Dark` `One Light`
-
-    ![内置主题UI](./img/builtInUI.png)
+```cson
+"*":
+  "atom-beautify":
+    css:
+      default_beautifier: "Prettier"
+    executables:
+      "php-cs-fixer":
+        path: "C:\\Users\\linji\\.atom\\other\\php-cs-fixer-v2.phar"
+    general:
+      _analyticsUserId: ""
+    html:
+      preserve_newlines: false
+    js:
+      default_beautifier: "Prettier"
+      object_curly_spacing: true
+      preserve_newlines: false
+      space_before_conditional: false
+    markdown:
+      default_beautifier: "Prettier"
+    php:
+      allow_risky: "yes"
+  autoprefixer:
+    runOnSave: true
+  autosave:
+    enabled: true
+  "color-picker":
+    abbreviateValues: true
+    alphaChannelAlways: true
+    automaticReplace: true
+    triggerKey: "K"
+  core:
+    autoHideMenuBar: true
+    closeDeletedFileTabs: true
+    disabledPackages: [
+      "markdown-preview"
+    ]
+    packagesWithKeymapsDisabled: []
+    telemetryConsent: "limited"
+    themes: [
+      "one-light-ui"
+      "notepad-plus-plus-syntax"
+    ]
+  docblockr:
+    auto_add_method_tag: true
+    c_style_block_comments: true
+    deep_indent: true
+    development_mode: true
+    extra_tags_go_after: true
+    lower_case_primitives: true
+    newline_after_block: true
+    override_js_var: true
+    per_section_indent: true
+    short_primitives: true
+    simple_mode: true
+  editor:
+    fontFamily: "hack, '思源宋体 CN'"
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+    tabLength: 4
+    tabType: "soft"
+  "exception-reporting":
+    userId: ""
+  "file-header":
+    autoAddingHeaderOnNewFile: false
+    autoAddingHeaderOnSaving: false
+    configDirPath: "C:\\Users\\linji\\.atom\\other\\file-header"
+    dateTimeFormat: "YYYY-MM-DD HH:mm:ss"
+    email: "linjialiang@163.com"
+    ignoreListForAutoUpdateAndAddingHeader: [
+      ""
+    ]
+    numOfEmptyLinesAfterNewHeader: 0
+    realname: "madnesslin(地上马)"
+  "line-ending-selector":
+    defaultLineEnding: "LF"
+  "linter-jshint": {}
+  "linter-ui-default": {}
+  "markdown-preview-enhanced":
+    codeBlockTheme: "coy.css"
+    openPreviewPaneAutomatically: false
+    previewTheme: "solarized-light.css"
+    revealjsTheme: "solarized.css"
+  "merge-conflicts": {}
+  minimap:
+    plugins:
+      bookmarks: true
+      bookmarksDecorationsZIndex: 0
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      selection: true
+      selectionDecorationsZIndex: 0
+      "split-diff": true
+      "split-diffDecorationsZIndex": 0
+  "one-dark-ui":
+    tabCloseButton: "Left"
+    tabSizing: "Maximum"
+  "one-light-ui":
+    tabCloseButton: "Left"
+    tabSizing: "Maximum"
+  "platformio-ide-terminal":
+    core:
+      shell: "C:\\cmder\\Cmder.exe"
+      workingDirectory: "Active File"
+    style:
+      theme: "solarized-dark"
+    toggles:
+      autoClose: true
+  "project-manager":
+    alwaysOpenInSameWindow: true
+    includeGitRepositories: true
+    showPath: false
+    sortBy: "group"
+  "spell-check":
+    useLocales: false
+  "sync-settings":
+    _lastBackupHash: ""
+    extraFiles: [
+      ".apmrc"
+      "config.cson"
+      "github.cson"
+      "projects.cson"
+    ]
+    gistId: ""
+    personalAccessToken: ""
+    quietUpdateCheck: true
+    removeObsoletePackages: true
+  "tree-view-git-status":
+    gitFlow:
+      display_type: 2
+  welcome:
+    showOnStartup: false
+```
 
 ## atom 扩展主题
 
@@ -82,7 +171,7 @@
 
 ## atom 扩展插件
 
-| 实用插件(12)                | 插件描述                  |
+| 实用插件(11)                | 插件描述                  |
 | --------------------------- | ------------------------- |
 | `atom-beautify`             | 格式化源代码              |
 | `docblockr`                 | 用于注释                  |
@@ -92,10 +181,9 @@
 | `project-manager`           | 项目管理                  |
 | `platformio-ide-terminal`   | atom 下出色的终端         |
 | `markdown-preview-enhanced` | markdown 预览             |
-| `autocomplete-paths`        | 路径自动补全              |
-| `remote-ftp`                | atom 下好用的 ftp 插件    |
 | `file-header`               | 文件头信息                |
 | `regex-railroad-diagram`    | 正则表达式,以图形直观展示 |
+| `file-icons`                | 文件图标                  |
 
 | git 相关插件(3)        | 插件描述                                   |
 | ---------------------- | ------------------------------------------ |
@@ -114,53 +202,32 @@
 | `minimap-selection`          | 代码小窗口-选择块高亮   |
 | `minimap-split-diff`         | 代码小窗口-对比高亮     |
 
-| ide 相关插件(5)  | 插件描述           |
-| ---------------- | ------------------ |
-| `atom-ide-ui`    | atom 的 ide 基础包 |
-| `ide-typescript` | js 的 ide 包       |
-| `ide-php`        | php 的 ide 包      |
-| `ide-html`       | html 的 ide 包     |
-| `ide-css`        | css 的 ide 包      |
-
 | 语法相关插件(2)  | 插件描述               |
 | ---------------- | ---------------------- |
 | `language-nginx` | nginx 配置文件语法高亮 |
 | `language-ini`   | ini 扩展文件语法高亮   |
 
-| 界面优化插件(1) | 插件描述 |
-| --------------- | -------- |
-| `file-icons`    | 文件图标 |
+| Linter(5)           | Linter 插件   |
+| ------------------- | ------------- |
+| `linter`            | Linter 基础包 |
+| `linter-ui-default` | Linter 界面   |
+| `busy-signal`       | Linter 信号   |
+| `linter-php`        | php 包        |
+| `linter-jshint`     | js 包         |
 
-| html 相关插件(4)  | 插件描述                  |
+| html 相关插件(5)  | 插件描述                  |
 | ----------------- | ------------------------- |
 | `autoprefixer`    | css3 后缀自动完成         |
 | `open-in-browser` | html 页面从默认浏览器打开 |
 | `color-picker`    | 颜色选择                  |
 | `pigments`        | css 下显示真实颜色        |
+| `emmet`           | 前端神器                  |
 
 | vim 相关插件(3)    | 插件描述                   |
 | ------------------ | -------------------------- |
 | `vim-mode-plus`    | vim 插件基础包             |
 | `relative-numbers` | vim 普通模式下显示先对行号 |
 | `ex-mode`          | atom 下的 ex 单行编辑器    |
-
-| 未使用的插件(15)                     | 插件描述                                |
-| ------------------------------------ | --------------------------------------- |
-| ~~`aligner`~~                        | ~~符号对齐基础包~~                      |
-| ~~`aligner-javascript`~~             | ~~js 对齐~~                             |
-| ~~`aligner-php`~~                    | ~~php 对齐~~                            |
-| ~~`double-tag`~~                     | ~~html 开始和结束标签同步修改~~         |
-| ~~`tag`~~                            | ~~`</` 或 `cmd-alt-.` 自动闭合标签~~    |
-| ~~`autoclose-html`~~                 | ~~html 标签自动闭合~~                   |
-| ~~`svg-preview`~~                    | ~~svg 预览~~                            |
-| ~~`Sublime-Style-Column-Selection`~~ | ~~复制任意区域~~                        |
-| ~~`bracket-colorizer`~~              | ~~根据括号的深度着色~~                  |
-| ~~`git-plus`~~                       | ~~git 增强工具~~                        |
-| ~~`atom-html-preview`~~              | ~~HTML 页面实时预览工具~~               |
-| ~~`atom-ternjs`~~                    | ~~js 代码补全 ~~                        |
-| ~~`language-apache`~~                | ~~apache 配置文件语法高亮~~             |
-| ~~`monokai`~~                        | ~~`sublime` 默认主题 ~~                 |
-| ~~`editorconfig`~~                   | ~~ 保持编码,多数编辑器都有集成或插件 ~~ |
 
 ## 终端下对 `atom` 插件管理
 
@@ -469,13 +536,11 @@ project manager: save project
   'ctrl-j': 'core:move-down'
 ```
 
-> `Ctrl-Shift-p` 下面有大量的指令，这些指令将会大大提升我们的工作效力！
-
-## `.apmrc` 配置
+### `.apmrc` 配置
 
 > `.apmrc` 文件用来让 `atom` 支持终端代理
->
-> - `.apmrc` 文件路径： `.atom\.apmrc`
+
+`.apmrc` 文件路径： `.atom\.apmrc`
 
 ```shell
 strict-ssl = false
@@ -484,109 +549,3 @@ https-proxy = http://127.0.0.1:1080
 ```
 
 ---
-
-## `autocomplete-paths` 配置
-
-### 开启 `HTML` 文件，路径补全功能
-
-> 在插件配置界面里将 `Enable Html Support` 勾选上，即可开启对 `HTML` 文件的支持
-
-### `HTML` 文件支持 `css` 路径补全
-
-> `HTML` 文件默认并不支持 `.css` 类型文件的自动补全，需要手动修改
-
-1. 修改文件路径：`C:\Users\username\.atom\packages\autocomplete-paths\lib\config\option-scopes.js`
-
-   > 隐藏第 11 行，并在后面增加一行
-
-   ```js
-   // extensions: ['js', 'png', 'gif', 'jpeg', 'jpg', 'tiff', 'html'],
-   extensions: ['css', 'js', 'png', 'gif', 'jpeg', 'jpg', 'tiff', 'html'],
-   ```
-
----
-
-## `language-nginx` 配置（事实上通常不需要配置）
-
-> conf 后缀文件, 既满足 `nginx` 也满足 `apache` ，为了区分开两者，我将 conf 后缀文件从 `nginx` 种移除了！
-
-1. 操作文件及路径：
-
-   > C:\Users\username\.atom\packages\language-nginx\grammars\nginx.cson
-
-2. 修改前代码(1-5 行)
-
-   ```cson
-   'fileTypes': [
-     'conf',
-     'nginx',
-     'nginxconf'
-   ]
-   ```
-
-3. 修改后代码(1-4 行)
-
-   ```cson
-   'fileTypes': [
-     'nginx',
-     'nginxconf'
-   ]
-   ```
-
----
-
-## 开始创建 atom 包
-
-> 写 atom 包是比较容易的:
-> \- 最低要求：熟悉 css 和 javascript
-> \- 建议满足：熟悉 less 和 coffeescript
-
-1.  使用 `Package Generator` 包来创建新包
-
-> 创建一个 package 最简单的方式就是使用 atom 里自带的生成器，使用命令面板 `ctrl-shift-p` :
-
-| 面板命令                                       | 描述           |
-| ---------------------------------------------- | -------------- |
-| `Package Generator: Generate Package`          | 创建一个新包   |
-| `Package Generator: Generate Syntax Theme`     | 创建一个新主题 |
-| `Package Generator: Generate Language Package` | 创建一个语言包 |
-
-> 选择以后，atom 会让你输入这个新包名和指定的路径，
->
-> - 并且这个路径会被 atom 映射到包目录中，这样我们修改了插件内容，本机上的 atom 就会立马生效！
-
----
-
-## 如何发布 atom 包
-
-> atom 包发布也是比较容易的，不过有几点需要注意的：
-
-1.  API 授权问题
-
-> 终端下输入 `apm login` 用于 API 授权，也可以更换授权码
-
-```shell
-apm login
-```
-
-![API授权](./img/API-1.png)
-
-2.  `apm publish <version-type>` 发布插件指令
-
-> atom 包可以使用 apm 发布，通过提升版本并发布插件！
-
-| version-type | 版本类型描述 | 发布案例 | git 标签案例 |
-| ------------ | ------------ | -------- | ------------ |
-| major        | 主版本提升 1 | 1.0.0    | v1.0.0       |
-| minor        | 此版本提升 1 | 0.1.0    | v0.1.0       |
-| patch        | 小版本提升 1 | 0.0.1    | v0.0.1       |
-
-> 更多内容可以通过 `apm help <command>` 指令查看所有帮助说明
-
-3.  版本发布的一些建议：
-
-| 版本类型 | 兼容性         | 例子                     |
-| -------- | -------------- | ------------------------ |
-| major    | 不兼容之前版本 | 更改默认值或删除功能     |
-| minor    | 兼容之前版本   | 添加新功能或添加选项     |
-| patch    | 兼容之前版本   | 包配置不变，仅仅做了优化 |
