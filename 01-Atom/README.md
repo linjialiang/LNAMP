@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-03-11 22:23:06
+| @Last modified time: 2019-03-11 22:35:54
 +===============================================================================
 -->
 
@@ -69,7 +69,9 @@
     disabledPackages: [
       "markdown-preview"
     ]
-    packagesWithKeymapsDisabled: []
+    packagesWithKeymapsDisabled: [
+      "markdown-preview-enhanced"
+    ]
     telemetryConsent: "limited"
     themes: [
       "one-light-ui"
