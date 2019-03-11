@@ -176,6 +176,8 @@
     showOnStartup: false
 ```
 
+---
+
 ## atom 扩展主题
 
 | atom 扩展主题(2)           | 主题描述              |
@@ -244,6 +246,8 @@
 | `relative-numbers` | vim 普通模式下显示先对行号 |
 | `ex-mode`          | atom 下的 ex 单行编辑器    |
 
+---
+
 ## 终端下对 `atom` 插件管理
 
 | 说明     | 指令                                             |
@@ -254,38 +258,15 @@
 | 禁用插件 | `apm disable package1 [package2 package3 ...]`   |
 | 启用插件 | `apm enable package1 [package2 package3 ...]`    |
 
-## 扩展插件配置说明
+---
 
-> 一些插件需要我们进一步说明
-
-### `sync-settings` 同步插件
-
-> 这是 atom 配置同步插件配置也很简单，填入正确的 token 跟 gistid 即可
-
-| 命令                         | 说明                                                                       |
-| ---------------------------- | -------------------------------------------------------------------------- |
-| `sync-settings:backup`       | 这条命令是备份当前的配置                                                   |
-| `sync-settings:restore`      | 这条命令是回复配置,是直接覆盖的;                                           |
-| `sync-settings:view-backup`  | 这条是当你执行备份后到线上查询你的备份的,也就是到你的 `gist code` 里的内容 |
-| `sync-settings:check-backup` | 这条是查询最后一次是否正常                                                 |
-
-1.  配置
-
-    ![sync-settings 配置](./img/sync-settings-config.png)
-
-2.  快捷键
-
-    ![sync-settings 快捷键](./img/sync-settings-key.png)
-
-3.  新增同步文件
-
-    ![sync-settings 新增同步文件](./img/sync-settings-3.png)
+## 插件配置说明
 
 ### `project-manager` 配置
 
 > `project-manager` 可以很好的管理我们的项目,更重要的是它可以让每个项目开启不同的插件组合
->
-> - 提示：事实上 project-manager 控制插件是不明智，因为 atom 首先会全部加载所有插件，然后再由 project-manager 开启 `devMode` 模式来禁用一些插件！
+
+> 提示：事实上 project-manager 控制插件是不明智，因为 atom 首先会全部加载所有插件，然后再由 project-manager 开启 `devMode` 模式来禁用一些插件！
 
 | 属性设置   | 属性值类型 | 描述                                                                        | 默认值                 |
 | ---------- | ---------- | --------------------------------------------------------------------------- | ---------------------- |
@@ -334,7 +315,7 @@
 | `icon: 'psd-icon'`    | psd 图标    |
 | `icon: 'php-icon'`    | php 图标    |
 
-> 头信息模板写法案例：（见源文件）
+---
 
 ## 快捷键说明
 
@@ -403,6 +384,8 @@
 | `C-M-t`      | 文件对比，支持与最近提交的版本库做对比             |
 | `M-鼠标左键` | 选取多行的中间部分内容                             |
 
+---
+
 ### 新增的几个快捷键
 
 > 增加了 `ctrl-k` `ctrl-j` ，在 `代码片段提示` 和 `命令窗口` 上下移动
@@ -419,7 +402,9 @@
   'ctrl-j': 'core:move-down'
 ```
 
-### `.apmrc` 配置
+---
+
+## `.apmrc` 配置
 
 > `.apmrc` 文件用来让 `atom` 支持终端代理
 
