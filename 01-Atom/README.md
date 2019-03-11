@@ -1,3 +1,17 @@
+<!--
++===============================================================================
+| @Author: madnesslin(地上马)
++===============================================================================
+| @Phone: +86 13695746767
++===============================================================================
+| @Date: 2019-03-11 21:56:33
++===============================================================================
+| @Email: linjialiang@163.com
++===============================================================================
+| @Last modified time: 2019-03-11 22:23:06
++===============================================================================
+-->
+
 # <center>《PHP 开发者眼中的 ATOM》</center>
 
 ## atom 推荐字体
@@ -5,8 +19,6 @@
 > - `hack, '思源宋体 CN'` (size=>14)
 
 ## atom 基本配置
-
-> atom 核心和内置插件需要进行一些简单配置，这样会更加优秀：
 
 | 序号                      | 打开 settings 方式    |
 | ------------------------- | --------------------- |
@@ -207,13 +219,14 @@
 | `language-nginx` | nginx 配置文件语法高亮 |
 | `language-ini`   | ini 扩展文件语法高亮   |
 
-| Linter(5)           | Linter 插件   |
-| ------------------- | ------------- |
-| `linter`            | Linter 基础包 |
-| `linter-ui-default` | Linter 界面   |
-| `busy-signal`       | Linter 信号   |
-| `linter-php`        | php 包        |
-| `linter-jshint`     | js 包         |
+| Linter(6)           | Linter 插件       |
+| ------------------- | ----------------- |
+| `linter`            | Linter 基础包     |
+| `intentions`        | Linter 显示基础包 |
+| `linter-ui-default` | Linter 界面       |
+| `busy-signal`       | Linter 信号       |
+| `linter-php`        | php 包            |
+| `linter-jshint`     | js 包             |
 
 | html 相关插件(5)  | 插件描述                  |
 | ----------------- | ------------------------- |
@@ -265,138 +278,6 @@
 3.  新增同步文件
 
     ![sync-settings 新增同步文件](./img/sync-settings-3.png)
-
-### `atom-beautify` 配置说明
-
-> `atom-beautify` 有些语言的格式化需要依赖与其它工具，遇到问题可以查看插件描述
-
-1.  增加 php 格式化支持文件 `php-cs-fixer-v2.phar`
-
-![atom-beautify 支持php格式化](./img/atom-beautify-1.png)
-
-![atom-beautify 支持php格式化](./img/atom-beautify-2.png)
-
-### `atom-ide-ui` 关闭几个没必要的功能
-
-> `atom-ide-ui` 几个并不好用的功能建议关闭：
-
-| 功能     | 缺陷描述                          |
-| -------- | --------------------------------- |
-| 断点调式 | php 暂时没有好用断电调式插件      |
-| 格式化   | `atom-beautify` 格式化神器在手    |
-| 终端     | 被 `platformio-ide-terminal` 完虐 |
-
-> 关闭方式
-
-![atom-beautify 支持php格式化](./img/atom-ide-ui-1.png)
-
-![atom-beautify 支持php格式化](./img/atom-ide-ui-2.png)
-
-![atom-beautify 支持php格式化](./img/atom-ide-ui-3.png)
-
-![atom-beautify 支持php格式化](./img/atom-ide-ui-4.png)
-
-### `markdown-preview-enhanced` 更改样式
-
-> 直接贴图：
-
-![修改markdown预览样式](./img/markdown-1.png)
-
-### ~~`php-ide-serenata` 配置说明（我最终选择了 `ide-php`）~~
-
-> `php-ide-serenata` 插件比官方推荐的 `php-ide` 更加优秀，当然配置也相对复杂一些
-
-| 排序 | 依赖插件（3）     |
-| ---- | ----------------- |
-| 1    | `atom-ide-ui`     |
-| 2    | `intentions`      |
-| 3    | `project-manager` |
-
-| 对 php 的要求             | 说明                                   |
-| ------------------------- | -------------------------------------- |
-| `php版本`                 | 7.1 及以上                             |
-| `php.ini`(必须开启)       | `mbstring` `openssl` `pdo_sqlite` 扩展 |
-| `php.ini`(下载服务时开启) | `curl` `xml` 扩展                      |
-
-> 刚刚下载好插件会有一个提示，如果 server 没有创建成功也会有这个提示：
-
-![serenata 服务下载提示](./img/ide-php-serenata-1.png)
-
-> 点击 `open package settings` 按钮进入配置界面（如果没有特别要求就不需要配置）
-
-![serenata 服务下载提示](./img/ide-php-serenata-2.png)
-
-> 接着点击 `Ready, install the server` 下载服务（下载成功和失败都会有提示）
-
-![serenata 开始下载服务](./img/ide-php-serenata-3.png)
-
-> 下载服务报错信息
-
-![serenata 开始下载服务](./img/ide-php-serenata-error.png)
-
-> 开启索引方法一：可以通过菜单栏项目进行相关索引
-
-![serenata 开始下载服务](./img/ide-php-serenata-5.png)
-
-> 开启索引方法二：`ctrl-shift-p` 下执行 `php ide serenata: set up current project` 命令
-
-![serenata 开启项目索引](./img/ide-php-serenata-6.png)
-
-> 最后注意用 `project-manager` 保存项目！
-
-```Shell
-ctrl-shift-p
-project manager: save project
-```
-
-### `platformio-ide-terminal` 配置说明
-
-> windows 下 `platformio-ide-terminal` 可以将终端设置成 git 下的 sh.exe
->
-> - 建议：可以考虑使用 `Cmder` 来替代，虽然会开独立的终端窗口，但是非常好用
-
-1.  在 Settings 中找到 Platformio-ide-terminal 插件，进入设置选项
-2.  找到 Shell Override 设置选项，将其设置为 `C:\Program Files\Git\Bin\sh.exe` （实际根据 Git 的安装位置可能有所不同，以上为 Git 安装的默认路径）
-3.  找到 Shell Arguments ，将其设置为 --login
-
-### `atom-beautify` 之 php 格式化配置
-
-> php 格式化需要 `php-cs-fixer-v2.phar` 支持，我们为它制定正确路径即可
-
-![serenata 开启项目索引](./img/atom-beautify-1.png)
-
-![serenata 开启项目索引](./img/atom-beautify-2.png)
-
-### `file-header` 自定义头信息模板
-
-> `file-header` 文件可以自定义头信息模板，操作如下：
-
-![头信息的设置说明](./img/file-header-1.png)
-
-![头信息的设置说明](./img/file-header-2.png)
-
-> 在 `settings` 界面指定自定义模板所在位置：
-
-| 信息                     | 说明                                 |
-| ------------------------ | ------------------------------------ |
-| `templates` 目录         | 目录下面存放头信息模板               |
-| `lang-mapping.json` 文件 | 将不同的文件类型指向特定的头信息模板 |
-| `头信息文件格式`         | `.tmpl`                              |
-
-> `lang-mapping.json` 文件写法案例（注意：最后一组语句后面是不能带上逗号的）：
-
-```json
-{
-  "source.css": "emad_css.tmpl",
-  "source.js": "emad_lang.tmpl",
-  "source.sql": "emad_sql.tmpl",
-  "source.gfm": "emad_html.tmpl",
-  "text.html.basic": "emad_html.tmpl",
-  "text.html.php": "emad_lang.tmpl",
-  "text.plain": "emad_default.tmpl",
-  "text.plain.null-grammar": "emad_default.tmpl"
-}
-```
 
 ### `project-manager` 配置
 
