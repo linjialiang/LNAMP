@@ -139,3 +139,9 @@
 ### autoprefixer
 
 > `autoprefixer` 唯一需要注意的是，想要获取最新的规则，就需要卸掉掉后，重新安装一遍！
+
+| 几个概念                                                      | 描述           |
+| ------------------------------------------------------------- | -------------- |
+| [插件地址](https://github.com/sindresorhus/atom-autoprefixer) | 安装插件的源码 |
+| [规则地址](https://github.com/postcss/autoprefixer)           | 规则下载地址   |
+| [规则官网](https://twitter.com/autoprefixer)                  | 官网是推特     |
