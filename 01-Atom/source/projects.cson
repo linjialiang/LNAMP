@@ -1,0 +1,41 @@
+[
+  {
+    title: "programmer"
+    group: "知识汇总"
+    paths: [
+      "D:\\programmer"
+    ]
+    icon: "code-icon"
+    color: "green"
+    devMode: true
+  }
+  {
+    title: "thinkphp"
+    group: "tp5项目"
+    paths: [
+      "C:\\wamp\\web\\www\\thinkphp"
+    ]
+    icon: "php-icon"
+    color: "#8892BF"
+    devMode: true
+  }
+  {
+    title: "qyadmin"
+    group: "前端项目"
+    paths: [
+      "C:\\wamp\\web\\www\\qyadmin"
+    ]
+    icon: "html5-icon"
+    color: "#e44c27"
+    devMode: true
+  }
+  {
+    title: ".atom"
+    group: "atom"
+    paths: [
+      "C:\\Users\\linji\\.atom"
+    ]
+    icon: "atom-icon"
+    color: "green"
+  }
+]

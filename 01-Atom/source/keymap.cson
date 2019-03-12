@@ -1,0 +1,3 @@
+# Your keymap
+'atom-text-editor':
+  'ctrl-shift-M': 'markdown-preview-enhanced:toggle'
