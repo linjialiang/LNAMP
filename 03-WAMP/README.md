@@ -2,6 +2,8 @@
 
 > wamp 核心详解主要是帮助 `php开发人员` 或 `Microsoft管理员` 快速搭建 php 工作环境
 
+> `wamp-v4.3.6`下载地址： [`百度网盘地址`](https://pan.baidu.com/s/1Tk0Aa4BVdjc5YkP-FEDTeA)     密码： `r1yd`
+
 ## wamp 环境包列表
 
 | 序号 | 包名                                 | 描述                 |
