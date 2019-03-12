@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-03-11 22:35:54
+| @Last modified time: 2019-03-12 11:30:36
 +===============================================================================
 -->
 
@@ -31,151 +31,6 @@
 | `.atom\keymap.cson` | 所有自定义快捷键都会在这里记录   |
 | `.atom\styles.less` | 所有自定义样式都会在这里记录     |
 
-> config.cson 文件
-
-```cson
-"*":
-  "atom-beautify":
-    css:
-      default_beautifier: "Prettier"
-    executables:
-      "php-cs-fixer":
-        path: "C:\\Users\\linji\\.atom\\other\\php-cs-fixer-v2.phar"
-    general:
-      _analyticsUserId: ""
-    html:
-      preserve_newlines: false
-    js:
-      default_beautifier: "Prettier"
-      object_curly_spacing: true
-      preserve_newlines: false
-      space_before_conditional: false
-    markdown:
-      default_beautifier: "Prettier"
-    php:
-      allow_risky: "yes"
-  autoprefixer:
-    runOnSave: true
-  autosave:
-    enabled: true
-  "color-picker":
-    abbreviateValues: true
-    alphaChannelAlways: true
-    automaticReplace: true
-    triggerKey: "K"
-  core:
-    autoHideMenuBar: true
-    closeDeletedFileTabs: true
-    disabledPackages: [
-      "markdown-preview"
-    ]
-    packagesWithKeymapsDisabled: [
-      "markdown-preview-enhanced"
-    ]
-    telemetryConsent: "limited"
-    themes: [
-      "one-light-ui"
-      "notepad-plus-plus-syntax"
-    ]
-  docblockr:
-    auto_add_method_tag: true
-    c_style_block_comments: true
-    deep_indent: true
-    development_mode: true
-    extra_tags_go_after: true
-    lower_case_primitives: true
-    newline_after_block: true
-    override_js_var: true
-    per_section_indent: true
-    short_primitives: true
-    simple_mode: true
-  editor:
-    fontFamily: "hack, '思源宋体 CN'"
-    showIndentGuide: true
-    showInvisibles: true
-    softWrap: true
-    softWrapAtPreferredLineLength: true
-    tabLength: 4
-    tabType: "soft"
-  "exception-reporting":
-    userId: ""
-  "file-header":
-    autoAddingHeaderOnNewFile: false
-    autoAddingHeaderOnSaving: false
-    configDirPath: "C:\\Users\\linji\\.atom\\other\\file-header"
-    dateTimeFormat: "YYYY-MM-DD HH:mm:ss"
-    email: "linjialiang@163.com"
-    ignoreListForAutoUpdateAndAddingHeader: [
-      ""
-    ]
-    numOfEmptyLinesAfterNewHeader: 0
-    realname: "madnesslin(地上马)"
-  "line-ending-selector":
-    defaultLineEnding: "LF"
-  "linter-jshint": {}
-  "linter-ui-default": {}
-  "markdown-preview-enhanced":
-    codeBlockTheme: "coy.css"
-    openPreviewPaneAutomatically: false
-    previewTheme: "solarized-light.css"
-    revealjsTheme: "solarized.css"
-  "merge-conflicts": {}
-  minimap:
-    plugins:
-      bookmarks: true
-      bookmarksDecorationsZIndex: 0
-      cursorline: true
-      cursorlineDecorationsZIndex: 0
-      "find-and-replace": true
-      "find-and-replaceDecorationsZIndex": 0
-      "git-diff": true
-      "git-diffDecorationsZIndex": 0
-      "highlight-selected": true
-      "highlight-selectedDecorationsZIndex": 0
-      selection: true
-      selectionDecorationsZIndex: 0
-      "split-diff": true
-      "split-diffDecorationsZIndex": 0
-  "one-dark-ui":
-    tabCloseButton: "Left"
-    tabSizing: "Maximum"
-  "one-light-ui":
-    tabCloseButton: "Left"
-    tabSizing: "Maximum"
-  "platformio-ide-terminal":
-    core:
-      shell: "C:\\cmder\\Cmder.exe"
-      workingDirectory: "Active File"
-    style:
-      theme: "solarized-dark"
-    toggles:
-      autoClose: true
-  "project-manager":
-    alwaysOpenInSameWindow: true
-    includeGitRepositories: true
-    showPath: false
-    sortBy: "group"
-  "spell-check":
-    useLocales: false
-  "sync-settings":
-    _lastBackupHash: ""
-    extraFiles: [
-      ".apmrc"
-      "config.cson"
-      "github.cson"
-      "projects.cson"
-    ]
-    gistId: ""
-    personalAccessToken: ""
-    quietUpdateCheck: true
-    removeObsoletePackages: true
-  "tree-view-git-status":
-    gitFlow:
-      display_type: 2
-  welcome:
-    showOnStartup: false
-```
-
 ---
 
 ## atom 扩展主题
@@ -187,7 +42,7 @@
 
 ## atom 扩展插件
 
-| 实用插件(11)                | 插件描述                  |
+| 实用插件(12)                | 插件描述                  |
 | --------------------------- | ------------------------- |
 | `atom-beautify`             | 格式化源代码              |
 | `docblockr`                 | 用于注释                  |
@@ -200,6 +55,7 @@
 | `file-header`               | 文件头信息                |
 | `regex-railroad-diagram`    | 正则表达式,以图形直观展示 |
 | `file-icons`                | 文件图标                  |
+| `ftp-remote`                | ftp/sftp                  |
 
 | git 相关插件(3)        | 插件描述                                   |
 | ---------------------- | ------------------------------------------ |
@@ -248,6 +104,14 @@
 
 ---
 
+> config.cson 文件
+
+```cson
+
+```
+
+---
+
 ## 终端下对 `atom` 插件管理
 
 | 说明     | 指令                                             |
@@ -257,8 +121,6 @@
 | 移除插件 | `apm remove package1 [package2 package3 ...]`    |
 | 禁用插件 | `apm disable package1 [package2 package3 ...]`   |
 | 启用插件 | `apm enable package1 [package2 package3 ...]`    |
-
----
 
 ## 插件配置说明
 
