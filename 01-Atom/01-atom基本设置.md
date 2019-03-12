@@ -180,14 +180,22 @@ hack, '思源宋体 CN'
 
 > 比如，我们可以让 Atom 使用新按键来进行上下移动：
 
-```shell
-# 自动补全模式下使用 ctrl-k ctrl-j 来上下移动
-'atom-text-editor.autocomplete-active':
-  'ctrl-k': 'core:move-up'
-  'ctrl-j': 'core:move-down'
+```cson
+'atom-text-editor':
+  # markdown 预览快捷键
+  'ctrl-shift-M': 'markdown-preview-enhanced:toggle'
+  # 自动补全展示快捷键
+  'ctrl-shift-space': 'autocomplete-plus:activate'
 
-# 选择列表使用 ctrl-k ctrl-j 来上下移动
+# 选择列表使用 ctrl-p ctrl-n 来上下移动
 '.select-list atom-text-editor':
-  'ctrl-k': 'core:move-up'
-  'ctrl-j': 'core:move-down'
+  'ctrl-p': 'core:move-up'
+  'ctrl-n': 'core:move-down'
+
+# 自动补全模式下使用 ctrl-p ctrl-n 来上下移动
+'body atom-text-editor.autocomplete-active':
+  'ctrl-p': 'core:move-up'
+  'ctrl-n': 'core:move-down'
+  'home': 'core:move-to-top'
+  'end': 'core:move-to-bottom'
 ```
