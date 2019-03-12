@@ -167,4 +167,12 @@
 
 ### file-header
 
-> 头信息可以自定义模板，自定义模板的位置在 `~\.atom\other\file-header` 目录下，具体这里不做讲解
+> 头信息可以自定义模板，自定义模板的位置在 `~\.atom\other\file-header`目录下，文件源码如下:
+
+| 序号 | file-header 模板                                             |
+| ---- | ------------------------------------------------------------ |
+| 01   | [默认](./other/file-header/templates/emad_default.tmpl)      |
+| 02   | [css 类](./other/file-header/templates/emad_css.tmpl)        |
+| 03   | [html 类](./other/file-header/templates/emad_html.tmpl)      |
+| 04   | [高级语言文件](./other/file-header/templates/emad_lang.tmpl) |
+| 05   | [sql 文件](./other/file-header/templates/emad_sql.tmpl)      |
