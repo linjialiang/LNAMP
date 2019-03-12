@@ -24,7 +24,7 @@
 | `file-header`               | 文件头信息        |
 | `regex-railroad-diagram`    | 正则表达式直观图  |
 | `file-icons`                | 文件图标          |
-| `ftp-remote`                | ftp/sftp          |
+| `remote-ftp`                | ftp/sftp          |
 
 | git 相关插件(3)        | 插件描述                                   |
 | ---------------------- | ------------------------------------------ |
@@ -145,3 +145,64 @@
 | [插件地址](https://github.com/sindresorhus/atom-autoprefixer) | 安装插件的源码 |
 | [规则地址](https://github.com/postcss/autoprefixer)           | 规则下载地址   |
 | [规则官网](https://twitter.com/autoprefixer)                  | 官网是推特     |
+
+### remote-ftp
+
+> `remote-ftp` 插件主要是在项目配置 ftp
+
+![保存时自动更新远程文件](./static/02/01.png)
+
+1. sftp 配置选项
+
+```
+{
+    "protocol": "sftp",
+    "host": "example.com", // string - Hostname or IP address of the server. Default: 'localhost'
+    "port": 22, // integer - Port number of the server. Default: 22
+    "user": "user", // string - Username for authentication. Default: (none)
+    "pass": "pass", // string - Password for password-based user authentication. Default: (none)
+    "promptForPass": false, // boolean - Set to true for enable password/passphrase dialog. This will prevent from using cleartext password/passphrase in this config. Default: false
+    "remote": "/", // try to use absolute paths starting with /
+    "agent": "", // string - Path to ssh-agent's UNIX socket for ssh-agent-based user authentication. Linux/Mac users can set "env" as a value to use env SSH_AUTH_SOCK variable. Windows users: set to 'pageant' for authenticating with Pageant or (actual) path to a cygwin "UNIX socket." Default: (none)
+    "privatekey": "", // string - Absolute path to the private key file (in OpenSSH format). Default: (none)
+    "passphrase": "", // string - For an encrypted private key, this is the passphrase used to decrypt it. Default: (none)
+    "hosthash": "", // string - 'md5' or 'sha1'. The host's key is hashed using this method and passed to the hostVerifier function. Default: (none)
+    "ignorehost": true,
+    "connTimeout": 10000, // integer - How long (in milliseconds) to wait for the SSH handshake to complete. Default: 10000
+    "keepalive": 10000, // integer - How often (in milliseconds) to send SSH-level keepalive packets to the server (in a similar way as OpenSSH's ServerAliveInterval config option). Set to 0 to disable. Default: 10000
+    "keyboardInteractive": false, // boolean - Set to true for enable verifyCode dialog. Keyboard interaction authentication mechanism. For example using Google Authentication (Multi factor)
+    "keyboardInteractiveForPass": false, // boolean - Set to true for enable keyboard interaction and use pass options for password. No open dialog.
+    "watch":[ // array - Paths to files, directories, or glob patterns that are watched and when edited outside of the atom editor are uploaded. Default : []
+        "dist/stylesheets/main.css", // reference from the root of the project.
+        "dist/stylesheets/",
+        "dist/stylesheets/*.css"
+    ],
+    "watchTimeout":500, // integer - The duration ( in milliseconds ) from when the file was last changed for the upload to begin.
+    "filePermissions":"0644" // string - Permissions for uploaded files. WARNING: if this option is set, previously set permissions on the remote are overwritten!
+}
+```
+
+2. FTP & FTPS 配置选项
+
+```
+{
+    "protocol": "ftp",
+    "host": "example.com", // string - The hostname or IP address of the FTP server. Default: 'localhost'
+    "port": 21, // integer - The port of the FTP server. Default: 21
+    "user": "user", // string - Username for authentication. Default: 'anonymous'
+    "pass": "pass", // string - Password for authentication. Default: 'anonymous@'
+    "promptForPass": false, // boolean - Set to true for enable password dialog. This will prevent from using cleartext password in this config. Default: false
+    "remote": "/",
+    "secure": false, // mixed - Set to true for both control and data connection encryption, 'control' for control connection encryption only, or 'implicit' for implicitly encrypted control connection (this mode is deprecated in modern times, but usually uses port 990) Default: false
+    "secureOptions": null, // object - Additional options to be passed to tls.connect(). Default: (null) see https://nodejs.org/api/tls.html#tls_tls_connect_options_callback
+    "connTimeout": 10000, // integer - How long (in milliseconds) to wait for the control connection to be established. Default: 10000
+    "pasvTimeout": 10000, // integer - How long (in milliseconds) to wait for a PASV data connection to be established. Default: 10000
+    "keepalive": 10000, // integer - How often (in milliseconds) to send a 'dummy' (NOOP) command to keep the connection alive. Default: 10000\. If set to 0, keepalive is disabled.
+    "watch":[ // array - Paths to files, directories, or glob patterns that are watched and when edited outside of the atom editor are uploaded. Default : []
+        "dist/stylesheets/main.css", // reference from the root of the project.
+        "dist/stylesheets/",
+        "dist/stylesheets/*.css"
+    ],
+    "watchTimeout":500 // integer - The duration ( in milliseconds ) from when the file was last changed for the upload to begin.
+}
+```
