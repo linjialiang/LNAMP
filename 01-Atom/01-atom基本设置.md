@@ -81,10 +81,31 @@
 
 ### 字体推荐
 
+> 建议字体大小为 `14px` ，字体如下：
+
 ```text
-字体 => hack, '思源宋体 CN'
-字体大小 => 14px
+hack, '思源宋体 CN'
 ```
+
+### Atom 代理设置
+
+> 通过 `~\.atom\.apmrc` 文件，可以让 `atom` 支持代理网络
+
+1. 本地代理
+
+   ```shell
+   strict-ssl = false
+   http-proxy = http://127.0.0.1:1080
+   https-proxy = http://127.0.0.1:1080
+   ```
+
+2. 淘宝镜像代理
+
+   ```shell
+   ;strict-ssl = false
+   ;http-proxy = http://registry.npm.taobao.org/
+   ;https-proxy = https://registry.npm.taobao.org/
+   ```
 
 ---
 
@@ -161,7 +182,7 @@
 
 ```shell
 # 自动补全模式下使用 ctrl-k ctrl-j 来上下移动
-'atom-text-editor.vim-mode-plus.insert-mode.autocomplete-active':
+'atom-text-editor.autocomplete-active':
   'ctrl-k': 'core:move-up'
   'ctrl-j': 'core:move-down'
 
