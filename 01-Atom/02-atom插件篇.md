@@ -70,3 +70,72 @@
 | `vim-mode-plus`    | vim 插件基础包             |
 | `relative-numbers` | vim 普通模式下显示先对行号 |
 | `ex-mode`          | atom 下的 ex 单行编辑器    |
+
+## 终端下对 `atom` 插件管理
+
+| 说明     | 指令                                             |
+| -------- | ------------------------------------------------ |
+| 安装插件 | `apm install package1 [package2 package3 ...]`   |
+| 卸载插件 | `apm uninstall package1 [package2 package3 ...]` |
+| 移除插件 | `apm remove package1 [package2 package3 ...]`    |
+| 禁用插件 | `apm disable package1 [package2 package3 ...]`   |
+| 启用插件 | `apm enable package1 [package2 package3 ...]`    |
+
+## 插件配置说明
+
+### project-manager
+
+> `project-manager` 可以很好的管理我们的项目,更重要的是它可以让每个项目开启不同的插件组合
+
+> 提示：事实上 project-manager 控制插件是不明智，因为 atom 首先会全部加载所有插件，然后再由 project-manager 开启 `devMode` 模式来禁用一些插件！
+
+| 属性设置   | 属性值类型 | 描述              | 默认值                 |
+| ---------- | ---------- | ----------------- | ---------------------- |
+| `title`    | 字符串     | 项目标题          | `''`                   |
+| `paths`    | 数组       | 视图中所有根目录  | `[]`                   |
+| `settings` | 对象       | 特定项目的设置。  | `{}`                   |
+| `icon`     | 字符串     | 项目列表中的图标  | `'icon-chevron-right'` |
+| `devMode`  | 布尔值     | `true` 为开发模式 | `false`                |
+| `group`    | 字符串     | 项目组            | `null`                 |
+| `template` | 字符串     | 项目模板          | `null`                 |
+
+> 常规案例：
+
+```cson
+[
+    {
+      title: 'Project Manager1'
+      group: 'Atom'
+      paths: [
+        '/path/to/project-manager-1'
+      ]
+      icon: 'atom-icon'
+      color: '#8892BF'
+      devMode: ture
+    }
+    {
+      title: 'Project Manager2'
+      group: 'github'
+      paths: [
+        '/path/to/project-manager-2'
+      ]
+      icon: 'github-icon'
+      color: 'green'
+    }
+]
+```
+
+> `icon` 的属性值，可以直接使用 `file-icons` 插件（700 多个图标）设置，如：
+
+| 案例                  | 描述        |
+| --------------------- | ----------- |
+| `icon: 'atom-icon'`   | atom 图标   |
+| `icon: 'git-icon'`    | git 图标    |
+| `icon: 'github-icon'` | github 图标 |
+| `icon: 'code-icon'`   | 代码图标    |
+| `icon: 'psd-icon'`    | psd 图标    |
+| `icon: 'php-icon'`    | php 图标    |
+
+### autoprefixer
+
+> `autoprefixer` 唯一需要注意的是，想要获取最新的规则，就需要卸掉掉后，重新安装一遍！

@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-03-12 14:39:26
+| @Last modified time: 2019-03-12 17:39:03
 +===============================================================================
 -->
 
@@ -258,86 +258,6 @@
       display_type: 2
   welcome:
     showOnStartup: false
-```
-
----
-
-## 终端下对 `atom` 插件管理
-
-| 说明     | 指令                                             |
-| -------- | ------------------------------------------------ |
-| 安装插件 | `apm install package1 [package2 package3 ...]`   |
-| 卸载插件 | `apm uninstall package1 [package2 package3 ...]` |
-| 移除插件 | `apm remove package1 [package2 package3 ...]`    |
-| 禁用插件 | `apm disable package1 [package2 package3 ...]`   |
-| 启用插件 | `apm enable package1 [package2 package3 ...]`    |
-
-## 插件配置说明
-
-### `project-manager` 配置
-
-> `project-manager` 可以很好的管理我们的项目,更重要的是它可以让每个项目开启不同的插件组合
-
-> 提示：事实上 project-manager 控制插件是不明智，因为 atom 首先会全部加载所有插件，然后再由 project-manager 开启 `devMode` 模式来禁用一些插件！
-
-| 属性设置   | 属性值类型 | 描述                                                                        | 默认值                 |
-| ---------- | ---------- | --------------------------------------------------------------------------- | ---------------------- |
-| `title`    | 字符串     | 项目标题。在项目列表中展示                                                  | `''`                   |
-| `paths`    | 数组       | 树视图中的所有文件夹。首个路径作为项目的主要路径。                          | `[]`                   |
-| `settings` | 对象       | 特定于项目的设置。支持 `config.cson` 内容                                   | `{}`                   |
-| `icon`     | 字符串     | 显示在项目列表中的图标                                                      | `'icon-chevron-right'` |
-| `devMode`  | 布尔值     | `true` 为开发模式                                                           | `false`                |
-| `group`    | 字符串     | 将一个组添加到可用于对项目进行分组和筛选的项目列表中                        | `null`                 |
-| `template` | 字符串     | 模板是 `projects.cson` 文件中没有配置路径的项目，所有项目共享这个模板的配置 | `null`                 |
-
-> 常规案例：
-
-```cson
-[
-    {
-      title: 'Project Manager1'
-      group: 'Atom'
-      paths: [
-        '/path/to/project-manager-1'
-      ]
-      icon: 'atom-icon'
-      color: '#8892BF'
-      devMode: ture
-    }
-    {
-      title: 'Project Manager2'
-      group: 'github'
-      paths: [
-        '/path/to/project-manager-2'
-      ]
-      icon: 'github-icon'
-      color: 'green'
-    }
-]
-```
-
-> `icon` 的属性值，可以直接使用 `file-icons` 插件（700 多个图标）设置，如：
-
-| 案例                  | 描述        |
-| --------------------- | ----------- |
-| `icon: 'atom-icon'`   | atom 图标   |
-| `icon: 'git-icon'`    | git 图标    |
-| `icon: 'github-icon'` | github 图标 |
-| `icon: 'code-icon'`   | 代码图标    |
-| `icon: 'psd-icon'`    | psd 图标    |
-| `icon: 'php-icon'`    | php 图标    |
-
-
-## `.apmrc` 配置
-
-> `.apmrc` 文件用来让 `atom` 支持终端代理
-
-`.apmrc` 文件路径： `.atom\.apmrc`
-
-```shell
-strict-ssl = false
-http-proxy = http://127.0.0.1:1080
-https-proxy = http://127.0.0.1:1080
 ```
 
 ---
