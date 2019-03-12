@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-03-12 11:30:36
+| @Last modified time: 2019-03-12 11:45:01
 +===============================================================================
 -->
 
@@ -107,7 +107,157 @@
 > config.cson 文件
 
 ```cson
-
+"*":
+  "atom-beautify":
+    css:
+      default_beautifier: "Prettier"
+    executables:
+      "php-cs-fixer":
+        path: ""
+    general:
+      _analyticsUserId: ""
+    html:
+      preserve_newlines: false
+    js:
+      default_beautifier: "Prettier"
+      object_curly_spacing: true
+      preserve_newlines: false
+      space_before_conditional: false
+    markdown:
+      default_beautifier: "Prettier"
+    php:
+      allow_risky: "yes"
+  autoprefixer:
+    runOnSave: true
+  autosave:
+    enabled: true
+  "color-picker":
+    abbreviateValues: true
+    alphaChannelAlways: true
+    automaticReplace: true
+    triggerKey: "K"
+  core:
+    autoHideMenuBar: true
+    closeDeletedFileTabs: true
+    disabledPackages: [
+      "markdown-preview"
+    ]
+    packagesWithKeymapsDisabled: [
+      "markdown-preview-enhanced"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "atom-material-syntax"
+    ]
+    uriHandlerRegistration: "always"
+  docblockr:
+    auto_add_method_tag: true
+    c_style_block_comments: true
+    deep_indent: true
+    development_mode: true
+    extra_tags_go_after: true
+    lower_case_primitives: true
+    newline_after_block: true
+    override_js_var: true
+    per_section_indent: true
+    short_primitives: true
+    simple_mode: true
+  editor:
+    fontFamily: "hack, '思源宋体 CN'"
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+    tabLength: 4
+    tabType: "soft"
+  "exception-reporting":
+    userId: ""
+  "file-header":
+    autoAddingHeaderOnNewFile: false
+    autoAddingHeaderOnSaving: false
+    configDirPath: ""
+    dateTimeFormat: "YYYY-MM-DD HH:mm:ss"
+    email: ""
+    ignoreListForAutoUpdateAndAddingHeader: [
+      ""
+    ]
+    numOfEmptyLinesAfterNewHeader: 0
+    realname: ""
+  "line-ending-selector":
+    defaultLineEnding: "LF"
+  "linter-jshint": {}
+  "linter-ui-default": {}
+  "markdown-preview-enhanced":
+    codeBlockTheme: "coy.css"
+    openPreviewPaneAutomatically: false
+    previewTheme: "solarized-light.css"
+    revealjsTheme: "solarized.css"
+  "merge-conflicts": {}
+  minimap:
+    plugins:
+      bookmarks: true
+      bookmarksDecorationsZIndex: 0
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      selection: true
+      selectionDecorationsZIndex: 0
+      "split-diff": true
+      "split-diffDecorationsZIndex": 0
+  "one-dark-ui":
+    tabCloseButton: "Left"
+    tabSizing: "Maximum"
+  "one-light-ui":
+    tabCloseButton: "Left"
+    tabSizing: "Maximum"
+  "platformio-ide-terminal":
+    core:
+      shell: ""
+      workingDirectory: "Active File"
+    style:
+      theme: "solarized-dark"
+    toggles:
+      autoClose: true
+  "project-manager":
+    alwaysOpenInSameWindow: true
+    includeGitRepositories: true
+    showPath: false
+    sortBy: "group"
+  "remote-ftp":
+    beta: {}
+    connector:
+      autoUploadOnSave: "only when connected"
+    context: {}
+    dev: {}
+    statusbar:
+      enable: true
+    tree:
+      showViewOnStartup: false
+  "spell-check":
+    useLocales: false
+  "sync-settings":
+    _lastBackupHash: ""
+    extraFiles: [
+      ".apmrc"
+      "config.cson"
+      "github.cson"
+      "projects.cson"
+    ]
+    gistId: ""
+    personalAccessToken: ""
+    quietUpdateCheck: true
+    removeObsoletePackages: true
+  "tree-view-git-status":
+    gitFlow:
+      display_type: 2
+  welcome:
+    showOnStartup: false
 ```
 
 ---
