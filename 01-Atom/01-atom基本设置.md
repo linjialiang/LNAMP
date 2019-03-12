@@ -178,7 +178,7 @@ hack, '思源宋体 CN'
 
 ### 自定义快捷键
 
-> 比如，我们可以让 Atom 使用新按键来进行上下移动：
+> 在 `.atom/keymap.cson`下添加内，比如：
 
 ```cson
 'atom-text-editor':
