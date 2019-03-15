@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-03-15 17:11:57
+| @Last modified time: 2019-03-15 17:13:53
 +===============================================================================
 -->
 
@@ -223,27 +223,3 @@ hack, '思源宋体 CN'
 | `ctrl-alt-c`        | 开启 ftp 远程连接      |
 | `ctrl-alt-d`        | 关闭 ftp 远程连接      |
 | `ctrl-shift-u`      | 更新远程文件           |
-
-### 自定义快捷键
-
-> 在 `.atom/keymap.cson`下添加内，比如：
-
-```cson
-'atom-text-editor':
-  # markdown 预览快捷键
-  'ctrl-shift-M': 'markdown-preview-enhanced:toggle'
-  # 自动补全展示快捷键
-  'ctrl-shift-space': 'autocomplete-plus:activate'
-
-# 选择列表使用 ctrl-p ctrl-n 来上下移动
-'.select-list atom-text-editor':
-  'ctrl-p': 'core:move-up'
-  'ctrl-n': 'core:move-down'
-
-# 自动补全模式下使用 ctrl-p ctrl-n 来上下移动
-'body atom-text-editor.autocomplete-active':
-  'ctrl-p': 'core:move-up'
-  'ctrl-n': 'core:move-down'
-  'home': 'core:move-to-top'
-  'end': 'core:move-to-bottom'
-```
