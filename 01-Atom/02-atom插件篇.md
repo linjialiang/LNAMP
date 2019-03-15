@@ -8,9 +8,10 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-03-13 08:46:00
+| @Last modified time: 2019-03-15 15:27:29
 +===============================================================================
 -->
+
 # <center>Atom 插件篇</center>
 
 > Atom 有很多优秀的插件，我们这里只是讲解其中一部分插件，这些插件都是我经过长期使用得到的，并且可以很好的协作！
@@ -61,14 +62,18 @@
 | `language-nginx` | nginx 配置文件语法高亮 |
 | `language-ini`   | ini 扩展文件语法高亮   |
 
-| Linter(6)           | Linter 插件       |
-| ------------------- | ----------------- |
-| `linter`            | Linter 基础包     |
-| `intentions`        | Linter 显示基础包 |
-| `linter-ui-default` | Linter 界面       |
-| `busy-signal`       | Linter 信号       |
-| `linter-php`        | php 包            |
-| `linter-jshint`     | js 包             |
+| ide(10)                   | 插件描述      |
+| ------------------------- | ------------- |
+| `busy-signal`             | 基础包        |
+| `intentions`              | Linter 显示   |
+| `linter-ui-default`       | Linter 界面   |
+| `linter`                  | Linter 基础包 |
+| `linter-jshint`           | js 错误提示   |
+| `atom-ternjs`             | js 自动补全   |
+| `atom-ide-datatip`        | ide 基础包    |
+| `atom-ide-definitions`    | ide 基础包    |
+| `atom-ide-signature-help` | ide 基础包    |
+| `ide-php`                 | php 包        |
 
 | html 相关插件(5)  | 插件描述                  |
 | ----------------- | ------------------------- |
