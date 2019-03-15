@@ -2,7 +2,7 @@
 
 > wamp 核心详解主要是帮助 `php开发人员` 或 `Microsoft管理员` 快速搭建 php 工作环境
 
-> `wamp-v4.3.6`下载地址： [`百度网盘地址`](https://pan.baidu.com/s/1Tk0Aa4BVdjc5YkP-FEDTeA)     密码： `r1yd`
+> `wamp-v4.3.6`下载地址： [`百度网盘地址`](https://pan.baidu.com/s/1Tk0Aa4BVdjc5YkP-FEDTeA) 密码： `r1yd`
 
 ## wamp 环境包列表
 
@@ -89,6 +89,14 @@
 | `C`  | 小版本号，针对当前次版本的维护，会发布新版本                          |
 
 ## 更新说明
+
+> wamp-v4.3.7 更新说明
+
+1.  php.ini 参数更新
+
+    ```ini
+    xdebug.idekey= netbeans-xdebug
+    ```
 
 > wamp-v4.3.6 更新说明
 
