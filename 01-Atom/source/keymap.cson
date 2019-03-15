@@ -1,3 +1,27 @@
-# Your keymap
+'atom-workspace .tree-view':
+    'g g': 'core:move-to-top'
+    'shift-G': 'core:move-to-bottom'
+    'ctrl-k ctrl-k': 'tree-view:open-selected-entry-up'
+    'ctrl-k ctrl-j': 'tree-view:open-selected-entry-down'
+    'ctrl-k ctrl-h': 'tree-view:open-selected-entry-left'
+    'ctrl-k ctrl-l': 'tree-view:open-selected-entry-right'
+
+'.select-list atom-text-editor, body atom-text-editor.autocomplete-active':
+    'ctrl-p': 'core:move-up'
+    'ctrl-n': 'core:move-down'
+    'home': 'core:move-to-top'
+    'end': 'core:move-to-bottom'
+
+'atom-text-editor:not(.mini)':
+  'ctrl-k ctrl-h': 'file-header:add'
+
+'atom-workspace':
+  'ctrl-k ctrl-t': 'git-time-machine:toggle'
+
+'.platform-win32 atom-workspace atom-text-editor':
+  'ctrl-k ctrl-b': 'open-in-browser:open'
+
 'atom-text-editor':
-  'ctrl-shift-M': 'markdown-preview-enhanced:toggle'
+    'ctrl-k ctrl-m': 'markdown-preview-enhanced:toggle'
+    'ctrl-k ctrl-o': 'autocomplete-plus:activate'
+    'ctrl-k ctrl-enter': 'atom-ide-go-to-definition:go-to-definition'
