@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-03-15 15:27:29
+| @Last modified time: 2019-03-15 18:40:56
 +===============================================================================
 -->
 
@@ -178,8 +178,41 @@
     "host": "ip address",
     "port": 21,
     "user": "username",
-    "pass": "password",
-    "remote": "/"
+    "promptForPass": true,
+}
+```
+
+> SFTP 配置文件
+
+```shell
+{
+    "protocol": "sftp",
+    "host": "example.com", // ip地址，默认: 'localhost'
+    "port": 22, // 对应SFTP服务器的端口号，默认: 22
+    "user": "user", // 用户名，默认为空
+    "pass": "pass", // 密码，默认为空
+    "promptForPass": true, // 密码输入对话框，默认为: false
+    "remote": "/", // 指定远程根目录
+    "connTimeout": 10000, // 连接ssh时间，默认: 10000
+    "keepalive": 10000, // 主动向ssh发送指令的间隔时间，0为不发送，默认: 10000
+    "filePermissions":"0644" // 上传的远程权限，会修改原先设置（如果用户权限足够）
+}
+```
+
+> FTP 配置文件
+
+```shell
+{
+    "protocol": "ftp",
+    "host": "example.com", // ip地址，默认: 'localhost'
+    "port": 21, // 对应SFTP服务器的端口号，默认: 21
+    "user": "user", // 用户名，默认为空
+    "pass": "pass", // 密码，默认为空
+    "promptForPass": true, // 密码输入对话框，默认为: false
+    "remote": "/",
+    "connTimeout": 10000, // 等待建立控制连接的时间(以毫秒为单位)， Default: 10000
+    "pasvTimeout": 10000, // 等待PASV数据连接建立的时间(以毫秒为单位)， Default: 10000
+    "keepalive": 10000,  // 主动向ssh发送指令的间隔时间，0为不发送，默认: 10000
 }
 ```
 

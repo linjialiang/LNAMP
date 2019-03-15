@@ -13,15 +13,24 @@
     'end': 'core:move-to-bottom'
 
 'atom-text-editor:not(.mini)':
-  'ctrl-k ctrl-h': 'file-header:add'
+    'ctrl-k ctrl-h': 'file-header:add'
 
 'atom-workspace':
-  'ctrl-k ctrl-t': 'git-time-machine:toggle'
+    'ctrl-k ctrl-t': 'git-time-machine:toggle'
+    'ctrl-alt-o': 'remote-ftp:toggle'
+    'ctrl-alt-c': 'remote-ftp:connect'
+    'ctrl-alt-d': 'remote-ftp:disconnect'
+    'shift-cmd-U': 'remote-ftp:upload-selected'
 
 '.platform-win32 atom-workspace atom-text-editor':
-  'ctrl-k ctrl-b': 'open-in-browser:open'
+    'ctrl-k ctrl-b': 'open-in-browser:open'
 
 'atom-text-editor':
     'ctrl-k ctrl-m': 'markdown-preview-enhanced:toggle'
     'ctrl-k ctrl-o': 'autocomplete-plus:activate'
     'ctrl-k ctrl-enter': 'atom-ide-go-to-definition:go-to-definition'
+
+'.remote-ftp-view':
+    'a': 'remote-ftp:add-file'
+    'd': 'remote-ftp:move-selected'
+    'shift-A': 'remote-ftp:add-folder'
