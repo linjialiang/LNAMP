@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-03-15 18:40:56
+| @Last modified time: 2019-03-17 10:46:08
 +===============================================================================
 -->
 
@@ -227,3 +227,29 @@
 | 03   | [html 类](./other/file-header/templates/emad_html.tmpl)      |
 | 04   | [高级语言文件](./other/file-header/templates/emad_lang.tmpl) |
 | 05   | [sql 文件](./other/file-header/templates/emad_sql.tmpl)      |
+
+### atom-ternjs
+
+> 该插件很不错，不仅仅是 js 自动补全插件，当然它的主要作用还是自动补全
+
+```shell
+配置项目步骤：
+    1） 从项目中打开任何1个js文件；
+    2） 菜单步骤： 'Packages -> Atom Ternjs -> Configure project'；
+    3） 出现配置视图。根据您的需要配置；
+    4） 点击 'Save & Restart Server' 创建或更新 '.tern-project' 文件。
+```
+
+> `.tern-project` 文件案例：
+
+```json
+{
+  "ecmaVersion": 8,
+  "libs": ["jquery", "browser"],
+  "loadEagerly": [],
+  "dontLoad": ["node_modules/**"],
+  "plugins": {
+    "doc_comment": true
+  }
+}
+```
