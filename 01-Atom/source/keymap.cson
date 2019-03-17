@@ -1,8 +1,8 @@
 'atom-workspace .tree-view':
     'g g': 'core:move-to-top'
     'shift-G': 'core:move-to-bottom'
-    'ctrl-k ctrl-k': 'tree-view:open-selected-entry-up'
-    'ctrl-k ctrl-j': 'tree-view:open-selected-entry-down'
+    'ctrl-k ctrl-p': 'tree-view:open-selected-entry-up'
+    'ctrl-k ctrl-n': 'tree-view:open-selected-entry-down'
     'ctrl-k ctrl-h': 'tree-view:open-selected-entry-left'
     'ctrl-k ctrl-l': 'tree-view:open-selected-entry-right'
 
@@ -22,9 +22,6 @@
     'ctrl-alt-d': 'remote-ftp:disconnect'
     'shift-cmd-U': 'remote-ftp:upload-selected'
 
-'.platform-win32 atom-workspace atom-text-editor':
-    'ctrl-k ctrl-b': 'open-in-browser:open'
-
 'atom-text-editor':
     'ctrl-k ctrl-m': 'markdown-preview-enhanced:toggle'
     'ctrl-k ctrl-o': 'autocomplete-plus:activate'
@@ -34,3 +31,12 @@
     'a': 'remote-ftp:add-file'
     'd': 'remote-ftp:move-selected'
     'shift-A': 'remote-ftp:add-folder'
+
+'.platform-win32 atom-text-editor[data-grammar~=js]':
+    'ctrl-k ctrl-d': 'atom-ternjs:definition'
+    'ctrl-k ctrl-c': 'atom-ternjs:rename'
+    'ctrl-k ctrl-e': 'atom-ternjs:references'
+    'alt-o': 'atom-ternjs:documentation'
+
+'.platform-win32 atom-workspace atom-text-editor':
+    'ctrl-k ctrl-b': 'open-in-browser:open'
