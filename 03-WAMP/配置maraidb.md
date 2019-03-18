@@ -92,6 +92,8 @@ datadir = "c:/wamp/web/data"
     $cfg['Servers'][$i]['AllowNoPassword'] = false;
     $cfg['UploadDir'] = '';
     $cfg['SaveDir'] = '';
+    # 设置主题
+    $cfg['ThemeDefault'] = 'original';
     ```
 
 ## 提示部分功能未启用的解决方法
