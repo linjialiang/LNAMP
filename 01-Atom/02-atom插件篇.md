@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-03-17 11:12:59
+| @Last modified time: 2019-03-18 15:40:24
 +===============================================================================
 -->
 
@@ -63,18 +63,19 @@
 | `language-nginx` | nginx 配置文件语法高亮 |
 | `language-ini`   | ini 扩展文件语法高亮   |
 
-| ide(10)                   | 插件描述      |
-| ------------------------- | ------------- |
-| `busy-signal`             | 基础包        |
-| `intentions`              | Linter 显示   |
-| `linter-ui-default`       | Linter 界面   |
-| `linter`                  | Linter 基础包 |
-| `linter-jshint`           | js 错误提示   |
-| `atom-ternjs`             | js 自动补全   |
-| `atom-ide-datatip`        | ide 基础包    |
-| `atom-ide-definitions`    | ide 基础包    |
-| `atom-ide-signature-help` | ide 基础包    |
-| `ide-php`                 | php 包        |
+| ide(10)                     | 插件描述      |
+| --------------------------- | ------------- |
+| `busy-signal`               | 基础包        |
+| `intentions`                | Linter 显示   |
+| `linter-ui-default`         | Linter 界面   |
+| `linter`                    | Linter 基础包 |
+| `linter-jshint`             | js 错误提示   |
+| `atom-ternjs`               | js 自动补全   |
+| `atom-ide-datatip`          | ide 基础包    |
+| `atom-ide-definitions`      | ide 基础包    |
+| `atom-ide-signature-help`   | ide 基础包    |
+| `atom-ide-markdown-service` | ide 基础包    |
+| `ide-php`                   | php 包        |
 
 | html 相关插件(5)  | 插件描述                  |
 | ----------------- | ------------------------- |
