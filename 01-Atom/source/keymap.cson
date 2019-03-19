@@ -40,3 +40,20 @@
 
 '.platform-win32 atom-workspace atom-text-editor':
     'ctrl-k ctrl-b': 'open-in-browser:open'
+
+'atom-workspace atom-text-editor:not([mini])':
+    'ctrl-k m': 'quick-highlight:toggle'
+    'ctrl-k M': 'quick-highlight:clear'
+
+'atom-text-editor.vim-mode-plus.normal-mode, atom-text-editor.vim-mode-plus.visual-mode':
+    'space m': 'vim-mode-plus-user:quick-highlight-word'
+    'space M': 'quick-highlight:clear'
+    'g m': 'vim-mode-plus-user:quick-highlight'
+
+'.platform-darwin atom-workspace':
+    'ctrl-`': 'platformio-ide-terminal:toggle'
+    'alt-shift-T': 'todo-show:toggle'
+
+'.platform-win32 atom-workspace, .platform-linux atom-workspace':
+    'ctrl-`': 'platformio-ide-terminal:toggle'
+    'alt-shift-T': 'todo-show:toggle'

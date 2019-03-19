@@ -10,23 +10,13 @@
     devMode: true
   }
   {
-    title: "thinkphp"
+    title: "tp5"
     group: "tp5项目"
     paths: [
-      "C:\\wamp\\web\\www\\thinkphp"
+      "C:\\wamp\\web\\www\\tp5"
     ]
     icon: "php-icon"
     color: "#8892BF"
-    devMode: true
-  }
-  {
-    title: "qyadmin"
-    group: "前端项目"
-    paths: [
-      "C:\\wamp\\web\\www\\qyadmin"
-    ]
-    icon: "html5-icon"
-    color: "#e44c27"
     devMode: true
   }
   {

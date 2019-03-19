@@ -18,6 +18,8 @@
       default_beautifier: "Prettier"
     php:
       allow_risky: "yes"
+  "atom-ide-datatip": {}
+  "autocomplete-plus": {}
   autoprefixer:
     runOnSave: true
   autosave:
@@ -35,6 +37,19 @@
     ]
     packagesWithKeymapsDisabled: [
       "markdown-preview-enhanced"
+      "atom-ide-definitions"
+      "file-header"
+      "git-time-machine"
+      "merge-conflicts"
+      "minimap"
+      "open-in-browser"
+      "remote-ftp"
+      "atom-ternjs"
+      "platformio-ide-terminal"
+      "todo-show"
+    ]
+    packagesWithSnippetsDisabled: [
+      "language-nginx"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -59,7 +74,6 @@
     showIndentGuide: true
     showInvisibles: true
     softWrap: true
-    softWrapAtPreferredLineLength: true
     tabLength: 4
     tabType: "soft"
   "exception-reporting":
@@ -77,8 +91,8 @@
     realname: "madnesslin(地上马)"
   "line-ending-selector":
     defaultLineEnding: "LF"
-  "linter-jshint": {}
-  "linter-ui-default": {}
+  "linter-ui-default":
+    panelHeight: 300
   "markdown-preview-enhanced":
     codeBlockTheme: "coy.css"
     openPreviewPaneAutomatically: false
@@ -91,16 +105,21 @@
       bookmarksDecorationsZIndex: 0
       cursorline: true
       cursorlineDecorationsZIndex: 0
-      "find-and-replace": true
-      "find-and-replaceDecorationsZIndex": 0
       "git-diff": true
       "git-diffDecorationsZIndex": 0
-      "highlight-selected": true
-      "highlight-selectedDecorationsZIndex": 0
+      "lens-mode": true
+      "lens-modeDecorationsZIndex": 0
+      linter: true
+      linterDecorationsZIndex: 0
+      "minimap-quick-highlight": true
+      "minimap-quick-highlightDecorationsZIndex": 0
+      pigments: true
+      pigmentsDecorationsZIndex: 0
       selection: true
       selectionDecorationsZIndex: 0
       "split-diff": true
       "split-diffDecorationsZIndex": 0
+  "minimap-selection": {}
   "one-dark-ui":
     tabCloseButton: "Left"
     tabSizing: "Maximum"
@@ -110,7 +129,6 @@
   "platformio-ide-terminal":
     core:
       shell: "C:\\cmder\\Cmder.exe"
-      workingDirectory: "Active File"
     style:
       theme: "solarized-dark"
     toggles:
@@ -120,6 +138,8 @@
     includeGitRepositories: true
     showPath: false
     sortBy: "group"
+  "quick-highlight":
+    decorate: "box"
   "remote-ftp":
     beta: {}
     connector:
