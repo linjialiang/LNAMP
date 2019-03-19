@@ -48,15 +48,17 @@ mv composer.phar /usr/local/bin/composer
 echo @php "%~dp0composer.phar" %*>composer.bat
 ```
 
-> 提示：不要忘了经常执行 composer selfupdate 以保持 Composer 一直是最新版本哦！
+## 切换 composer 镜像
 
-## 修改 composer 的全局配置文件
-
-> 打开命令行窗口（windows 用户）或控制台（Linux、Mac 用户）并执行如下命令：
+> 如果 composer 镜像不能正常访问，我们可以更换成国内镜像：
 
 ```shell
-composer config -g repo.packagist composer https://packagist.phpcomposer.com
-
-## 近期可使用这个
+# 全局切换镜像源：
 composer config -g repo.packagist composer https://packagist.laravel-china.org
+
+# 如果仅限当前工程使用镜像，去掉 -g 即可，如下：
+composer config repo.packagist composer https://packagist.laravel-china.org
+
+# 恢复官方镜像：
+composer config -g repo.packagist composer https://packagist.org
 ```
