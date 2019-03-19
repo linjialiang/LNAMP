@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-03-19 16:16:56
+| @Last modified time: 2019-03-19 16:44:59
 +===============================================================================
 -->
 
@@ -47,24 +47,22 @@
 | `merge-conflicts`      | 解决 Atom 中的 Git 合并冲突                |
 | `tree-view-git-status` | 目录树里显示 Git 状态                      |
 
-| minimap 相关插件(11)         | 插件描述                |
-| ---------------------------- | ----------------------- |
-| `minimap`                    | 代码小窗口              |
-| `minimap-bookmarks`          | 代码小窗口-书签高亮     |
-| `minimap-cursorline`         | 代码小窗口-当前行高亮   |
-| `minimap-find-and-replace`   | 代码小窗口-搜索高亮     |
-| `minimap-git-diff`           | 代码小窗口-git 对比高亮 |
-| `minimap-highlight-selected` | 代码小窗口-选择高亮     |
-| `minimap-selection`          | 代码小窗口-选择块高亮   |
-| `minimap-split-diff`         | 代码小窗口-对比高亮     |
-| `minimap-linter`             | 代码小窗口-linter 包    |
-| `minimap-pigments`           | 代码小窗口-显示真实颜色 |
-| `minimap-quick-highlight`    | 代码小窗口-快速高亮     |
+| minimap 相关插件(8)       | 插件描述                |
+| ------------------------- | ----------------------- |
+| `minimap`                 | 代码小窗口              |
+| `minimap-bookmarks`       | 代码小窗口-书签高亮     |
+| `minimap-cursorline`      | 代码小窗口-当前行高亮   |
+| `minimap-git-diff`        | 代码小窗口-git 对比高亮 |
+| `minimap-selection`       | 代码小窗口-选择块高亮   |
+| `minimap-split-diff`      | 代码小窗口-对比高亮     |
+| `minimap-linter`          | 代码小窗口-linter 包    |
+| `minimap-quick-highlight` | 代码小窗口-快速高亮     |
 
-| 语法相关插件(2)  | 插件描述               |
-| ---------------- | ---------------------- |
-| `language-nginx` | nginx 配置文件语法高亮 |
-| `language-ini`   | ini 扩展文件语法高亮   |
+| 语法相关插件(3)   | 插件描述               |
+| ----------------- | ---------------------- |
+| `language-apache` | httpd 扩展文件语法高亮 |
+| `language-nginx`  | nginx 配置文件语法高亮 |
+| `language-ini`    | ini 扩展文件语法高亮   |
 
 | ide(12)                     | 插件描述          |
 | --------------------------- | ----------------- |
