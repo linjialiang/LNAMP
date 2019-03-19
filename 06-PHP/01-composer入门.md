@@ -48,6 +48,8 @@ mv composer.phar /usr/local/bin/composer
 echo @php "%~dp0composer.phar" %*>composer.bat
 ```
 
+---
+
 ## 切换 composer 镜像
 
 > 如果 composer 镜像不能正常访问，我们可以更换成国内镜像：
