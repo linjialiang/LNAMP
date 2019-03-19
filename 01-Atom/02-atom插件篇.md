@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-03-18 15:41:04
+| @Last modified time: 2019-03-19 11:01:32
 +===============================================================================
 -->
 
@@ -25,7 +25,7 @@
 
 ## atom 插件扩展
 
-| 实用插件(12)                | 插件描述          |
+| 实用插件(13)                | 插件描述          |
 | --------------------------- | ----------------- |
 | `atom-beautify`             | 格式化源代码      |
 | `docblockr`                 | 用于注释          |
@@ -39,6 +39,7 @@
 | `regex-railroad-diagram`    | 正则表达式直观图  |
 | `file-icons`                | 文件图标          |
 | `remote-ftp`                | ftp/sftp          |
+| `quick-highlight`           | 文本快速高亮      |
 
 | git 相关插件(3)        | 插件描述                                   |
 | ---------------------- | ------------------------------------------ |
@@ -46,7 +47,7 @@
 | `merge-conflicts`      | 解决 Atom 中的 Git 合并冲突                |
 | `tree-view-git-status` | 目录树里显示 Git 状态                      |
 
-| minimap 相关插件(8)          | 插件描述                |
+| minimap 相关插件(11)         | 插件描述                |
 | ---------------------------- | ----------------------- |
 | `minimap`                    | 代码小窗口              |
 | `minimap-bookmarks`          | 代码小窗口-书签高亮     |
@@ -56,6 +57,9 @@
 | `minimap-highlight-selected` | 代码小窗口-选择高亮     |
 | `minimap-selection`          | 代码小窗口-选择块高亮   |
 | `minimap-split-diff`         | 代码小窗口-对比高亮     |
+| `minimap-linter`             | 代码小窗口-linter 包    |
+| `minimap-pigments`           | 代码小窗口-显示真实颜色 |
+| `minimap-quick-highlight`    | 代码小窗口-快速高亮     |
 
 | 语法相关插件(2)  | 插件描述               |
 | ---------------- | ---------------------- |
@@ -68,6 +72,8 @@
 | `intentions`                | Linter 显示   |
 | `linter-ui-default`         | Linter 界面   |
 | `linter`                    | Linter 基础包 |
+| `linter-jshint`             | js 错误提示   |
+| `linter-markdown`           | md 错误提示   |
 | `linter-jshint`             | js 错误提示   |
 | `atom-ternjs`               | js 自动补全   |
 | `atom-ide-datatip`          | ide 基础包    |
@@ -105,7 +111,7 @@
 ### project-manager
 
 > `project-manager` 可以很好的管理我们的项目,更重要的是它可以让每个项目开启不同的插件组合
-
+>
 > 提示：事实上 project-manager 控制插件是不明智，因为 atom 首先会全部加载所有插件，然后再由 project-manager 开启 `devMode` 模式来禁用一些插件！
 
 | 属性设置   | 属性值类型 | 描述              | 默认值                 |

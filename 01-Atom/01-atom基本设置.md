@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-03-17 10:29:09
+| @Last modified time: 2019-03-19 11:13:28
 +===============================================================================
 -->
 
@@ -105,21 +105,21 @@ hack, '思源宋体 CN'
 
 > 通过 `~\.atom\.apmrc` 文件，可以让 `atom` 支持代理网络
 
-1. 本地代理
+1.  本地代理
 
-   ```shell
-   strict-ssl = false
-   http-proxy = http://127.0.0.1:1080
-   https-proxy = http://127.0.0.1:1080
-   ```
+    ```shell
+    strict-ssl = false
+    http-proxy = http://127.0.0.1:1080
+    https-proxy = http://127.0.0.1:1080
+    ```
 
-2. 淘宝镜像代理
+2.  淘宝镜像代理
 
-   ```shell
-   ;strict-ssl = false
-   ;http-proxy = http://registry.npm.taobao.org/
-   ;https-proxy = https://registry.npm.taobao.org/
-   ```
+    ```shell
+    ;strict-ssl = false
+    ;http-proxy = http://registry.npm.taobao.org/
+    ;https-proxy = https://registry.npm.taobao.org/
+    ```
 
 ---
 
@@ -234,3 +234,11 @@ hack, '思源宋体 CN'
 | `ctrl-k ctrl-c`    | 对属性进行重构 |
 | `ctrl-k ctrl-e`    | 属性位置列表   |
 | `alt-o`            | 展示属性描述   |
+
+| quick-highlight 快捷键 | 功能                  | 描述              |
+| ---------------------- | --------------------- | ----------------- |
+| `ctrl-k m`             | 普通模式-快速高亮     | 选择+单词快速高亮 |
+| `ctrl-k M`             | 普通模式-取消全部高亮 | 取消快速高亮      |
+| `space m`              | vim 模式-快速高亮     | 选择+单词快速高亮 |
+| `space M`              | vim 模式-取消全部高亮 | 取消快速高亮      |
+| `g m`                  | vim 模式-快速高亮     | 仅选择高亮        |
