@@ -23,7 +23,7 @@
     'shift-cmd-U': 'remote-ftp:upload-selected'
 
 'atom-text-editor':
-    'ctrl-k ctrl-m': 'markdown-preview-enhanced:toggle'
+    'ctrl-k ctrl-m': 'markdown-preview-enhanced:toggle'  
     'ctrl-k ctrl-o': 'autocomplete-plus:activate'
     'ctrl-k ctrl-enter': 'atom-ide-go-to-definition:go-to-definition'
 

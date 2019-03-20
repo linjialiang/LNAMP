@@ -48,9 +48,7 @@
       "platformio-ide-terminal"
       "todo-show"
     ]
-    packagesWithSnippetsDisabled: [
-      "language-nginx"
-    ]
+    packagesWithSnippetsDisabled: []
     telemetryConsent: "limited"
     themes: [
       "one-light-ui"
@@ -73,7 +71,6 @@
     fontFamily: "hack, '思源宋体 CN'"
     showIndentGuide: true
     showInvisibles: true
-    softWrap: true
     tabLength: 4
     tabType: "soft"
   "exception-reporting":
@@ -164,6 +161,7 @@
     personalAccessToken: ""
     quietUpdateCheck: true
     removeObsoletePackages: true
+  "tree-view": {}
   "tree-view-git-status":
     gitFlow:
       display_type: 2
