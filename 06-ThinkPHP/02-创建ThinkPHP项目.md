@@ -120,7 +120,7 @@ $ cd /c/wamp/web/www
 # 下载自己的远程版本库，这个远程版本库会被默认版本
 $ git clone https://gitee.com/linjialiang/qyadmin.git qyadmin
 # 进入版本库
-cd tp6
+cd qyadmin
 # 重命名远程版本库
 $ git remote rename origin linjialiang-gitee
 # 添加远程版本库，linjialiang-github
