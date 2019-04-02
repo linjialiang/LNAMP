@@ -5,7 +5,7 @@
 | 版本库名称              | 托管平台 | 版本库地址                                 |
 | ----------------------- | -------- | ------------------------------------------ |
 | ThinkPHP 框架官方基础包 | github   | https://github.com/top-think/think.git     |
-| ThinkPHP 框架官方基础包 | gitee    | https://gitee.com/top-think/think.git      |
+| ThinkPHP 框架官方基础包 | gitee    | https://gitee.com/liu21st/thinkphp5        |
 | qyadmin 后台管理系统    | github   | https://github.com/linjialiang/qyadmin.git |
 | qyadmin 后台管理系统    | gitee    | https://gitee.com/linjialiang/qyadmin.git  |
 
@@ -89,11 +89,11 @@ $ git push linjialiang-github
 
 > 分支简要说明：
 
-| 分支     | 描述                                                          |
-| -------- | ------------------------------------------------------------- |
-| `6.0`    | 该分支同步 ThinkPHP 官方最新代码，不做其他用途                |
-| `dev1`   | 该分支为开发分支，需要合并最新的 6.0 分支                     |
-| `master` | 该分支是 qyadmin 项目的默认分支，合并开发分支下已经稳定的数据 |
+| 分支   | 描述                                                          |
+| ------ | ------------------------------------------------------------- |
+| 6.0    | 该分支同步 ThinkPHP 官方最新代码，不做其他用途                |
+| dev1   | 该分支为开发分支，需要合并最新的 6.0 分支                     |
+| master | 该分支是 qyadmin 项目的默认分支，合并开发分支下已经稳定的数据 |
 
 > 注意：在版本库托管平台上将 maste 设置成默认分支
 
