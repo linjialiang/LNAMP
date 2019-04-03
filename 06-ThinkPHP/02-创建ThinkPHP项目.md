@@ -134,7 +134,9 @@ $ git checkout master
 $ git fetch linjialiang-github
 # 拉取 topthink-github 的 6.0 分支
 $ git fetch topthink-github 6.0
-# 更改6.0分支的绑定的默认远程分支为：topthink-github/6.0
+# 用 topthink-github/6.0 远程分支来创建本地 6.0 分支
+$ git checkout --track topthink-github/6.0
+# 也可以修改绑定的默认远程分支（如果有特殊需求）
 $ git branch --unset-upstream 6.0
 $ git branch --set-upstream-to=topthink-github/6.0 6.0
 ```
