@@ -25,7 +25,7 @@
 
 ## atom 插件扩展
 
-| 实用插件(14)                | 插件描述          |
+| 实用插件(12)                | 插件描述          |
 | --------------------------- | ----------------- |
 | `atom-beautify`             | 格式化源代码      |
 | `docblockr`                 | 用于注释          |
@@ -36,11 +36,9 @@
 | `platformio-ide-terminal`   | atom 下出色的终端 |
 | `markdown-preview-enhanced` | markdown 预览     |
 | `file-header`               | 文件头信息        |
-| `regex-railroad-diagram`    | 正则表达式直观图  |
 | `file-icons`                | 文件图标          |
 | `remote-ftp`                | ftp/sftp          |
 | `quick-highlight`           | 文本快速高亮      |
-| `todo-show`                 | 展示待完成事件    |
 
 | git 相关插件(3)        | 插件描述                                   |
 | ---------------------- | ------------------------------------------ |

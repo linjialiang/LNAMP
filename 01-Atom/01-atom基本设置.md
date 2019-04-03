@@ -228,7 +228,6 @@ hack, '思源宋体 CN'
 | `ctrl-alt-d`        | 关闭 ftp 远程连接      |
 | `shift-cmd-U`       | 更新远程文件           |
 | `ctrl-r ctrl-r`     | 开启正则直观图         |
-| `alt-shift-t`       | 开启 todo-show 窗口    |
 
 | atom-ternjs 快捷键 | 功能           |
 | ------------------ | -------------- |
