@@ -23,7 +23,7 @@
     'shift-cmd-U': 'remote-ftp:upload-selected'
 
 'atom-text-editor':
-    'ctrl-k ctrl-m': 'markdown-preview-enhanced:toggle'  
+    'ctrl-k ctrl-m': 'markdown-preview-enhanced:toggle'
     'ctrl-k ctrl-o': 'autocomplete-plus:activate'
     'ctrl-k ctrl-enter': 'atom-ide-go-to-definition:go-to-definition'
 
@@ -52,8 +52,6 @@
 
 '.platform-darwin atom-workspace':
     'ctrl-`': 'platformio-ide-terminal:toggle'
-    'alt-shift-T': 'todo-show:toggle'
 
 '.platform-win32 atom-workspace, .platform-linux atom-workspace':
     'ctrl-`': 'platformio-ide-terminal:toggle'
-    'alt-shift-T': 'todo-show:toggle'

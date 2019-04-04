@@ -1,10 +1,20 @@
 "*":
+  "activate-power-mode":
+    comboMode:
+      enabled: false
+    particles:
+      colours:
+        randomType: "all"
+        type: "random"
+    plugins:
+      playAudio: true
+      screenShake: true
   "atom-beautify":
     css:
       default_beautifier: "Prettier"
     executables:
       "php-cs-fixer":
-        path: "C:\\Users\\linji\\.atom\\other\\php-cs-fixer-v2.phar"
+        path: "C:\\Users\\linji\\.atom\\other\\php-cs-fixer.phar"
     general:
       _analyticsUserId: ""
     html:
@@ -46,13 +56,13 @@
       "remote-ftp"
       "atom-ternjs"
       "platformio-ide-terminal"
-      "todo-show"
+      "activate-power-mode"
     ]
     packagesWithSnippetsDisabled: []
     telemetryConsent: "limited"
     themes: [
       "one-light-ui"
-      "notepad-plus-plus-syntax"
+      "atom-material-syntax"
     ]
     uriHandlerRegistration: "always"
   docblockr:
@@ -93,7 +103,7 @@
   "markdown-preview-enhanced":
     codeBlockTheme: "coy.css"
     openPreviewPaneAutomatically: false
-    previewTheme: "solarized-light.css"
+    previewTheme: "solarized-dark.css"
     revealjsTheme: "solarized.css"
   "merge-conflicts": {}
   minimap:

@@ -10,10 +10,10 @@
     devMode: true
   }
   {
-    title: "tp5"
-    group: "tp5项目"
+    title: "qyadmin"
+    group: "ThinkPHP项目"
     paths: [
-      "C:\\wamp\\web\\www\\tp5"
+      "C:\\wamp\\web\\www\\qyadmin"
     ]
     icon: "php-icon"
     color: "#8892BF"
