@@ -8,9 +8,9 @@
 
 | 序号 | 包名                                 | 描述                 |
 | ---- | ------------------------------------ | -------------------- |
-| 1    | `httpd-2.4.38-win64-VC15.zip`        | web 服务器包         |
-| 2    | `mariadb-10.3.13-winx64.zip`         | 数据库管理包         |
-| 3    | `php-7.3.3-Win32-VC15-x64.zip`       | php 解释器（线程版） |
+| 1    | `httpd-2.4.39-win64-VC15.zip`        | web 服务器包         |
+| 2    | `mariadb-10.3.14-winx64.zip`         | 数据库管理包         |
+| 3    | `php-7.3.4-Win32-VC15-x64.zip`       | php 解释器（线程版） |
 | 4    | `phpMyAdmin-4.8.5-all-languages.zip` | mysql 网页版管理平台 |
 | 5    | `adminer-4.7.1.php`                  | mysql 网页版管理平台 |
 | 6    | `php_xdebug.7z`                      | php_xdebug 包        |
@@ -89,6 +89,21 @@
 | `C`  | 小版本号，针对当前次版本的维护，会发布新版本                          |
 
 ## 更新说明
+
+> wamp-v4.3.8 更新说明
+
+1. php 升级至 v7.3.4
+2. mariadb 升级至 v10.3.14
+3. httpd 升级至 v2.4.39
+4. php_xdebug 升级至 v2.7.1
+5. php.ini 参数更新
+
+   ```ini
+   xdebug.idekey= PHPSTROM
+   ```
+
+6. httpd 移除扩展 mod_access_compat
+   > 该扩展是为了兼容旧版访问控制语句
 
 > wamp-v4.3.7 更新说明
 
