@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-03-21 11:56:09
+| @Last modified time: 2019-04-21 11:30:16
 +===============================================================================
 -->
 
@@ -37,6 +37,6 @@
 | 02   | Git      | [Git 模块](./02-Git/README.md)           |
 | 03   | WAMP     | [WAMP 模块](./03-WAMP/README.md)         |
 | 04   | Debian   | [Debian 模块](./04-Debian/README.md)     |
-| 05   | H5       | [H5 模块](./05-H5/README.md)             |
+| 05   | WEB       | [WEB 模块](./05-WEB/README.md)             |
 | 06   | ThinkPHP | [ThinkPHP 模块](./06-ThinkPHP/README.md) |
 | 07   | MariaDB  | [MariaDB 模块](./07-MariaDB/README.md/)  |
