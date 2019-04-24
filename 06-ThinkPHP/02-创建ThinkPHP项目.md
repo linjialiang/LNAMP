@@ -141,4 +141,15 @@ composer update
 composer update topthink/framework
 ```
 
+## 善后工作
+
+> 下面几点问题需要大家牢记：
+
+| 代码                        | composer.json | composer.lock | 描述                                              |
+| --------------------------- | ------------- | ------------- | ------------------------------------------------- |
+| composer update             | 会更新        | 会更新        | 更新根目录、子目录下所有 compsoer.json 包含的扩展 |
+| composer update 指定扩展名  | 会更新        | 会更新        | 更新指定的扩展                                    |
+| composer install            | 会更新        | 不会更新      | 下载或更新 composer.lock 文件下记录的所有扩展     |
+| composer require 指定扩展名 | 会更新        | 会更新        | 下载当前扩展，并执行 composer update 操作         |
+
 > 到此，ThinkPHP 6.0 项目的创建过程已经结束！
