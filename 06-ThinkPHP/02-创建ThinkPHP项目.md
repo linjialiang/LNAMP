@@ -152,4 +152,6 @@ composer update topthink/framework
 | composer install            | 会更新        | 不会更新      | 下载或更新 composer.lock 文件下记录的所有扩展     |
 | composer require 指定扩展名 | 会更新        | 会更新        | 下载当前扩展，并执行 composer update 操作         |
 
+> 注意：composer 操作及开发都应该在 dev 进行，bug 问题可以单独提供版本号修复，但是 composer 操作应该全部使用 dev 分支进行！
+
 > 到此，ThinkPHP 6.0 项目的创建过程已经结束！
