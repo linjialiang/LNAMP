@@ -150,4 +150,35 @@ composer create-project topthink/think /www/tp6 6.0.*-dev
 
 ### 属性
 
-> 这里列出了 composer.json 大多数属性名
+> 这里列出了 composer.json 部分属性名，详情[查看手册](https://docs.phpcomposer.com/04-schema.html)
+
+| 属性名       | 别名         | 描述                                              |
+| ------------ | ------------ | ------------------------------------------------- |
+| name         | 包名         | 包的名称，它包括供应商名称和项目名称，使用 / 分隔 |
+| description  | 描述         | 一个包的简短描述                                  |
+| version      | 版本         | 版本号不是必须的，并且建议忽略                    |
+| type         | 安装类型     | 包的安装类型，默认为 library                      |
+| keywords     | 关键字       | 该包相关的关键词的数组。这些可用于搜索和过滤。    |
+| homepage     | 项目主页     | 该项目网站的 URL 地址。                           |
+| time         | 版本发布时间 | YYYY-MM-DD 或 YYYY-MM-DD HH:MM:SS 格式            |
+| license      | 许可协议     | 如：Apache-2.0                                    |
+| authors      | 作者         | 包的作者。这是一个对象数组。                      |
+| support      | 支持         | 获取项目支持的向相关信息对象。                    |
+| require      | 软件包列表   | 除非这些依赖被满足，否则不会完成安装。            |
+| require-dev  | 仅 root 包   | 这个列表是为开发或测试等目的                      |
+| conflict     | 冲突包列表   | 此列表中的包与当前包的这个版本冲突。              |
+| replace      | 替代包列表   | 这个列表中的包将被当前包取代                      |
+| suggest      | 建议安装的包 | 它们增强或能够与当前包良好的工作。                |
+| autoload     | 自动加载     | PHP autoloader 的自动加载映射                     |
+| PSR-4        | 自动加载规则 | psr-4 自动加载规则                                |
+| PSR-0        | 自动加载规则 | psr-0 自动加载规则                                |
+| Classmap     | 引用组合     | 存储到 vendor/composer/autoload_classmap.php 中   |
+| Files        | 自动加载规则 | 在每次请求时都要载入某些文件，通常是函数库        |
+| autoload-dev | 仅 root 包   | 本节允许为开发目的定义 autoload 规则              |
+| include-path | include 加载 | 一个追加到 PHP include_path 中的列表              |
+| target-dir   | ...          | 定义当前包安装的目标文件夹                        |
+| config       | 仅 root 包   | 定义项目级的 composer 基础配置                    |
+| scripts      | 仅 root 包   | 允许在安装过程中的各个阶段挂接脚本。              |
+| extra        | ...          | 供 scripts 使用的额外数据                         |
+| bin          | ...          | 该属性用于标注一组应被视为二进制脚本的文件        |
+| archive      | ...          | 这些选项在创建包存档时使用                        |
