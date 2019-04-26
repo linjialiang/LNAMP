@@ -2,12 +2,13 @@
 
 > 该文档是基于 composer 官方手册的精简版本！
 
-| 指令             | 描述                         |
-| ---------------- | ---------------------------- |
-| composer init    | 初始化 composer              |
-| composer install | 安装 composer 包             |
-| composer update  | 更新 composer 包             |
-| composer require | 申明当前 composer 包的依赖项 |
+| 指令                    | 描述                         |
+| ----------------------- | ---------------------------- |
+| composer init           | 初始化 composer              |
+| composer install        | 安装 composer 包             |
+| composer update         | 更新 composer 包             |
+| composer require        | 申明当前 composer 包的依赖项 |
+| composer create-project | 创建项目                     |
 
 > 次要指令
 
@@ -22,7 +23,11 @@
 | composer self-update | 将 Composer 自身升级到最新版本                     |
 | composer config      | 编辑 Composer 的一些基本设置                       |
 
-## 初始化 init
+## 重要指令解释
+
+> 这里我们只讲解了个别重要的指令，其它指令请[查看手册](https://docs.phpcomposer.com)
+
+### 初始化 init
 
 > 初始化其实就是创建 composer.json 的过程，分为手动创建和 `init` 指令两种！
 
@@ -33,7 +38,7 @@
 2. 手动创建
    > 手动创建也不困难，这两个前提都要求我们对 composer.json 文件内的属性有清晰的了解，这个在后面会详细讲解
 
-## 安装 install
+### 安装 install
 
 > install 命令从当前目录读取 composer.json 文件，处理了依赖关系，并把其安装到 vendor 目录下。
 
@@ -47,7 +52,7 @@
 
 > install 的参数说明请查看[官方手册](https://docs.phpcomposer.com/03-cli.html#install)
 
-## 更新 update
+### 更新 update
 
 > 为了获取依赖的最新版本，并且升级 composer.lock 文件，你应该使用 update 命令。
 
@@ -89,7 +94,7 @@
 
 > update 的参数说明请查看[官方手册](https://docs.phpcomposer.com/03-cli.html#update)
 
-## 申明依赖 require
+### 申明依赖 require
 
 > require 命令增加新的依赖包到当前目录的 composer.json 文件中。并且在添加或改变依赖时， 修改后的依赖关系将被安装或者更新。
 
@@ -110,3 +115,26 @@ composer require topthink/framework:6.0.*-dev linjialiang/hash:0.0.6
 ```
 
 > 注意：`:version` 缺省为最新版本，也可以自己指定一个固定版本号，支持使用通配符指定次版本号
+
+### 创建项目 create-project
+
+> 你可以使用 Composer 从现有的包中创建一个新的项目。
+
+| 序号 | create-project 流程                        |
+| ---- | ------------------------------------------ |
+| 01   | 执行了一个 git clone 命令后                |
+| 02   | 并将这个包的依赖安装到它自己的 vendor 目录 |
+
+> 如果该目录目前不存在，则会在安装过程中自动创建
+
+```shell
+composer create-project composer_username/project_name path version
+```
+
+> 举例
+
+```shell
+composer create-project topthink/think /www/tp6 6.0.*-dev
+```
+
+## composer.json 文件说明
