@@ -141,6 +141,28 @@ composer update
 composer update topthink/framework
 ```
 
+## 项目更新
+
+> 对于项目级 composer 包，composer 本身是不更新的，我们可以版本官方的 github 仓库来更新
+
+```shell
+## 为本地仓库增加框架远程仓库
+git remote add topthink-github https://github.com/top-think/think.git
+## 拉取远程仓库6.0分支
+git fetch topthink-github 6.0
+## 新建本地分支6.0
+git branch 6.0 topthink-github/6.0
+## 更新6.0分支为当前最新
+git fetch topthink-github/6.0
+git checkout 6.0
+git merge topthink-github/6.0
+## 将最新版的6.0分支合并到dev分支
+git checkout dev
+git merge 6.0
+```
+
+> 注意：如果我们引入了新的 composer 库，合并分支后，composer.json 就会出现分支合并冲突，需要我们手动修改！
+
 ## 善后工作
 
 > 下面几点问题需要大家牢记：
