@@ -9,7 +9,7 @@
 | 步骤 | 具体操作                   | 使用工具 |
 | ---- | -------------------------- | -------- |
 | 00   | 拉取 ThinkPHP 仓库作为项目 | git      |
-| 01   | 创建本地远程仓库           | git      |
+| 01   | 创建项目远程仓库           | git      |
 | 02   | 下载 ThinkPHP 框架必备库   | composer |
 | 03   | 下载项目需要的库           | composer |
 | 04   | 更新库的版本               | composer |
@@ -78,182 +78,27 @@ git push linjialiang-gitee dev
 
 ```shell
 # 首先取消
+
 ```
 
----
+## 非首次创建项目
 
-## 项目创建原理（首次）
+> 非首次创建项目原理如下：
 
-> 首次创建项目的操作原理如下：
+| 步骤 | 具体操作             | 使用工具 |
+| ---- | -------------------- | -------- |
+| 00   | 拉取项目远程仓库     | git      |
+| 01   | 增加项目远程仓库     | git      |
+| 02   | 下载项目必备库       | composer |
+| 03   | 下载项目需要添加的库 | composer |
+| 04   | 更新库的版本         | composer |
+| 05   | 更新 ThinkPHP 框架   | git      |
 
-| 序号 | 操作               | 使用工具 | 需求情况               |
-| ---- | ------------------ | -------- | ---------------------- |
-| 01   | 下载 ThinkPHP 项目 | composer | 必备，包版本基于锁文件 |
-| 02   | 更新 ThinkPHP 扩展 | composer | 必选，保持扩展最新     |
-| 03   | 下载 ThinkPHP 扩展 | composer | 可选                   |
-| 04   | 创建 gitee 版本库  | gitee    | 必选                   |
-| 04   | 创建 github 版本库 | github   | 可选（国内不稳）       |
+### 拉取项目远程仓库
 
-### 安装 qyadmin 项目
-
-> 首先，使用 composer 安装 ThinkPHP 6.0 框架，并命名为 qyadmin
+> gitee 远程仓库地址 https://gitee.com/linjialiang/qyadmin.git
 
 ```shell
-cd /wamp/web/www/
-## 安装稳定版本
-composer create-project topthink/think qyadmin
-## 安装开发版
-composer create-project topthink/think qyadmin 6.0.*-dev
+# 拉取qyadmin项目的远程仓库
+git clone https://gitee.com/linjialiang/qyadmin.git qyadmin
 ```
-
-> 提示：会将 ThinkPHP 核心及其必备 composer 扩展安装到 vendor 目录下
-
-### 更新框架下自带扩展
-
-> 框架下自带的扩展包版本较旧，需要通过 composer 来保持更新
-
-```shell
-cd qyamdin/
-## 更新全部composer扩展
-composer update
-## 更新指定的composer扩展
-composer update topthink/framework
-```
-
-> 提示：一般 ThinkPHP 框架的核心更新频率很高，需要经常更新框架核心
-
-### 为 qyadmin 创建版本库
-
-> 初始化本地仓库
-
-```shell
-## 初始化 git 仓库
-git init
-## 提交全部数据
-git add .
-git commit -m "初始化本地仓库成功！"
-```
-
-> 增加本地分支
-
-```shell
-# 以 master 分支 为基础，创建 dev 本地分支
-$ git branch dev master
-# 进入到新分支 dev
-$ git checkout dev
-```
-
-> 添加远程仓库
-
-```shell
-## 添加gitee仓库地址
-git remote add linjialiang-gitee https://gitee.com/linjialiang/qyadmin.git
-## 添加github仓库地址
-git remote add linjialiang-github https://github.com/linjialiang/qyadmin.git
-```
-
-> 推送本地分支至远程仓库（远程仓库需要是空白仓库）
-
-```shell
-## 推送dev分支到远程
-git push -u linjialiang-gitee dev
-git push -u linjialiang-gitee dev
-
-## 推送master分支到远程
-git push -u linjialiang-gitee master:master
-git push -u linjialiang-gitee master:master
-```
-
-> 设置本地分支的默认远程分支（建议 gitee 为默认分支）
-
-```shell
-## 先取消默认远程分支
-git branch --unset-upstream
-git branch --unset-upstream master
-
-## 设置默认远程分支
-git branch --set-upstream-to linjialiang-gitee dev
-git branch --set-upstream-to linjialiang-gitee/master master
-```
-
----
-
-## 其它电脑安装方式（非首次）
-
-> 非首次创建项目的操作原理如下：
-
-| 序号 | 操作               | 使用工具 | 需求情况               |
-| ---- | ------------------ | -------- | ---------------------- |
-| 01   | 下载 ThinkPHP 项目 | gitee    | 必备                   |
-| 02   | 下载 composer 扩展 | composer | 必选，包版本基于锁文件 |
-| 03   | 下载 composer 扩展 | composer | 必选，保持扩展最新     |
-| 04   | 下载 ThinkPHP 扩展 | composer | 可选                   |
-
-### 安装 qyadmin 项目
-
-> 首先，使用 gitee 安装 qyadmin
-
-```shell
-git clone https://gitee.com/linjialiang/qyadmin.git
-```
-
-> 其次，管理分支
-
-```shell
-## 增加本地分支master
-git checkout master
-## 重命名gitee远程分支别名
-git remote rename origin linjialiang-gitee
-## 增加远程分支 github
-git remote add linjialiang-github https://github.com/linjialiang/qyadmin.git
-## 拉取远程仓库
-git fetch linjialiang-github
-```
-
-> 最后，使用 composer 下载扩展
-
-```shell
-## 项目中 composer.lock 记录了所有使用到的composer扩展，我们直接下载即可
-composer install
-## 更新全部composer扩展包
-composer update
-## 更新指定的composer扩展包
-composer update topthink/framework
-```
-
-## 项目更新
-
-> 对于项目级 composer 包，composer 本身是不更新的，我们可以版本官方的 github 仓库来更新
-
-```shell
-## 为本地仓库增加框架远程仓库
-git remote add topthink-github https://github.com/top-think/think.git
-## 拉取远程仓库6.0分支
-git fetch topthink-github 6.0
-## 新建本地分支6.0
-git branch 6.0 topthink-github/6.0
-## 更新6.0分支为当前最新
-git fetch topthink-github/6.0
-git checkout 6.0
-git merge topthink-github/6.0
-## 将最新版的6.0分支合并到dev分支
-git checkout dev
-git merge 6.0
-```
-
-> 注意：如果我们引入了新的 composer 库，合并分支后，composer.json 就会出现分支合并冲突，需要我们手动修改！
-
-## 善后工作
-
-> 下面几点问题需要大家牢记：
-
-| 代码                        | composer.json | composer.lock | 描述                                              |
-| --------------------------- | ------------- | ------------- | ------------------------------------------------- |
-| composer update             | 会更新        | 会更新        | 更新根目录、子目录下所有 compsoer.json 包含的扩展 |
-| composer update 指定扩展名  | 会更新        | 会更新        | 更新指定的扩展                                    |
-| composer install            | 会更新        | 不会更新      | 下载或更新 composer.lock 文件下记录的所有扩展     |
-| composer require 指定扩展名 | 会更新        | 会更新        | 下载当前扩展，并执行 composer update 操作         |
-
-> 注意：composer 操作及开发都应该在 dev 进行，bug 问题可以单独提供版本号修复，但是 composer 操作应该全部使用 dev 分支进行！
-
-> 到此，ThinkPHP 6.0 项目的创建过程已经结束！
