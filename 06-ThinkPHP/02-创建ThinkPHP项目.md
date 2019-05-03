@@ -32,6 +32,7 @@ cd \wamp\web\www\
 # 下载项目的指定分支
 git clone -b 6.0 https://github.com/top-think/think.git qyadmin
 # 修改远程分支别名
+cd qyadmin
 git remote rename origin topthink-github
 # 拉取6.0分支最新数据
 git pull topthink-github 6.0
@@ -170,6 +171,7 @@ git merge 6.0
 # 拉取qyadmin项目的远程仓库
 git clone https://gitee.com/linjialiang/qyadmin.git qyadmin
 # 重命名远程仓库别名
+cd qyadmin
 git remote rename origin linjialiang-gitee
 # 新建本地分支
 git branch dev linjialiang-gitee/dev
