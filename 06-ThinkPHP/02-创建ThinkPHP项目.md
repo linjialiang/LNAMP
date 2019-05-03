@@ -142,14 +142,14 @@ git commit -m "ThinkPHP对框架做了更新！"
 
 > 非首次创建项目原理如下：
 
-| 步骤 | 具体操作             | 使用工具 |
-| ---- | -------------------- | -------- |
-| 00   | 拉取项目远程仓库     | git      |
-| 01   | 增加项目远程仓库     | git      |
-| 02   | 下载项目必备库       | composer |
-| 03   | 下载项目需要添加的库 | composer |
-| 04   | 更新库的版本         | composer |
-| 05   | 更新 ThinkPHP 框架   | git      |
+| 步骤 | 具体操作             | 使用工具       |
+| ---- | -------------------- | -------------- |
+| 00   | 拉取项目远程仓库     | git            |
+| 01   | 增加项目远程仓库     | git            |
+| 02   | 安装项目必备库       | composer       |
+| 03   | 安装项目需要添加的库 | composer       |
+| 04   | 更新库的版本         | 与首次安装一致 |
+| 05   | 更新 ThinkPHP 框架   | 与首次安装一致 |
 
 ### 拉取项目远程仓库
 
@@ -158,4 +158,43 @@ git commit -m "ThinkPHP对框架做了更新！"
 ```shell
 # 拉取qyadmin项目的远程仓库
 git clone https://gitee.com/linjialiang/qyadmin.git qyadmin
+# 重命名远程仓库别名
+git remote rename origin linjialiang-gitee
+# 新建本地分支
+git branch dev linjialiang-gitee/dev
+git branch 6.0 linjialiang-gitee/6.0
+```
+
+### 增加项目远程仓库
+
+```shell
+# 增加ThinkPHP框架远程仓库
+git remote add topthink-github https://github.com/top-think/think.git
+# 增加qyadmn项目的github远程仓库
+git remote add linjialiang-github https://github.com/linjialiang/qyadmin.git
+```
+
+### 安装项目必备库
+
+> 项目必备库已经记录在 composer.json 和 composer.lock 中
+
+```shell
+# 切花到 dev 分支
+git checkout dev
+# 安装项目必备库
+composer install
+# 如果数据发生变化，我们需要将变化的数据提交到仓库
+git add .
+git commit -m "qyadmin项目更新了库！"
+```
+
+### 安装项目需要添加的库
+
+> 如果项目需要添加新的库，就需要执行这一步
+
+```shell
+# 切花到 dev 分支
+git checkout dev
+# 如：添加一个库（项目根目录下执行）
+composer require 用户名/库名
 ```
