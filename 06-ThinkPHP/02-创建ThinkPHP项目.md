@@ -138,6 +138,17 @@ git add .
 git commit -m "ThinkPHP对框架做了更新！"
 ```
 
+> 将 6.0 分支合并到 dev 分支
+
+```shell
+# 合并分支
+git checkout dev
+git merge 6.0
+# 如果有合并冲突，就需自行处理冲突
+```
+
+---
+
 ## 非首次创建项目
 
 > 非首次创建项目原理如下：
