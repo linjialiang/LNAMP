@@ -141,7 +141,7 @@ git commit -m "ThinkPHP对框架做了更新！"
 > 将 6.0 分支合并到 dev 分支
 
 ```shell
-# 合并分支
+# 如果数据发生变化，就将6.0分支合并到dev分支
 git checkout dev
 git merge 6.0
 # 如果有合并冲突，就需自行处理冲突
