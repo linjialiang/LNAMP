@@ -10,8 +10,8 @@
 | ---- | -------------------------- | -------- |
 | 00   | 拉取 ThinkPHP 仓库作为项目 | git      |
 | 01   | 创建项目远程仓库           | git      |
-| 02   | 下载 ThinkPHP 框架必备库   | composer |
-| 03   | 下载项目需要的库           | composer |
+| 02   | 安装 ThinkPHP 框架必备库   | composer |
+| 03   | 安装项目需要的库           | composer |
 | 04   | 更新库的版本               | composer |
 | 05   | 更新 ThinkPHP 框架         | git      |
 
@@ -78,7 +78,64 @@ git push linjialiang-gitee dev
 
 ```shell
 # 首先取消
+git branch --unset-upstream 6.0
+git branch --unset-upstream dev
+git branch --unset-upstream master
+# 设置默认远程分支
+git branch --set-upstream-to linjialiang-gitee/6.0 6.0
+git branch --set-upstream-to=linjialiang-gitee/dev dev
+git branch --set-upstream-to linjialiang-gitee/master master
+```
 
+### 安装 ThinkPHP 框架必备库
+
+> 框架必备库在 composer.json 上已经列出，代码如下：
+
+```shell
+# 切换到 dev 分支
+git checkout dev
+# composer安装框架必备库
+composer install
+# 将变化的数据提交到仓库
+git add .
+git commit -m "安装了框架必备的库！"
+```
+
+### 安装项目需要的库
+
+> 当前项目需要的库，也是项目必备库，使用 require 添加，代码如下：
+
+```shell
+# 如：添加一个散列库（项目根目录下执行）
+composer require linjialiang/hash
+# 将变化的数据提交到仓库
+git add .
+git commit -m "安装了项目必要的库！"
+```
+
+### 更新库的版本
+
+> 更新库的版本，如下代码：
+
+```shell
+composer update
+# 如果数据发生变化，我们需要将变化的数据提交到仓库
+git add .
+git commit -m "更新了项目内库的版本号！"
+```
+
+### 更新 ThinkPHP 框架
+
+> 注意切换到 6.0 分支进行，代码如下：
+
+```shell
+# 切换到6.0分支
+git checkout 6.0
+# 从think官方仓库拉取最新数据
+git pull topthink-github 6.0
+# 如果数据发生变化，我们需要将变化的数据提交到仓库
+git add .
+git commit -m "ThinkPHP对框架做了更新！"
 ```
 
 ## 非首次创建项目
