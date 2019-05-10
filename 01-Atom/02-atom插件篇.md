@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-04-18 11:34:59
+| @Last modified time: 2019-05-10 21:19:25
 +===============================================================================
 -->
 
@@ -18,76 +18,76 @@
 
 ## atom 主题扩展
 
-| atom 扩展主题(3)               | 主题描述             |
-| -------------------------- | ---------------- |
-| `notepad-plus-plus-syntax` | `notepad++` 默认主题 |
-| `atom-material-syntax`     | atom 下载量最高的主题    |
-| `monokai`                  | sublime 默认主题     |
+| atom 扩展主题(3)           | 主题描述              |
+| -------------------------- | --------------------- |
+| `notepad-plus-plus-syntax` | `notepad++` 默认主题  |
+| `atom-material-syntax`     | atom 下载量最高的主题 |
+| `monokai`                  | sublime 默认主题      |
 
 ## atom 插件扩展
 
-| 实用插件(10)                  | 插件描述        |
-| ------------------------- | ----------- |
+| 实用插件(10)              | 插件描述          |
+| ------------------------- | ----------------- |
 | `atom-beautify`           | 格式化源代码      |
-| `docblockr`               | 用于注释        |
+| `docblockr`               | 用于注释          |
 | `sync-settings`           | atom 配置同步插件 |
 | `split-diff`              | 文件对比插件      |
-| `project-manager`         | 项目管理        |
+| `project-manager`         | 项目管理          |
 | `platformio-ide-terminal` | atom 下出色的终端 |
-| `markdown-preview-plus`   | markdown 预览 |
-| `file-header`             | 文件头信息       |
-| `file-icons`              | 文件图标        |
+| `markdown-preview-plus`   | markdown 预览     |
+| `file-header`             | 文件头信息        |
+| `file-icons`              | 文件图标          |
 | `quick-highlight`         | 文本快速高亮      |
 
-| git 相关插件(3)            | 插件描述                  |
-| ---------------------- | --------------------- |
+| git 相关插件(3)        | 插件描述                                   |
+| ---------------------- | ------------------------------------------ |
 | `git-time-machine`     | 近期提交的时间列表，并支持与当前内容做对比 |
-| `merge-conflicts`      | 解决 Atom 中的 Git 合并冲突   |
-| `tree-view-git-status` | 目录树里显示 Git 状态         |
+| `merge-conflicts`      | 解决 Atom 中的 Git 合并冲突                |
+| `tree-view-git-status` | 目录树里显示 Git 状态                      |
 
-| minimap 相关插件(6)           | 插件描述           |
-| ------------------------- | -------------- |
-| `minimap`                 | 代码小窗口          |
+| minimap 相关插件(6)       | 插件描述                |
+| ------------------------- | ----------------------- |
+| `minimap`                 | 代码小窗口              |
 | `minimap-bookmarks`       | 代码小窗口-书签高亮     |
 | `minimap-git-diff`        | 代码小窗口-git 对比高亮 |
 | `minimap-split-diff`      | 代码小窗口-对比高亮     |
-| `minimap-linter`          | 代码小窗口-linter 包 |
+| `minimap-linter`          | 代码小窗口-linter 包    |
 | `minimap-quick-highlight` | 代码小窗口-快速高亮     |
 
-| 语法相关插件(3)         | 插件描述           |
-| ----------------- | -------------- |
+| 语法相关插件(3)   | 插件描述               |
+| ----------------- | ---------------------- |
 | `language-apache` | httpd 扩展文件语法高亮 |
 | `language-nginx`  | nginx 配置文件语法高亮 |
 | `language-ini`    | ini 扩展文件语法高亮   |
 
-| ide(6)              | 插件描述       |
-| ------------------- | ---------- |
+| ide(6)              | 插件描述      |
+| ------------------- | ------------- |
 | `busy-signal`       | 基础包        |
-| `intentions`        | Linter 显示  |
-| `linter-ui-default` | Linter 界面  |
+| `intentions`        | Linter 显示   |
+| `linter-ui-default` | Linter 界面   |
 | `linter`            | Linter 基础包 |
-| `linter-eslint`     | js 错误提示    |
-| `linter-php`        | php 错误提示   |
+| `linter-eslint`     | js 错误提示   |
+| `linter-php`        | php 错误提示  |
 
-| html 相关插件(6)      | 插件描述            |
-| ----------------- | --------------- |
-| `autoprefixer`    | css3 后缀自动完成     |
+| html 相关插件(6)  | 插件描述                  |
+| ----------------- | ------------------------- |
+| `autoprefixer`    | css3 后缀自动完成         |
 | `open-in-browser` | html 页面从默认浏览器打开 |
-| `color-picker`    | 颜色选择            |
-| `pigments`        | css 下显示真实颜色     |
-| `emmet`           | 前端神器            |
-| `double-tag`      | html 标签同步修改     |
+| `color-picker`    | 颜色选择                  |
+| `pigments`        | css 下显示真实颜色        |
+| `emmet`           | 前端神器                  |
+| `double-tag`      | html 标签同步修改         |
 
-| vim 相关插件(3)        | 插件描述             |
-| ------------------ | ---------------- |
-| `vim-mode-plus`    | vim 插件基础包        |
-| `relative-numbers` | vim 普通模式下显示先对行号  |
-| `ex-mode`          | atom 下的 ex 单行编辑器 |
+| vim 相关插件(3)    | 插件描述                   |
+| ------------------ | -------------------------- |
+| `vim-mode-plus`    | vim 插件基础包             |
+| `relative-numbers` | vim 普通模式下显示先对行号 |
+| `ex-mode`          | atom 下的 ex 单行编辑器    |
 
 ## 终端下对 `atom` 插件管理
 
-| 说明   | 指令                                               |
-| ---- | ------------------------------------------------ |
+| 说明     | 指令                                             |
+| -------- | ------------------------------------------------ |
 | 安装插件 | `apm install package1 [package2 package3 ...]`   |
 | 卸载插件 | `apm uninstall package1 [package2 package3 ...]` |
 | 移除插件 | `apm remove package1 [package2 package3 ...]`    |
@@ -102,15 +102,15 @@
 >
 > 提示：事实上 project-manager 控制插件是不明智，因为 atom 首先会全部加载所有插件，然后再由 project-manager 开启 `devMode` 模式来禁用一些插件！
 
-| 属性设置       | 属性值类型 | 描述           | 默认值                    |
-| ---------- | ----- | ------------ | ---------------------- |
-| `title`    | 字符串   | 项目标题         | `''`                   |
-| `paths`    | 数组    | 视图中所有根目录     | `[]`                   |
-| `settings` | 对象    | 特定项目的设置。     | `{}`                   |
-| `icon`     | 字符串   | 项目列表中的图标     | `'icon-chevron-right'` |
-| `devMode`  | 布尔值   | `true` 为开发模式 | `false`                |
-| `group`    | 字符串   | 项目组          | `null`                 |
-| `template` | 字符串   | 项目模板         | `null`                 |
+| 属性设置   | 属性值类型 | 描述              | 默认值                 |
+| ---------- | ---------- | ----------------- | ---------------------- |
+| `title`    | 字符串     | 项目标题          | `''`                   |
+| `paths`    | 数组       | 视图中所有根目录  | `[]`                   |
+| `settings` | 对象       | 特定项目的设置。  | `{}`                   |
+| `icon`     | 字符串     | 项目列表中的图标  | `'icon-chevron-right'` |
+| `devMode`  | 布尔值     | `true` 为开发模式 | `false`                |
+| `group`    | 字符串     | 项目组            | `null`                 |
+| `template` | 字符串     | 项目模板          | `null`                 |
 
 > 常规案例：
 
@@ -140,12 +140,12 @@
 
 > `icon` 的属性值，可以直接使用 `file-icons` 插件（700 多个图标）设置，如：
 
-| 案例                    | 描述        |
-| --------------------- | --------- |
+| 案例                  | 描述        |
+| --------------------- | ----------- |
 | `icon: 'atom-icon'`   | atom 图标   |
 | `icon: 'git-icon'`    | git 图标    |
 | `icon: 'github-icon'` | github 图标 |
-| `icon: 'code-icon'`   | 代码图标      |
+| `icon: 'code-icon'`   | 代码图标    |
 | `icon: 'psd-icon'`    | psd 图标    |
 | `icon: 'php-icon'`    | php 图标    |
 
@@ -153,11 +153,11 @@
 
 > `autoprefixer` 唯一需要注意的是，想要获取最新的规则，就需要卸掉掉后，重新安装一遍！
 
-| 几个概念                                                      | 描述      |
-| --------------------------------------------------------- | ------- |
+| 几个概念                                                      | 描述           |
+| ------------------------------------------------------------- | -------------- |
 | [插件地址](https://github.com/sindresorhus/atom-autoprefixer) | 安装插件的源码 |
-| [规则地址](https://github.com/postcss/autoprefixer)           | 规则下载地址  |
-| [规则官网](https://twitter.com/autoprefixer)                  | 官网是推特   |
+| [规则地址](https://github.com/postcss/autoprefixer)           | 规则下载地址   |
+| [规则官网](https://twitter.com/autoprefixer)                  | 官网是推特     |
 
 ### remote-ftp
 
@@ -213,13 +213,13 @@
 
 > 头信息可以自定义模板，自定义模板的位置在 `~\.atom\other\file-header`目录下，文件源码如下:
 
-| 序号  | file-header 模板                                         |
-| --- | ------------------------------------------------------ |
-| 01  | [默认](./other/file-header/templates/emad_default.tmpl)  |
-| 02  | [css 类](./other/file-header/templates/emad_css.tmpl)   |
-| 03  | [html 类](./other/file-header/templates/emad_html.tmpl) |
-| 04  | [高级语言文件](./other/file-header/templates/emad_lang.tmpl) |
-| 05  | [sql 文件](./other/file-header/templates/emad_sql.tmpl)  |
+| 序号 | file-header 模板                                             |
+| ---- | ------------------------------------------------------------ |
+| 01   | [默认](./other/file-header/templates/emad_default.tmpl)      |
+| 02   | [css 类](./other/file-header/templates/emad_css.tmpl)        |
+| 03   | [html 类](./other/file-header/templates/emad_html.tmpl)      |
+| 04   | [高级语言文件](./other/file-header/templates/emad_lang.tmpl) |
+| 05   | [sql 文件](./other/file-header/templates/emad_sql.tmpl)      |
 
 ### atom-ternjs
 
