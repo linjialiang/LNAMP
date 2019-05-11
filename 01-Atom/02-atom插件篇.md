@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-05-11 11:09:47
+| @Last modified time: 2019-05-11 13:53:57
 +===============================================================================
 -->
 
@@ -26,7 +26,7 @@
 
 ## atom 插件扩展
 
-| 实用插件(10)              | 插件描述          |
+| 实用插件(11)              | 插件描述          |
 | ------------------------- | ----------------- |
 | `atom-beautify`           | 格式化源代码      |
 | `docblockr`               | 用于注释          |
@@ -35,6 +35,7 @@
 | `project-manager`         | 项目管理          |
 | `platformio-ide-terminal` | atom 下出色的终端 |
 | `markdown-preview-plus`   | markdown 预览     |
+| `markdown-toc-auto`       | markdown 导航     |
 | `file-header`             | 文件头信息        |
 | `file-icons`              | 文件图标          |
 | `quick-highlight`         | 文本快速高亮      |
@@ -60,14 +61,16 @@
 | `language-nginx`  | nginx 配置文件语法高亮 |
 | `language-ini`    | ini 扩展文件语法高亮   |
 
-| ide(6)              | 插件描述      |
-| ------------------- | ------------- |
-| `busy-signal`       | 基础包        |
-| `intentions`        | Linter 显示   |
-| `linter-ui-default` | Linter 界面   |
-| `linter`            | Linter 基础包 |
-| `linter-eslint`     | js 错误提示   |
-| `linter-php`        | php 错误提示  |
+| ide(6)                  | 插件描述      |
+| ----------------------- | ------------- |
+| `busy-signal`           | 基础包        |
+| `intentions`            | Linter 显示   |
+| `linter-ui-default`     | Linter 界面   |
+| `linter`                | Linter 基础包 |
+| `linter-eslint`         | js 错误提示   |
+| `linter-php`            | php 错误提示  |
+| `atom-ternjs`           | js 自动补全   |
+| `atom-autocomplete-php` | php 自动补全  |
 
 | html 相关插件(6)  | 插件描述                  |
 | ----------------- | ------------------------- |
@@ -77,7 +80,6 @@
 | `pigments`        | css 下显示真实颜色        |
 | `emmet`           | 前端神器                  |
 | `double-tag`      | html 标签同步修改         |
-| `atom-ternjs`     | js 自动补全               |
 
 | vim 相关插件(3)    | 插件描述                   |
 | ------------------ | -------------------------- |
@@ -239,13 +241,9 @@
 ```json
 {
   "ecmaVersion": 8,
-  "libs": [
-    "jquery"
-  ],
+  "libs": ["jquery"],
   "loadEagerly": [],
-  "dontLoad": [
-    "node_modules/**"
-  ],
+  "dontLoad": ["node_modules/**"],
   "plugins": {
     "doc_comment": true,
     "complete_strings": {
