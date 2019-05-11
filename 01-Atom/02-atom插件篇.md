@@ -8,7 +8,7 @@
 +===============================================================================
 | @Email: linjialiang@163.com
 +===============================================================================
-| @Last modified time: 2019-05-11 11:07:56
+| @Last modified time: 2019-05-11 11:09:47
 +===============================================================================
 -->
 
@@ -239,11 +239,18 @@
 ```json
 {
   "ecmaVersion": 8,
-  "libs": ["jquery", "browser"],
+  "libs": [
+    "jquery"
+  ],
   "loadEagerly": [],
-  "dontLoad": ["node_modules/**"],
+  "dontLoad": [
+    "node_modules/**"
+  ],
   "plugins": {
-    "doc_comment": true
+    "doc_comment": true,
+    "complete_strings": {
+      "maxLength": 15
+    }
   }
 }
 ```
