@@ -1,6 +1,4 @@
 "*":
-  "atom-autocomplete-php":
-    binComposer: "C:\\wamp\\base\\php\\composer.phar"
   "atom-beautify":
     css:
       default_beautifier: "Prettier"
@@ -20,6 +18,10 @@
       default_beautifier: "Prettier"
     php:
       allow_risky: "yes"
+  "atom-package-deps":
+    ignored: [
+      "atom-ide-definitions"
+    ]
   autoprefixer:
     runOnSave: true
   autosave:
@@ -40,10 +42,11 @@
       "markdown-preview-plus"
       "open-in-browser"
       "file-header"
+      "atom-ide-definitions"
     ]
     telemetryConsent: "limited"
     themes: [
-      "one-light-ui"
+      "one-dark-ui"
       "monokai"
     ]
     uriHandlerRegistration: "always"
