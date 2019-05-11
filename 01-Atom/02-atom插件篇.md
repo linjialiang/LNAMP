@@ -1,91 +1,93 @@
-<!--
-+===============================================================================
-| @Author: madnesslin(地上马)
-+===============================================================================
-| @Phone: +86 13695746767
-+===============================================================================
-| @Date: 2019-03-12 14:20:52
-+===============================================================================
-| @Email: linjialiang@163.com
-+===============================================================================
-| @Last modified time: 2019-05-11 13:53:57
-+===============================================================================
--->
+<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+- [Atom 插件篇](#atom-插件篇)
+    - [atom 主题扩展](#atom-主题扩展)
+    - [atom 插件扩展](#atom-插件扩展)
+    - [终端下对 `atom` 插件管理](#终端下对-atom-插件管理)
+    - [插件配置说明](#插件配置说明)
+        - [project-manager](#project-manager)
+        - [autoprefixer](#autoprefixer)
+        - [remote-ftp](#remote-ftp)
+        - [file-header](#file-header)
+        - [atom-ternjs](#atom-ternjs)
+        - [linter-eslint](#linter-eslint)
+<!-- TOC END -->
 
-# <center>Atom 插件篇</center>
+# Atom 插件篇
 
 > Atom 有很多优秀的插件，我们这里只是讲解其中一部分插件，这些插件都是我经过长期使用得到的，并且可以很好的协作！
 
 ## atom 主题扩展
 
-| atom 扩展主题(3)           | 主题描述               |
-| -------------------------- | ---------------------- |
-| `notepad-plus-plus-syntax` | `notepad++` 默认主题   |
-| `atom-material-syntax`     | atom 下载量最高的主 题 |
-| `monokai`                  | sublime 默认主题       |
+| atom 扩展主题(3)         | 主题描述               |
+| ------------------------ | ---------------------- |
+| notepad-plus-plus-syntax | notepad++ 默认主题     |
+| atom-material-syntax     | atom 下载量最高的主 题 |
+| monokai                  | sublime 默认主题       |
 
 ## atom 插件扩展
 
-| 实用插件(11)              | 插件描述          |
-| ------------------------- | ----------------- |
-| `atom-beautify`           | 格式化源代码      |
-| `docblockr`               | 用于注释          |
-| `sync-settings`           | atom 配置同步插件 |
-| `split-diff`              | 文件对比插件      |
-| `project-manager`         | 项目管理          |
-| `platformio-ide-terminal` | atom 下出色的终端 |
-| `markdown-preview-plus`   | markdown 预览     |
-| `markdown-toc-auto`       | markdown 导航     |
-| `file-header`             | 文件头信息        |
-| `file-icons`              | 文件图标          |
-| `quick-highlight`         | 文本快速高亮      |
+| 实用插件(11)            | 插件描述          |
+| ----------------------- | ----------------- |
+| atom-beautify           | 格式化源代码      |
+| docblockr               | 用于注释          |
+| sync-settings           | atom 配置同步插件 |
+| split-diff              | 文件对比插件      |
+| project-manager         | 项目管理          |
+| platformio-ide-terminal | atom 下出色的终端 |
+| markdown-preview-plus   | markdown 预览     |
+| markdown-toc-auto       | markdown 导航     |
+| file-header             | 文件头信息        |
+| file-icons              | 文件图标          |
+| quick-highlight         | 文本快速高亮      |
 
-| git 相关插件(3)        | 插件描述                                   |
-| ---------------------- | ------------------------------------------ |
-| `git-time-machine`     | 近期提交的时间列表，并支持与当前内容做对比 |
-| `merge-conflicts`      | 解决 Atom 中的 Git 合并冲突                |
-| `tree-view-git-status` | 目录树里显示 Git 状态                      |
+| git 相关插件(3)      | 插件描述                                   |
+| -------------------- | ------------------------------------------ |
+| git-time-machine     | 近期提交的时间列表，并支持与当前内容做对比 |
+| merge-conflicts      | 解决 Atom 中的 Git 合并冲突                |
+| tree-view-git-status | 目录树里显示 Git 状态                      |
 
-| minimap 相关插件(6)       | 插件描述                |
-| ------------------------- | ----------------------- |
-| `minimap`                 | 代码小窗口              |
-| `minimap-bookmarks`       | 代码小窗口-书签高亮     |
-| `minimap-git-diff`        | 代码小窗口-git 对比高亮 |
-| `minimap-split-diff`      | 代码小窗口-对比高亮     |
-| `minimap-linter`          | 代码小窗口-linter 包    |
-| `minimap-quick-highlight` | 代码小窗口-快速高亮     |
+| minimap 相关插件(6)     | 插件描述                |
+| ----------------------- | ----------------------- |
+| minimap                 | 代码小窗口              |
+| minimap-bookmarks       | 代码小窗口-书签高亮     |
+| minimap-git-diff        | 代码小窗口-git 对比高亮 |
+| minimap-split-diff      | 代码小窗口-对比高亮     |
+| minimap-linter          | 代码小窗口-linter 包    |
+| minimap-quick-highlight | 代码小窗口-快速高亮     |
 
-| 语法相关插件(3)   | 插件描述               |
-| ----------------- | ---------------------- |
-| `language-apache` | httpd 扩展文件语法高亮 |
-| `language-nginx`  | nginx 配置文件语法高亮 |
-| `language-ini`    | ini 扩展文件语法高亮   |
+| 语法相关插件(3) | 插件描述               |
+| --------------- | ---------------------- |
+| language-apache | httpd 扩展文件语法高亮 |
+| language-nginx  | nginx 配置文件语法高亮 |
+| language-ini    | ini 扩展文件语法高亮   |
 
-| ide(6)                  | 插件描述      |
-| ----------------------- | ------------- |
-| `busy-signal`           | 基础包        |
-| `intentions`            | Linter 显示   |
-| `linter-ui-default`     | Linter 界面   |
-| `linter`                | Linter 基础包 |
-| `linter-eslint`         | js 错误提示   |
-| `linter-php`            | php 错误提示  |
-| `atom-ternjs`           | js 自动补全   |
-| `atom-autocomplete-php` | php 自动补全  |
+| ide(10)                   | 插件描述                 |
+| ------------------------- | ------------------------ |
+| busy-signal               | 基础包                   |
+| intentions                | Linter 显示              |
+| linter-ui-default         | Linter 界面              |
+| linter                    | Linter 基础包            |
+| atom-ide-datatip          | ide 界面展示             |
+| atom-ide-signature-help   | ide 界面参数帮助信息     |
+| atom-ide-definitions      | ide 转到定义             |
+| atom-ide-markdown-service | ide 界面以 markdown 展示 |
+| ide-typescript            | js 语言包                |
+| ide-php                   | php 语言包               |
 
-| html 相关插件(6)  | 插件描述                  |
-| ----------------- | ------------------------- |
-| `autoprefixer`    | css3 后缀自动完成         |
-| `open-in-browser` | html 页面从默认浏览器打开 |
-| `color-picker`    | 颜色选择                  |
-| `pigments`        | css 下显示真实颜色        |
-| `emmet`           | 前端神器                  |
-| `double-tag`      | html 标签同步修改         |
+| html 相关插件(6) | 插件描述                  |
+| ---------------- | ------------------------- |
+| autoprefixer     | css3 后缀自动完成         |
+| open-in-browser  | html 页面从默认浏览器打开 |
+| color-picker     | 颜色选择                  |
+| pigments         | css 下显示真实颜色        |
+| emmet            | 前端神器                  |
+| double-tag       | html 标签同步修改         |
 
-| vim 相关插件(3)    | 插件描述                   |
-| ------------------ | -------------------------- |
-| `vim-mode-plus`    | vim 插件基础包             |
-| `relative-numbers` | vim 普通模式下显示先对行号 |
-| `ex-mode`          | atom 下的 ex 单行编辑器    |
+| vim 相关插件(3)  | 插件描述                   |
+| ---------------- | -------------------------- |
+| vim-mode-plus    | vim 插件基础包             |
+| relative-numbers | vim 普通模式下显示先对行号 |
+| ex-mode          | atom 下的 ex 单行编辑器    |
 
 ## 终端下对 `atom` 插件管理
 
