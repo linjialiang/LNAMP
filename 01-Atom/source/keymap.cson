@@ -6,41 +6,21 @@
     'ctrl-k ctrl-h': 'tree-view:open-selected-entry-left'
     'ctrl-k ctrl-l': 'tree-view:open-selected-entry-right'
 
+'atom-text-editor':
+    'ctrl-k ctrl-o': 'autocomplete-plus:activate'
+
 '.select-list atom-text-editor, body atom-text-editor.autocomplete-active':
     'ctrl-p': 'core:move-up'
     'ctrl-n': 'core:move-down'
     'home': 'core:move-to-top'
     'end': 'core:move-to-bottom'
 
-'atom-text-editor:not(.mini)':
-    'ctrl-k ctrl-h': 'file-header:add'
-
-'atom-workspace':
-    'ctrl-k ctrl-t': 'git-time-machine:toggle'
-    'ctrl-alt-o': 'remote-ftp:toggle'
-    'ctrl-alt-c': 'remote-ftp:connect'
-    'ctrl-alt-d': 'remote-ftp:disconnect'
-    'shift-cmd-U': 'remote-ftp:upload-selected'
-
-'atom-text-editor':
-    'ctrl-k ctrl-m': 'markdown-preview-enhanced:toggle'
-    'ctrl-k ctrl-o': 'autocomplete-plus:activate'
-    'ctrl-k ctrl-enter': 'atom-ide-go-to-definition:go-to-definition'
-
-'.remote-ftp-view':
-    'a': 'remote-ftp:add-file'
-    'd': 'remote-ftp:move-selected'
-    'shift-A': 'remote-ftp:add-folder'
-
-'.platform-win32 atom-text-editor[data-grammar~=js]':
-    'ctrl-k ctrl-d': 'atom-ternjs:definition'
-    'ctrl-k ctrl-c': 'atom-ternjs:rename'
-    'ctrl-k ctrl-e': 'atom-ternjs:references'
-    'alt-o': 'atom-ternjs:documentation'
+'atom-text-editor, webview.markdown-preview-plus':
+  'ctrl-k ctrl-m': 'markdown-preview-plus:toggle'
 
 '.platform-win32 atom-workspace atom-text-editor':
-    'ctrl-k ctrl-b': 'open-in-browser:open'
-
+  'ctrl-k ctrl-b': 'open-in-browser:open'
+  
 'atom-workspace atom-text-editor:not([mini])':
     'ctrl-k m': 'quick-highlight:toggle'
     'ctrl-k M': 'quick-highlight:clear'
@@ -50,8 +30,16 @@
     'space M': 'quick-highlight:clear'
     'g m': 'vim-mode-plus-user:quick-highlight'
 
-'.platform-darwin atom-workspace':
-    'ctrl-`': 'platformio-ide-terminal:toggle'
+'atom-text-editor:not(.mini)':
+  'ctrl-k ctrl-h': 'file-header:add'
 
-'.platform-win32 atom-workspace, .platform-linux atom-workspace':
-    'ctrl-`': 'platformio-ide-terminal:toggle'
+'atom-workspace':
+  'ctrl-k ctrl-t': 'git-time-machine:toggle'
+
+'.platform-win32 atom-text-editor[data-grammar~=js]':
+  'ctrl-k ctrl-r': 'atom-ternjs:rename'
+  'ctrl-k ctrl-c': 'atom-ternjs:references'
+  'ctrl-k ctrl-d': 'atom-ternjs:definition'
+  'ctrl-k ctrl-i': 'atom-ternjs:documentation'
+  'ctrl-k ctrl-[': 'atom-ternjs:navigateForward'
+  'ctrl-k ctrl-]': 'atom-ternjs:navigateBack'

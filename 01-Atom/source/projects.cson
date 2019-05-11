@@ -20,10 +20,20 @@
     devMode: true
   }
   {
+    title: "hash"
+    group: "composer"
+    paths: [
+      "D:\\composer\\hash"
+    ]
+    icon: "php-icon"
+    color: "#8892BF"
+    devMode: true
+  }
+  {
     title: ".atom"
     group: "atom"
     paths: [
-      "C:\\Users\\linji\\.atom"
+      "C:\\Users\\emad\\.atom"
     ]
     icon: "atom-icon"
     color: "green"
