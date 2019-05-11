@@ -1,3 +1,7 @@
+'atom-workspace':
+    'ctrl-k ctrl-t': 'git-time-machine:toggle'
+    'ctrl-k ctrl-enter': 'atom-ide-go-to-definition:go-to-definition'
+
 'atom-workspace .tree-view':
     'g g': 'core:move-to-top'
     'shift-G': 'core:move-to-bottom'
@@ -6,8 +10,15 @@
     'ctrl-k ctrl-h': 'tree-view:open-selected-entry-left'
     'ctrl-k ctrl-l': 'tree-view:open-selected-entry-right'
 
-'atom-text-editor':
+'atom-workspace atom-text-editor':
     'ctrl-k ctrl-o': 'autocomplete-plus:activate'
+    'ctrl-k ctrl-m': 'markdown-preview-plus:toggle'
+    'ctrl-k ctrl-b': 'open-in-browser:open'
+
+'atom-workspace atom-text-editor:not([mini])':
+    'ctrl-k m': 'quick-highlight:toggle'
+    'ctrl-k M': 'quick-highlight:clear'
+    'ctrl-k ctrl-h': 'file-header:add'
 
 '.select-list atom-text-editor, body atom-text-editor.autocomplete-active':
     'ctrl-p': 'core:move-up'
@@ -15,31 +26,10 @@
     'home': 'core:move-to-top'
     'end': 'core:move-to-bottom'
 
-'atom-text-editor, webview.markdown-preview-plus':
-  'ctrl-k ctrl-m': 'markdown-preview-plus:toggle'
-
-'.platform-win32 atom-workspace atom-text-editor':
-  'ctrl-k ctrl-b': 'open-in-browser:open'
-  
-'atom-workspace atom-text-editor:not([mini])':
-    'ctrl-k m': 'quick-highlight:toggle'
-    'ctrl-k M': 'quick-highlight:clear'
+'webview.markdown-preview-plus':
+    'ctrl-k ctrl-m': 'markdown-preview-plus:toggle'
 
 'atom-text-editor.vim-mode-plus.normal-mode, atom-text-editor.vim-mode-plus.visual-mode':
     'space m': 'vim-mode-plus-user:quick-highlight-word'
     'space M': 'quick-highlight:clear'
     'g m': 'vim-mode-plus-user:quick-highlight'
-
-'atom-text-editor:not(.mini)':
-  'ctrl-k ctrl-h': 'file-header:add'
-
-'atom-workspace':
-  'ctrl-k ctrl-t': 'git-time-machine:toggle'
-
-'.platform-win32 atom-text-editor[data-grammar~=js]':
-  'ctrl-k ctrl-r': 'atom-ternjs:rename'
-  'ctrl-k ctrl-c': 'atom-ternjs:references'
-  'ctrl-k ctrl-d': 'atom-ternjs:definition'
-  'ctrl-k ctrl-i': 'atom-ternjs:documentation'
-  'ctrl-k ctrl-[': 'atom-ternjs:navigateForward'
-  'ctrl-k ctrl-]': 'atom-ternjs:navigateBack'

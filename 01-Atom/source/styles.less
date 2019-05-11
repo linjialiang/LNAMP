@@ -1,38 +1,45 @@
-@import "syntax-variables";
+/**
+ * @Author: madnesslin(地上马)
+ * @Date:   2019-05-10 21:10:35
+ * @Email:  linjialiang@163.com
+ * @Last modified by:   madnesslin(地上马)
+ * @Last modified time: 2019-05-10 21:11:05
+ */
+ @import "syntax-variables";
 
-// For selection color
-//=======================
-atom-text-editor .quick-highlight.box-selection .region {
-  border-width: 1px;
-  background-color: transparent;
-  border-color: @syntax-text-color;
-}
+ // For selection color
+ //=======================
+ atom-text-editor .quick-highlight.box-selection .region {
+   border-width: 1px;
+   background-color: transparent;
+   border-color: @syntax-text-color;
+ }
 
-// Make underline manual highlight prioritized(come front) over other highlight
-//=======================
-// Mixin to set z-index of quick-highlight manual color
-.quick-highlight-z-index(@name, @value) {
-  .quick-highlight.@{name} .region {
-    z-index: @value;
-  }
-}
+ // Make underline manual highlight prioritized(come front) over other highlight
+ //=======================
+ // Mixin to set z-index of quick-highlight manual color
+ .quick-highlight-z-index(@name, @value) {
+   .quick-highlight.@{name} .region {
+     z-index: @value;
+   }
+ }
 
-// quick-highlight use 0 to 7 color
-//  for box style, use box-01 to box-07
-//  for highlight style, use highlight-01 to highlight-07
-.quick-highlight-z-index(underline-01, 1);
-.quick-highlight-z-index(underline-02, 1);
-.quick-highlight-z-index(underline-03, 1);
-.quick-highlight-z-index(underline-04, 1);
-.quick-highlight-z-index(underline-05, 1);
-.quick-highlight-z-index(underline-06, 1);
-.quick-highlight-z-index(underline-07, 1);
+ // quick-highlight use 0 to 7 color
+ //  for box style, use box-01 to box-07
+ //  for highlight style, use highlight-01 to highlight-07
+ .quick-highlight-z-index(underline-01, 1);
+ .quick-highlight-z-index(underline-02, 1);
+ .quick-highlight-z-index(underline-03, 1);
+ .quick-highlight-z-index(underline-04, 1);
+ .quick-highlight-z-index(underline-05, 1);
+ .quick-highlight-z-index(underline-06, 1);
+ .quick-highlight-z-index(underline-07, 1);
 
-li.active[is="tabs-tab"] {
-    border-bottom: 1px solid rgba(90, 138, 233, 0.3);
-}
+ li.active[is="tabs-tab"] {
+     border-bottom: 1px solid rgba(90, 138, 233, 0.3);
+ }
 
-[theme-one-light-ui-tab-close-button="left"] .tab-bar .tab .close-icon,
-[theme-one-dark-ui-tab-close-button="left"] .tab-bar .tab .close-icon{
-    cursor: pointer;
-}
+ [theme-one-light-ui-tab-close-button="left"] .tab-bar .tab .close-icon,
+ [theme-one-dark-ui-tab-close-button="left"] .tab-bar .tab .close-icon{
+     cursor: pointer;
+ }

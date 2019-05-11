@@ -1,4 +1,6 @@
 "*":
+  "atom-autocomplete-php":
+    binComposer: "C:\\wamp\\base\\php\\composer.phar"
   "atom-beautify":
     css:
       default_beautifier: "Prettier"
@@ -18,16 +20,6 @@
       default_beautifier: "Prettier"
     php:
       allow_risky: "yes"
-  "atom-package-deps":
-    ignored: [
-      "atom-ternjs"
-    ]
-  "atom-ternjs":
-    excludeLowerPriorityProviders: true
-    inlineFnCompletionDocumentation: true
-    snippetsFirst: true
-    useSnippets: true
-    useSnippetsAndFunction: true
   autoprefixer:
     runOnSave: true
   autosave:
@@ -48,11 +40,10 @@
       "markdown-preview-plus"
       "open-in-browser"
       "file-header"
-      "atom-ternjs"
     ]
     telemetryConsent: "limited"
     themes: [
-      "one-dark-ui"
+      "one-light-ui"
       "monokai"
     ]
     uriHandlerRegistration: "always"
@@ -104,7 +95,9 @@
       syncEditorOnPreviewScroll: true
       syncPreviewOnChange: true
       syncPreviewOnEditorScroll: true
+    syntaxThemeName: "atom-material-syntax"
     useGitHubStyle: true
+  "markdown-toc-auto": {}
   minimap:
     plugins:
       bookmarks: true
@@ -144,7 +137,7 @@
   "spell-check":
     useLocales: false
   "sync-settings":
-    _lastBackupHash: "6d67fec71c8af1bc0eb386e38efc7f80a862706c"
+    _lastBackupHash: "ec44bf6168ec4aea44bf8a87c0acab7518b0cd16"
     extraFiles: [
       "config.cson"
       "github.cson"
