@@ -159,8 +159,8 @@
       "projects.cson"
       ".apmrc"
     ]
-    gistId: "60e333b6d2aec1ae974e3f5e1f18e7a6"
-    personalAccessToken: " c4efd0e8ce61a9a2856649d3b9468c5b2b77a3ee "
+    gistId: ""
+    personalAccessToken: ""
     quietUpdateCheck: true
     removeObsoletePackages: true
   "tree-view-git-status":
