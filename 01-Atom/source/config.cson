@@ -43,11 +43,12 @@
       "open-in-browser"
       "file-header"
       "atom-ide-definitions"
+      "remote-ftp"
     ]
     telemetryConsent: "limited"
     themes: [
-      "one-dark-ui"
-      "monokai"
+      "one-light-ui"
+      "notepad-plus-plus-syntax"
     ]
     uriHandlerRegistration: "always"
   docblockr:
@@ -137,15 +138,26 @@
     sortBy: "group"
   "quick-highlight":
     decorate: "box"
+  "remote-ftp":
+    beta: {}
+    connector:
+      autoUploadOnSave: "only when connected"
+    context: {}
+    dev: {}
+    statusbar:
+      enable: true
+    tree:
+      showViewOnStartup: false
   "spell-check":
     useLocales: false
   "sync-settings":
-    _lastBackupHash: "ec44bf6168ec4aea44bf8a87c0acab7518b0cd16"
+    _lastBackupHash: "97b984ae00bd09681c0d4ebb70b18b08f2c19f08"
     extraFiles: [
       "config.cson"
       "github.cson"
       "markdown-preview-plus.cson"
       "projects.cson"
+      ".apmrc"
     ]
     gistId: "60e333b6d2aec1ae974e3f5e1f18e7a6"
     personalAccessToken: " c4efd0e8ce61a9a2856649d3b9468c5b2b77a3ee "

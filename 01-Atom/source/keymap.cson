@@ -1,6 +1,10 @@
 'atom-workspace':
     'ctrl-k ctrl-t': 'git-time-machine:toggle'
     'ctrl-k ctrl-enter': 'atom-ide-go-to-definition:go-to-definition'
+    'ctrl-k t': 'remote-ftp:toggle'
+    'ctrl-k c': 'remote-ftp:connect'
+    'ctrl-k d': 'remote-ftp:disconnect'
+    'ctrl-k u': 'remote-ftp:upload-selected'
 
 'atom-workspace .tree-view':
     'g g': 'core:move-to-top'
@@ -13,7 +17,7 @@
 'atom-workspace atom-text-editor':
     'ctrl-k ctrl-o': 'autocomplete-plus:activate'
     'ctrl-k ctrl-m': 'markdown-preview-plus:toggle'
-    'ctrl-k ctrl-b': 'open-in-browser:open'
+    'ctrl-k ctrl-e': 'open-in-browser:open'
 
 'atom-workspace atom-text-editor:not([mini])':
     'ctrl-k m': 'quick-highlight:toggle'
