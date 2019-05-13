@@ -34,6 +34,5 @@
     'ctrl-k ctrl-m': 'markdown-preview-plus:toggle'
 
 'atom-text-editor.vim-mode-plus.normal-mode, atom-text-editor.vim-mode-plus.visual-mode':
-    'space m': 'vim-mode-plus-user:quick-highlight-word'
-    'space M': 'quick-highlight:clear'
-    'g m': 'vim-mode-plus-user:quick-highlight'
+    'g m': 'vim-mode-plus-user:quick-highlight-word'
+    'g M': 'quick-highlight:clear'
