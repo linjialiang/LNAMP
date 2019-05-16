@@ -56,11 +56,12 @@
 | minimap-linter          | 代码小窗口-linter 包    |
 | minimap-quick-highlight | 代码小窗口-快速高亮     |
 
-| 语法相关插件(3) | 插件描述               |
+| 语法相关插件(4) | 插件描述               |
 | --------------- | ---------------------- |
 | language-apache | httpd 扩展文件语法高亮 |
 | language-nginx  | nginx 配置文件语法高亮 |
 | language-ini    | ini 扩展文件语法高亮   |
+| language-notenv | .env 扩展文件语法高亮  |
 
 | ide(10)                   | 插件描述                 |
 | ------------------------- | ------------------------ |
