@@ -35,4 +35,4 @@
 
 'atom-text-editor.vim-mode-plus.normal-mode, atom-text-editor.vim-mode-plus.visual-mode':
     'g m': 'vim-mode-plus-user:quick-highlight-word'
-    'g M': 'quick-highlight:clear'
+    'g M': 'quick-highlight:clear' 

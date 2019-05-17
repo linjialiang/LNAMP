@@ -47,8 +47,8 @@
     ]
     telemetryConsent: "limited"
     themes: [
-      "one-light-ui"
-      "notepad-plus-plus-syntax"
+      "one-dark-ui"
+      "atom-material-syntax"
     ]
     uriHandlerRegistration: "always"
   docblockr:
@@ -151,7 +151,7 @@
   "spell-check":
     useLocales: false
   "sync-settings":
-    _lastBackupHash: "97b984ae00bd09681c0d4ebb70b18b08f2c19f08"
+    _lastBackupHash: "7202cf7cd454213dba5842646fbf4dd5d23c8b33"
     extraFiles: [
       "config.cson"
       "github.cson"
