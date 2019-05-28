@@ -22,6 +22,12 @@
     ignored: [
       "atom-ide-definitions"
     ]
+  "atom-ternjs":
+    excludeLowerPriorityProviders: true
+    inlineFnCompletionDocumentation: true
+    snippetsFirst: true
+    useSnippets: true
+    useSnippetsAndFunction: true
   autoprefixer:
     runOnSave: true
   autosave:
@@ -44,6 +50,8 @@
       "file-header"
       "atom-ide-definitions"
       "remote-ftp"
+      "atom-ternjs"
+      "symbols-view"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -85,7 +93,13 @@
   "line-ending-selector":
     defaultLineEnding: "LF"
   "linter-eslint":
+    advanced:
+      disableEslintIgnore: true
+      disableFSCache: true
+    disabling: {}
     global: {}
+    lintHtmlFiles: true
+  "linter-php": {}
   "linter-ui-default": {}
   "markdown-preview-plus":
     markdownItConfig:
@@ -151,7 +165,7 @@
   "spell-check":
     useLocales: false
   "sync-settings":
-    _lastBackupHash: "7202cf7cd454213dba5842646fbf4dd5d23c8b33"
+    _lastBackupHash: "cf970b5b004a4ab7d2a605d918bee0353ad1251f"
     extraFiles: [
       "config.cson"
       "github.cson"

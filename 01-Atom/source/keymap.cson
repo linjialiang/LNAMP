@@ -21,7 +21,7 @@
 
 'atom-workspace atom-text-editor:not([mini])':
     'ctrl-k m': 'quick-highlight:toggle'
-    'ctrl-k M': 'quick-highlight:clear'
+    'ctrl-k shift-M': 'quick-highlight:clear'
     'ctrl-k ctrl-h': 'file-header:add'
 
 '.select-list atom-text-editor, body atom-text-editor.autocomplete-active':
@@ -35,4 +35,13 @@
 
 'atom-text-editor.vim-mode-plus.normal-mode, atom-text-editor.vim-mode-plus.visual-mode':
     'g m': 'vim-mode-plus-user:quick-highlight-word'
-    'g M': 'quick-highlight:clear' 
+    'g shift-M': 'quick-highlight:clear' 
+
+'.platform-win32 atom-text-editor':
+    'ctrl-k ctrl-r': 'symbols-view:toggle-file-symbols'
+    
+'.platform-win32 atom-text-editor[data-grammar~=js]':
+    'ctrl-k ctrl-shift-D': 'atom-ternjs:definition'
+    'ctrl-k ctrl-shift-R': 'atom-ternjs:rename'
+    'ctrl-k ctrl-shift-E': 'atom-ternjs:references'
+    'ctrl-k ctrl-shift-O': 'atom-ternjs:documentation'
