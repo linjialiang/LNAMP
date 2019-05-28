@@ -1,7 +1,16 @@
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
-
-- [Atom 插件篇](#atom-插件篇) - [atom 主题扩展](#atom-主题扩展) - [atom 插件扩展](#atom-插件扩展) - [终端下对 `atom` 插件管理](#终端下对-atom-插件管理) - [插件配置说明](#插件配置说明) - [project-manager](#project-manager) - [autoprefixer](#autoprefixer) - [remote-ftp](#remote-ftp) - [file-header](#file-header) - [atom-ternjs](#atom-ternjs) - [linter-eslint](#linter-eslint)
-  <!-- TOC END -->
+- [Atom 插件篇](#atom-插件篇)
+    - [atom 主题扩展](#atom-主题扩展)
+    - [atom 插件扩展](#atom-插件扩展)
+    - [终端下对 `atom` 插件管理](#终端下对-atom-插件管理)
+    - [插件配置说明](#插件配置说明)
+        - [project-manager](#project-manager)
+        - [autoprefixer](#autoprefixer)
+        - [remote-ftp](#remote-ftp)
+        - [file-header](#file-header)
+        - [atom-ternjs](#atom-ternjs)
+        - [linter-eslint](#linter-eslint)
+<!-- TOC END -->
 
 # Atom 插件篇
 
@@ -17,7 +26,7 @@
 
 ## atom 插件扩展
 
-| 实用插件(12)            | 插件描述          |
+| 实用插件(13)            | 插件描述          |
 | ----------------------- | ----------------- |
 | atom-beautify           | 格式化源代码      |
 | docblockr               | 用于注释          |
@@ -55,7 +64,7 @@
 | language-ini    | ini 扩展文件语法高亮   |
 | language-notenv | .env 扩展文件语法高亮  |
 
-| ide(10)                   | 插件描述                 |
+| ide(11)                   | 插件描述                 |
 | ------------------------- | ------------------------ |
 | busy-signal               | 基础包                   |
 | intentions                | Linter 显示              |
