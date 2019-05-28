@@ -18,11 +18,10 @@
 
 ## atom 主题扩展
 
-| atom 扩展主题(3)         | 主题描述               |
+| atom 扩展主题(2)         | 主题描述               |
 | ------------------------ | ---------------------- |
 | notepad-plus-plus-syntax | notepad++ 默认主题     |
 | atom-material-syntax     | atom 下载量最高的主 题 |
-| monokai                  | sublime 默认主题       |
 
 ## atom 插件扩展
 
