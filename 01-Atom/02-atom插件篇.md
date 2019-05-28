@@ -1,16 +1,7 @@
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
-- [Atom 插件篇](#atom-插件篇)
-    - [atom 主题扩展](#atom-主题扩展)
-    - [atom 插件扩展](#atom-插件扩展)
-    - [终端下对 `atom` 插件管理](#终端下对-atom-插件管理)
-    - [插件配置说明](#插件配置说明)
-        - [project-manager](#project-manager)
-        - [autoprefixer](#autoprefixer)
-        - [remote-ftp](#remote-ftp)
-        - [file-header](#file-header)
-        - [atom-ternjs](#atom-ternjs)
-        - [linter-eslint](#linter-eslint)
-<!-- TOC END -->
+
+- [Atom 插件篇](#atom-插件篇) - [atom 主题扩展](#atom-主题扩展) - [atom 插件扩展](#atom-插件扩展) - [终端下对 `atom` 插件管理](#终端下对-atom-插件管理) - [插件配置说明](#插件配置说明) - [project-manager](#project-manager) - [autoprefixer](#autoprefixer) - [remote-ftp](#remote-ftp) - [file-header](#file-header) - [atom-ternjs](#atom-ternjs) - [linter-eslint](#linter-eslint)
+  <!-- TOC END -->
 
 # Atom 插件篇
 
@@ -40,6 +31,7 @@
 | file-icons              | 文件图标          |
 | quick-highlight         | 文本快速高亮      |
 | remote-ftp              | 远程连接          |
+| editorconfig            | 统一代码风格      |
 
 | git 相关插件(3)      | 插件描述                                   |
 | -------------------- | ------------------------------------------ |
@@ -73,7 +65,8 @@
 | atom-ide-signature-help   | ide 界面参数帮助信息     |
 | atom-ide-definitions      | ide 转到定义             |
 | atom-ide-markdown-service | ide 界面以 markdown 展示 |
-| ide-typescript            | js 语言包                |
+| linter-eslint             | js 错误提示              |
+| atom-ternjs               | js 代码补全              |
 | ide-php                   | php 语言包               |
 
 | html 相关插件(6) | 插件描述                  |
