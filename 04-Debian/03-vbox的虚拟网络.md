@@ -1,4 +1,18 @@
-# <center>vbox 的虚拟网络</center>
+<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+- [vbox 的虚拟网络](#vbox-的虚拟网络)
+    - [一、NAT 模式](#一nat-模式)
+        - [NAT 模式之端口转发](#nat-模式之端口转发)
+    - [二、NAT 网络模式](#二nat-网络模式)
+        - [NAT 网络模式之端口转发](#nat-网络模式之端口转发)
+    - [三、桥接模式](#三桥接模式)
+    - [四、Internal 模式](#四internal-模式)
+    - [五、Host-only 模式](#五host-only-模式)
+        - [Host-only 模式共享网络](#host-only-模式共享网络)
+    - [六、通用驱动模式](#六通用驱动模式)
+    - [网络模式选择](#网络模式选择)
+<!-- TOC END -->
+
+# vbox 的虚拟网络
 
 > vbox 的虚拟网络有 6 种模式，并且功能也不尽相同：
 
