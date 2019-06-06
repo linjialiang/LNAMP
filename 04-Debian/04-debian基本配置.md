@@ -89,7 +89,7 @@ PermitRootLogin yes
 $ /etc/init.d/ssh restart
 ```
 
-# 配置镜像源
+## 配置镜像源
 
 > 安装好 debian 后，我们需要按照自身的需求配置好镜像源文件
 
@@ -116,4 +116,21 @@ deb-src http://mirrors.163.com/debian-security/ stretch/updates main non-free co
 ```shell
 $ apt-get update
 $ apt-get dist-upgrade
+```
+
+## 美化bash终端
+
+> 用户根目录下的 `.bashrc` 可以让bash控制台的界面更加清晰
+
+```shell
+$ vi ~/.bashrc
+```
+
+```shell
+PS1='[${debian_chroot:+($debian_chroot)}\u@debian9 \W]\$ '
+export LS_OPTIONS='--color=auto'
+eval "`dircolors`"
+alias ls='ls $LS_OPTIONS -F'
+alias ll='ls $LS_OPTIONS -lF'
+alias lla='ls $LS_OPTIONS -laF'
 ```
