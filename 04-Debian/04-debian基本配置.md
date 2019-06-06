@@ -16,11 +16,11 @@ $ vi /etc/network/interfaces
 ```conf
 source /etc/nerwork/interfaces.d/*
 
-$ The loopback network interface
+# The loopback network interface
 auto lo
 iface lo inet loopback
 
-$ The primary nerwork interfaces
+# The primary nerwork interfaces
 allow-hotplug enp0s3
 iface enp0s3 inet dhcp
 ```
@@ -30,11 +30,11 @@ iface enp0s3 inet dhcp
 ```conf
 source /etc/nerwork/interfaces.d/*
 
-$ The loopback network interface
+# The loopback network interface
 auto lo
 iface lo inet loopback
 
-$ The primary nerwork interfaces
+# The primary nerwork interfaces
 allow-hotplug enp0s3
 iface enp0s3 inet static
         address 192.168.10.252
