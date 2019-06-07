@@ -13,21 +13,14 @@ $ apt-get install vsftpd
 
 ## 配置 VSFTP
 
-> vsftp 主要由下面这几个配置文件：
+> vsftp 主要涉及的几个配置文件：
 
-| 配置文件                    | 说明                 |
-| --------------------------- | -------------------- |
-| /etc/vsftpd.conf            | 主配置文件           |
-| /etc/ftpusers               | vsftp 禁止登录的账户 |
-| chroot_list_file 指定的文件 | 账号是否限制在家目录 |
-
-> chroot_list_file 文件规则
-
-| 参数属性值               | 说明                                       |
-| ------------------------ | ------------------------------------------ |
-| chroot_local_user =yes   | 本地用户默认限制在家目录（设置本地监狱）   |
-| chroot_local_user =no    | 本地用户默认允许访问根目录（没有本地监狱） |
-| chroot_list_enable = yes | chroot_list_file 指定的文件生效            |
-| chroot_list_enable = no  | chroot_list_file 指定的文件无效            |
-
-> 提示：chroot_list_file 指定的文件里的账户列表是 chroot_local_user 的例外
+| 文件                    | 作用                                                |
+| ----------------------- | --------------------------------------------------- |
+| /etc/vsftpd.conf        | 最重要的配置文件                                    |
+| /etc/pam.d/vsftpd       | vsftpd 支持 pam 认证                                |
+| /etc/ftpusers           | 禁止登录 vsftp 的账户（/etc/pam.d/vsftpd 里配置的） |
+| /etc/shells             | 允许登录的 shell 类型（基于 pam_shells.so 模块）    |
+| /etc/vsftpd/user_list   | 是否禁止登录 vsftp 的账户（vsftp 自身认证）         |
+| /etc/vsftpd/chroot_list | 账户是否能离开账户家目录，即坐牢（vsftp 自身认证）  |
+| /srv/ftp                | 匿名用户登入 vsftp 的根目录                         |
