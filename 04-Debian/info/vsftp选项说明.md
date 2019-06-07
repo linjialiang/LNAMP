@@ -860,8 +860,8 @@
 - secure_chroot_dir
 
   ```text
-  此选项应该是空目录的名称。此外，ftp用户不应该写入该目录。此目录有时用作安全chroot（）jail，vsftpd不需要文件系统访问。
-  默认值：/ usr / share / empty
+  此选项应该是空目录的名称。此外，ftp用户不应该写入该目录。此目录有时用作安全chroot() 监狱，vsftpd不需要文件系统访问。
+  默认值：/usr/share/empty
   ```
 
 - 的ssl_ciphers
