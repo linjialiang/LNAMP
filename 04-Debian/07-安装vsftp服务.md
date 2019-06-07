@@ -28,3 +28,25 @@ $ apt-get install vsftpd
 ### vsftpd.conf 重要配置信息
 
 > vsftpd.conf 其它选项说明，请查看 [vsftp选项说明](./info/vsftp选项说明.md)
+
+```text
+listen
+linten_ipv6
+listen_port
+anonymous_enable
+local_enable
+write_enable
+local_umask
+dirmessage_enable
+message_file
+use_localtime
+connect_from_port_20
+pam_service_name
+ssl_enable
+chroot_local_user
+chroot_list_enable
+chroot_list_file
+userlist_enable
+userlist_deny
+userlist_file
+```
