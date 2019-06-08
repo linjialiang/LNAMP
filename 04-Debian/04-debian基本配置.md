@@ -134,3 +134,31 @@ alias ls='ls $LS_OPTIONS -F'
 alias ll='ls $LS_OPTIONS -lF'
 alias lla='ls $LS_OPTIONS -laF'
 ```
+
+## 安装必备工具
+
+> 有些系统工具非常有用，而我们的极简安装可能都没有安装上
+
+1. lrzsz
+
+  > lrzsz是一款在linux里可代替ftp上传和下载的程序
+
+  ```shell
+  $ apt install lrzsz
+  ```
+
+2. zip/unzip
+
+  > zip压缩和解压缩
+
+  ```shell
+  $ apt install zip unzip
+  ```
+
+3. tar/tar.gz/tar.bz2
+
+  > linux下最常使用的压缩工具
+
+  ```shell
+  $ apt install tar bzip2 gzip
+  ```
