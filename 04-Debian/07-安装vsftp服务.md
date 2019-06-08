@@ -151,6 +151,8 @@ rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
 rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
 ```
 
+> 注意：被动模式下指定的端口号似乎无效，这个需要处理
+
 ## 附录：vsftpd.conf 重要配置信息
 
 > vsftpd.conf 其它选项说明，请查看 [vsftp选项说明](./info/vsftp选项说明.md)
