@@ -47,6 +47,18 @@ $ vim /etc/shells
 /usr/sbin/nologin
 ```
 
+> 本地用户只有加入到 userlist_file 指定的文件中才能正常登录
+
+```shell
+$ vim /etc/vsftpd/user_list
+```
+
+```conf
+ftp_user1
+ftp_user2
+ftp_user3
+```
+
 > 配置好所有事情，我们就可以重新加载vsftp程序了
 
 ```shell
