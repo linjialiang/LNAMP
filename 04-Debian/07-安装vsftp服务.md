@@ -25,7 +25,149 @@ $ apt-get install vsftpd
 /etc/vsftpd/chroot_list | 账户是否能离开账户家目录，即坐牢（vsftp 自身认证）
 /srv/ftp                | 匿名用户登入 vsftp 的根目录
 
-### vsftpd.conf 重要配置信息
+> 创建vsftp用户
+
+```shell
+# 语法
+$ useradd -m -c <备注> -d <家目录> -g <群组> -G <附属群组> -s <登录shell> <用户名>
+# 案例
+$ useradd -m -c 'vsftpd username' -d /data/www -g www -G ftp -s /usr/sbin/nologin www
+$ passwd www
+```
+
+> 将 /usr/sbin/nologin 这个shell，加入到pam验证允许登录列表中
+
+```shell
+$ cp /etc/shells{,.bak}
+$ vim /etc/shells
+```
+
+```conf
+# 如不加入一行
+/usr/sbin/nologin
+```
+
+> 配置好所有事情，我们就可以重新加载vsftp程序了
+
+```shell
+$ /etc/init.d/vsftpd reload
+```
+
+### 配置方案
+
+> 方案一：主动模式配置
+
+```conf
+listen=NO
+listen_ipv6=YES
+listen_port=21
+anonymous_enable=NO
+local_enable=YES
+local_max_rate=0
+write_enable=YES
+file_open_mode=0666
+local_umask=022
+max_clients=5
+max_per_ip=2
+use_localtime=YES
+secure_chroot_dir=/var/run/vsftpd/empty
+pam_service_name=vsftpd
+data_connection_timeout=300
+idle_session_timeout=300
+
+# 主动模式
+port_enable=YES
+connect_from_port_20=YES
+ftp_data_port=20
+connect_timeout=60
+
+# 被动模式
+pasv_enable=NO
+pasv_min_port=60001
+pasv_max_port=60100
+accept_timeout=60
+
+## 用户坐牢
+chroot_local_user=YES
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd/chroot_list
+
+## 用户禁止登录
+userlist_enable=YES
+userlist_deny=NO
+userlist_file/etc/vsftpd/user_list
+
+## 禁止访问的文件、目录
+hide_file=.htaccess
+deny_file=.htaccess
+
+## 开启加密，需要安装openssl包
+ssl_enablYES
+rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+
+# 所有用户都为访客用户，访客用户权限为 www用户权限
+guest_enable=YES
+guest_username=www
+```
+
+> 方案二：被动模式配置（推荐）
+
+```conf
+listen=NO
+listen_ipv6=YES
+listen_port=21
+anonymous_enable=NO
+local_enable=YES
+local_max_rate=0
+write_enable=YES
+file_open_mode=0666
+local_umask=022
+max_clients=5
+max_per_ip=2
+use_localtime=YES
+secure_chroot_dir=/var/run/vsftpd/empty
+pam_service_name=vsftpd
+data_connection_timeout=300
+idle_session_timeout=300
+
+# 主动模式
+port_enable=NO
+connect_from_port_20=YES
+ftp_data_port=20
+connect_timeout=60
+
+# 被动模式
+pasv_enable=YES
+pasv_min_port=60001
+pasv_max_port=60100
+accept_timeout=60
+
+## 用户坐牢
+chroot_local_user=YES
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd/chroot_list
+
+## 用户禁止登录
+userlist_enable=YES
+userlist_deny=NO
+userlist_file/etc/vsftpd/user_list
+
+## 禁止访问的文件、目录
+hide_file=.htaccess
+deny_file=.htaccess
+
+## 开启加密，需要安装openssl包
+ssl_enablYES
+rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+
+# 所有用户都为访客用户，访客用户权限为 www用户权限
+guest_enable=YES
+guest_username=www
+```
+
+## 附录：vsftpd.conf 重要配置信息
 
 > vsftpd.conf 其它选项说明，请查看 [vsftp选项说明](./info/vsftp选项说明.md)
 
@@ -71,10 +213,10 @@ $ apt-get install vsftpd
   默认值：0（无限制）
   ```
 
-- anon_mkdir_write_enable
+- write_enable
 
   ```text
-  如果设置为YES，则允许匿名用户在特定条件下创建新目录。为此， 必须激活选项 write_enable，并且匿名ftp用户必须具有父目录的写权限。
+  这可以控制是否允许任何更改文件系统的ftp命令。这些命令是：stor，dele，rnfr，rnto，mkd，rmd，appe和site。
   默认值：NO
   ```
 

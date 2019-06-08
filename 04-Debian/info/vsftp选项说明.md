@@ -513,10 +513,10 @@
   默认值：NO
   ```
 
-- WRITE_ENABLE
+- write_enable
 
   ```text
-  这可以控制是否允许任何更改文件系统的FTP命令。这些命令是：STOR，DELE，RNFR，RNTO，MKD，RMD，APPE和SITE。
+  这可以控制是否允许任何更改文件系统的ftp命令。这些命令是：stor，dele，rnfr，rnto，mkd，rmd，appe和site。
   默认值：NO
   ```
 
