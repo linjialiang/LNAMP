@@ -97,18 +97,10 @@ userlist_enable=YES
 userlist_deny=NO
 userlist_file=/etc/vsftpd/user_list
 
-## 禁止访问的文件、目录
-hide_file=.htaccess
-deny_file=.htaccess
-
 ## 开启加密，需要安装openssl包
 ssl_enable=YES
 rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
 rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
-
-# 所有用户都为访客用户，访客用户权限为 www用户权限
-guest_enable=YES
-guest_username=www
 ```
 
 > 方案二：被动模式配置（推荐）
@@ -153,18 +145,10 @@ userlist_enable=YES
 userlist_deny=NO
 userlist_file=/etc/vsftpd/user_list
 
-## 禁止访问的文件、目录
-hide_file=.htaccess
-deny_file=.htaccess
-
 ## 开启加密，需要安装openssl包
 ssl_enable=YES
 rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
 rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
-
-# 所有用户都为访客用户，访客用户权限为 www用户权限
-guest_enable=YES
-guest_username=www
 ```
 
 ## 附录：vsftpd.conf 重要配置信息
