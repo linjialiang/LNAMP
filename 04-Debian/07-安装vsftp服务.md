@@ -102,7 +102,7 @@ hide_file=.htaccess
 deny_file=.htaccess
 
 ## 开启加密，需要安装openssl包
-ssl_enablYES
+ssl_enable=YES
 rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
 rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
 
@@ -158,7 +158,7 @@ hide_file=.htaccess
 deny_file=.htaccess
 
 ## 开启加密，需要安装openssl包
-ssl_enablYES
+ssl_enable=YES
 rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
 rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
 
