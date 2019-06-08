@@ -95,7 +95,7 @@ chroot_list_file=/etc/vsftpd/chroot_list
 ## 用户禁止登录
 userlist_enable=YES
 userlist_deny=NO
-userlist_file/etc/vsftpd/user_list
+userlist_file=/etc/vsftpd/user_list
 
 ## 禁止访问的文件、目录
 hide_file=.htaccess
@@ -151,7 +151,7 @@ chroot_list_file=/etc/vsftpd/chroot_list
 ## 用户禁止登录
 userlist_enable=YES
 userlist_deny=NO
-userlist_file/etc/vsftpd/user_list
+userlist_file=/etc/vsftpd/user_list
 
 ## 禁止访问的文件、目录
 hide_file=.htaccess
