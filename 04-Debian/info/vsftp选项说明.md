@@ -117,14 +117,14 @@
 - chroot_list_enable
 
   ```text
-  如果激活，您可以在登录时提供放置在其主目录中的chroot（）监狱中的本地用户列表。如果chroot_local_user设置为YES，则含义略有不同。在这种情况下，列表将成为不被放置在chroot（）监狱中的用户列表。默认情况下，包含此列表的文件是/etc/vsftpd.chroot_list，但您可以使用chroot_list_file 设置覆盖它 。
+  如果激活，您可以在登录时提供放置在其主目录中的chroot()监狱中的本地用户列表。如果chroot_local_user设置为YES，则含义略有不同。在这种情况下，列表将成为不被放置在chroot()监狱中的用户列表。默认情况下，包含此列表的文件是/etc/vsftpd.chroot_list，但您可以使用chroot_list_file 设置覆盖它 。
   默认值：NO
   ```
 
 - chroot_local_user
 
   ```text
-  如果设置为YES，则登录后本地用户（默认情况下）将放置在其主目录中的chroot（）监狱中。 警告： 此选项具有安全隐患，尤其是在用户具有上载权限或shell访问权限的情况下。只有在您知道自己在做什么时才启用。请注意，这些安全隐患不是特定于vsftpd的。它们适用于所有提供将本地用户放在chroot（）监狱中的FTP守护进程。
+  如果设置为YES，则登录后本地用户（默认情况下）将放置在其主目录中的chroot()监狱中。 警告： 此选项具有安全隐患，尤其是在用户具有上载权限或shell访问权限的情况下。只有在您知道自己在做什么时才启用。请注意，这些安全隐患不是特定于vsftpd的。它们适用于所有提供将本地用户放在chroot()监狱中的FTP守护进程。
   默认值：NO
   ```
 
@@ -313,7 +313,7 @@
 - passwd_chroot_enable
 
   ```text
-  如果启用，则与 chroot_local_user一起 ，然后可以基于每个用户指定chroot（）监狱位置。每个用户的监狱都是从/etc/passwd中的主目录字符串派生的。主目录字符串中出现/./表示监狱位于路径中的特定位置。
+  如果启用，则与 chroot_local_user一起 ，然后可以基于每个用户指定chroot()监狱位置。每个用户的监狱都是从/etc/passwd中的主目录字符串派生的。主目录字符串中出现/./表示监狱位于路径中的特定位置。
   默认值：NO
   ```
 
@@ -720,7 +720,7 @@
 - chroot_list_file
 
   ```text
-  该选项是包含本地用户列表的文件的名称，该列表将放置在其主目录中的chroot（）监狱中。仅当 启用了选项chroot_list_enable时，此选项才有意义 。如果 启用了chroot_local_user选项 ，则列表文件将成为不放在chroot（）监狱中的用户列表。
+  该选项是包含本地用户列表的文件的名称，该列表将放置在其主目录中的chroot()监狱中。仅当 启用了选项chroot_list_enable时，此选项才有意义 。如果 启用了chroot_local_user选项 ，则列表文件将成为不放在chroot()监狱中的用户列表。
   默认值：/etc/vsftpd.chroot_list
   ```
 
@@ -898,7 +898,7 @@
 - user_sub_token
 
   ```text
-  此选项与虚拟用户结合使用非常有用。它用于根据模板为每个虚拟用户自动生成主目录。例如，如果通过guest_username指定的真实用户的主目录 是/home/virtual/$ USER，并且 user_sub_token 设置为 $ USER，那么当虚拟用户fred登录时，他将结束（通常是chroot（）'ed ）在目录/home/virtual/fred中。如果local_root 包含 user_sub_token，则此选项也会 生效。
+  此选项与虚拟用户结合使用非常有用。它用于根据模板为每个虚拟用户自动生成主目录。例如，如果通过guest_username指定的真实用户的主目录 是/home/virtual/$ USER，并且 user_sub_token 设置为 $ USER，那么当虚拟用户fred登录时，他将结束（通常是chroot()'ed ）在目录/home/virtual/fred中。如果local_root 包含 user_sub_token，则此选项也会 生效。
   默认值:(无）
   ```
 
