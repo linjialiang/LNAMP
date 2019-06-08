@@ -163,7 +163,8 @@ rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
 rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
 ```
 
-> 注意：被动模式下指定的端口号似乎无效，这个需要处理
+> - 注意：被动模式下指定的端口号似乎无效，这个需要处理
+> - `rsa_cert_file` `rsa_private_key_file` 要以默认配置为准，如果没有就需要使用openssl自行安装了！
 
 ## 附录：vsftpd.conf 重要配置信息
 
