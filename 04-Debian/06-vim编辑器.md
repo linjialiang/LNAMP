@@ -9,7 +9,7 @@
 ```shell
 $ apt-get update
 $ apt-get dist-upgrade
-$ apt-get install apt-get install vim ctags vim-scripts
+$ apt install vim ctags vim-scripts
 ```
 
 ## 配置 vim
