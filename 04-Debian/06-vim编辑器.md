@@ -68,7 +68,8 @@ nnoremap <Space> $za
 > 使用前，让我们先感谢翻译 vim 帮助手册的大神吧！
 
 ```shell
-$ cd /home/emad
+$ mkdir -p /data/source/vimcdoc
+$ cd /data/source/vimcdoc
 $ wget https://github.com/yianwillis/vimcdoc/releases/download/v2.1.0/vimcdoc-2.1.0.tar.gz --no-check-certificate
 $ tar zxvf vimcdoc-2.1.0.tar.gz
 $ cd vimcdoc-2.1.0
