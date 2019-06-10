@@ -11,6 +11,24 @@ $ apt list vsftpd*
 $ apt-get install vsftpd
 ```
 
+## FTP模式说明
+
+```text
+主动模式
+    - FTP客户端从一个任意的非特权端口N（高位端口N>1024）连接到FTP服务端的命令端口21，
+    - 然后客户端开始监听N+1，并发送FTP命令“PORT N+1”到FTP服务端，
+    - 接着服务器会从自己的数据端口20连接到客户端指定的数据端口（N+1）
+    - 服务器开启的是 20 和 21 两个端口
+    - 客户端连接的是大雨1024的高位端口
+
+被动模式
+    - 由客户端发起，当开启一个FTP连接时。客户端打开两个任意的非特权端口（N>2014，N+1）
+    - 客户端N端口会连接服务端21端口，但与主动模式不同的是，客户端不会发起POST命令，提交的是PASV命令
+    - 此时服务器会开启一个任意的高位端口P，并发送命令“PORT P”发送到客户端
+    - 客户端从本地端口N+1连接到服务端P端口用来传输数据
+    - 与主动模式不同的是：数据端不再是20，而是任意高位端口
+```
+
 ## 配置 VSFTP
 
 > vsftp 主要涉及的几个配置文件：
@@ -70,6 +88,7 @@ $ /etc/init.d/vsftpd reload
 > 方案一：主动模式配置
 
 ```conf
+# 全局设置
 listen=NO
 listen_ipv6=YES
 listen_port=21
@@ -118,6 +137,7 @@ rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
 > 方案二：被动模式配置（推荐）
 
 ```conf
+# 全局设置
 listen=NO
 listen_ipv6=YES
 listen_port=21
@@ -217,20 +237,6 @@ rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
   ```text
   这可以控制是否允许任何更改文件系统的ftp命令。这些命令是：stor，dele，rnfr，rnto，mkd，rmd，appe和site。
   默认值：NO
-  ```
-
-- guest_enable
-
-  ```text
-  如果启用，则所有非匿名登录都被归类为“访客”登录。guest 虚拟机登录将重新映射到guest_username 设置中指定的用户 。
-  默认值：NO
-  ```
-
-- guest_username
-
-  ```text
-  有关guest虚拟机 登录的说明，请参阅boolean设置 guest_enable。此设置是访客用户映射到的真实用户名。
-  默认值：ftp
   ```
 
 - file_open_mode
