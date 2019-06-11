@@ -28,7 +28,7 @@ iface enp0s3 inet dhcp
 > 静态 ip 设置
 
 ```conf
-source /etc/nerwork/interfaces.d/*
+source /etc/network/interfaces.d/*
 
 # The loopback network interface
 auto lo
