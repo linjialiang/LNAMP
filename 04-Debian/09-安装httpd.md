@@ -92,18 +92,22 @@ $ make install
 $ make clean
 ```
 
+=========================================
+还未安装完成
+
 > 安装 libtool（pcre 的依赖项）
 
 ```shell
 $ cd /data/build/libtool-2.4.6/
 $ /data/source/httpd/libtool-2.4.6/configure \
---prefix=/data/release/libtool-2.4.6
+--prefix=/data/release/libtool-2.4.6 \
+--with-m4=/data/release/m4-1.4.18
 $ make -j4
 $ make install
 $ make clean
 ```
 
-> 安装 pcre（gcc编译器需要安装c++支持）
+> 安装 pcre（gcc编译套件需安装c++库）
 
 ```shell
 $ cd /data/build/pcre-8.43/
@@ -127,12 +131,5 @@ $ make -j4
 $ make install
 $ make clean
 ```
-
-
-libapr1-dev
-libaprutil1-dev
-libexpat1-dev
-libpcre++-dev
-
 
 > 安装 httpd
