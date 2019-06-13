@@ -149,7 +149,7 @@ alias lla='ls $LS_OPTIONS -laF'
 
 2. zip/unzip
 
-  > zip压缩和解压缩
+  > zip压缩和解压缩（有必要再安装）
 
   ```shell
   $ apt install zip unzip
