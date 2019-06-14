@@ -103,36 +103,35 @@ $ ./scripts/mysql_install_db \
 
 ## 配置 mariadb 便捷启动
 
-> 便捷启动有两种方式：
+> 首先需要将 bin 目录下的可执行文件加入到环境变量
 
-| 启动方式     | 描述                                           |
-| ------------ | ---------------------------------------------- |
-| service 启动 | 将可执行文件加入环境变量                       |
-| init.d 启动  | 将 mysql.server 文件拷贝到 init.d 下，并重名名 |
+```shell
+$ cp /etc/profile{,.bak}
+$ vim /etc/profile
+```
 
-1. 将 mariadb 的可执行程序加入环境变量中
+> 底部加入如下一行：
+
+```conf
+export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
+:wq
+```
+
+> 启动方式主要有下面两种：
+
+1. service 启动
+
+   > 将 `mysql.server` 文件加入 bin 目录（或者将其加入环境变量中）
 
    ```shell
-   $ cp /etc/profile{,.bak}
-   $ vim /etc/profile
+   $ cp ./support-files/mysql.server ./bin
+   $ systemctl daemon-reload
+   $ server mysql {start|stop|restart|reload}
    ```
 
-   > 底部加入如下一行：
-
-   ```conf
-   export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
-   ```
-
-2. 将 `./support-files/mysql.server` 文件复制到 init.d 目录下
+2. 将 `mysql.server` 文件复制到 init.d 目录下并重命名
 
    ```shell
    $ cp ./support-files/mysql.server /etc/init.d/mysql
-   # 开启服务
-   $ /etc/init.d/mysql start
-   # 关闭服务
-   $ /etc/init.d/mysql stop
-   # 重新加载配置
-   $ /etc/init.d/mysql reload
-   # 重启服务
-   $ /etc/init.d/mysql restart
+   $ /etc/init.d/mysql {start|stop|restart|reload}
    ```
