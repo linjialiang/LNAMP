@@ -141,11 +141,17 @@ export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
    $ /etc/init.d/mysql {start|stop|restart|reload}
    ```
 
-## 为 mariadb 的根账户设置密码
+## 其它设置
 
-> 管理员直接使用 mysqladmin 这个程序设置根账户密码
+1. 为 mariadb 的根账户设置密码
 
-```shell
-# 首先要先启动mysql，并且密码为空
-$ mysqladmin -u <根用户名> -p [密码]
-```
+   > 管理员直接使用 mysqladmin 这个程序设置根账户密码
+
+   ```shell
+   # 首先要先启动mysql，并且密码为空
+   $ mysqladmin -u <根用户名> -p [密码]
+   ```
+
+2. 配置文件 my.ini
+
+3. 开机启动服务
