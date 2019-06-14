@@ -155,3 +155,14 @@ export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
 2. 配置文件 my.ini
 
 3. 开机启动服务
+
+   > 可以使用 systemctl 指令设置开机启动（确保 init.d 下面有对应的文件）
+
+   ```shell
+   # 开机启动（第一次可以使用这个指令）
+   $ systemctl enable mysql
+   # 禁止开机启动
+   $ /lib/systemd/systemd-sysv-install disable mysql
+   # 开机启动（第二次以后）
+   $ /lib/systemd/systemd-sysv-install enable mysql
+   ```
