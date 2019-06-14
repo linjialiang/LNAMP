@@ -76,7 +76,8 @@ $ ./scripts/mysql_install_db \
 --defaults-file=/data/conf/my.ini \
 --auth-root-authentication-method=socket \
 --skip-test-db \
---skip-name-resolve
+--skip-name-resolve \
+--auth-root-socket-user=root
 ```
 
 > 备注 1：`--auth-root-authentication-method=normal|socket` 属性描述
@@ -131,7 +132,9 @@ export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
    $ systemctl {start|stop|restart|reload} mysql.service
    ```
 
-2. 将 `mysql.server` 文件复制到 init.d 目录下并重命名
+2. init.d 启动
+
+   > 将 `mysql.server` 文件复制到 init.d 目录下并重命名
 
    ```shell
    $ cp ./support-files/mysql.server /etc/init.d/mysql
@@ -140,8 +143,9 @@ export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
 
 ## 为 mariadb 的根账户设置密码
 
-> 管理员直接使用 mysqladmin 这个程序设置根账户密码（如果密码为空）
+> 管理员直接使用 mysqladmin 这个程序设置根账户密码
 
 ```shell
+# 首先要先启动mysql，并且密码为空
 $ mysqladmin -u <根用户名> -p [密码]
 ```
