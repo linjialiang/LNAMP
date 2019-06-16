@@ -187,6 +187,4 @@ $ source /etc/profile
 
 2. 配置文件 my.ini
 
-   > my.ini 是 mariadb 唯一配置文件，cmake 或 `mysql_install_db 初始化` 都能指定，默认路径是 `/etc/my.ini`
-
-   
+   > my.ini 是 mariadb 唯一配置文件，cmake 或 `mysql_install_db 初始化` 都能指定，默认路径是 `/etc/my.cnf`
