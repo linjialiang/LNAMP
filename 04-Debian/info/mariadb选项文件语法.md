@@ -97,3 +97,83 @@ MYSQL_HOME是环境变量，指定了my.cnf文件所在目录的路径，
 - 这些命令行参数可以与MariaDB的大多数命令行工具一起使用，而不仅仅是mysqld。
 - 它们必须作为命令的第一个参数给出，如：mysqld --defaults-file=<path>
 ```
+
+## 选项文件语法
+
+> MariaDB 选项文件的语法是：
+
+```text
+- 以＃开头的行是注释；
+- 空行被忽略；
+- 选项组使用语法[group-name]，如：[mysqld]；
+- 相同的选项组可以多次出现；
+- include 指令可用于包含其他选项文件；
+- includedir 指令可用于包含给定目录中的所有“.cnf文件”(可能还包括“.cnf文件”)，目录中的选项文件按字母顺序读取；
+- 选项中的虚线“-”和下划线“_”意义是一样的；
+- 支持某些选项前缀；
+```
+
+## 选项组
+
+> 选项组分为 `服务器选项组` 和 `客户选项组`
+
+### 服务器选项组
+
+> MariaDB 程序从以下服务器选项组中读取服务器选项：
+
+| 选项组          | 描述                                                                 |
+| --------------- | -------------------------------------------------------------------- |
+| [mysqld]        | 由 mysqld 读取的选项（包括 `MariaDB Server` 和 `MySQL Server` ）     |
+| [client-server] | 由 `MariaDB client` 和 `MariaDB Server` 共同读取的选项               |
+| [server]        | 由 `MariaDB Server` 读取的选项                                       |
+| [mariadb]       | 由 `MariaDB Server` 读取的选项                                       |
+| [galera]        | 由 `MariaDB Server` 读取的选项(仅使用 Galera Cluster 编译的才会读取) |
+| [mysqld-X.Y]    | 由特定版本的 mysqld 读取的选项，如：[mysqld-5.5]                     |
+| [mariadb-X.Y]   | 由特定版本的 `MariaDB Server` 读取的选项。例如，[mariadb-10.3]       |
+
+> 最常用的就是 `[client-server]` 和 `[mysqld]` 这两个
+
+### 客户选项组
+
+> MariaDB 程序从以下选项组中读取客户端选项：
+
+| 组               | 描述                                                            |
+| ---------------- | --------------------------------------------------------------- |
+| [client]         | 所有 MariaDB 和 MySQL 客户端程序都读取的选项(例如：mysqldump)。 |
+| [client-server]  | 同服务器选项组中的同名选项                                      |
+| [client-mariadb] | 所有 MariaDB 客户端程序都读取的选项。                           |
+
+> 最常用的就是 `[client-server]` 和 `[client]` 这两个
+
+```text
+- 除了公共组之外，许多客户端程序还将从选项组中读取与程序名称相同的客户机选项。
+- 例如：mysqldump 还从 [mysqldump] 选项组中读取客户端选项。
+```
+
+### 自定义选项组后缀
+
+> 这个不讲解，可以查看手册说明
+
+## 包含选项文件
+
+> 选项文件可以包含其他选项文件，例如：要包含 /etc/mysql/my001.cnf 选项文件的信息，选项文件可以添加这样一行
+
+```cnf
+[mysqld]
+...
+!include /etc/mysql/my001.cnf
+```
+
+## 包括选项文件目录
+
+> 也可以将目录中所有的选项文件包含在另一个选项文件里。例如，要包含 `/etc/my.cnf.d/` 目录下，所有选项文件：
+
+```cnf
+[mysqld]
+...
+!includedir /etc/my.cnf.d/
+```
+
+> - 注意 1：目录中的选项文件按字母顺序读取；
+> - 注意 2：类 Unix 操作系统上，所有选项文件名必须以 .cnf 结尾；
+> - 注意 3：在 Windows 上，所有选项文件名必须以 .cnf 或结尾.ini。

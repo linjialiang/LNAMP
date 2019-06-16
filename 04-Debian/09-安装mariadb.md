@@ -72,12 +72,12 @@ $ chown root:root /data/compile/mariadb-10.3.15
 
 ```shell
 $ cd /data/compile/mariadb-10.3.15
-$ touch /data/conf/my.ini
+$ touch /data/conf/my.cnf
 $ ./scripts/mysql_install_db \
 --user=mysql \
 --basedir=/data/compile/mariadb-10.3.15 \
 --datadir=/data/compile/mariadb-10.3.15/data \
---defaults-file=/data/conf/my.ini \
+--defaults-file=/data/conf/my.cnf \
 --auth-root-authentication-method=socket \
 --skip-test-db \
 --skip-name-resolve \
@@ -197,7 +197,7 @@ $ source /etc/profile
 
    > 选项文件案例
 
-   ```ini
+   ```cnf
 
    ```
 
