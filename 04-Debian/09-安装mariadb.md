@@ -185,6 +185,8 @@ $ source /etc/profile
    Confirm new password:123456
    ```
 
-2. 配置文件 my.ini
+2. mariadb 配置选项文件
 
-   > my.ini 是 mariadb 唯一配置文件，cmake 或 `mysql_install_db 初始化` 都能指定，默认路径是 `/etc/my.cnf`
+   > 默认情况下选项文件依次读取 `/etc/my.cnf` `~/.my.cnf`
+   >
+   > - 注意：如果通过 `--defaults-file=path` 指定了选项文件，那么仅从给定选项文件中读取选项配置。
