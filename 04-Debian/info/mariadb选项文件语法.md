@@ -177,3 +177,58 @@ MYSQL_HOME是环境变量，指定了my.cnf文件所在目录的路径，
 > - 注意 1：目录中的选项文件按字母顺序读取；
 > - 注意 2：类 Unix 操作系统上，所有选项文件名必须以 .cnf 结尾；
 > - 注意 3：在 Windows 上，所有选项文件名必须以 .cnf 或结尾.ini。
+
+## 检查程序选项
+
+> 您可以使用 `--print-defaults` 命令行参数检查给定程序将使用哪些选项，这里我们忽略不讲
+
+## 选项前缀
+
+> MariaDB 支持可与选项一起使用的某些前缀。支持的选项前缀是：
+
+| 选项前缀 | 描述                                                                |
+| -------- | ------------------------------------------------------------------- |
+| autoset  | 自动设置选项值。仅支持某些选项。                                    |
+| disable  | 对于所有布尔选项，禁用该设置（相当于将其设置为 0）。与 skip 相同    |
+| enable   | 对于所有布尔选项，启用设置（相当于将其设置为 1）。                  |
+| loose    | 如果该选项不存在，请不要生成错误。                                  |
+| maximum  | 设置选项的最大值。                                                  |
+| skip     | 对于所有布尔选项，禁用该设置（相当于将其设置为 0）。与 disable 相同 |
+
+> 案例：
+
+```cnf
+[mariadb]
+...
+# 自动为open_files_limit确定一个好的值
+autoset_open_files_limit
+
+# 禁用unix套接字插件
+disable_unix_socket
+
+# 启用慢查询日志
+enable_slow_query_log
+
+# 如果这些选项不存在，则不会产生错误
+loose_file_key_management_filename = /etc/mysql/encryption/keyfile.enc
+loose_file_key_management_filekey = FILE:/etc/mysql/encryption/keyfile.key
+loose_file_key_management_encryption_algorithm = AES_CTR
+
+# 设置 max_allowed_pa​​cket为最大值
+maximum_max_allowed_packet
+
+# 禁用MyISAM的外部锁定
+skip_external_locking
+```
+
+## 选项
+
+> 选项中的虚线 `-` 和下划线 `_` 是可互换的，如果未明确设置选项，则服务器或客户端将仅使用该选项的默认值。
+
+### MariaDB服务器选项
+
+### MariaDB客户端选项
+
+### 示例选项文件
+
+> 在源代码发布中，示例选项文件通常位于support-files目录中，而在其他发行版中，选项文件通常位于share/mysql与MariaDB基本安装目录相关的目录中。
