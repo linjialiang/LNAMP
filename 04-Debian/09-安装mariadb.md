@@ -72,7 +72,7 @@ $ chown root:root /data/compile/mariadb-10.3.15
 
 ```shell
 $ cd /data/compile/mariadb-10.3.15
-$ touch /data/conf/mariadb.conf
+$ touch /data/conf/my.ini
 $ ./scripts/mysql_install_db \
 --user=mysql \
 --basedir=/data/compile/mariadb-10.3.15 \
@@ -123,6 +123,12 @@ export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
 :wq
 ```
 
+> 激活新设置的环境变量（或者重启服务器）
+
+```shell
+$ source /etc/profile
+```
+
 ## 启动方式
 
 > 启动方式主要有如下 3 种：
@@ -133,7 +139,7 @@ export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
 
    ```shell
    $ cp ./support-files/mysql.server /etc/init.d/mysql
-   $ /etc/init.d/mysql {start|stop|restart|reload}
+   $ /etc/init.d/mysql {start|stop|restart|reload|status}
    ```
 
 2. service 启动（可用 `systemctl开机启动` 替代）
@@ -143,8 +149,8 @@ export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
    ```shell
    $ cp ./support-files/mysql.server ./bin
    $ systemctl daemon-reload
-   $ server mysql {start|stop|restart|reload}
-   $ systemctl {start|stop|restart|reload} mysql.service
+   $ server mysql {start|stop|restart|reload|status}
+   $ systemctl {start|stop|restart|reload|status} mysql.service
    ```
 
    > 提示：将 `/etc/init.d/mysql` 通过 systemctl 程序加入开机启动时，加入环境变量的 `mysql.service` 文件，全部都会被移除（确保仅有 systemctl 启动程序中唯一存在）
@@ -154,11 +160,11 @@ export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
    > 可以使用 systemctl 指令设置开机启动（确保 init.d 下面有对应的文件）
 
    ```shell
-   # 开机启动（第一次可以使用这个指令）
+   # 开机启动（第一次允许使用这个指令）
    $ systemctl enable mysql
    # 禁止开机启动
    $ /lib/systemd/systemd-sysv-install disable mysql
-   # 开机启动（第二次以后）
+   # 开机启动（第二次开始必须使用这个指令）
    $ /lib/systemd/systemd-sysv-install enable mysql
    ```
 
@@ -170,7 +176,17 @@ export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
 
    ```shell
    # 首先要先启动mysql，并且密码为空
-   $ mysqladmin -u <根用户名> -p [密码]
+   $ mysqladmin -u <根用户名> password [密码]
+   # 案例一
+   $ mysqladmin -u root password '123456'
+   # 案例二
+   $ mysqladmin -u mariadb_root password
+   New password:123456
+   Confirm new password:123456
    ```
 
 2. 配置文件 my.ini
+
+   > my.ini 是 mariadb 唯一配置文件，cmake 或 `mysql_install_db 初始化` 都能指定，默认路径是 `/etc/my.ini`
+
+   
