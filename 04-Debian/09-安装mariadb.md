@@ -15,6 +15,10 @@ $ apt install libncurses5-dev libghc-gnutls-dev libbison-dev libevent-dev
 > 使用 cmake 来编译 mariadb
 
 ```shell
+$ cd /data/source/maridb
+$ tar -xzvf mariadb-10.3.15.tar.gz
+$ mkdir -p /data/{build,compile}/mariadb-10.3.15
+$ cd /data/build/mariadb-10.3.15/
 # 生成makefile文件
 $ cmake /data/source/mariadb/mariadb-10.3.15 \
 -DCMAKE_INSTALL_PREFIX=/data/compile/mariadb-10.3.15/
