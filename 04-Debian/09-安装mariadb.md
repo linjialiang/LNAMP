@@ -107,7 +107,7 @@ $ ./scripts/mysql_install_db \
 默认情况下，mysqld使用您当前的登录名运行，它创建的文件和目录将由您拥有。
 ```
 
-## 配置 mariadb 便捷启动
+## 将可执行文件加入环境变量中
 
 > 首先需要将 bin 目录下的可执行文件加入到环境变量
 
@@ -123,7 +123,9 @@ export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
 :wq
 ```
 
-> 启动方式主要有下面两种：
+## 启动方式
+
+> 启动方式主要有如下 3 种：
 
 1. init.d 启动
 
