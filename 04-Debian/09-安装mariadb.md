@@ -125,7 +125,16 @@ export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
 
 > 启动方式主要有下面两种：
 
-1. service 启动
+1. init.d 启动
+
+   > 将 `mysql.server` 文件复制到 init.d 目录下并重命名
+
+   ```shell
+   $ cp ./support-files/mysql.server /etc/init.d/mysql
+   $ /etc/init.d/mysql {start|stop|restart|reload}
+   ```
+
+2. service 启动（可用 `systemctl开机启动` 替代）
 
    > 将 `mysql.server` 文件加入 bin 目录（或者将其加入环境变量中）
 
@@ -136,13 +145,19 @@ export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
    $ systemctl {start|stop|restart|reload} mysql.service
    ```
 
-2. init.d 启动
+   > 提示：将 `/etc/init.d/mysql` 通过 systemctl 程序加入开机启动时，加入环境变量的 `mysql.service` 文件，全部都会被移除（确保仅有 systemctl 启动程序中唯一存在）
 
-   > 将 `mysql.server` 文件复制到 init.d 目录下并重命名
+3. `systemctl` 管理开机启动
+
+   > 可以使用 systemctl 指令设置开机启动（确保 init.d 下面有对应的文件）
 
    ```shell
-   $ cp ./support-files/mysql.server /etc/init.d/mysql
-   $ /etc/init.d/mysql {start|stop|restart|reload}
+   # 开机启动（第一次可以使用这个指令）
+   $ systemctl enable mysql
+   # 禁止开机启动
+   $ /lib/systemd/systemd-sysv-install disable mysql
+   # 开机启动（第二次以后）
+   $ /lib/systemd/systemd-sysv-install enable mysql
    ```
 
 ## 其它设置
@@ -157,16 +172,3 @@ export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
    ```
 
 2. 配置文件 my.ini
-
-3. 开机启动服务
-
-   > 可以使用 systemctl 指令设置开机启动（确保 init.d 下面有对应的文件）
-
-   ```shell
-   # 开机启动（第一次可以使用这个指令）
-   $ systemctl enable mysql
-   # 禁止开机启动
-   $ /lib/systemd/systemd-sysv-install disable mysql
-   # 开机启动（第二次以后）
-   $ /lib/systemd/systemd-sysv-install enable mysql
-   ```
