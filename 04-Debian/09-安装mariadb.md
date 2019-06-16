@@ -188,5 +188,11 @@ $ source /etc/profile
 2. mariadb 配置选项文件
 
    > 默认情况下选项文件依次读取 `/etc/my.cnf` `~/.my.cnf`
-   >
-   > - 注意：如果通过 `--defaults-file=path` 指定了选项文件，那么仅从给定选项文件中读取选项配置。
+
+   ```text
+   注意：如果通过 `--defaults-file=path` 指定了默认选项文件
+    - 那么仅从给定选项文件中读取选项配置;
+    - 如果该文件不存在，则初始化 MariaDB 时，将引发错误提示。
+   ```
+
+   > mariadb 选项文件语法清查阅 [mariadb 选项文件语法](./info/mariadb选项文件语法.md)
