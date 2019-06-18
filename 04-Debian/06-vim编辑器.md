@@ -1,9 +1,7 @@
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
-- [vim 编辑器](#vim-编辑器)
-    - [安装 vim](#安装-vim)
-    - [配置 vim](#配置-vim)
-    - [为 vim 安装中文版帮助手册](#为-vim-安装中文版帮助手册)
-<!-- TOC END -->
+
+- [vim 编辑器](#vim-编辑器) - [安装 vim](#安装-vim) - [配置 vim](#配置-vim) - [为 vim 安装中文版帮助手册](#为-vim-安装中文版帮助手册)
+  <!-- TOC END -->
 
 # vim 编辑器
 
@@ -14,8 +12,8 @@
 > 我们可以直接使用 Debian 源上已经编译好的 vim 包，这样我们就不必要自己编译了
 
 ```shell
-$ apt-get update
-$ apt-get dist-upgrade
+$ apt update
+$ apt dist-upgrade
 $ apt install vim ctags vim-scripts
 ```
 
@@ -75,9 +73,9 @@ nnoremap <Space> $za
 > 使用前，让我们先感谢翻译 vim 帮助手册的大神吧！
 
 ```shell
-$ mkdir -p /data/source/vimcdoc
-$ cd /data/source/vimcdoc
-$ wget https://github.com/yianwillis/vimcdoc/releases/download/v2.1.0/vimcdoc-2.1.0.tar.gz --no-check-certificate
+$ mkdir -p /data/source/vim
+$ cd /data/source/vim
+$ wget https://github.com/yianwillis/vimcdoc/releases/download/v2.1.0/vimcdoc-2.1.0.tar.gz
 $ tar zxvf vimcdoc-2.1.0.tar.gz
 $ cd vimcdoc-2.1.0
 $ ./vimcdoc.sh -i
