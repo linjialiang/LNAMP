@@ -119,8 +119,8 @@ deb-src http://mirrors.163.com/debian-security/ stretch/updates main non-free co
 > 更新源索引/更新包
 
 ```shell
-$ apt-get update
-$ apt-get dist-upgrade
+$ apt update
+$ apt dist-upgrade
 ```
 
 ## 美化 bash 终端
@@ -128,6 +128,7 @@ $ apt-get dist-upgrade
 > 用户根目录下的 `.bashrc` 可以让 bash 控制台的界面更加清晰
 
 ```shell
+$ cp ~/.bashrc{,.bak}
 $ vi ~/.bashrc
 ```
 
@@ -170,4 +171,4 @@ $ apt install tar bzip2 gzip
 
 ## 包的安装守则
 
-> 推荐使用 debian 官方源自带的 apt 指令安装，如无必要，尽可能不使用编译的方式来安装包！
+> 推荐使用 debian 官方源自带的 apt 指令安装，如无必要，尽可能不要使用编译的方式来安装包！
