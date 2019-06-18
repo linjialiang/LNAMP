@@ -88,10 +88,10 @@ MYSQL_HOME是环境变量，指定了my.cnf文件所在目录的路径，
 
 > MariaDB 可以使用以下命令行参数从自定义选项文件中读取选项：
 
-| 选项                         | 描述                                           |
-| ---------------------------- | ---------------------------------------------- |
-| --defaults-file=<path>       | 仅从给定选项文件中读取选项。                   |
-| --defaults-extra-file=<path> | 读取所有其他选项文件后，请阅读此额外选项文件。 |
+| 选项                         | 描述                                              |
+| ---------------------------- | ------------------------------------------------- |
+| --defaults-file=<path>       | 仅从给定选项文件中读取选项                        |
+| --defaults-extra-file=<path> | 读取所有其他选项文件后，再读取这个 `额外选项文件` |
 
 ```text
 - 这些命令行参数可以与MariaDB的大多数命令行工具一起使用，而不仅仅是mysqld。
@@ -158,7 +158,7 @@ MYSQL_HOME是环境变量，指定了my.cnf文件所在目录的路径，
 
 > 选项文件可以包含其他选项文件，例如：要包含 /etc/mysql/my001.cnf 选项文件的信息，选项文件可以添加这样一行
 
-```cnf
+```ini
 [mysqld]
 ...
 !include /etc/mysql/my001.cnf
@@ -168,7 +168,7 @@ MYSQL_HOME是环境变量，指定了my.cnf文件所在目录的路径，
 
 > 也可以将目录中所有的选项文件包含在另一个选项文件里。例如，要包含 `/etc/my.cnf.d/` 目录下，所有选项文件：
 
-```cnf
+```ini
 [mysqld]
 ...
 !includedir /etc/my.cnf.d/
@@ -197,7 +197,7 @@ MYSQL_HOME是环境变量，指定了my.cnf文件所在目录的路径，
 
 > 案例：
 
-```cnf
+```ini
 [mariadb]
 ...
 # 自动为open_files_limit确定一个好的值
@@ -225,10 +225,88 @@ skip_external_locking
 
 > 选项中的虚线 `-` 和下划线 `_` 是可互换的，如果未明确设置选项，则服务器或客户端将仅使用该选项的默认值。
 
-### MariaDB服务器选项
+### MariaDB 服务器选项
 
-### MariaDB客户端选项
+### MariaDB 客户端选项
 
 ### 示例选项文件
 
-> 在源代码发布中，示例选项文件通常位于support-files目录中，而在其他发行版中，选项文件通常位于share/mysql与MariaDB基本安装目录相关的目录中。
+> 在源代码发布中，示例选项文件通常位于 support-files 目录中；而在其他发行版中，示例选项文件通常位于 share/mysql 与 MariaDB 基本安装目录相关的目录中。
+
+1. 示例一、最小选项文件
+
+   > 以下是可用于测试 MariaDB 的最小 my.cnf 文件：
+
+   ```ini
+   [client-server]
+   # 如果要使用与MariaDB的非标准连接，请取消下面两行注释
+   #socket=/tmp/mysql.sock
+   #port=3306
+
+   # 这将传递给所有MariaDB客户端
+   [client]
+   #password=my_password
+
+   # MariaDB服务器
+   [mysqld]
+   # 要放置数据的目录
+   data=/usr/local/mysql/var
+   # 您要使用的语言的 errmsg.sys 文件的目录
+   language=/usr/local/share/mysql/english
+
+   # 这是用于所有日志，错误和复制文件的前缀名称
+   log-basename=mysqld
+
+   # 默认启用日志记录以帮助查找问题
+   general-log
+   log-slow-queries
+   ```
+
+2. 示例二、混合选项文件
+
+   > 以下是选项文件的摘录，如果想要同时使用 MySQL 和 MariaDB，则可以使用该文件：
+
+   ```ini
+   # mysql配置文件示例
+
+   [client-server]
+   socket=/tmp/mysql-dbug.sock
+   port=3307
+
+   # 这将传递给所有mysql客户端
+   [client]
+   password=my_password
+
+   # 以下是某些特定程序的条目
+   # 以下值假设您至少有 32M 内存
+
+   # MySQL服务器
+   [mysqld]
+   temp-pool
+   key_buffer_size=16M
+   datadir=/my/mysqldata
+   loose-innodb_file_per_table
+
+   [mariadb]
+   datadir=/my/data
+   default-storage-engine=aria
+   loose-mutex-deadlock-detector
+   max-connections=20
+
+   [mariadb-5.5]
+   language=/my/maria-5.5/sql/share/english/
+   socket=/tmp/mysql-dbug.sock
+   port=3307
+
+   [mariadb-10.1]
+   language=/my/maria-10.1/sql/share/english/
+   socket=/tmp/mysql2-dbug.sock
+
+   [mysqldump]
+   quick
+   max_allowed_packet=16M
+
+   [mysql]
+   no-auto-rehash
+   loose-abort-source-on-error
+   ```
