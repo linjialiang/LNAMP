@@ -1,7 +1,11 @@
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+- [vim 编辑器](#vim-编辑器)
+    - [安装 vim](#安装-vim)
+    - [配置 vim](#配置-vim)
+    - [为 vim 安装中文版帮助手册](#为-vim-安装中文版帮助手册)
+<!-- TOC END -->
 
-- [vim 编辑器](#vim-编辑器) - [安装 vim](#安装-vim) - [配置 vim](#配置-vim) - [为 vim 安装中文版帮助手册](#为-vim-安装中文版帮助手册)
-  <!-- TOC END -->
+
 
 # vim 编辑器
 

@@ -1,7 +1,15 @@
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+- [debian 基本配置](#debian-基本配置)
+    - [设置静态 ip](#设置静态-ip)
+    - [修改 DNS](#修改-dns)
+    - [ssh 允许 root 连接远程](#ssh-允许-root-连接远程)
+    - [配置镜像源](#配置镜像源)
+    - [美化 bash 终端](#美化-bash-终端)
+    - [安装必备工具](#安装必备工具)
+    - [包的安装守则](#包的安装守则)
+<!-- TOC END -->
 
-- [debian 基本配置](#debian-基本配置) - [设置静态 ip](#设置静态-ip) - [修改 DNS](#修改-dns) - [ssh 允许 root 连接远程](#ssh-允许-root-连接远程) - [配置镜像源](#配置镜像源) - [美化 bash 终端](#美化bash终端) - [安装必备工具](#安装必备工具)
-  <!-- TOC END -->
+
 
 # debian 基本配置
 
