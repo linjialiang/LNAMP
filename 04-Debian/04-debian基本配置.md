@@ -1,3 +1,13 @@
+<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+- [debian 基本配置](#debian-基本配置)
+    - [设置静态 ip](#设置静态-ip)
+    - [修改 DNS](#修改-dns)
+    - [ssh 允许 root 连接远程](#ssh-允许-root-连接远程)
+    - [配置镜像源](#配置镜像源)
+    - [美化bash终端](#美化bash终端)
+    - [安装必备工具](#安装必备工具)
+<!-- TOC END -->
+
 # debian 基本配置
 
 > debian 刚刚安装完成，还需要进行一系列的配置，才能更好的使用

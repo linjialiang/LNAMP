@@ -1,3 +1,15 @@
+<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+- [安装 mariadb](#安装-mariadb)
+    - [下载源码包](#下载源码包)
+    - [安装缺失的依赖项](#安装缺失的依赖项)
+    - [编译 mariadb](#编译-mariadb)
+    - [初始化 mariadb 前的准备](#初始化-mariadb-前的准备)
+    - [初始化 mariadb](#初始化-mariadb)
+    - [将可执行文件加入环境变量中](#将可执行文件加入环境变量中)
+    - [启动方式](#启动方式)
+    - [其它设置](#其它设置)
+<!-- TOC END -->
+
 # 安装 mariadb
 
 > 我们这里要安装的是 mariadb 10.3.16
