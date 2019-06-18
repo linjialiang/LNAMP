@@ -1,6 +1,14 @@
 # 安装 mariadb
 
-> 我们这里要安装的是 mariadb 10.3.15
+> 我们这里要安装的是 mariadb 10.3.16
+
+## 下载源码包
+
+> mariadb 源码下载地址 https://downloads.mariadb.org/
+
+```shell
+$ wget https://downloads.mariadb.org/interstitial/mariadb-10.3.16/source/mariadb-10.3.16.tar.gz
+```
 
 ## 安装缺失的依赖项
 
@@ -16,12 +24,12 @@ $ apt install libncurses5-dev libghc-gnutls-dev libbison-dev libevent-dev
 
 ```shell
 $ cd /data/source/maridb
-$ tar -xzvf mariadb-10.3.15.tar.gz
-$ mkdir -p /data/{build,compile}/mariadb-10.3.15
-$ cd /data/build/mariadb-10.3.15/
+$ tar -xzvf mariadb-10.3.16.tar.gz
+$ mkdir -p /data/{build,compile}/mariadb-10.3.16
+$ cd /data/build/mariadb-10.3.16/
 # 生成makefile文件
-$ cmake /data/source/mariadb/mariadb-10.3.15 \
--DCMAKE_INSTALL_PREFIX=/data/compile/mariadb-10.3.15/
+$ cmake /data/source/mariadb/mariadb-10.3.16 \
+-DCMAKE_INSTALL_PREFIX=/data/compile/mariadb-10.3.16/
 # 构建
 $ make
 # 编译
@@ -44,10 +52,10 @@ $ make clean
 ```shell
 # 没有特别设置会自动创建跟用户同名的用户群组
 # 使用 /bin/false 来禁止 mariadb 账户登录功能
-$ useradd -d /data/compile/mariadb-10.3.15 -s /bin/false  -c 'mariadb user' mysql
+$ useradd -d /data/compile/mariadb-10.3.16 -s /bin/false  -c 'mariadb user' mysql
 # 设置权限，根目录为root用户，内部用户为mariadb用户
-$ chown mysql:mysql -R /data/compile/mariadb-10.3.15
-$ chown root:root /data/compile/mariadb-10.3.15
+$ chown mysql:mysql -R /data/compile/mariadb-10.3.16
+$ chown root:root /data/compile/mariadb-10.3.16
 ```
 
 ## 初始化 mariadb
@@ -71,12 +79,12 @@ $ chown root:root /data/compile/mariadb-10.3.15
 > 初始化操作指令
 
 ```shell
-$ cd /data/compile/mariadb-10.3.15
+$ cd /data/compile/mariadb-10.3.16
 $ touch /data/conf/my.cnf
 $ ./scripts/mysql_install_db \
 --user=mysql \
---basedir=/data/compile/mariadb-10.3.15 \
---datadir=/data/compile/mariadb-10.3.15/data \
+--basedir=/data/compile/mariadb-10.3.16 \
+--datadir=/data/compile/mariadb-10.3.16/data \
 --defaults-file=/data/conf/my.cnf \
 --auth-root-authentication-method=socket \
 --skip-test-db \
@@ -119,7 +127,7 @@ $ vim /etc/profile
 > 底部加入如下一行：
 
 ```conf
-export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
+export PATH=/data/compile/mariadb-10.3.16/bin:$PATH
 :wq
 ```
 
@@ -157,7 +165,7 @@ $ source /etc/profile
 
 3. `systemctl` 管理开机启动
 
-   > 可以使用 systemctl 指令设置开机启动（确保 init.d 下面有对应的文件）
+   > 可以使用 systemctl 指令设置开机启动（确保 init.d 下面有对应的启动文件）
 
    ```shell
    # 开机启动（第一次允许使用这个指令）
@@ -197,8 +205,16 @@ $ source /etc/profile
 
    > 选项文件案例
 
-   ```cnf
+   ```ini
+   [client-server]
+   socket=/tmp/mysql.sock
+   port=3306
 
+   [client]
+   #password=my_password
+
+   [mysqld]
+   datadir=/data/compile/mariadb-10.3.16/data
    ```
 
    > mariadb 选项文件语法清查阅 [mariadb 选项文件语法](./info/mariadb选项文件语法.md)
