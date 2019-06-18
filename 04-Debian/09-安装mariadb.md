@@ -1,15 +1,3 @@
-<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
-- [安装 mariadb](#安装-mariadb)
-    - [下载源码包](#下载源码包)
-    - [安装缺失的依赖项](#安装缺失的依赖项)
-    - [编译 mariadb](#编译-mariadb)
-    - [初始化 mariadb 前的准备](#初始化-mariadb-前的准备)
-    - [初始化 mariadb](#初始化-mariadb)
-    - [将可执行文件加入环境变量中](#将可执行文件加入环境变量中)
-    - [启动方式](#启动方式)
-    - [其它设置](#其它设置)
-<!-- TOC END -->
-
 # 安装 mariadb
 
 > 我们这里要安装的是 mariadb 10.3.16
@@ -19,15 +7,17 @@
 > mariadb 源码下载地址 https://downloads.mariadb.org/
 
 ```shell
+$ mkdir /data/source/maridb
+$ cd /data/source/maridb
 $ wget https://downloads.mariadb.org/interstitial/mariadb-10.3.16/source/mariadb-10.3.16.tar.gz
 ```
 
 ## 安装缺失的依赖项
 
-> 当前这台服务器缺少了下面 4 个包及其依赖
+> 当前这台服务器，安装 mariadb 缺少了如下包（及对应的依赖）
 
 ```shell
-$ apt install libncurses5-dev libghc-gnutls-dev libbison-dev libevent-dev
+$ apt install git libncurses5-dev libghc-gnutls-dev libbison-dev libevent-dev libxml2-dev
 ```
 
 ## 编译 mariadb
@@ -35,8 +25,8 @@ $ apt install libncurses5-dev libghc-gnutls-dev libbison-dev libevent-dev
 > 使用 cmake 来编译 mariadb
 
 ```shell
-$ cd /data/source/maridb
 $ tar -xzvf mariadb-10.3.16.tar.gz
+$ cd mariadb-10.3.16
 $ mkdir -p /data/{build,compile}/mariadb-10.3.16
 $ cd /data/build/mariadb-10.3.16/
 # 生成makefile文件
@@ -230,3 +220,11 @@ $ source /etc/profile
    ```
 
    > mariadb 选项文件语法清查阅 [mariadb 选项文件语法](./info/mariadb选项文件语法.md)
+
+## 问题汇总：
+
+1. 使用 cmake 构建时，如何查看当前包支持的可选项
+
+```shell
+$ cmake /data/source/mariadb/mariadb-10.3.16 -DCMAKE_INSTALL_PREFIX=/data/compile/mariadb-10.3.16/ -LH
+```
