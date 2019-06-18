@@ -117,7 +117,7 @@ MYSQL_HOME是环境变量，指定了my.cnf文件所在目录的路径，
 
 > 选项组分为 `服务器选项组` 和 `客户选项组`
 
-### 服务器选项组
+### <span id="server_options">服务器选项组</span>
 
 > MariaDB 程序从以下服务器选项组中读取服务器选项：
 
@@ -133,7 +133,7 @@ MYSQL_HOME是环境变量，指定了my.cnf文件所在目录的路径，
 
 > 最常用的就是 `[client-server]` 和 `[mysqld]` 这两个
 
-### 客户选项组
+### <span id="client_options">客户选项组</span>
 
 > MariaDB 程序从以下选项组中读取客户端选项：
 
@@ -227,7 +227,16 @@ skip_external_locking
 
 ### MariaDB 服务器选项
 
+> 可以在 [服务器选项组](#server_options) 中设置 MariaDB 服务器选项
+>
+> - 有关可以为 MariaDB Server 设置的选项列表，请参阅 [mysqld 可用选项列表](https://mariadb.com/kb/en/mysqld-options/)
+> - 大多数服务器系统变量也可以在 MariaDB 的选项文件中设置。
+
 ### MariaDB 客户端选项
+
+> 可以在 [客户端选项组](#client_options) 中设置 MariaDB 客户端选项
+>
+> - 请参阅 [每个客户端程序](https://mariadb.com/kb/en/library/clients-utilities/) 的特定页面，以确定该程序可用的选项。
 
 ### 示例选项文件
 
