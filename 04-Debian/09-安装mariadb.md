@@ -55,7 +55,7 @@ $ make clean
 
 ```shell
 # 没有特别设置会自动创建跟用户同名的用户群组
-$ groupadd mysql
+$ groupadd mariadb
 # 使用 /bin/false 来禁止 mariadb 账户登录功能
 $ useradd -d /data/compile/mariadb-10.3.16 -s /bin/false  -c 'The root user of mariadb' -g mariadb mariadb_root
 # 设置权限，根目录为root用户，内部用户为mysql_root用户
@@ -72,16 +72,13 @@ $ chown root:root /data/compile/mariadb-10.3.16
 > 初始化操作指令
 
 ```shell
-$ cd /data/compile/mariadb-10.3.16
+$ mkdir /data/conf
 $ touch /data/conf/my.cnf
-$ ./scripts/mysql_install_db \
---defaults-file=/etc/my.cnf \
+$ cd /data/compile/mariadb-10.3.16
+$ ./scripts/mysql_install_db --defaults-file=/data/conf/my.cnf \
 --user=mariadb_root \
---basedir=/opt/mysql/mysql \
---datadir=/opt/mysql/mysql/data \
+--basedir=/data/compile/mariadb-10.3.16 \
 --auth-root-authentication-method=socket \
---auth-root-socket-user=emad \
---skip-auth-anonymous-user \
 --skip-name-resolve \
 --skip-test-db
 ```
@@ -148,12 +145,10 @@ $ source /etc/profile
    > 可以使用 systemctl 指令设置开机启动（确保 init.d 下面有对应的启动文件）
 
    ```shell
-   # 开机启动（第一次允许使用这个指令）
-   $ systemctl enable mysql
+   # 开机启动
+   $ /lib/systemd/systemd-sysv-install enable mysql
    # 禁止开机启动
    $ /lib/systemd/systemd-sysv-install disable mysql
-   # 开机启动（第二次开始必须使用这个指令）
-   $ /lib/systemd/systemd-sysv-install enable mysql
    ```
 
 ## 其它设置

@@ -1,4 +1,4 @@
-# mysql_install_db 选项
+# 选项
 
 > mysql_install_db 用于初始化 MariaDB 数据目录并在数据库名为 `mysql` 的数据库中创建系统表（如果它们不存在）。
 >
