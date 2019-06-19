@@ -17,7 +17,7 @@ $ wget https://downloads.mariadb.org/interstitial/mariadb-10.3.16/source/mariadb
 > 当前这台服务器，安装 mariadb 缺少了如下包（及对应的依赖）
 
 ```shell
-$ apt install git libncurses5-dev libghc-gnutls-dev libbison-dev libevent-dev libxml2-dev
+$ apt install git libncurses5-dev libghc-gnutls-dev libbison-dev libevent-dev libxml2-dev libjemalloc-dev
 ```
 
 ## 编译 mariadb
@@ -32,8 +32,10 @@ $ cd /data/build/mariadb-10.3.16/
 # 生成makefile文件
 $ cmake /data/source/mariadb/mariadb-10.3.16 \
 -DCMAKE_INSTALL_PREFIX=/data/compile/mariadb-10.3.16
-# 构建
-$ make
+# 查看依赖是否缺失，缺啥补啥吧
+$ cmake /data/source/mariadb/mariadb-10.3.16 -L
+# 确认依赖都已满足，cmake生成makefile成功，就可以使用make构建了
+$ make -j8
 # 编译
 $ make install
 # 清理编译留下的缓存
@@ -56,7 +58,7 @@ $ make clean
 $ groupadd mysql
 # 使用 /bin/false 来禁止 mariadb 账户登录功能
 $ useradd -d /data/compile/mariadb-10.3.16 -s /bin/false  -c 'The root user of mariadb' -g mysql mysql_root
-# 设置权限，根目录为root用户，内部用户为mariadb用户
+# 设置权限，根目录为root用户，内部用户为mysql_root用户
 $ chown mysql_root:mysql -R /data/compile/mariadb-10.3.16
 $ chown root:root /data/compile/mariadb-10.3.16
 ```
