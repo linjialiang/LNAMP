@@ -35,12 +35,12 @@ $ scripts/mysql_install_db --user=mysql \
 1.  --auth-root-authentication-method={normal/socket}
 
     ```text
-    如果设置为normal：
+    设置为normal：
         - 则会创建一个root@localhost帐户；
         - 该帐户使用 `mysql_native_password 身份验证插件` 进行验证；
         - 并且没有设置初始密码，这可能是不安全的。
-    如果设置为socket：
-        - 则会创建一个 root@localhost 帐户；
+    设置为socket：
+        - 创建一个 root@localhost 帐户；
         - 并且使用 `unix_socket 身份验证插件` 进行身份验证的帐户；
         - 在 `MariaDB 10.4.3` 中成为默认值。
     默认值：normal （自MariaDB 10.1起）
@@ -50,10 +50,10 @@ $ scripts/mysql_install_db --user=mysql \
 
     ```text
     --auth-root-authentication-method=socket才起作用：
-         1. 创建了“名为mysql数据库”中具有超级权限的root账号；
-         2. 指定本地允许访问“名为mysql数据库”的第二个linux用户（linux的root用户始终允许访问“名为mysql数据库”）。
+         1. “mysql数据库”中创建了具有超级权限的root账号；
+         2. 指定一个linux本地用户，并设置为第2个允许访问“mysql数据库”的账户。
 
-    默认值：默认为--user选项的值
+    默认值：--user=<user_name> 选项的值
     ```
 
 3.  --basedir=path
@@ -238,14 +238,14 @@ unix_socket认证插件的工作原理是：
 
     ```shell
     mysql > ALTER USER root@localhost IDENTIFIED VIA mysql_native_password;
-    mysql > SET PASSWORD = PASSWORD('123456');
+    mysql > SET PASSWORD = PASSWORD('密码');
     ```
 
     ```ini
     # 注意，如果您的操作系统有脚本需要对MariaDB进行无密码访问，那么这可能会破坏这些脚本。
     # 您可以通过在 my.cnf 选项文件中的 [client] 选项组中设置密码来解决这个问题。
     [client]
-    password=foo
+    password=密码
     ```
 
 6.  选项
@@ -262,11 +262,11 @@ unix_socket认证插件的工作原理是：
         - 默认值： ON
     ```
 
-7. 命令行
+7.  命令行
 
-   ```shell
-   --unix-socket={OFF|ON|FORCR|FORCE_PLUS_PERMANENT}
-   ```
+    ```shell
+    --unix-socket={OFF|ON|FORCR|FORCE_PLUS_PERMANENT}
+    ```
 
 ### mysql_native_password 身份验证插件
 
@@ -279,3 +279,36 @@ mysql_native_password 身份验证插件,是默认的身份验证插件；
  - 当设置 old_password=0 时，PASSWORD()函数也使用它；
  - 该哈希算法基于SHA-1。
 ```
+
+1. 安装插件
+
+> mysql_native_password 身份验证插件是静态链接到服务器的，因此不需要安装。
+
+2. 创建用户
+
+    ```text
+    使用 mysql_native_password身份验证插件 创建用户帐户的最简单方法是：
+       - 确保设置了old_password=0；
+       - 通过不指定身份验证插件的create user创建一个用户帐户；
+       - 通过 `IDENTIFIED BY` 子句指定密码。
+    ```
+
+    ```shell
+    mysql > SET old_passwords=0;
+    mysql > CREATE USER username@hostname IDENTIFIED BY 'password';
+    ```
+
+3. 更改用户密码
+   > 您可以使用 `SET PASSWORD` 语句更改用户帐户的密码，同时提供纯文本密码作为 PASSWORD()函数的参数。例如：
+
+   ```shell
+   mysql > SET PASSWORD =  PASSWORD('newpassword');
+   ```
+
+   ```text
+   您还可以使用该 ALTER USER 语句更改用户帐户的密码。
+    - 您必须确保 old_passwords=0 已设置；
+    - 然后您必须通过该 IDENTIFIED BY 子句指定密码。例如：
+        SET old_passwords=0;
+        ALTER USER username@hostname IDENTIFIED BY 'newpassword';
+   ```
