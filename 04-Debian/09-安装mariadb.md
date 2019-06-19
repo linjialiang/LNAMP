@@ -18,6 +18,8 @@ $ wget https://downloads.mariadb.org/interstitial/mariadb-10.3.16/source/mariadb
 
 ```shell
 $ apt install git libncurses5-dev libghc-gnutls-dev libbison-dev libevent-dev libxml2-dev libjemalloc-dev
+
+# libghc-bzlib-dev 这个也是必备的
 ```
 
 ## 编译 mariadb
@@ -35,7 +37,7 @@ $ cmake /data/source/mariadb/mariadb-10.3.16 \
 # 查看依赖是否缺失，缺啥补啥吧
 $ cmake /data/source/mariadb/mariadb-10.3.16 -L
 # 确认依赖都已满足，cmake生成makefile成功，就可以使用make构建了
-$ make -j8
+$ make -j4
 # 编译
 $ make install
 # 清理编译留下的缓存
@@ -55,11 +57,10 @@ $ make clean
 
 ```shell
 # 没有特别设置会自动创建跟用户同名的用户群组
-$ groupadd mariadb
 # 使用 /bin/false 来禁止 mariadb 账户登录功能
-$ useradd -d /data/compile/mariadb-10.3.16 -s /bin/false  -c 'The root user of mariadb' -g mariadb mariadb_root
+$ useradd -d /data/compile/mariadb-10.3.16 -s /bin/false  -c 'The root user of mariadb' mysql
 # 设置权限，根目录为root用户，内部用户为mysql_root用户
-$ chown mariadb_root:mariadb -R /data/compile/mariadb-10.3.16
+$ chown mysql:mysql -R /data/compile/mariadb-10.3.16
 $ chown root:root /data/compile/mariadb-10.3.16
 ```
 
@@ -75,8 +76,9 @@ $ chown root:root /data/compile/mariadb-10.3.16
 $ mkdir /data/conf
 $ touch /data/conf/my.cnf
 $ cd /data/compile/mariadb-10.3.16
-$ ./scripts/mysql_install_db --defaults-file=/data/conf/my.cnf \
---user=mariadb_root \
+$ ./scripts/mysql_install_db \
+--defaults-file=/data/conf/my.cnf \
+--user=mysql \
 --auth-root-authentication-method=socket \
 --basedir=/data/compile/mariadb-10.3.16 \
 --datadir=/data/compile/mariadb-10.3.16/data \
