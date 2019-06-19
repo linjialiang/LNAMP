@@ -28,8 +28,8 @@ $ apt install git libncurses5-dev libghc-gnutls-dev libbison-dev libevent-dev li
 $ tar -xzvf mariadb-10.3.16.tar.gz
 $ cd mariadb-10.3.16
 $ mkdir -p /data/{build,compile}/mariadb-10.3.16
-$ cd /data/build/mariadb-10.3.16/
 # 生成makefile文件
+$ cd /data/build/mariadb-10.3.16/
 $ cmake /data/source/mariadb/mariadb-10.3.16 \
 -DCMAKE_INSTALL_PREFIX=/data/compile/mariadb-10.3.16
 # 查看依赖是否缺失，缺啥补啥吧
