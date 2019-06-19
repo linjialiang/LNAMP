@@ -57,9 +57,9 @@ $ make clean
 # 没有特别设置会自动创建跟用户同名的用户群组
 $ groupadd mysql
 # 使用 /bin/false 来禁止 mariadb 账户登录功能
-$ useradd -d /data/compile/mariadb-10.3.16 -s /bin/false  -c 'The root user of mariadb' -g mysql mysql_root
+$ useradd -d /data/compile/mariadb-10.3.16 -s /bin/false  -c 'The root user of mariadb' -g mariadb mariadb_root
 # 设置权限，根目录为root用户，内部用户为mysql_root用户
-$ chown mysql_root:mysql -R /data/compile/mariadb-10.3.16
+$ chown mariadb_root:mariadb -R /data/compile/mariadb-10.3.16
 $ chown root:root /data/compile/mariadb-10.3.16
 ```
 
@@ -76,14 +76,24 @@ $ cd /data/compile/mariadb-10.3.16
 $ touch /data/conf/my.cnf
 $ ./scripts/mysql_install_db \
 --defaults-file=/etc/my.cnf \
---user=mysql \
+--user=mariadb_root \
 --basedir=/opt/mysql/mysql \
 --datadir=/opt/mysql/mysql/data \
 --auth-root-authentication-method=socket \
---auth-root-socket-user=mysql_base \
+--auth-root-socket-user=emad \
 --skip-auth-anonymous-user \
 --skip-name-resolve \
---skip-test-db \
+--skip-test-db
+```
+
+### 设置 mysql_safe 用户
+
+> 在 Unix 中推荐使用 mysqld_safe 来启动 mysqld 服务器。mysqld_safe 增加了一些安全特性；
+>
+> - 例如:当出现错误时，会重启服务器并向错误日志文件写入运行时间信息。
+
+```shell
+$ /data/compile/mariadb-10.3.16/bin/mysqld_safe --user=mariadb_root
 ```
 
 ## 将可执行文件加入环境变量中
