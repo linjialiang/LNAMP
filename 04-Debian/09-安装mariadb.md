@@ -53,10 +53,11 @@ $ make clean
 
 ```shell
 # 没有特别设置会自动创建跟用户同名的用户群组
+$ groupadd mysql
 # 使用 /bin/false 来禁止 mariadb 账户登录功能
-$ useradd -d /data/compile/mariadb-10.3.16 -s /bin/false  -c 'mariadb user' mysql
+$ useradd -d /data/compile/mariadb-10.3.16 -s /bin/false  -c 'The root user of mariadb' -g mysql mysql_root
 # 设置权限，根目录为root用户，内部用户为mariadb用户
-$ chown mysql:mysql -R /data/compile/mariadb-10.3.16
+$ chown mysql_root:mysql -R /data/compile/mariadb-10.3.16
 $ chown root:root /data/compile/mariadb-10.3.16
 ```
 
@@ -66,57 +67,21 @@ $ chown root:root /data/compile/mariadb-10.3.16
 >
 > - 有关 mariadb 初始化详情，请查阅 [mysql_install_db 选项](./info/mysql_install_db选项.md)
 
-| 重要指令                                        | 指令描述                                     |
-| ----------------------------------------------- | -------------------------------------------- |
-| --help                                          | 列出帮助说明                                 |
-| --user=user_name                                | 用于运行 mysqld 的登录用户名(详情查看备注 3) |
-| --basedir=path                                  | 指向 MariaDB 安装目录的路径                  |
-| --datadir=path                                  | MariaDB 数据目录的路径                       |
-| --defaults-file=path                            | 只读取此配置文件。                           |
-| --skip-test-db                                  | 不安装测试服务器                             |
-| --skip-name-resolve                             | 创建时使用 IP 地址而不是主机名               |
-| --auth-root-authentication-method=normal/socket | 备注 1                                       |
-| --auth-root-socket-user=user                    | 备注 2                                       |
-| --ldata=path                                    | 与`--datadir` 一样                           |
-| --no-defaults                                   | 不要从任何选项文件中读取默认选项。           |
-
 > 初始化操作指令
 
 ```shell
 $ cd /data/compile/mariadb-10.3.16
 $ touch /data/conf/my.cnf
 $ ./scripts/mysql_install_db \
+--defaults-file=/etc/my.cnf \
 --user=mysql \
---basedir=/data/compile/mariadb-10.3.16 \
---datadir=/data/compile/mariadb-10.3.16/data \
---defaults-file=/data/conf/my.cnf \
+--basedir=/opt/mysql/mysql \
+--datadir=/opt/mysql/mysql/data \
 --auth-root-authentication-method=socket \
---skip-test-db \
+--auth-root-socket-user=mysql_base \
+--skip-auth-anonymous-user \
 --skip-name-resolve \
---auth-root-socket-user=root
-```
-
-> 备注 1：`--auth-root-authentication-method=normal|socket` 属性描述
-
-| 序号   | 描述                                                                              |
-| ------ | --------------------------------------------------------------------------------- |
-| 作用   | 为创建的初始根用户选择身份验证方法。                                              |
-| normal | 默认值，用于创建可以不使用密码登录的根用户，这可能是不安全的。                    |
-| socket | 只允许 `系统root用户` 作为 `MariaDB 根用户` 登录(需要 `unix socket` 身份验证插件) |
-
-> 备注 2 ： `--auth-root-socket-user=user`
-
-```text
-指定 MariaDB 根帐户名称，以及允许访问它的系统帐户名称。默认为 'root'
-```
-
-> 备注 3：`--user=user_name`
-
-```text
-用于运行mysqld的登录用户名。
-由mysqld创建的文件和目录将由该用户拥有。
-必须是root用户才能使用此选项。
-默认情况下，mysqld使用您当前的登录名运行，它创建的文件和目录将由您拥有。
+--skip-test-db \
 ```
 
 ## 将可执行文件加入环境变量中
