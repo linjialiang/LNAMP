@@ -77,8 +77,9 @@ $ touch /data/conf/my.cnf
 $ cd /data/compile/mariadb-10.3.16
 $ ./scripts/mysql_install_db --defaults-file=/data/conf/my.cnf \
 --user=mariadb_root \
---basedir=/data/compile/mariadb-10.3.16 \
 --auth-root-authentication-method=socket \
+--basedir=/data/compile/mariadb-10.3.16 \
+--datadir=/data/compile/mariadb-10.3.16/data \
 --skip-name-resolve \
 --skip-test-db
 ```
