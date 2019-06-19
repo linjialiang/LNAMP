@@ -48,28 +48,114 @@ unix_socket认证插件的工作原理是：
     - 一旦有了用户名，它就会将连接的用户身份验证为具有相同用户名的MariaDB帐户。
 ```
 
-1. 禁用插件
+1.  禁用插件
 
-   > 在 MariaDB 10.4.3 及更高版本中，unix_socket 默认情况下会安装身份验证插件，因此如果您不希望它们在这些版本上默认可用，则需要禁用它。
+    > 在 MariaDB 10.4.3 及更高版本中，unix_socket 默认情况下会安装身份验证插件，因此如果您不希望它们在这些版本上默认可用，则需要禁用它。
 
-   ```ini
-   # 通过将unix_socket选项设置为OFF，重新启动mariadb服务，可以禁用unix_socket身份验证插件
-   # 这可以指定为mysqld的命令行参数，也可以在选项文件中的相关服务器选项组中指定
-   [mariadb]
-   ...
-   unix_socket=OFF
+    ```ini
+    # 通过将unix_socket选项设置为OFF，重新启动mariadb服务，可以禁用unix_socket身份验证插件
+    # 这可以指定为mysqld的命令行参数，也可以在选项文件中的相关服务器选项组中指定
+    [mariadb]
+    ...
+    unix_socket=OFF
+    ```
+
+    ```ini
+    # 作为一种替代方法，unix_socket选项也可以通过将该选项与disable选项前缀配对来设置为OFF。
+    [mariadb]
+    ...
+    disable_unix_socket
+    ```
+
+2.  安装插件
+
+    > 在 MariaDB 10.4.3 及更高版本中，unix_socket 默认情况下会安装身份验证插件，因此可以在这些版本上跳过此步骤。
+
+    ```text
+    在其它版本中，尽管插件的共享库默认使用auth_socket与MariaDB一起发布：
+     - 但是默认情况下，MariaDB实际上并没有安装这个插件；
+     - 有两种方法可以使用MariaDB安装插件。
+    ```
+
+    > 一、可通过执行 `INSTALL SONAME` 或 `INSTALL PLUGIN` 来动态安装插件，这种方式不需要重启服务器。
+
+    ```shell
+    $ mysql -uroot -p 123456
+    mysql > INSTALL SONAME 'auth_socket';
+    ```
+
+    > 二、可以通过设置 `--plugin-load` 或 `--plugin-load-add` 选项来安装插件
+
+    ```text
+    - 这可以指定为 mysqld 的命令行参数，也可以在选项文件中的相关服务器选项组中指定；
+    - 这个需要重新启动 mysqld 服务。
+    ```
+
+    ```ini
+    [mariadb]
+    ...
+    plugin_load_add = auth_socket
+    ```
+
+3.  卸载插件
+
+    > 您可以通过执行 `UNINSTALL SONAME` 或 `UNINSTALL PLUGIN` 动态卸载插件。例如：
+
+    ```shell
+    $ mysql -uroot -p 123456
+    mysql > UNINSTALL SONAME 'auth_socket';
+    ```
+
+4.  创建用户
+
+    > 要通过 `CREATE USER` 创建用户帐户，请在 `IDENTIFIED VIA` 子句中指定插件的名称：
+
+    ```shell
+    mysql > CREATE USER username@hostname IDENTIFIED VIA unix_socket;
+    ```
+
+5.  切换到基于密码的身份验证
+
+    ```text
+    有时候 Unix socket 身份验证不能满足您的需要
+        - 因此最好将用户帐户切换回基于密码的身份验证；
+        - 先通过执行 “ALTER USER” 语句，告诉MariaDB为帐户使用另一个身份验证插件；
+        - 再使用 “IDENTIFIED VIA” 子句指定特定的身份验证插件；
+    ```
+
+    > 例如，如果您想切换到 mysql_native_password 身份验证插件，那么您可以执行:
+
+    ```shell
+    mysql > ALTER USER root@localhost IDENTIFIED VIA mysql_native_password;
+    mysql > SET PASSWORD = PASSWORD('123456');
+    ```
+
+    ```ini
+    # 注意，如果您的操作系统有脚本需要对MariaDB进行无密码访问，那么这可能会破坏这些脚本。
+    # 您可以通过在 my.cnf 选项文件中的 [client] 选项组中设置密码来解决这个问题。
+    [client]
+    password=foo
+    ```
+
+6.  选项
+
+> unix_socket 在 my.cnf 等选项文件中的选项值
+
+```text
+控制 mysqld 服务启动时应如何处理 unix_socket 插件。
+    - 有效值：
+        OFF - 禁用插件而不将其从mysql.plugins表中删除。
+        ON - 启用插件。如果无法初始化插件，则服务器仍将继续启动，但该插件将被禁用。
+        FORCE - 启用插件。如果无法初始化插件，则服务器将无法启动并显示错误。
+        FORCE_PLUS_PERMANENT - 启用插件。如果无法初始化插件，则服务器将无法启动并显示错误。此外，无法在服务器运行时，使用 UNINSTALL SONAME 或 UNINSTALL PLUGIN 卸载插件。
+    - 默认值： ON
+```
+
+7. 命令行
+
+   ```shell
+   --unix-socket={OFF|ON|FORCR|FORCE_PLUS_PERMANENT}
    ```
-
-   ```ini
-   # 作为一种替代方法，unix_socket选项也可以通过将该选项与disable选项前缀配对来设置为OFF。
-   [mariadb]
-   ...
-   disable_unix_socket
-   ```
-
-2. 安装插件
-
-   > 在 MariaDB 10.4.3 及更高版本中，unix_socket 默认情况下会安装身份验证插件，因此可以在这些版本上跳过此步骤。
 
 ### mysql_native_password 身份验证插件
 
