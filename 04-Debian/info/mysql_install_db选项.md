@@ -2,6 +2,7 @@
 
 > mysql_install_db 用于初始化 MariaDB 数据目录并在数据库名为 `mysql` 的数据库中创建系统表（如果它们不存在）。
 >
+> - 官方地址： https://mariadb.com/kb/en/library/mysql_install_db/
 > - MariaDB 使用 `数据库mysql中的这些表` 来管理权限、角色和插件；
 > - MariaDB 还使用 `数据库mysql中的这些表` 为客户端中的 help 命令提供数据 mysql；
 > - mysql_install_db 通过 mysqld 在 --bootstrap 模式下启动 MariaDB Server 的进程并发送命令来创建系统表及其内容。
