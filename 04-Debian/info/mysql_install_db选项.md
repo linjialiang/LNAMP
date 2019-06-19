@@ -28,6 +28,61 @@ $ scripts/mysql_install_db --user=mysql \
    --datadir=/opt/mysql/mysql/data
 ```
 
+## 登录验证方式
+
+> mariadb 主要有 `unix_socket` 和 `mysql_native_password` 两种登录验证方式！
+
+### unix_socket 身份验证插件
+
+> 官方说明地址：https://mariadb.com/kb/en/library/authentication-plugin-unix-socket/
+
+```text
+当用户通过本地Unix套接字文件连接到MariaDB时，
+    - unix_socket身份验证插件允许用户使用操作系统凭据；
+    - 这个Unix套接字文件由 “socket” 系统变量定义。
+
+unix_socket认证插件的工作原理是：
+    - unix_socket身份验证插件使用SO_PEERCRED套接字选项调用getsockopt系统调用；
+    - 该选项允许它检索连接到套接字的进程的uid；
+    - 然后，它能够获得与该uid关联的用户名；
+    - 一旦有了用户名，它就会将连接的用户身份验证为具有相同用户名的MariaDB帐户。
+```
+
+1. 禁用插件
+
+   > 在 MariaDB 10.4.3 及更高版本中，unix_socket 默认情况下会安装身份验证插件，因此如果您不希望它们在这些版本上默认可用，则需要禁用它。
+
+   ```ini
+   # 通过将unix_socket选项设置为OFF，重新启动mariadb服务，可以禁用unix_socket身份验证插件
+   # 这可以指定为mysqld的命令行参数，也可以在选项文件中的相关服务器选项组中指定
+   [mariadb]
+   ...
+   unix_socket=OFF
+   ```
+
+   ```ini
+   # 作为一种替代方法，unix_socket选项也可以通过将该选项与disable选项前缀配对来设置为OFF。
+   [mariadb]
+   ...
+   disable_unix_socket
+   ```
+
+2. 安装插件
+
+   > 在 MariaDB 10.4.3 及更高版本中，unix_socket 默认情况下会安装身份验证插件，因此可以在这些版本上跳过此步骤。
+
+### mysql_native_password 身份验证插件
+
+> 官方说明地址：https://mariadb.com/kb/en/library/authentication-plugin-mysql_native_password/
+
+```text
+mysql_native_password 身份验证插件,是默认的身份验证插件；
+ - 当没有显式提到身份验证插件，并且设置 old_password=0 时，将使用该插件创建帐户；
+ - 它使用MySQL 4.1中引入的密码哈希算法；
+ - 当设置 old_password=0 时，PASSWORD()函数也使用它；
+ - 该哈希算法基于SHA-1。
+```
+
 ## 选项
 
 > mysql_install_db 支持以下选项：
@@ -37,10 +92,12 @@ $ scripts/mysql_install_db --user=mysql \
     ```text
     如果设置为normal：
         - 则会创建一个root@localhost帐户；
-        - 该帐户使用身份 mysql_native_password 验证插件进行身份验证，并且没有设置初始密码，这可能是不安全的。
+        - 该帐户使用 `mysql_native_password 身份验证插件` 进行验证；
+        - 并且没有设置初始密码，这可能是不安全的。
     如果设置为socket：
-        - 则会创建一个 root@localhost 使用 unix_socket 身份验证插件进行身份验证的帐户。
-
+        - 则会创建一个 root@localhost 帐户；
+        - 并且使用 `unix_socket 身份验证插件` 进行身份验证的帐户；
+        - 在 `MariaDB 10.4.3` 中成为默认值。
     默认值：normal （自MariaDB 10.1起）
     ```
 
@@ -129,5 +186,9 @@ $ scripts/mysql_install_db --user=mysql \
         - 创建的文件和目录都将归属当前linux登录用户。
     ```
 
-    | --verbose |
-    | --windows |
+19. --verbose
+
+    > 详细模式。打印有关程序功能的更多信息
+
+20. --windows
+    > 供内部使用。此选项用于创建 Windows 分发。
