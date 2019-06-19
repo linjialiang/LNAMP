@@ -11,21 +11,23 @@
 
 > 要调用 mysql_install_db，请使用以下语法：
 
-```shell
-$ mysql_install_db [options]
-```
-
 ```text
-由于 mysqld 在运行时需要访问数据目录，
-    - 您应该从用 `运行mysqld程序的相同用户` 或 `root用户` 运行 mysql_install_db；
-    - `--user` 选项用来指定 mysqld 程序的用户名；
-    - 可能需要指定其他选项，例如： mysql_install_db 可以使用 --basedir 和 --datadir 两个选项用于指定安装目录和数据目录的正确位置。
+指令： mysql_install_db [options]
 ```
 
+> 案例：
+
 ```shell
-$ scripts/mysql_install_db --user=mysql \
-   --basedir=/opt/mysql/mysql \
-   --datadir=/opt/mysql/mysql/data
+$ ./scripts/mysql_install_db \
+--defaults-file=/etc/my.cnf \
+--user=mysql \
+--basedir=/opt/mysql/mysql \
+--datadir=/opt/mysql/mysql/data \
+--auth-root-authentication-method=socket \
+--auth-root-socket-user=mysql_base \
+--skip-auth-anonymous-user \
+--skip-name-resolve \
+--skip-test-db \
 ```
 
 ## 选项
@@ -286,19 +288,20 @@ mysql_native_password 身份验证插件,是默认的身份验证插件；
 
 2. 创建用户
 
-    ```text
-    使用 mysql_native_password身份验证插件 创建用户帐户的最简单方法是：
-       - 确保设置了old_password=0；
-       - 通过不指定身份验证插件的create user创建一个用户帐户；
-       - 通过 `IDENTIFIED BY` 子句指定密码。
-    ```
+   ```text
+   使用 mysql_native_password身份验证插件 创建用户帐户的最简单方法是：
+      - 确保设置了old_password=0；
+      - 通过不指定身份验证插件的create user创建一个用户帐户；
+      - 通过 `IDENTIFIED BY` 子句指定密码。
+   ```
 
-    ```shell
-    mysql > SET old_passwords=0;
-    mysql > CREATE USER username@hostname IDENTIFIED BY 'password';
-    ```
+   ```shell
+   mysql > SET old_passwords=0;
+   mysql > CREATE USER username@hostname IDENTIFIED BY 'password';
+   ```
 
 3. 更改用户密码
+
    > 您可以使用 `SET PASSWORD` 语句更改用户帐户的密码，同时提供纯文本密码作为 PASSWORD()函数的参数。例如：
 
    ```shell
