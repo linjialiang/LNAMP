@@ -56,11 +56,12 @@ $ make clean
 ```shell
 # 没有特别设置会自动创建跟用户同名的用户群组
 # 使用 /bin/false 来禁止 mariadb 账户登录功能
-$ useradd -d /data/compile/mariadb-10.4.6 -s /bin/false -u 61 -c 'This is a mariadb user' mysql
-# 设置权限，根目录为root用户，内部用户为mysql_root用户
+$ useradd -d /data/compile/mariadb-10.4.6 -s /bin/false -c 'This is a mariadb user' mysql
+```
+
+# 设置权限，根目录为root用户，内部用户为mysql用户
 $ chown mysql:mysql -R /data/compile/mariadb-10.4.6
 $ chown root:root /data/compile/mariadb-10.4.6
-```
 
 ## 初始化 mariadb
 
