@@ -66,7 +66,7 @@ $ ifup enp0s3
 
 ```shell
 $ service networking restart
-$ systemctl restart network
+$ systemctl restart networking
 $ /etc/init.d/networking restart
 ```
 

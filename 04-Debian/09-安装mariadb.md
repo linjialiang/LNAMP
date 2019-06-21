@@ -7,8 +7,8 @@
 > mariadb 源码下载地址 https://downloads.mariadb.org/
 
 ```shell
-$ mkdir /data/source/maridb
-$ cd /data/source/maridb
+$ mkdir /data/source/mariadb
+$ cd /data/source/mariadb
 $ wget https://downloads.mariadb.org/interstitial/mariadb-10.3.16/source/mariadb-10.3.16.tar.gz
 ```
 
@@ -17,9 +17,7 @@ $ wget https://downloads.mariadb.org/interstitial/mariadb-10.3.16/source/mariadb
 > 当前这台服务器，安装 mariadb 缺少了如下包（及对应的依赖）
 
 ```shell
-$ apt install git libncurses5-dev libghc-gnutls-dev libbison-dev libevent-dev libxml2-dev libjemalloc-dev
-
-# libghc-bzlib-dev 这个也是必备的
+$ apt install git libncurses5-dev libghc-gnutls-dev libbison-dev libevent-dev libxml2-dev libjemalloc-dev libghc-bzlib-dev libcrack2-dev libpam0g-dev
 ```
 
 ## 编译 mariadb
@@ -46,7 +44,7 @@ $ make clean
 
 ## 初始化 mariadb 前的准备
 
-> maridb 刚刚编译成功，事实上还不能开启服务，需要我们做初始化的工作，而初始化操作前，还有一个准备工作：
+> mariadb 刚刚编译成功，事实上还不能开启服务，需要我们做初始化的工作，而初始化操作前，还有一个准备工作：
 
 | 序号 | 初始化前需要准备的内容      |
 | ---- | --------------------------- |
