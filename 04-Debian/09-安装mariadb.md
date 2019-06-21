@@ -1,15 +1,15 @@
 # 安装 mariadb
 
-> 我们这里要安装的是 mariadb 10.3.16
+> 我们这里要安装的是 mariadb 10.4.6
 
 ## 下载源码包
 
 > mariadb 源码下载地址 https://downloads.mariadb.org/
 
 ```shell
-$ mkdir /data/source/mariadb
+$ mkdir -p /data/source/mariadb
 $ cd /data/source/mariadb
-$ wget https://downloads.mariadb.org/interstitial/mariadb-10.3.16/source/mariadb-10.3.16.tar.gz
+$ wget http://mirrors.neusoft.edu.cn/mariadb/mariadb-10.4.6/source/mariadb-10.4.6.tar.gz
 ```
 
 ## 安装缺失的依赖项
@@ -25,15 +25,14 @@ $ apt install git libncurses5-dev libghc-gnutls-dev libbison-dev libevent-dev li
 > 使用 cmake 来编译 mariadb
 
 ```shell
-$ tar -xzvf mariadb-10.3.16.tar.gz
-$ cd mariadb-10.3.16
-$ mkdir -p /data/{build,compile}/mariadb-10.3.16
+$ tar -xzvf mariadb-10.4.6.tar.gz
+$ mkdir -p /data/{build,compile}/mariadb-10.4.6
 # 生成makefile文件
-$ cd /data/build/mariadb-10.3.16/
-$ cmake /data/source/mariadb/mariadb-10.3.16 \
--DCMAKE_INSTALL_PREFIX=/data/compile/mariadb-10.3.16
+$ cd /data/build/mariadb-10.4.6/
+$ cmake /data/source/mariadb/mariadb-10.4.6 \
+-DCMAKE_INSTALL_PREFIX=/data/compile/mariadb-10.4.6
 # 查看依赖是否缺失，缺啥补啥吧
-$ cmake /data/source/mariadb/mariadb-10.3.16 -L
+$ cmake /data/source/mariadb/mariadb-10.4.6 -L
 # 确认依赖都已满足，cmake生成makefile成功，就可以使用make构建了
 $ make
 # 编译
@@ -56,10 +55,10 @@ $ make clean
 ```shell
 # 没有特别设置会自动创建跟用户同名的用户群组
 # 使用 /bin/false 来禁止 mariadb 账户登录功能
-$ useradd -d /data/compile/mariadb-10.3.16 -s /bin/false  -c 'The root user of mariadb' mysql
+$ useradd -d /data/compile/mariadb-10.4.6 -s /bin/false  -c 'The root user of mariadb' mysql
 # 设置权限，根目录为root用户，内部用户为mysql_root用户
-$ chown mysql:mysql -R /data/compile/mariadb-10.3.16
-$ chown root:root /data/compile/mariadb-10.3.16
+$ chown mysql:mysql -R /data/compile/mariadb-10.4.6
+$ chown root:root /data/compile/mariadb-10.4.6
 ```
 
 ## 初始化 mariadb
@@ -73,13 +72,13 @@ $ chown root:root /data/compile/mariadb-10.3.16
 ```shell
 $ mkdir /data/conf
 $ touch /data/conf/my.cnf
-$ cd /data/compile/mariadb-10.3.16
+$ cd /data/compile/mariadb-10.4.6
 $ ./scripts/mysql_install_db \
 --defaults-file=/data/conf/my.cnf \
 --user=mysql \
 --auth-root-authentication-method=socket \
---basedir=/data/compile/mariadb-10.3.16 \
---datadir=/data/compile/mariadb-10.3.16/data \
+--basedir=/data/compile/mariadb-10.4.6 \
+--datadir=/data/compile/mariadb-10.4.6/data \
 --skip-name-resolve \
 --skip-test-db
 ```
@@ -91,7 +90,7 @@ $ ./scripts/mysql_install_db \
 > - 例如:当出现错误时，会重启服务器并向错误日志文件写入运行时间信息。
 
 ```shell
-$ /data/compile/mariadb-10.3.16/bin/mysqld_safe --user=mariadb_root
+$ /data/compile/mariadb-10.4.6/bin/mysqld_safe --user=mariadb_root
 ```
 
 ## 将可执行文件加入环境变量中
@@ -106,7 +105,7 @@ $ vim /etc/profile
 > 底部加入如下一行：
 
 ```conf
-export PATH=/data/compile/mariadb-10.3.16/bin:$PATH
+export PATH=/data/compile/mariadb-10.4.6/bin:$PATH
 ```
 
 > 激活新设置的环境变量（或者重启服务器）
@@ -190,7 +189,7 @@ $ source /etc/profile
    #password=my_password
 
    [mysqld]
-   datadir=/data/compile/mariadb-10.3.16/data
+   datadir=/data/compile/mariadb-10.4.6/data
    ```
 
    > mariadb 选项文件语法清查阅 [mariadb 选项文件语法](./info/mariadb选项文件语法.md)
