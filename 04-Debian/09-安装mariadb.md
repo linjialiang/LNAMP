@@ -78,8 +78,11 @@ $ cd /data/compile/mariadb-10.4.6
 $ ./scripts/mysql_install_db \
 --defaults-file=/data/conf/my.cnf \
 --user=mysql \
+--auth-root-authentication-method=socket \
 --basedir=/data/compile/mariadb-10.4.6 \
---datadir=/data/compile/mariadb-10.4.6/data
+--datadir=/data/compile/mariadb-10.4.6/data \
+--skip-name-resolve \
+--skip-test-db
 ```
 
 ### 设置 mysql_safe 用户
