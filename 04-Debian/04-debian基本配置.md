@@ -27,7 +27,7 @@ $ vi /etc/network/interfaces
 > 动态 ip 设置
 
 ```conf
-source /etc/nerwork/interfaces.d/*
+source /etc/network/interfaces.d/*
 
 # The loopback network interface
 auto lo
