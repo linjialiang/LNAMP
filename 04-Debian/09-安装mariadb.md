@@ -17,7 +17,8 @@ $ wget http://mirrors.neusoft.edu.cn/mariadb/mariadb-10.4.6/source/mariadb-10.4.
 > 当前这台服务器，安装 mariadb 缺少了如下包（及对应的依赖）
 
 ```shell
-$ apt install git libncurses5-dev libghc-gnutls-dev libbison-dev libevent-dev libxml2-dev libjemalloc-dev libghc-bzlib-dev libcrack2-dev libpam0g-dev
+# 必备依赖，否则cmake无法成功生成makefile文件
+$ apt install libncurses5-dev libgnutls28-dev
 ```
 
 ## 编译 mariadb
