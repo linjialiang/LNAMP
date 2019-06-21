@@ -1,15 +1,15 @@
-# 安装 mariadb
+# 编译 mariadb
 
-> 我们这里要安装的是 mariadb 10.4.6
+> 这里我们以当前最新版 mariadb-10.4.6 版本为例
 
 ## 下载源码包
 
-> mariadb 源码下载地址 https://downloads.mariadb.org/
+> mariadb 源码下载地址 https://github.com/MariaDB/server
 
 ```shell
 $ mkdir -p /data/source/mariadb
 $ cd /data/source/mariadb
-$ wget http://mirrors.neusoft.edu.cn/mariadb/mariadb-10.4.6/source/mariadb-10.4.6.tar.gz
+$ wget https://github.com/MariaDB/server/releases/tag/mariadb-10.4.6
 ```
 
 ## 安装缺失的依赖项
@@ -59,7 +59,8 @@ $ make clean
 $ useradd -d /data/compile/mariadb-10.4.6 -s /bin/false -c 'This is a mariadb user' mysql
 ```
 
-# 设置权限，根目录为root用户，内部用户为mysql用户
+# 设置权限，根目录为 root 用户，内部用户为 mysql 用户
+
 $ chown mysql:mysql -R /data/compile/mariadb-10.4.6
 $ chown root:root /data/compile/mariadb-10.4.6
 

@@ -1,0 +1,242 @@
+<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+- [编译前的准备](#编译前的准备)
+    - [编译器的工作过程](#编译器的工作过程)
+    - [理解 configure 脚本](#理解-configure-脚本)
+    - [理解 cmake](#理解-cmake)
+    - [理解 make](#理解-make)
+    - [几个 make 的区别](#几个-make-的区别)
+    - [安装软件包](#安装软件包)
+    - [一些提问](#一些提问)
+        - [问题一、如何将编译好的程序，加入到环境变量中？](#问题一如何将编译好的程序加入到环境变量中)
+        - [问题二：安装包需要哪些依赖如何确定？](#问题二安装包需要哪些依赖如何确定)
+        - [问题三：如何让程序开机启动呢？](#问题三如何让程序开机启动呢)
+<!-- TOC END -->
+
+
+
+# 编译前的准备
+
+> 想要编译安装程序，我们就需要了解一些编译的知识...
+
+| 序号 | 说明                |
+| ---- | ------------------- |
+| 01   | 编译器              |
+| 02   | 理解 configure 脚本 |
+| 03   | 理解 make           |
+
+> 先贴安装命令
+
+```shell
+$ apt install gcc g++ make cmake libtool autoconf automake
+```
+
+## 编译器的工作过程
+
+> 源码要运行，必须先转成二进制的机器码。这是编译器的任务。
+
+- 程序只有一个源文件时，直接就可以用 gcc 命令编译它：
+
+  ```text
+  $ gcc [-o <生成的可执行文件>] 源文件
+  ```
+
+  ```shell
+  $ gcc -o test test.c
+  $ ./test
+  Hello, world!
+  ```
+
+- 对于复杂的项目，编译过程还必须分成三步:
+
+  ```shell
+  # 配置
+  $ ./configure --prefix=路径
+  # 编译
+  $ make
+  # 安装
+  $ make install
+  ```
+
+## 理解 configure 脚本
+
+> configure 是一个 shell 脚本，用来检测安装平台的目标特征（比如：检测系统是否存在 CC 或 GCC） ，一般用来生成 Makefile，为下一步的编译做准备。
+
+| 几个重要指令    | 描述                                                             |
+| --------------- | ---------------------------------------------------------------- |
+| --help          | 输出帮助信息，每个包的帮助信息都是不同，一般会列出需要的环境变量 |
+| --prefix=PREFIX | 文件安装的默认路径                                               |
+| --with-package  | 必备的包如果没有写入环境变量中，就需要自己指定                   |
+
+## 理解 cmake
+
+> cmake 作用和 configure 差不多，也是为了生成 makefile 文件
+>
+> - cmake 指令的具体说明可以去 [cmake 调用语法](./info/cmake调用语法.md)
+
+```text
+$ cmake <源码目录> \
+-DCMAKE_INSTALL_PREFIX=<安装的默认路径>
+```
+
+| 几个重要指令                  | 描述               |
+| ----------------------------- | ------------------ |
+| --help                        | 输出帮助信息       |
+| -DCMAKE_INSTALL_PREFIX=PREFIX | 文件安装的默认路径 |
+
+```shell
+$ cmake /data/source/mariadb/mariadb-10.3.15 \
+-DCMAKE_INSTALL_PREFIX=/data/compile/mariadb-10.3.15/
+```
+
+## 理解 make
+
+> Make 是最常用的构建工具，诞生于 1977 年，主要用于 C 语言的项目。但是实际上 ，任何只要某个文件有变化，就要重新构建的项目，都可以用 Make 构建。
+
+1. 程序只有一个源文件时，直接就可以用 gcc 命令编译它;
+2. 但是当程序包含很多个源文件时，用 gcc 命令逐个去编译时，就显得混乱、工作量大;
+3. 而 make 就是为了解决这个问题出现的;
+4. 代码变成可执行文件，叫做编译（compile）；文件编译的顺序叫做构建（build），而 Make 就是最常用的构建工具.
+
+> make 依赖一定的规则，这些规则一般都是通过 configure 写入一个叫做 Makefile 的文件中
+
+## 几个 make 的区别
+
+> `make` `makefile` `cmake` 3 者之间的关系
+
+```text
+1. make 是用来执行Makefile的。
+2. Makefile是类unix环境下(比如Linux)的类似于批处理的"脚本"文件。其基本语法是: 目标+依赖+命令，只有在目标文件不存在，或目标比依赖的文件更旧，命令才会被执行。由此可见，Makefile和make可适用于任意工作，不限于编程。
+3. Makefile+make可理解为类unix环境下的项目管理工具，但它太基础了，抽象程度不高，而且在windows下不太友好(针对visual studio用户)，于是就有了跨平台项目管理工具cmake
+4. cmake是跨平台项目管理工具，它用更抽象的语法来组织项目。虽然，仍然是目标，依赖之类的东西，但更为抽象和友好，比如你可用math表示数学库，而不需要再具体指定到底是math.dll还是libmath.so，在windows下它会支持生成visual studio的工程，在linux下它会生成Makefile，甚至它还能生成eclipse工程文件。也就是说，从同一个抽象规则出发，它为各个编译器定制工程文件。
+5. cmake是抽象层次更高的项目管理工具，cmake命令执行的CMakeLists.txt文件。
+
+总结一下：
+make用来执行Makefile，
+cmake用来执行CMakeLists.txt，
+Makefile的抽象层次最低，
+cmake在类unix环境下最后还是会生成一个Makefile。
+cmake支持跨平台，生成指定编译器的工程文件。
+```
+
+> 提示：linux 下，小工程可手动写 Makefile，大工程用 automake 来帮你生成 Makefile，要想跨平台，就用 cmake。
+
+## 安装软件包
+
+> 编译前我们需要安装一些必备软件包
+
+1. 安装 GCC
+
+   > gcc 是 GNU Compiler Collection（就是 GNU 编译器套件），也可以简单认为是编译器，它可以编译很多种编程语言（括 C、C++、Objective-C、Fortran、Java 等等）。
+
+   ```text
+   官方地址
+   https://gcc.gnu.org/
+   安装手册
+   https://gcc.gnu.org/install/
+   说明手册
+   https://gcc.gnu.org/onlinedocs/
+   ```
+
+   > 使用 debian 源安装 gcc（GNU 编译器套件）
+
+   ```shell
+   # 有依赖包跟着安装（默认安装的不支持c++的编译）
+   $ apt install gcc
+   ```
+
+   > 使用 debian 源安装 g++（GNU 编译器套件中的 c++编译器）
+
+   ```shell
+   # 有依赖包跟着安装（如果直接安装g++的话，gcc及其依赖也会跟着安装）
+   $ apt install g++
+   ```
+
+2. 安装 `make` & `cmake`
+
+   > `make` 必须安装，后面我们安装 mariadb 是需要使用到 `cmake`
+
+   ```shell
+   # 安装 make 没有任何依赖，而cmake需要安装依赖包
+   $ apt install make cmake
+   ```
+
+3. 安装 `libtool` `autoconf` `automake`
+
+   > 有了这 3 个包就可以很方便的生成 `configure` `makefile` 文件，当然我们这里不会涉及
+   >
+   > - 我们安装它们的目的主要是为了，调用动态库
+
+   ```shell
+   # 有依赖
+   $ apt install libtool autoconf automake
+   ```
+
+4. 安装压缩工具
+
+   > `tar` `bzip2` `gzip` 也是必备的，如果已经安装就忽略
+
+   ```shell
+   $ apt install tar bzip2 gzip
+   ```
+
+## 一些提问
+
+> 编译安装软件包时可能会遇到的各类问题以及解答！
+
+### 问题一、如何将编译好的程序，加入到环境变量中？
+
+1. inux 环境变量配置都在/etc/profile 文件中了
+
+   > 在文件结尾，加入一行 PATH 信息
+
+   ```shell
+   $ cp /etc/profile{,.bak}
+   $ vim /etc/profile
+   ```
+
+   ```text
+   # 底部加入（允许添加多行）
+   export PATH=/data/compile/mariadb-10.3.15/bin:$PATH
+   ```
+
+   ```shell
+   $ source /etc/profile
+   ```
+
+   ```shell
+   $ ln -s <实际路径> <软连接路径>
+   ```
+
+2. 配置阶段（configure）设置可执行程序存放路径
+
+   > 通常是 `--bindir` 这个指令，具体使用 `./configure --help` 查看
+
+   ```shell
+   $ ./configure \
+   --prefix=文件默认路径 \
+   --bindir=可执行程序存放路径
+   ```
+
+### 问题二：安装包需要哪些依赖如何确定？
+
+> 不管是 `configure` 还是 `cmake` 在生成 makefile 文件时，都会检测并提示哪些依赖还未成功匹配
+>
+> - 并且阅读说明时也会有相应的说明
+
+- 如何安装依赖
+  > 依赖大部分都是可以通过 apt 来便捷安装的，但是如果 apt 上不存在这些包，就需要手动下载源码后自己编译了
+
+### 问题三：如何让程序开机启动呢？
+
+> 可以使用 systemctl 指令设置开机启动（确保 init.d 下面有对应的启动文件）
+>
+> - 下面以 mariadb 为例子：
+
+```shell
+# 开机启动（第一次允许使用这个指令）
+$ systemctl enable mysql
+# 禁止开机启动
+$ /lib/systemd/systemd-sysv-install disable mysql
+# 开机启动（第二次开始必须使用这个指令）
+$ /lib/systemd/systemd-sysv-install enable mysql
+```
