@@ -37,7 +37,7 @@ $ cmake /data/source/mariadb/mariadb-10.3.16 \
 # 查看依赖是否缺失，缺啥补啥吧
 $ cmake /data/source/mariadb/mariadb-10.3.16 -L
 # 确认依赖都已满足，cmake生成makefile成功，就可以使用make构建了
-$ make -j4
+$ make
 # 编译
 $ make install
 # 清理编译留下的缓存
