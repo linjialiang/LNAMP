@@ -18,16 +18,12 @@
 > 案例：
 
 ```shell
-$ ./scripts/mysql_install_db \
---defaults-file=/etc/my.cnf \
+$ ./scripts/mariadb-install-db --defaults-file=/data/etc/my.cnf \
 --user=mysql \
---basedir=/opt/mysql/mysql \
---datadir=/opt/mysql/mysql/data \
---auth-root-authentication-method=socket \
---auth-root-socket-user=mysql_base \
---skip-auth-anonymous-user \
---skip-name-resolve \
 --skip-test-db \
+--skip-name-resolve \
+--auth-root-authentication-method=socket \
+--auth-root-socket-user=emad
 ```
 
 ## 选项
