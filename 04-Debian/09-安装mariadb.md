@@ -64,12 +64,49 @@ $ apt build-dep mariadb-10.4
 
 > 这里我们以当前最新版 mariadb-10.4.6 版本为例
 
-## 下载源码包
+### 下载源码包
 
 > mariadb 源码下载地址 https://github.com/MariaDB/server
 
 ```shell
 $ mkdir -p /data/source/mariadb
 $ cd /data/source/mariadb
+# 源存储库-清华大学镜像
+$ wget https://mirrors.tuna.tsinghua.edu.cn/mariadb/mariadb-10.4.6/source/mariadb-10.4.6.tar.gz
+# 源存储库-大连东软信息学院
 $ wget http://mirrors.neusoft.edu.cn/mariadb/mariadb-10.4.6/source/mariadb-10.4.6.tar.gz
+```
+
+> 解压源码包并创建编译所需目录和文件
+
+```shell
+$ tar -xzvf mariadb-10.4.6.tar.gz
+$ mkdir -p /data/{build,compile}/mariadb-10.4.6
+```
+
+### 开始编译安装 MariaDB
+
+> 使用 cmake 来生成 makefile 文件
+
+```shell
+$ cd /data/build/mariadb-10.4.6/
+$ cmake /data/source/mariadb/mariadb-10.4.6 \
+-DCMAKE_INSTALL_PREFIX=/data/compile/mariadb-10.4.6
+```
+
+> # 查看 mariadb 选项配置情况
+
+```shell
+$ cmake /data/source/mariadb/mariadb-10.4.6 -LH
+```
+
+> make 开始工作
+
+```shell
+# 构建
+$ make
+# 编译
+ make install
+# 清理编译留下的缓存
+$ make clean
 ```
