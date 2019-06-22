@@ -36,24 +36,28 @@ $ ./scripts/mysql_install_db \
 
 1.  --auth-root-authentication-method={normal/socket}
 
+    > 为创建的初始根用户选择身份验证方法。
+
     ```text
     设置为normal：
-        - 则会创建一个root@localhost帐户；
-        - 该帐户使用 `mysql_native_password 身份验证插件` 进行验证；
-        - 并且没有设置初始密码，这可能是不安全的。
+        - user表中创建了root帐户，没有设置密码；
+        - user表中的root使用 `mysql_native_password 身份验证插件` 进行验证；
+        - 并且允许不使用密码登录，这可能是不安全的。
     设置为socket：
-        - 创建一个 root@localhost 帐户；
-        - 并且使用 `unix_socket 身份验证插件` 进行身份验证的帐户；
-        - 在 `MariaDB 10.4.3` 中成为默认值。
-    默认值：normal （自MariaDB 10.1起）
+        - user表中创建了 root 帐户，并且设置了无效的密码；
+            - 也就是说 user 表中的 root 账户无法登录mysql
+            - 但是允许系统账户root，免密登录mysql
+        - user表中的root使用 `unix_socket 身份验证插件` 进行验证；
+    默认值：unix_socket （自MariaDB 10.4.3起）
     ```
 
 2.  --auth-root-socket-user=<linux 用户>
 
+    > 与 `--auth-root-authentication-method=socket` 一起使用
+
     ```text
-    --auth-root-authentication-method=socket才起作用：
-         1. “mysql数据库”中创建了具有超级权限的root账号；
-         2. 指定一个linux本地用户，并设置为第2个允许访问“mysql数据库”的账户。
+     1. “mysql数据库”中创建了具有超级权限的root账号；
+     2. 指定一个linux本地用户，并设置为第2个允许访问“mysql数据库”的账户。
 
     默认值：--user=<user_name> 选项的值
     ```
@@ -70,7 +74,7 @@ $ ./scripts/mysql_install_db \
 
     > 供内部使用。在与目标不同的主机上构建 MariaDB 系统表时使用。
 
-6.  `--datadir=path` 和 `--ldata=path`
+6.  --datadir=path
 
     > MariaDB 数据目录的路径。
 
@@ -90,31 +94,27 @@ $ ./scripts/mysql_install_db \
 
     > mysql_install_db 即使 DNS 不起作用也会导致运行。在这种情况下，通常使用主机名的授权表条目将使用 IP 地址。
 
-11. --no-defaults
+11. --help
 
-    > 不要从任何选项文件中读取默认选项，必须作为第一个选项。
+12. --ldata=path
 
-12. --print-defaults
+13. --no-defaults
 
-    > 打印程序参数列表并退出，必须作为第一个选项。
+14. --defaults-file=path
 
-13. --rpm
+15. --rpm
 
     > 供内部使用。在 MariaDB 安装过程中，RPM 文件使用此选项。
 
-14. --skip-auth-anonymous-user
-
-    > 不要创建匿名用户
-
-15. --skip-name-resolve
+16. --skip-name-resolve
 
     > 创建授权表条目时使用 IP 地址而不是主机名。如果您的 DNS 不起作用，此选项非常有用。
 
-16. --skip-test-db
+17. --skip-test-db
 
     > 不要安装测试数据库。
 
-17. --srcdir=path
+18. --srcdir=path
 
     ```text
     供内部使用，MariaDB源目录的路径。
@@ -123,7 +123,7 @@ $ ./scripts/mysql_install_db \
         -- mysql_install_db 查找支持文件的目录，例如错误消息文件和用于填充帮助表的文件。
     ```
 
-18. --user=user_name
+19. --user=user_name
 
     ```text
     用于指定登录mysqld和运行mysqld的用户名：
@@ -132,14 +132,6 @@ $ ./scripts/mysql_install_db \
         - mysqld程序使用当前linux登录用户；
         - 创建的文件和目录都将归属当前linux登录用户。
     ```
-
-19. --verbose
-
-    > 详细模式。打印有关程序功能的更多信息
-
-20. --windows
-
-    > 供内部使用。此选项用于创建 Windows 分发。
 
 ## 登录验证方式
 
