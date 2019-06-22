@@ -11,16 +11,16 @@ $ apt install software-properties-common devscripts dirmngr
 
 > MariaDB 需要从源代码编译许多包。幸运的是您可以使用 MariaDB 源存储库来检索所需版本的必要代码。
 
-    - 使用【Repository Configuration工具】确定如何为您的Debian发行版设置MariaDB存储库；
+    - 使用【Repository Configuration工具】确定如何为您的Debian发行版设置MariaDB源存储库；
     - 确定您要安装的MariaDB版本以及您要使用的镜像。
 
 > 点击进入： [Repository Configuration 工具](https://downloads.mariadb.org/mariadb/repositories/#mirror=neusoft)
 
-1. 首先添加存储库的身份验证密钥，然后添加存储库
+1. 首先添加源存储库的身份验证密钥，然后添加源存储库
 
    ```shell
    $ apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xF1656F24C74CD1D8
-   # 选项添加清华大学源镜像
+   # 添加清华大学源镜像作为 mariadb10.4 的源存储库
    $ add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.4/debian stretch main'
    ```
 
@@ -46,3 +46,16 @@ $ apt install software-properties-common devscripts dirmngr
    $ apt update
    $ apt dist-upgrade
    ```
+
+### 检索构建依赖项
+
+> 设置源存储库后，使用 apt 来检索构建依赖项：
+
+```text
+- 由 Ubuntu 提供的 MariaDB 包和由 MariaDB 源存储库提供的包具有相同的基本名称 mariadb-server；
+- 并且需要指定要检索的特定版本，如：检索 mariadb-10.4 源代码包（注意，并不是检索 mariadb-server-10.4）
+```
+
+```shell
+$ apt build-dep mariadb-10.4
+```
