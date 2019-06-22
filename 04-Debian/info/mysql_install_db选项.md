@@ -44,31 +44,32 @@ $ ./scripts/mysql_install_db \
         - user表中的root使用 `mysql_native_password 身份验证插件` 进行验证；
         - 并且允许不使用密码登录，这可能是不安全的。
     设置为socket：
-        - user表中创建了 root 帐户，并且设置了无效的密码；
-            - 也就是说 user 表中的 root 账户无法登录mysql
-            - 但是允许系统账户root，免密登录mysql
+        - user表中创建了 root 用户，并且设置了无效的密码：
+            - 也就是说 user 表中的 root 用户无法登录mysql；
+            - 但是终端登录root系统用户后，允许免密登录mysql。
         - user表中的root使用 `unix_socket 身份验证插件` 进行验证；
     默认值：unix_socket （自MariaDB 10.4.3起）
     ```
 
-2.  --auth-root-socket-user=<linux 用户>
+2.  --auth-root-socket-user=user
 
     > 与 `--auth-root-authentication-method=socket` 一起使用
 
     ```text
-     1. “mysql数据库”中创建了具有超级权限的root账号；
-     2. 指定一个linux本地用户，并设置为第2个允许访问“mysql数据库”的账户。
+    - user表中创建了1个跟 root 权限相同的用户，并且设置了无效的密码：
+        - 也就是说 user 表中的这个用户无法登录mysql；
+        - 但是终端登录与其同名的系统用户后，允许免密登录mysql。
 
     默认值：--user=<user_name> 选项的值
     ```
 
 3.  --basedir=path
 
-    > MariaDB 安装目录的路径。
+    > 指向 MariaDB 安装目录的路径。
 
 4.  --builddir=path
 
-    > 如果在--srcdir 目录外构建文件，就需要将这个选项的值设置为构建文件所在的路径。
+    > 如果在 --srcdir 目录外构建文件，就需要将这个选项的值设置为构建文件所在的路径。
 
 5.  --cross-bootstrap
 
@@ -76,7 +77,7 @@ $ ./scripts/mysql_install_db \
 
 6.  --datadir=path
 
-    > MariaDB 数据目录的路径。
+    > 指向 MariaDB 数据目录的路径。
 
 7.  --defaults-extra-file=name
 
@@ -84,7 +85,7 @@ $ ./scripts/mysql_install_db \
 
 8.  --defaults-file=name
 
-    > 只读取给定文件名中的默认选项，必须作为第一个选项。
+    > 仅从给定文件名中读取默认选项，必须作为第一个选项。
 
 9.  --defaults-group-suffix=name
 
@@ -92,7 +93,7 @@ $ ./scripts/mysql_install_db \
 
 10. --force
 
-    > mysql_install_db 即使 DNS 不起作用也会导致运行。在这种情况下，通常使用主机名的授权表条目将使用 IP 地址。
+    > 即使 DNS 不起作用也会导致运行。在这种情况下，通常使用主机名的授权表条目将使用 IP 地址。
 
 11. --help
 
