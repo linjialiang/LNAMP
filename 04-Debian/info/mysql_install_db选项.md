@@ -113,11 +113,11 @@ $ ./scripts/mysql_install_db \
 
 15. --rpm
 
-    > 供内部使用。在 MariaDB 安装过程中，RPM 文件使用此选项。
+    > 供内部使用。此选项在 MariaDB 安装过程中由 RPM 文件使用。
 
 16. --skip-name-resolve
 
-    > 创建授权表条目时使用 IP 地址而不是主机名。如果您的 DNS 不起作用，此选项非常有用。
+    > 在创建授予表条目时，使用 IP 地址而不是主机名。如果您的 DNS 不起作用，此选项非常有用。
 
 17. --skip-test-db
 
@@ -135,11 +135,12 @@ $ ./scripts/mysql_install_db \
 19. --user=user_name
 
     ```text
-    用于指定登录mysqld和运行mysqld的用户名：
-        -- mysqld由此用户拥有的文件和目录将归该用户所有。您必须root使用此选项。
+    用于运行mysqld的登录用户名。
+        -- 由mysqld创建的文件和目录将由该用户拥有；
+        -- 必须是root用户才能使用此选项。
     默认情况下：
-        - mysqld程序使用当前linux登录用户；
-        - 创建的文件和目录都将归属当前linux登录用户。
+        - mysqld使用您当前的登录名运行；
+        - 它创建的文件和目录将由当前的登录名拥有。
     ```
 
 ## 登录验证方式
