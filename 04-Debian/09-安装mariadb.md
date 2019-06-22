@@ -110,3 +110,21 @@ $ make
 # 清理编译留下的缓存
 $ make clean
 ```
+
+## 初始化 mariadb 数据
+
+> mariadb 使用 mysql_install_db 初始化 MariaDB 数据目录
+
+1. 创建默认选项文件
+
+   ```shell
+   $ mkdir /data/etc
+   $ touch /data/etc/my.cnf
+   ```
+
+2. 创建 mariadb 用户
+
+   ```shell
+   $ useradd -d /data/compile/mariadb-10.4.6 -s /bin/false -c 'This is a mariadb user' mysql
+   $ chown mysql:mysql -R /data/compile/mariadb-10.4.6
+   ```
