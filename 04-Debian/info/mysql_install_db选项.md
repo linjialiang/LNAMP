@@ -97,11 +97,19 @@ $ ./scripts/mysql_install_db \
 
 11. --help
 
+    > 显示 `mysql_install_db` 的帮助并退出
+
 12. --ldata=path
+
+> 同 `--datadir=path`
 
 13. --no-defaults
 
+    > 不要从任何选项文件中读取默认选项。
+
 14. --defaults-file=path
+
+    > 只读取此配置文件。
 
 15. --rpm
 
