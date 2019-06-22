@@ -7,7 +7,7 @@
 $ apt install software-properties-common devscripts dirmngr
 ```
 
-## 安装构建依赖项
+## 安装构建依赖项（Installing Build Dependencies）
 
 > MariaDB 需要从源代码编译许多包。幸运的是您可以使用 MariaDB 源存储库来检索所需版本的必要代码。
 
@@ -58,4 +58,18 @@ $ apt install software-properties-common devscripts dirmngr
 
 ```shell
 $ apt build-dep mariadb-10.4
+```
+
+## 构建 MariaDB（Building MariaDB）
+
+> 这里我们以当前最新版 mariadb-10.4.6 版本为例
+
+## 下载源码包
+
+> mariadb 源码下载地址 https://github.com/MariaDB/server
+
+```shell
+$ mkdir -p /data/source/mariadb
+$ cd /data/source/mariadb
+$ wget http://mirrors.neusoft.edu.cn/mariadb/mariadb-10.4.6/source/mariadb-10.4.6.tar.gz
 ```
