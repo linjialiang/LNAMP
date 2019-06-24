@@ -15,15 +15,39 @@
 指令： mysql_install_db [options]
 ```
 
-> 案例：
+> 使用 mariadb_install_db 初始化，案例：
 
 ```shell
+$ rm -rf /data/compile/mariadb-10.4.6/data
 $ ./scripts/mariadb-install-db --defaults-file=/data/etc/my.cnf \
 --user=mysql \
 --skip-test-db \
 --skip-name-resolve \
 --auth-root-authentication-method=socket \
 --auth-root-socket-user=emad
+```
+
+> 安装成功后会有如下提示（翻译成中文便于大家理解）
+
+```text
+安装MariaDB/MySQL系统表在 './data' 中
+     - OK
+
+要在开机引导时启动mysqld，必须复制 'support-files/mysql.server' 文件到系统能够正确引导的位置
+
+本次创建了两个超级帐户：
+    - 第一个是 'root@localhost'，它没有密码，但是操作系统需要使用 'root' 用户登录，才能连接
+    - 第二个是 'emad@localhost'，它也没有密码，但是操作系统需要使用 'emad' 用户登录，才能连接
+
+连接之后，您可以设置密码，如果您需要像这些用户中的任何一个一样使用密码而不需要对应的操作系统用户，请查看MariaDB知识库 http://mariadb.com/kb 以获得更多说明。
+
+您可以启动MariaDB守护进程:
+    cd /data/compile/mariadb-10.4.6
+    ./bin/mysqld_safe --datadir='./data'
+
+您可以使用 'mysql-test-run.pl' 测试MariaDB守护进程
+    cd ./mysql-test
+    perl mysql-test-run.pl
 ```
 
 ## 选项
