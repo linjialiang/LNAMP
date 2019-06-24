@@ -2,7 +2,7 @@
 
 > 这里我们以当前最新版 mariadb-10.4.6 版本为例
 
-### 下载源码包
+## 下载源码包
 
 > mariadb 源码下载地址 https://github.com/MariaDB/server
 
@@ -22,9 +22,9 @@ $ tar -xzvf mariadb-10.4.6.tar.gz
 $ mkdir -p /server/{build,compile}/mariadb-10.4.6
 ```
 
-### 开始编译安装 MariaDB
+## 开始编译安装 MariaDB
 
-> 使用 cmake 来生成 makefile 文件
+1. 使用 cmake 来生成 makefile 文件
 
 ```shell
 $ cd /server/build/mariadb-10.4.6/
@@ -37,13 +37,13 @@ $ cmake /server/source/mariadb/mariadb-10.4.6 \
 -DEXTRA_CHARSETS=all
 ```
 
-> # 查看 mariadb 选项配置情况
+2. 查看 mariadb 选项配置情况
 
 ```shell
 $ cmake /server/source/mariadb/mariadb-10.4.6 -LH
 ```
 
-> make 开始工作
+3. make 开始工作
 
 ```shell
 # 构建
@@ -53,6 +53,8 @@ $ make
 # 清理编译留下的缓存
 $ make clean
 ```
+
+> 如何解决依赖问题：缺少依赖 cmake 无法成功，并且会给出相应的提示！
 
 ## 初始化 mariadb 数据
 
