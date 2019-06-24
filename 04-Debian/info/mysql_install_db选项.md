@@ -133,9 +133,9 @@ $ ./scripts/mariadb-install-db --defaults-file=/data/etc/my.cnf \
     ```text
     用于运行mysqld的登录用户名。
         -- 由mysqld创建的文件和目录将由该用户拥有；
-        -- 必须是root用户才能使用此选项。
+        -- 必须使用root用户登录操作系统，才能使用此选项。
     默认情况下：
-        - mysqld使用您当前的登录名运行；
+        - mysqld使用您当前登录操作系统的用户名运行；
         - 它创建的文件和目录将由当前的登录名拥有。
     ```
 
