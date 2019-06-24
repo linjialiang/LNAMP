@@ -198,6 +198,9 @@ mariadb目录权限，正常设置：
    $ /lib/systemd/systemd-sysv-install enable mysql
    # 禁止开机启动
    $ /lib/systemd/systemd-sysv-install disable mysql
+   # 启动方式增加了下面两种：
+   $ server mysql {start|stop|restart|reload|status}
+   $ systemctl {start|stop|restart|reload|status} mysql
    ```
 
    > 现在就可以在开机时引导 mysqld 启动了
@@ -209,3 +212,17 @@ mariadb目录权限，正常设置：
    ```text
    这部分暂不讲解
    ```
+
+## my.cnf 选项文件
+
+> 本次案例将默认选项文件设置为 `/data/etc/my.cnf`
+
+```shell
+$ vim /data/etc/my.cnf
+```
+
+> 内容如下：
+
+```cnf
+
+```
