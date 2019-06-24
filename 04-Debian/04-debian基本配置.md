@@ -1,16 +1,3 @@
-<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
-- [debian 基本配置](#debian-基本配置)
-    - [设置静态 ip](#设置静态-ip)
-    - [修改 DNS](#修改-dns)
-    - [ssh 允许 root 连接远程](#ssh-允许-root-连接远程)
-    - [配置镜像源](#配置镜像源)
-    - [美化 bash 终端](#美化-bash-终端)
-    - [安装必备工具](#安装必备工具)
-    - [包的安装守则](#包的安装守则)
-<!-- TOC END -->
-
-
-
 # debian 基本配置
 
 > debian 刚刚安装完成，还需要进行一系列的配置，才能更好的使用
@@ -149,33 +136,43 @@ alias ll='ls $LS_OPTIONS -lF'
 alias lla='ls $LS_OPTIONS -laF'
 ```
 
+> 使用 source 更新终端界面
+
+```shell
+$ source ~/bashrc
+```
+
 ## 安装必备工具
 
 > 有些系统工具非常有用，而我们的极简安装可能都没有安装上
 
+```shell
+$ apt install lrzsz tar bzip2 gzip
+```
+
 1. lrzsz
 
-> lrzsz 是一款在 linux 里可代替 ftp 上传和下载的程序
+   > lrzsz 是一款在 linux 里可代替 ftp 上传和下载的程序
 
-```shell
-$ apt install lrzsz
-```
+   ```shell
+   $ apt install lrzsz
+   ```
 
 2. zip/unzip
 
-> zip 压缩和解压缩（有必要再安装）
+   > zip 压缩和解压缩（有必要再安装）
 
-```shell
-$ apt install zip unzip
-```
+   ```shell
+   $ apt install zip unzip
+   ```
 
 3. tar/tar.gz/tar.bz2
 
-> linux 下最常使用的压缩工具
+   > linux 下最常使用的压缩工具
 
-```shell
-$ apt install tar bzip2 gzip
-```
+   ```shell
+   $ apt install tar bzip2 gzip
+   ```
 
 ## 包的安装守则
 

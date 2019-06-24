@@ -92,8 +92,11 @@ $ mkdir -p /server/{build,compile}/mariadb-10.4.6
 $ cd /server/build/mariadb-10.4.6/
 $ cmake /server/source/mariadb/mariadb-10.4.6 \
 -DSYSCONFDIR=/etc/mysql \
--DMYSQL_DATADIR=/server/data \
--DCMAKE_INSTALL_PREFIX=/server/compile/mariadb-10.4.6
+-DCMAKE_INSTALL_PREFIX=/server/compile/mariadb-10.4.6 \
+-DMYSQL_DATADIR=/server/compile/mariadb-10.4.6/data \
+-DDEFAULT_CHARSET=utf8 \
+-DDEFAULT_COLLATION=utf8_unicode_ci \
+-DEXTRA_CHARSETS=all
 ```
 
 > # 查看 mariadb 选项配置情况
