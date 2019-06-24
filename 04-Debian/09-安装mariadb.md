@@ -4,7 +4,7 @@
 
 ```shell
 # “安装构建依赖项”前需要如下安装包及其依赖项支持
-$ apt install software-properties-common devscripts dirmngr
+$ apt install software-properties-common dirmngr
 ```
 
 ## 安装构建依赖项（Installing Build Dependencies）
@@ -57,7 +57,7 @@ $ apt install software-properties-common devscripts dirmngr
 ```
 
 ```shell
-$ apt build-dep mariadb-10.4
+$ apt build-dep mariadb-server-10.4
 ```
 
 ## 构建 MariaDB（Building MariaDB）
