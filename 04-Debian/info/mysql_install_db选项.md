@@ -41,7 +41,7 @@ $ ./scripts/mariadb-install-db --defaults-file=/data/etc/my.cnf \
 
 连接之后，您可以设置密码，如果您需要像这些用户中的任何一个一样使用密码而不需要对应的操作系统用户，请查看MariaDB知识库 http://mariadb.com/kb 以获得更多说明。
 
-您可以启动MariaDB守护进程:
+您可以启动MariaDB守护进程（事实上该方法无法启动mysqld）:
     cd /data/compile/mariadb-10.4.6
     ./bin/mysqld_safe --datadir='./data'
 
@@ -67,7 +67,7 @@ $ ./scripts/mariadb-install-db --defaults-file=/data/etc/my.cnf \
         - user表中创建了 root 用户，并且设置了无效的密码：
             - 也就是说 user 表中的 root 用户无法登录mysql；
             - 但是终端登录root系统用户后，允许免密登录mysql。
-        - user表中的root使用 `unix_socket 身份验证插件` 进行验证；
+        - user表中的root使用 `unix_socket 身份验证插件` 进行验证。
     默认值：unix_socket （自MariaDB 10.4.3起）
     ```
 
