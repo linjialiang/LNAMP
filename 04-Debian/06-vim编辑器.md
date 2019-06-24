@@ -12,8 +12,6 @@ $ apt dist-upgrade
 $ apt install vim ctags vim-scripts
 ```
 
-> 提示：debian 最小安装也自带 vim（使用 vi 指令调用的）
-
 ## 配置 vim
 
 > vim 的基础配置文件位于 `/etc/vim/vimrc`
