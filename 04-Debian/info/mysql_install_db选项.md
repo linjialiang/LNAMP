@@ -18,8 +18,8 @@
 > 使用 mariadb_install_db 初始化，案例：
 
 ```shell
-$ rm -rf /data/compile/mariadb-10.4.6/data
-$ ./scripts/mariadb-install-db --defaults-file=/data/etc/my.cnf \
+$ rm -rf /server/compile/mariadb-10.4.6/data
+$ ./scripts/mariadb-install-db \
 --user=mysql \
 --skip-test-db \
 --skip-name-resolve \
@@ -42,7 +42,7 @@ $ ./scripts/mariadb-install-db --defaults-file=/data/etc/my.cnf \
 连接之后，您可以设置密码，如果您需要像这些用户中的任何一个一样使用密码而不需要对应的操作系统用户，请查看MariaDB知识库 http://mariadb.com/kb 以获得更多说明。
 
 您可以启动MariaDB守护进程（事实上该方法无法启动mysqld）:
-    cd /data/compile/mariadb-10.4.6
+    cd /server/compile/mariadb-10.4.6
     ./bin/mysqld_safe --datadir='./data'
 
 您可以使用 'mysql-test-run.pl' 测试MariaDB守护进程

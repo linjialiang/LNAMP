@@ -69,8 +69,8 @@ $ apt build-dep mariadb-10.4
 > mariadb 源码下载地址 https://github.com/MariaDB/server
 
 ```shell
-$ mkdir -p /data/source/mariadb
-$ cd /data/source/mariadb
+$ mkdir -p /server/source/mariadb
+$ cd /server/source/mariadb
 # 源存储库-清华大学镜像
 $ wget https://mirrors.tuna.tsinghua.edu.cn/mariadb/mariadb-10.4.6/source/mariadb-10.4.6.tar.gz
 # 源存储库-大连东软信息学院
@@ -81,7 +81,7 @@ $ wget http://mirrors.neusoft.edu.cn/mariadb/mariadb-10.4.6/source/mariadb-10.4.
 
 ```shell
 $ tar -xzvf mariadb-10.4.6.tar.gz
-$ mkdir -p /data/{build,compile}/mariadb-10.4.6
+$ mkdir -p /server/{build,compile}/mariadb-10.4.6
 ```
 
 ### 开始编译安装 MariaDB
@@ -89,15 +89,17 @@ $ mkdir -p /data/{build,compile}/mariadb-10.4.6
 > 使用 cmake 来生成 makefile 文件
 
 ```shell
-$ cd /data/build/mariadb-10.4.6/
-$ cmake /data/source/mariadb/mariadb-10.4.6 \
--DCMAKE_INSTALL_PREFIX=/data/compile/mariadb-10.4.6
+$ cd /server/build/mariadb-10.4.6/
+$ cmake /server/source/mariadb/mariadb-10.4.6 \
+-DSYSCONFDIR=/etc/mysql \
+-DMYSQL_DATADIR=/server/data \
+-DCMAKE_INSTALL_PREFIX=/server/compile/mariadb-10.4.6
 ```
 
 > # 查看 mariadb 选项配置情况
 
 ```shell
-$ cmake /data/source/mariadb/mariadb-10.4.6 -LH
+$ cmake /server/source/mariadb/mariadb-10.4.6 -LH
 ```
 
 > make 开始工作
@@ -118,26 +120,26 @@ $ make clean
 1. 创建默认选项文件
 
    ```shell
-   $ mkdir /data/etc
-   $ touch /data/etc/my.cnf
+   $ mkdir /server/etc
+   $ touch /server/etc/my.cnf
    ```
 
 2. 创建 mariadb 用户
 
    ```shell
-   $ useradd -d /data/compile/mariadb-10.4.6 -s /bin/false -c 'This is a mariadb user' mysql
+   $ useradd -d /server/compile/mariadb-10.4.6 -s /bin/false -c 'This is a mariadb user' mysql
    ```
 
 3. 使用 mariadb_install_db 初始化
 
    ```shell
-   $ rm -rf /data/compile/mariadb-10.4.6/data
-   $ ./scripts/mariadb-install-db --defaults-file=/data/etc/my.cnf \
-   --user=mysql \
-   --skip-test-db \
-   --skip-name-resolve \
-   --auth-root-authentication-method=socket \
-   --auth-root-socket-user=emad
+   $ rm -rf /server/compile/mariadb-10.4.6/data
+   $ ./scripts/mariadb-install-db \
+    --user=mysql \
+    --skip-test-db \
+    --skip-name-resolve \
+    --auth-root-authentication-method=socket \
+    --auth-root-socket-user=emad
    ```
 
 ## 权限
@@ -147,7 +149,7 @@ $ make clean
 ```text
 mariadb目录权限，正常设置：
     1.  mariadb 根目录
-        - 用户：chown root:root -R /data/compile/mariadb-10.4.6
+        - 用户：chown root:root -R /server/compile/mariadb-10.4.6
         - 权限：默认不变
     2. mariadb 数据目录
         - 用户：chown mysql:root -R ./data
@@ -166,7 +168,7 @@ mariadb目录权限，正常设置：
     ```
 
     ```conf
-    export PATH=/data/compile/mariadb-10.4.6/bin:$PATH
+    export PATH=/server/compile/mariadb-10.4.6/bin:$PATH
     ```
 
 2.  激活新设置的环境变量（或者重启服务器）
@@ -218,7 +220,7 @@ mariadb目录权限，正常设置：
 > 本次案例将默认选项文件设置为 `/data/etc/my.cnf`
 
 ```shell
-$ vim /data/etc/my.cnf
+$ vim /server/etc/my.cnf
 ```
 
 > 内容如下：
