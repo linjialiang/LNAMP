@@ -11,8 +11,6 @@ $ mkdir -p /server/source/mariadb
 $ cd /server/source/mariadb
 # 源存储库-清华大学镜像
 $ wget https://mirrors.tuna.tsinghua.edu.cn/mariadb/mariadb-10.4.6/source/mariadb-10.4.6.tar.gz
-# 源存储库-大连东软信息学院
-$ wget http://mirrors.neusoft.edu.cn/mariadb/mariadb-10.4.6/source/mariadb-10.4.6.tar.gz
 ```
 
 > 解压源码包并创建编译所需目录和文件
