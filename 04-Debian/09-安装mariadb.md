@@ -27,7 +27,7 @@ $ mkdir /custom/etc/mariadb
 
 ## 开始编译 MariaDB 源代码
 
-1. 使用 cmake 来生成 makefile 文件
+1. 使用 cmake 构建 makefile 文件
 
    ```shell
    $ cd /custom/make/mariadb-10.4.6
@@ -45,15 +45,18 @@ $ mkdir /custom/etc/mariadb
    $ cmake /custom/source/mariadb-10.4.6/ -LH
    ```
 
-3. 使用 make 构建源代码
+3. 使用 make 编译源代码
 
    ```shell
-   # 构建
-   $ make -C /custom/make/mariadb-10.4.6/
    # 编译
+   $ make -C /custom/make/mariadb-10.4.6/
+   # 安装
    $ make install
    # 清理编译留下的缓存
    $ make clean
+   # 卸载软件
+   $ cd /custom/build/mariadb-10.4.6/
+   $ make uninstall
    ```
 
 > 如何解决依赖问题：缺少依赖 cmake 无法成功，并且会给出相应的提示！
