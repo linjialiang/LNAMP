@@ -21,7 +21,8 @@ $ apt install bison chrpath cmake debhelper dh-apparmor dh-systemd gdb libaio-de
 > 创建 mariadb 编译过程中，必备的路径
 
 ```shell
-$ mkdir /custom/{make,build,compile,}/
+$ mkdir /custom/{make,build,compile}/mariadb-10.4.6
+$ mkdir /custom/etc/mariadb
 ```
 
 ## 开始编译 MariaDB 源代码
@@ -29,20 +30,19 @@ $ mkdir /custom/{make,build,compile,}/
 1. 使用 cmake 来生成 makefile 文件
 
    ```shell
-   $ mkdir -p /custom/{make,building}/
-   $ cmake /server/source/mariadb/mariadb-10.4.6 \
-   -DSYSCONFDIR=/etc/mysql \
-   -DCMAKE_INSTALL_PREFIX=/server/compile/mariadb-10.4.6 \
-   -DMYSQL_DATADIR=/server/compile/mariadb-10.4.6/data \
-   -DDEFAULT_CHARSET=utf8 \
-   -DDEFAULT_COLLATION=utf8_unicode_ci \
-   -DEXTRA_CHARSETS=all
+   $ cd /custom/make/mariadb-10.4.6
+   $ cmake /custom/source/mariadb-10.4.6/ \
+     -DSYSCONFDIR=/custom/etc/mariadb/ \
+     -DCMAKE_INSTALL_PREFIX=/custom/compile/mariadb-10.4.6/ \
+     -DMYSQL_DATADIR=/custom/web/mariadb/ \
+     -DDEFAULT_CHARSET=utf8 \
+     -DEXTRA_CHARSETS=all
    ```
 
 2. 查看 mariadb 选项配置情况
 
    ```shell
-   $ cmake /server/source/mariadb/mariadb-10.4.6 -LH
+   $ cmake /custom/source/mariadb-10.4.6/ -LH
    ```
 
 3. make 开始工作
@@ -51,7 +51,7 @@ $ mkdir /custom/{make,build,compile,}/
    # 构建
    $ make
    # 编译
-    make install
+   $ make install
    # 清理编译留下的缓存
    $ make clean
    ```
