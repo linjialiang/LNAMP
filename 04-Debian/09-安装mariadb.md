@@ -45,11 +45,11 @@ $ mkdir /custom/etc/mariadb
    $ cmake /custom/source/mariadb-10.4.6/ -LH
    ```
 
-3. make 开始工作
+3. 使用 make 构建源代码
 
    ```shell
    # 构建
-   $ make
+   $ make -C /custom/make/mariadb-10.4.6/
    # 编译
    $ make install
    # 清理编译留下的缓存
