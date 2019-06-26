@@ -13,6 +13,16 @@ $ cd /server/source/mariadb
 $ wget https://mirrors.tuna.tsinghua.edu.cn/mariadb/mariadb-10.4.6/source/mariadb-10.4.6.tar.gz
 ```
 
+
+## 如何确认依赖项
+
+> 编译安装源码包我们就需要确认依赖项目：
+
+```shell
+$ apt install devscripts software-properties-common dirmngr
+$ mk-build-deps
+```
+
 > 解压源码包并创建编译所需目录和文件
 
 ```shell
