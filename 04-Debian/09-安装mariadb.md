@@ -10,66 +10,51 @@
 
 ## 如何确认依赖项
 
-> 使用 `./debian/autobake-deb.sh` 这个脚本 ，可以确认依赖项
+> 通过 `./debian/control` 这个文件，可以确认 MariaDB 所需依赖项如下：
 
 ```shell
-$ cd /custom/source/mariadb-10.4.6
-$ ./debian/autobake-deb.sh
+$ apt install bison chrpath cmake debhelper dh-apparmor dh-systemd gdb libaio-dev libboost-dev libcrack2-dev libcurl3-dev libjemalloc-dev libjudy-dev libkrb5-dev libncurses5-dev libnuma-dev libpam0g-dev libpcre3-dev libreadline-gplv2-dev libsnappy-dev libssl-dev libsystemd-dev libxml2-dev libzstd-dev lsb-release perl po-debconf psmisc unixodbc-dev uuid-dev zlib1g-dev
 ```
 
-> 如果缺少依赖会有如下提示：
+## 创建必备路径
 
-```text
-Incrementing changelog and starting build scripts
-Creating package version 1:10.4.6+maria~stretch ...
-dpkg-buildpackage: info: source package mariadb-10.4
-dpkg-buildpackage: info: source version 1:10.4.6+maria~stretch
-dpkg-buildpackage: info: source distribution stretch
-dpkg-buildpackage: info: source changed by root <root@debian9>
-dpkg-buildpackage: info: host architecture amd64
- dpkg-source -I --before-build mariadb-10.4.6
-dpkg-checkbuilddeps: error: Unmet build dependencies: bison chrpath cmake (>= 2.7) dh-apparmor dh-systemd gdb libaio-dev libboost-dev libcrack2-dev (>= 2.9.0) libcurl3-dev libjemalloc-dev (>= 3.0.0~) libjudy-dev libkrb5-dev libncurses5-dev (>= 5.0-6~) libnuma-dev libpam0g-dev libpcre3-dev (>= 2:8.35-3.2~) libreadline-gplv2-dev libsnappy-dev libssl-dev | libssl1.0-dev libsystemd-dev libxml2-dev libzstd-dev unixodbc-dev uuid-dev zlib1g-dev (>= 1:1.1.3-5~)
-dpkg-buildpackage: warning: build dependencies/conflicts unsatisfied; aborting
-dpkg-buildpackage: warning: (Use -d flag to override.)
-```
-
-> 整理后，我们需要安装依赖包如下：
+> 创建 mariadb 编译过程中，必备的路径
 
 ```shell
-$ apt install bison chrpath cmake dh-apparmor dh-systemd gdb libaio-dev libboost-dev libcrack2-dev libcurl3-dev libjemalloc-dev libjudy-dev libkrb5-dev libncurses5-dev libnuma-dev libpam0g-dev libpcre3-dev libreadline-gplv2-dev libsnappy-dev libssl-dev libsystemd-dev libxml2-dev libzstd-dev unixodbc-dev uuid-dev zlib1g-dev
+$ mkdir /custom/{make,build,compile,}/
 ```
 
-## 开始编译安装 MariaDB
+## 开始编译 MariaDB 源代码
 
 1. 使用 cmake 来生成 makefile 文件
 
-```shell
-$ cd /server/build/mariadb-10.4.6/
-$ cmake /server/source/mariadb/mariadb-10.4.6 \
--DSYSCONFDIR=/etc/mysql \
--DCMAKE_INSTALL_PREFIX=/server/compile/mariadb-10.4.6 \
--DMYSQL_DATADIR=/server/compile/mariadb-10.4.6/data \
--DDEFAULT_CHARSET=utf8 \
--DDEFAULT_COLLATION=utf8_unicode_ci \
--DEXTRA_CHARSETS=all
-```
+   ```shell
+   $ mkdir -p /custom/{make,building}/
+   $ cmake /server/source/mariadb/mariadb-10.4.6 \
+   -DSYSCONFDIR=/etc/mysql \
+   -DCMAKE_INSTALL_PREFIX=/server/compile/mariadb-10.4.6 \
+   -DMYSQL_DATADIR=/server/compile/mariadb-10.4.6/data \
+   -DDEFAULT_CHARSET=utf8 \
+   -DDEFAULT_COLLATION=utf8_unicode_ci \
+   -DEXTRA_CHARSETS=all
+   ```
 
 2. 查看 mariadb 选项配置情况
 
-```shell
-$ cmake /server/source/mariadb/mariadb-10.4.6 -LH
-```
+   ```shell
+   $ cmake /server/source/mariadb/mariadb-10.4.6 -LH
+   ```
 
 3. make 开始工作
 
-```shell
-# 构建
-$ make
-# 编译
- make install
-# 清理编译留下的缓存
-$ make clean
-```
+   ```shell
+   # 构建
+   $ make
+   # 编译
+    make install
+   # 清理编译留下的缓存
+   $ make clean
+   ```
 
 > 如何解决依赖问题：缺少依赖 cmake 无法成功，并且会给出相应的提示！
 
