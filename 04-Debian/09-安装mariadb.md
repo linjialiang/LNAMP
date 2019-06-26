@@ -2,32 +2,41 @@
 
 > 这里我们以当前最新版 mariadb-10.4.6 版本为例
 
-## 下载源码包
+## 在 Debian 上构建 MariaDB
 
-> mariadb 源码下载地址 https://github.com/MariaDB/server
-
-```shell
-$ mkdir -p /server/source/mariadb
-$ cd /server/source/mariadb
-# 源存储库-清华大学镜像
-$ wget https://mirrors.tuna.tsinghua.edu.cn/mariadb/mariadb-10.4.6/source/mariadb-10.4.6.tar.gz
-```
-
+> MariaDB 官方为 Debian 设计了一种更加合理的编译方式，[点击查看最新手册](https://mariadb.com/kb/en/library/building-mariadb-on-debian/)
+>
+> - 不过我们这里使用的是最基本的编译方式，大家也可以参考 MariaDB 官网手册进行安装！
 
 ## 如何确认依赖项
 
-> 编译安装源码包我们就需要确认依赖项目：
+> 使用 `./debian/autobake-deb.sh` 这个脚本 ，可以确认依赖项
 
 ```shell
-$ apt install devscripts software-properties-common dirmngr
-$ mk-build-deps
+$ cd /custom/source/mariadb-10.4.6
+$ ./debian/autobake-deb.sh
 ```
 
-> 解压源码包并创建编译所需目录和文件
+> 如果缺少依赖会有如下提示：
+
+```text
+Incrementing changelog and starting build scripts
+Creating package version 1:10.4.6+maria~stretch ...
+dpkg-buildpackage: info: source package mariadb-10.4
+dpkg-buildpackage: info: source version 1:10.4.6+maria~stretch
+dpkg-buildpackage: info: source distribution stretch
+dpkg-buildpackage: info: source changed by root <root@debian9>
+dpkg-buildpackage: info: host architecture amd64
+ dpkg-source -I --before-build mariadb-10.4.6
+dpkg-checkbuilddeps: error: Unmet build dependencies: bison chrpath cmake (>= 2.7) dh-apparmor dh-systemd gdb libaio-dev libboost-dev libcrack2-dev (>= 2.9.0) libcurl3-dev libjemalloc-dev (>= 3.0.0~) libjudy-dev libkrb5-dev libncurses5-dev (>= 5.0-6~) libnuma-dev libpam0g-dev libpcre3-dev (>= 2:8.35-3.2~) libreadline-gplv2-dev libsnappy-dev libssl-dev | libssl1.0-dev libsystemd-dev libxml2-dev libzstd-dev unixodbc-dev uuid-dev zlib1g-dev (>= 1:1.1.3-5~)
+dpkg-buildpackage: warning: build dependencies/conflicts unsatisfied; aborting
+dpkg-buildpackage: warning: (Use -d flag to override.)
+```
+
+> 整理后，我们需要安装依赖包如下：
 
 ```shell
-$ tar -xzvf mariadb-10.4.6.tar.gz
-$ mkdir -p /server/{build,compile}/mariadb-10.4.6
+$ apt install bison chrpath cmake dh-apparmor dh-systemd gdb libaio-dev libboost-dev libcrack2-dev libcurl3-dev libjemalloc-dev libjudy-dev libkrb5-dev libncurses5-dev libnuma-dev libpam0g-dev libpcre3-dev libreadline-gplv2-dev libsnappy-dev libssl-dev libsystemd-dev libxml2-dev libzstd-dev unixodbc-dev uuid-dev zlib1g-dev
 ```
 
 ## 开始编译安装 MariaDB
