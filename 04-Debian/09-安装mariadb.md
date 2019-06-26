@@ -21,7 +21,7 @@ $ apt install bison chrpath cmake debhelper dh-apparmor dh-systemd gdb libaio-de
 > 创建 mariadb 编译过程中，必备的路径
 
 ```shell
-$ mkdir /custom/{make,build,compile}/mariadb-10.4.6
+$ mkdir /custom/{build,compile}/mariadb-10.4.6
 $ mkdir /custom/etc/mariadb
 ```
 
@@ -30,7 +30,7 @@ $ mkdir /custom/etc/mariadb
 1. 使用 cmake 构建 makefile 文件
 
    ```shell
-   $ cd /custom/make/mariadb-10.4.6
+   $ cd /custom/build/mariadb-10.4.6
    $ cmake /custom/source/mariadb-10.4.6/ \
      -DSYSCONFDIR=/custom/etc/mariadb/ \
      -DCMAKE_INSTALL_PREFIX=/custom/compile/mariadb-10.4.6/ \
@@ -47,16 +47,30 @@ $ mkdir /custom/etc/mariadb
 
 3. 使用 make 编译源代码
 
+   > 正常情况下：
+
    ```shell
    # 编译
-   $ make -C /custom/make/mariadb-10.4.6/
+   $ make
    # 安装
    $ make install
    # 清理编译留下的缓存
    $ make clean
    # 卸载软件
-   $ cd /custom/build/mariadb-10.4.6/
-   $ make uninstall
+   $ rm -rf /custom/compile/mariadb-10.4.6/
+   ```
+
+   > 如果 cmake 产生的文件不在当前路径，则需要指定路径：
+
+   ```shell
+   # 编译
+   $ make -C /custom/build/mariadb-10.4.6/
+   # 安装
+   $ make -C /custom/build/mariadb-10.4.6/ install
+   # 清理编译留下的缓存
+   $ make -C /custom/build/mariadb-10.4.6/ clean
+   # 卸载软件
+   $ rm -rf /custom/compile/mariadb-10.4.6/
    ```
 
 > 如何解决依赖问题：缺少依赖 cmake 无法成功，并且会给出相应的提示！
