@@ -32,20 +32,11 @@ $ mkdir /custom/etc/mariadb
    ```shell
    $ cd /custom/build/mariadb-10.4.6
    $ cmake /custom/source/mariadb-10.4.6/ \
-     -DSYSCONFDIR=/custom/etc/mariadb/ \
-     -DCMAKE_INSTALL_PREFIX=/custom/compile/mariadb-10.4.6/ \
-     -DMYSQL_DATADIR=/custom/web/mariadb/ \
-     -DDEFAULT_CHARSET=utf8 \
-
-     -DEXTRA_CHARSETS=all
-
-
-     $ cmake /custom/source/mariadb-10.4.6/ \
-     -DCMAKE_INSTALL_PREFIX=/custom/compile/mariadb-10.4.6/ \
-     -DMYSQL_DATADIR=/custom/web/mariadb/
-     -DINSTALL_MYSQLDATADIR=data \
-     -DINSTALL_SYSCONFDIR=/custom/etc/mariadb/ \
-     -DINSTALL_SYSCONF2DIR=/custom/etc/mariadb/my.cnf.d/ \
+   -DCMAKE_INSTALL_PREFIX=/custom/compile/mariadb-10.4.6/ \
+   -DMYSQL_DATADIR=/custom/web/mariadb/ \
+   -DINSTALL_MYSQLDATADIR=/custom/data/ \
+   -DINSTALL_SYSCONFDIR=/custom/etc/mariadb/ \
+   -DINSTALL_SYSCONF2DIR=/custom/etc/mariadb/my.cnf.d/
    ```
 
 2. 查看 mariadb 选项配置情况
