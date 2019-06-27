@@ -42,7 +42,9 @@ $ mkdir /custom/etc/mariadb
 2. 查看 mariadb 选项配置情况
 
    ```shell
-   $ cmake /custom/source/mariadb-10.4.6/ -LH
+   $ cmake /custom/build/mariadb-10.4.6/ -LH
+   # 或者直接查看 CMakeCache.txt 文件，这是最详细的
+   $ vim /custom/build/mariadb-10.4.6/CMakeCache.txt
    ```
 
 3. 使用 make 编译源代码
