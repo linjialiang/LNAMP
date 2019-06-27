@@ -42,8 +42,8 @@ $ mkdir /custom/etc/mariadb
 
      $ cmake /custom/source/mariadb-10.4.6/ \
      -DCMAKE_INSTALL_PREFIX=/custom/compile/mariadb-10.4.6/ \
-     -DINSTALL_MYSQLDATADIR=data \
      -DMYSQL_DATADIR=/custom/web/mariadb/
+     -DINSTALL_MYSQLDATADIR=data \
      -DINSTALL_SYSCONFDIR=/custom/etc/mariadb/ \
      -DINSTALL_SYSCONF2DIR=/custom/etc/mariadb/my.cnf.d/ \
    ```
