@@ -27,19 +27,26 @@ $ mkdir /custom/etc/mariadb
 
 ## 开始编译 MariaDB 源代码
 
-1. 使用 cmake 构建 makefile 文件
+1. 查看源代码配置选项
+
+   > 使用 `cmake . -LH` 可以查看当前版本的源代码配置选项
+
+   ```shell
+   $ cd /custom/source/mariadb-10.4.6
+   $ cmake . -LH
+   ```
+
+2. 使用 cmake 构建 makefile 文件
+
+   > 想要自己指定的选项，一定要通过 `cmake -D` 来指定，这些都会写入最终编译成功的文件中
 
    ```shell
    $ cd /custom/build/mariadb-10.4.6
    $ cmake /custom/source/mariadb-10.4.6/ \
-   -DCMAKE_INSTALL_PREFIX=/custom/compile/mariadb-10.4.6/ \
-   -DMYSQL_DATADIR=/custom/web/mariadb/ \
-   -DINSTALL_MYSQLDATADIR=/custom/data/ \
-   -DINSTALL_SYSCONFDIR=/custom/etc/mariadb/ \
-   -DINSTALL_SYSCONF2DIR=/custom/etc/mariadb/my.cnf.d/
+
    ```
 
-2. 查看 mariadb 选项配置情况
+2) 查看 mariadb 选项配置情况
 
    ```shell
    $ cmake /custom/build/mariadb-10.4.6/ -LH
@@ -47,7 +54,7 @@ $ mkdir /custom/etc/mariadb
    $ vim /custom/build/mariadb-10.4.6/CMakeCache.txt
    ```
 
-3. 使用 make 编译源代码
+3) 使用 make 编译源代码
 
    > 正常情况下：
 
