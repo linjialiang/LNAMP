@@ -21,11 +21,50 @@
     - MariaDB工具库
 ```
 
-> 可以直接使用以下指令来执行：
+1. 安装 dirmngr 证书管理工具及其依赖
 
-```shell
-$ mkdir /home/emad/downloads
-$ cd /home/emad/downloads
-$ wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-$ 
-```
+   ```text
+   dirmngr是一个服务器，用于管理和下载OpenPGP和X.509证书，以及与这些证书相关的更新和状态信号。
+       - 对于OpenPGP，这意味着从公共HKP/HKPS密钥服务器或LDAP服务器中提取。
+       - 对于X.509，这包括证书撤销列表(CRLs)和在线证书状态协议更新(OCSP)。
+       - 它能够使用tor进行网络访问。
+   ```
+
+   ```shell
+   $ apt install dirmngr
+   ```
+
+2. mariadb_repo_setup 工具选项
+
+   > 要为脚本提供选项，您必须通过 `bash -s --` 来使用选项，如下所示：
+
+   ```shell
+   $ curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | bash -s -- --help
+   ```
+
+   | option                               | 说明                                                                                                    |
+   | ------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+   | --help                               | 显示用法消息并退出                                                                                      |
+   | --mariadb-server-version=<version>   | 覆盖默认的 MariaDB Server 版本。默认情况下，脚本将使用'mariadb-10.4'。                                  |
+   | --mariadb-maxscale-version=<version> | 覆盖默认的 MariaDB MaxScale 版本。默认情况下，脚本将使用“2.3”。                                         |
+   | --os-type=<type>                     | 覆盖 OS 类型的检测。可接受的值包括 debian，ubuntu，rhel，和 sles。                                      |
+   | --os-version=<type>                  | 覆盖 OS 版本的检测。可接受的值取决于您指定的操作系统类型。                                              |
+   | --skip-key-import                    | 跳过导入 GPG 签名密钥。                                                                                 |
+   | --skip-server                        | 跳过'MariaDB Server'存储库。                                                                            |
+   | --skip-maxscale                      | 跳过'MaxScale'存储库。                                                                                  |
+   | --skip-tools                         | 跳过“工具”存储库。                                                                                      |
+   | --write-to-stdout                    | 将输出写入 stdout 而不是 OS 的存储库配置文件。这也将跳过导入 GPG 公钥并在存在该行为的平台上更新包缓存。 |
+
+3. 使用以下指令来增加：
+
+   ```shell
+   $ mkdir /home/emad/downloads
+   $ cd /home/emad/downloads
+   $ curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup |
+   bash -s -- \
+   --mariadb-server-version="mariadb-10.4" \
+   --skip-maxscale \
+   --skip-tools
+   $ apt update
+   $ apt dist-upgrade
+   ```
