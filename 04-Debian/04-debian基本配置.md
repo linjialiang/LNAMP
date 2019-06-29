@@ -165,17 +165,9 @@ $ apt install lrzsz tar bzip2 gzip curl
 
    > lrzsz 是一款在 linux 里可代替 ftp 上传和下载的程序
 
-   ```shell
-   $ apt install lrzsz
-   ```
-
 2. tar/tar.gz/tar.bz2
 
    > linux 下最常使用的压缩工具
-
-   ```shell
-   $ apt install tar bzip2 gzip
-   ```
 
 3. curl
 
