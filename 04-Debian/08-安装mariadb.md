@@ -68,3 +68,19 @@
    $ apt update
    $ apt dist-upgrade
    ```
+
+## 安装 maraidb 服务
+
+> 接下来我们安装 mariadb-server-10.4 及其依赖
+
+```shell
+$ apt install mariadb-server-10.4
+```
+
+> 注意:如果太慢，可以选择换源：
+
+```text
+官方换源地址：
+    - https://downloads.mariadb.org/mariadb/repositories/
+    - 也可以直接按这里的说明来安装 mariadb
+```
