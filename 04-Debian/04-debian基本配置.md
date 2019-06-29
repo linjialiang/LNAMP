@@ -158,7 +158,7 @@ $ source ~/bashrc
 > 有些系统工具非常有用，而我们的极简安装可能都没有安装上
 
 ```shell
-$ apt install lrzsz tar bzip2 gzip
+$ apt install lrzsz tar bzip2 gzip curl
 ```
 
 1. lrzsz
@@ -169,20 +169,21 @@ $ apt install lrzsz tar bzip2 gzip
    $ apt install lrzsz
    ```
 
-2. zip/unzip
-
-   > zip 压缩和解压缩（有必要再安装）
-
-   ```shell
-   $ apt install zip unzip
-   ```
-
-3. tar/tar.gz/tar.bz2
+2. tar/tar.gz/tar.bz2
 
    > linux 下最常使用的压缩工具
 
    ```shell
    $ apt install tar bzip2 gzip
+   ```
+
+3. curl
+
+   > curl 是一种命令行工具，作用是发出网络请求，然后得到和提取数据，显示在"标准输出"（stdout）上面。
+
+   ```text
+   具体知识点请查看阮一峰的博客：
+        - http://www.ruanyifeng.com/blog/2011/09/curl.html
    ```
 
 ## 包的安装守则
