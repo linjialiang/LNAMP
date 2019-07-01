@@ -29,7 +29,7 @@ autotools 工具编译的包：
 1. 创建目录
 
    ```shell
-   $ mkdir /server/{build,compile}/php-7.3.6
+   $ mkdir /server/php/build
    ```
 
 2. 安装编译依赖
@@ -44,8 +44,8 @@ autotools 工具编译的包：
 3. 开始编译
 
    ```shell
-   $ cd /server/build/php-7.3.6
-   $ /server/php/php-7.3.6/configure --prefix=/server/compile/php-7.3.6
+   $ cd /server/php/build
+   $ /server/php/php-7.3.6/configure
    $ make
    $ make install
    ```
