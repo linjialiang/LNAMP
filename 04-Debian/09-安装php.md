@@ -32,9 +32,19 @@ autotools 工具编译的包：
    $ mkdir /server/{build,compile}/php-7.3.6
    ```
 
-2. 开始编译
+2. 安装编译依赖
+
+   > 解决依赖项最方便的方法就是缺啥补啥，怎么多执行几次 `./configure` 就是了
+
+   ```shell
+   apt install libxml2-dev
+   ```
+
+3. 开始编译
 
    ```shell
    $ cd /server/build/php-7.3.6
    $ /server/php/php-7.3.6/configure --prefix=/server/compile/php-7.3.6
+   $ make
+   $ make install
    ```
