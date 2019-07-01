@@ -58,8 +58,6 @@
 3. 使用以下指令来增加：
 
    ```shell
-   $ mkdir /home/emad/downloads
-   $ cd /home/emad/downloads
    $ curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup |
    bash -s -- \
    --mariadb-server-version="mariadb-10.4" \
@@ -112,8 +110,8 @@ $ systemctl stop {mysql|mysqld}
    $ mkdir -p /server/mysql
    $ cd /var/lib
    $ tar -jcvf mysql_data.tar.bz2 mysql/
-   $ mv /var/lib/mysql_data.tar.bz2 /server/mysql/
-   $ mv /var/lib/mysql /server/mysql/data
+   $ cp -p -r /var/lib/mysql /server/mysql/data
+   $ mv /var/lib/mysql{,.bak}
    ```
 
 2. 修改 my.cnf 文件
