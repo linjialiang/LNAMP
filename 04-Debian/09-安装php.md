@@ -10,4 +10,5 @@
 $ mkdir /server/php
 $ cd /server/php
 $ wget https://www.php.net/distributions/php-7.3.6.tar.bz2
+$ tar -jxvf php-7.3.6.tar.bz2
 ```
