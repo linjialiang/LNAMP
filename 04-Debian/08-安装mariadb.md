@@ -84,3 +84,15 @@ $ apt install mariadb-server-10.4
     - https://downloads.mariadb.org/mariadb/repositories/
     - 也可以直接按这里的说明来安装 mariadb
 ```
+
+## 提高 MariaDB 安装的安全性
+
+> 使用 `mysql_secure_installation` 脚本用于提升 MariaDB 安装的安全性
+
+```text
+过以下方式提高MariaDB安装的安全性：
+    - 您可以为root帐户设置密码；
+    - 您可以删除可从本地主机外部访问的root帐户；
+    - 您可以删除匿名用户帐户；
+    - 您可以删除测试数据库，默认情况下，匿名用户可以访问该数据库。
+```
