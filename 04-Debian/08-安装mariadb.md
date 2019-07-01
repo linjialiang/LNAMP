@@ -85,38 +85,62 @@ $ apt install mariadb-server-10.4
     - 也可以直接按这里的说明来安装 mariadb
 ```
 
-## 初始化数据库
+## 启动方式
 
-> 初始化 MariaDB 数据目录并在数据库中创建系统表 mysql
+> 这种方式安装的 mariadb，支持 systemctl 和 service 两种方式启动 mysqld
 
-1. 移除原有数据
+```text
+- systemctl 启动
+    systemctl {start|stop|restart|status} {mysql|mysqld}
+
+- service 启动
+    service {mysql|mysqld} {start|stop|restart|status}
+```
+
+## 更改数据目录位置
+
+> 为了便于维护，我们可能需要更改数据目录的所在路径
+
+```shell
+# 操作前先停止mysqld服务
+$ systemctl stop {mysql|mysqld}
+```
+
+1. 移动 mariadb 数据
 
    ```shell
-   $ rm -rf /var/lib/mysql
+   $ mkdir -p /server/mysql
+   $ cd /var/lib
+   $ tar -jcvf mysql_data.tar.bz2 mysql/
+   $ mv /var/lib/mysql_data.tar.bz2 /server/mysql/
+   $ mv /var/lib/mysql /server/mysql/data
+   ```
+
+2. 修改 my.cnf 文件
+
+   > 修改 my.cnf 文件中 datadir 的选项值
+
+   ```shell
    $ cp /etc/mysql/my.cnf{,.bak}
    $ vim /etc/mysql/my.cnf
    ```
 
-2. 修改 my.cnf 文件中 datadir 的选项值
-
    ```ini
    ...
    # datadir = /var/lib/mysql
-   datadir = /server/mysql
+   datadir = /server/mysql/data
    ...
    ```
 
-3. 使用 mysql_install_db 初始化数据
+3. 启动 mysqld 服务
 
    ```shell
-   $ mysql_install_db --user=data \
-   --datadir=/server/mysql \
-   --auth-root-authentication-method=socket
+   $ service {mysql|mysqld} start
    ```
 
-### 提高 MariaDB 安装的安全性
+## 提高 MariaDB 安装的安全性
 
-> 初始化数据后，建议执行 `mysql_secure_installation` 脚本，来提升 MariaDB 安装的安全性
+> apt 源一般都会自动处理，已经处理过的就请略过！
 
 ```text
 过以下方式提高MariaDB安装的安全性：
