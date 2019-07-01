@@ -37,7 +37,8 @@ autotools 工具编译的包：
    > 解决依赖项最方便的方法就是缺啥补啥，怎么多执行几次 `./configure` 就是了
 
    ```shell
-   apt install libxml2-dev
+   # 我这里只缺少 libxml2-dev
+   $ apt install libxml2-dev
    ```
 
 3. 开始编译
