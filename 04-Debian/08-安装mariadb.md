@@ -94,6 +94,7 @@ $ apt install mariadb-server-10.4
    ```shell
    $ rm -rf /var/lib/mysql
    $ cp /etc/mysql/my.cnf{,.bak}
+   $ vim /etc/mysql/my.cnf
    ```
 
 2. 修改 my.cnf 文件中 datadir 的选项值
@@ -108,7 +109,7 @@ $ apt install mariadb-server-10.4
 3. 使用 mysql_install_db 初始化数据
 
    ```shell
-   $ mysql_install_db --user=mysql \
+   $ mysql_install_db --user=data \
    --datadir=/server/mysql \
    --auth-root-authentication-method=socket
    ```
