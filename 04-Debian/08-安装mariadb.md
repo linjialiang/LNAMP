@@ -85,9 +85,37 @@ $ apt install mariadb-server-10.4
     - 也可以直接按这里的说明来安装 mariadb
 ```
 
-## 提高 MariaDB 安装的安全性
+## 初始化数据库
 
-> 使用 `mysql_secure_installation` 脚本用于提升 MariaDB 安装的安全性
+> 初始化 MariaDB 数据目录并在数据库中创建系统表 mysql
+
+1. 移除原有数据
+
+   ```shell
+   $ rm -rf /var/lib/mysql
+   $ cp /etc/mysql/my.cnf{,.bak}
+   ```
+
+2. 修改 my.cnf 文件中 datadir 的选项值
+
+   ```ini
+   ...
+   # datadir = /var/lib/mysql
+   datadir = /server/mysql
+   ...
+   ```
+
+3. 使用 mysql_install_db 初始化数据
+
+   ```shell
+   $ mysql_install_db --user=mysql \
+   --datadir=/server/mysql \
+   --auth-root-authentication-method=socket
+   ```
+
+### 提高 MariaDB 安装的安全性
+
+> 初始化数据后，建议执行 `mysql_secure_installation` 脚本，来提升 MariaDB 安装的安全性
 
 ```text
 过以下方式提高MariaDB安装的安全性：
@@ -99,5 +127,3 @@ $ apt install mariadb-server-10.4
 ```
 
 > 该脚本运行中，除了密码选择 `NO` 以外，其余都是直接回车！
-
-## 更改
