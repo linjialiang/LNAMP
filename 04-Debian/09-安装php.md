@@ -62,6 +62,13 @@ autotools 工具编译的包：
    ```shell
    $ php -r "phpinfo();" | grep 'php.ini'
    Configuration File (php.ini) Path => /usr/local/lib
+
+   # 或者使用 php --ini
+   $ php --ini
+   Configuration File (php.ini) Path: /usr/local/lib
+   Loaded Configuration File:         (none)
+   Scan for additional .ini files in: (none)
+   Additional .ini files parsed:      (none)
    ```
 
    > 这说明，php.ini 文件需要放在 /usr/local/lib 路径下，php 程序才能正常读取
@@ -90,9 +97,24 @@ autotools 工具编译的包：
    $ php -r "phpinfo();" | grep 'php.ini'
    Configuration File (php.ini) Path => /usr/local/lib
    Loaded Configuration File => /usr/local/lib/php.ini
+   # 或者使用 php --ini
+   php --ini
+   Configuration File (php.ini) Path: /usr/local/lib
+   Loaded Configuration File:         /usr/local/lib/php.ini
+   Scan for additional .ini files in: (none)
+   Additional .ini files parsed:      (none)
    ```
 
-   > 提示：当出现 `Loaded Configuration File` 是表示加载配置文件成功！
+   > 提示：当 `Loaded Configuration File` 出现并指定了文件全路径时，表示加载配置文件成功！
+
+3. php.ini 创建软连接
+
+   > 在 `/etc` 下创建 php 配置文件的软连接
+
+   ```shell
+   $ mkdir /etc/php
+   $ ln -s /usr/local/lib/php.ini /etc/php/php.ini
+   ```
 
 ## 安装 php 扩展
 
@@ -133,3 +155,82 @@ autotools 工具编译的包：
 
    [Zend Modules]
    ```
+
+   > 这些扩展都是默认已经安装，并且始终开启，不受 php.ini 控制
+
+2. 查看扩展所在位置
+
+   > 使用 `php-config --extension-dir` 可以查看扩展安装所在路径
+
+   ```shell
+   $ php-config --extension-dir
+   /usr/local/lib/php/extensions/no-debug-non-zts-20180731
+   ```
+
+   > `/usr/local/lib/php/extensions/no-debug-non-zts-20180731` 这个就是扩展路径
+
+3. phpize 命令
+
+   > phpize 命令是用来准备 PHP 扩展库的编译环境的
+
+   | 指令             | 描述         |
+   | ---------------- | ------------ |
+   | phpize           | 生成编译环境 |
+   | phpize --help    | 帮助说明     |
+   | phpize --clean   | 清除编译环境 |
+   | phpize --version | 显示版本     |
+   | phpize -v        | 显示版本     |
+
+### 安装 xdebug 扩展
+
+> 下载地址 http://pecl.php.net/get/xdebug-2.7.2.tgz
+
+```shell
+$ mkdir -p /server/php/pkg/xdebug
+$ cd /server/php/pkg/xdebug
+$ wget http://pecl.php.net/get/xdebug-2.7.2.tgz
+$ tar -zxvf xdebug-2.7.2.tgz
+```
+
+1. 开始编译
+
+   ```shell
+   $ cd /server/php/pkg/xdebug/xdebug-2.7.2
+   $ phpize
+   $ mkdir /server/php/pkg/xdebug/build
+   $ cd /server/php/pkg/xdebug/build
+   $ /server/php/pkg/xdebug/xdebug-2.7.2/configure
+   $ make
+   $ make install
+   ```
+
+   > 编译成功后一般会直接将 `.os` 文件拷贝到扩展路径里，否则请自行拷贝到扩展路径里
+
+2. 接下来修改 php.ini
+
+   > 将 xdebug 属于 zend_extension 扩展，写法必须如下：
+
+   ```ini
+   ...
+   [Xdebug]
+   zend_extension=xdebug
+   xdebug.profiler_append = 0
+   xdebug.profiler_enable = 1
+   xdebug.profiler_enable_trigger = 0
+   xdebug.profiler_output_dir ="/server/logs/xdebug"
+   xdebug.trace_output_dir ="/server/logs/xdebug"
+   xdebug.profiler_output_name = "cache.out.%t-%s"
+   xdebug.remote_enable = 1
+   xdebug.remote_autostart = 1
+   xdebug.remote_handler = "dbgp"
+   xdebug.remote_host = "127.0.0.1"
+   xdebug.idekey= debian9
+   ```
+
+   > 创建 xdebug 日志目录
+
+   ```shell
+   $ mkdir -p /server/logs/xdebug
+   ```
+
+### 安装 pdo_mysql 扩展
