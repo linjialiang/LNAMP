@@ -47,5 +47,49 @@ autotools 工具编译的包：
    $ cd /server/php/build
    $ /server/php/php-7.3.6/configure
    $ make
+   $ make test
    $ make install
    ```
+
+## 处理 php.ini 文件
+
+> 在我们编译安装 PHP 的时候，编译安装完成是不会自动生成 php.ini 文件的，所以需要我们手动生成。
+
+1. 通过命令行确定 `php.ini` 文件的位置
+
+   > 保证 php 可执行文件已经加入环境变量，本次编译默认已加入
+
+   ```shell
+   $ php -r "phpinfo();" | grep 'php.ini'
+   Configuration File (php.ini) Path => /usr/local/lib
+   ```
+
+   > 这说明，php.ini 文件需要放在 /usr/local/lib 路径下，php 程序才能正常读取
+
+2. 拷贝 `php.ini` 示例文件
+
+   > 在源码根目录下一般都有 php.ini 示例文件：
+
+   ```text
+   开发环境示例： php.ini-development
+   部署环境示例： php.ini-production
+   ```
+
+   > 具体操作如下：
+
+   ```shell
+   $ cd /server/php/php-7.3.6
+   $ cp -p -r php.ini-* /usr/local/lib
+   $ cd /usr/local/lib
+   $ cp -p -r php.ini-development php.ini
+   ```
+
+   > 检测是否成功：
+
+   ```shell
+   $ php -r "phpinfo();" | grep 'php.ini'
+   Configuration File (php.ini) Path => /usr/local/lib
+   Loaded Configuration File => /usr/local/lib/php.ini
+   ```
+
+   > 提示：当出现 `Loaded Configuration File` 是表示加载配置文件成功！
