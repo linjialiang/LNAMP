@@ -93,3 +93,43 @@ autotools 工具编译的包：
    ```
 
    > 提示：当出现 `Loaded Configuration File` 是表示加载配置文件成功！
+
+## 安装 php 扩展
+
+> php 扩展官方网址 http://pecl.php.net/
+
+1. 查看已安装的扩展
+
+   > 使用 `php -m` 查看已安装的扩展
+
+   ```shell
+   $ php -m
+   [PHP Modules]
+   Core
+   ctype
+   date
+   dom
+   fileinfo
+   filter
+   hash
+   iconv
+   json
+   libxml
+   pcre
+   PDO
+   pdo_sqlite
+   Phar
+   posix
+   Reflection
+   session
+   SimpleXML
+   SPL
+   sqlite3
+   standard
+   tokenizer
+   xml
+   xmlreader
+   xmlwriter
+
+   [Zend Modules]
+   ```
