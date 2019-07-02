@@ -186,8 +186,8 @@ autotools 工具编译的包：
 > 下载地址 http://pecl.php.net/get/xdebug-2.7.2.tgz
 
 ```shell
-$ mkdir -p /server/php/pkg/xdebug
-$ cd /server/php/pkg/xdebug
+$ mkdir -p /server/php/extends/xdebug
+$ cd /server/php/extends/xdebug
 $ wget http://pecl.php.net/get/xdebug-2.7.2.tgz
 $ tar -zxvf xdebug-2.7.2.tgz
 ```
@@ -195,11 +195,11 @@ $ tar -zxvf xdebug-2.7.2.tgz
 1. 开始编译
 
    ```shell
-   $ cd /server/php/pkg/xdebug/xdebug-2.7.2
+   $ cd /server/php/extends/xdebug/xdebug-2.7.2
    $ phpize
-   $ mkdir /server/php/pkg/xdebug/build
-   $ cd /server/php/pkg/xdebug/build
-   $ /server/php/pkg/xdebug/xdebug-2.7.2/configure
+   $ mkdir /server/php/extends/xdebug/build
+   $ cd /server/php/extends/xdebug/build
+   $ /server/php/extends/xdebug/xdebug-2.7.2/configure
    $ make
    $ make install
    ```
@@ -233,4 +233,45 @@ $ tar -zxvf xdebug-2.7.2.tgz
    $ mkdir -p /server/logs/xdebug
    ```
 
-### 安装 pdo_mysql 扩展
+### 安装自带扩展
+
+> 有些扩展在 php 插件官网是找不到的，这些扩展就必须通过 php 源码来安装了
+
+1. 获取扩展包
+
+   > php 源代码上自带的扩展数据都在 ext 目录下面，即： `/server/php/php-7.3.6/ext`
+
+2. 安装自带扩须知
+
+   > 由于自带扩展包的源文件有可能是从另一个扩展包中获取，因此建议直接在源代码根目录下进行代码生成。
+
+### 安装扩展包 mysqli
+
+```shell
+$ cd /server/php/php-7.3.6/ext/mysqli/
+$ phpize
+$ cd ../../
+$ ./ext/mysqli/configure
+$ make
+$ make test
+$ make install
+```
+
+- 修改 php.ini 文件
+
+  > 去掉 `;extension=mysqli` 的备注状态（在 917 行左右）
+
+  ```shell
+  $ vim /etc/php/php.ini
+  ```
+
+> 可能遇到的情况
+
+```text
+01. 使用 `php -m` 查看下，并没有发现 mysqli 扩展怎么回事呢？
+    - 这是因为没有安装 mysqlnd 扩展的原因
+```
+
+### 安装扩展包 mysqlnd
+
+> libssl-dev
