@@ -299,9 +299,13 @@ $ tar -zxvf xdebug-2.7.2.tgz
 
 2. 设置 PHP_OPENSSL_DIR 变量
 
-   > 使用 export 临时改变 PHP_OPENSSL_DIR 的属性值
+   > 解决 openssl 缺少的文件：
 
    ```shell
+   $ apt install libssl-dev
+   $ find / -name libssl.so
+   /usr/lib/x86_64-linux-gnu/libssl.so
+   $ ln -s /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib
    $ export PHP_OPENSSL_DIR=yes
    ```
 
