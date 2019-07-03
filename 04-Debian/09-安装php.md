@@ -247,25 +247,38 @@ $ tar -zxvf xdebug-2.7.2.tgz
 
 ### 安装扩展包 mysqli
 
-```shell
-$ cd /server/php/php-7.3.6/ext/mysqli/
-$ phpize
-$ cd ../../
-$ ./ext/mysqli/configure
-$ make
-$ make test
-$ make install
-```
+> mysqli 扩展必须要有 mysqlnd 扩展支持，否则无效
 
-- 修改 php.ini 文件
+1. 获取源码自带扩展
 
-  > 去掉 `;extension=mysqli` 的备注状态（在 917 行左右）
+   > php-7.3.6 自带扩展都在 `ext` 目录下
 
-  ```shell
-  $ vim /etc/php/php.ini
-  ```
+   ```shell
+   $ mkdir /server/php/source
+   $ cp -p -r /server/php/php-7.3.6/ext /server/php/source
+   ```
 
-> 可能遇到的情况
+2. 编译 mysqli 扩展
+
+   ```shell
+   $ cd /server/php/source/ext/mysqli
+   $ phpize
+   $ cd ../../
+   $ ./ext/mysqli/configure
+   $ make
+   $ make test
+   $ make install
+   ```
+
+3. 修改 php.ini 文件
+
+   > 去掉 `;extension=mysqli` 的备注状态（在 917 行左右）
+
+   ```shell
+   $ vim /etc/php/php.ini
+   ```
+
+> 可能遇到的情况：
 
 ```text
 01. 使用 `php -m` 查看下，并没有发现 mysqli 扩展怎么回事呢？
@@ -274,4 +287,30 @@ $ make install
 
 ### 安装扩展包 mysqlnd
 
-> libssl-dev
+> mysqlnd 是 mysql 本地驱动，mysqli pdo_mysql 都是依赖于它
+
+1. 使用 phpize 生成编译环境
+
+   ```shell
+   $ cd /server/php/source/ext/mysqlnd
+   $ cp -p -r config{9,}.m4
+   $ phpize
+   ```
+
+2. 设置 PHP_OPENSSL_DIR 变量
+
+   > 使用 export 临时改变 PHP_OPENSSL_DIR 的属性值
+
+   ```shell
+   $ export PHP_OPENSSL_DIR=yes
+   ```
+
+3. 开始编译
+
+   ```shell
+   $ cd ../../
+   $ ./ext/mysqlnd/configure
+   $ make
+   $ make test
+   $ make install
+   ```
