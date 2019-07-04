@@ -1,20 +1,20 @@
-# 关于 `《programmer》`
+# 关于 `《PHP新手一本通》`
 
-> programmer 是为了便于本人工作中的查询，而总结的一系列关于编程的知识点！
+> 《PHP 新手一本通》 是为了便于本人工作中的查询，而总结的一系列关于编程的知识点！
 
 ## 架构
 
-> 《programmer》 涉及到的知识模块如下表：
+> 《PHP 新手一本通》 涉及到的知识模块如下表：
 
-| 模块                         | 说明                            |
-| ---------------------------- | ------------------------------- |
-| [Editor](./Editor/README.md) | 介绍了 Atom 等常用编辑器        |
-| [HTML5](./HTML5/README.md)   | 介绍了 Web 前端常用的内容       |
-| [WAMP](./WAMP/README.md)     | 介绍了 WAMP 开发环境的搭建      |
-| [PHP](./PHP/README.md)       | 介绍了 PHP 各类疑难杂症         |
-| [Git](./Git/README.md)       | 介绍了 Git 的常用指令及进阶内容 |
-| [Debian](./Git/README.md)    | 介绍了 PHP 开发者常见的运维知识 |
-| [Docker](./Docker/README.md) | 介绍了 Docker（最常用的容器）   |
+| 模块                                        | 说明                            |
+| ------------------------------------------- | ------------------------------- |
+| [掌握一款编辑器](./Editor/README.md)        | 介绍了 Atom 等常用编辑器        |
+| [不得不说的 HTML5](./HTML5/README.md)       | 介绍了 Web 前端常用的内容       |
+| [wamp 开发环境](./WAMP/README.md)           | 介绍了 WAMP 开发环境的搭建      |
+| [PHP 疑难杂症](./PHP/README.md)             | 介绍了 PHP 各类疑难杂症         |
+| [控制版本系统之 Git](./Git/README.md)       | 介绍了 Git 的常用指令及进阶内容 |
+| [Debian](./Debian/README.md)                   | 介绍了 PHP 开发者常见的运维知识 |
+| [引用容器引擎之 Docker](./Docker/README.md) | 介绍了 Docker（最常用的容器）   |
 
 ## 对初学者的忠告
 
