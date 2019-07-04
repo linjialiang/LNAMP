@@ -2,6 +2,10 @@
 
 > 这里我们以安装 php-7.3.6 为例
 
+## php 扩展分类
+
+> 安装 php 前，我们应该对 [php 扩展](./info/php扩展.md) 有个清晰的认知，
+
 ## 下载 php
 
 > 直接去 php [官网](https://www.php.net)下载
