@@ -22,7 +22,7 @@
 |   |
 |   ├─other                                 自定义目录
 |   |   ├─php-cs-fixer.phar                 php代码格式化基础包
-|   |   ├─file-header                       头文件插件
+|   |   ├─file-header                       头文件插件（插件未下载）
 |   |   |   ├─lang-mapping.json             自定义配置文件
 |   |   |   ├─templates                     自定义模板目录
 |   |   |   └─...
@@ -95,7 +95,7 @@ hack, '思源宋体 CN'
     https-proxy = http://127.0.0.1:1080
     ```
 
-2.  淘宝镜像代理
+2.  淘宝镜像代理（无效）
 
     ```shell
     ;strict-ssl = false
@@ -202,7 +202,7 @@ hack, '思源宋体 CN'
 | `ctrl-alt-t`        | 文件对比             |
 | `ctrl-k ctrl-t`     | git 版本库时间列表   |
 | `ctrl-k ctrl-b`     | 默认软件打开当前文件 |
-| `ctrl-k ctrl-h`     | 文件添加头标记       |
+| `ctrl-k ctrl-h`     | 文件添加头标记（插件为下载）       |
 | `ctrl-k ctrl-M`     | markdown 预览        |
 | `ctrl-k ctrl-enter` | 跳转到定义页面       |
 | `ctrl-k ctrl-r`     | 跳转到定义页面       |
@@ -214,7 +214,7 @@ hack, '思源宋体 CN'
 | `g m`                  | vim 模式-快速高亮     | 选择+单词快速高亮 |
 | `g M`                  | vim 模式-取消全部高亮 | 取消快速高亮      |
 
-| remote-ftp 快捷键 | 功能              |
+| remote-ftp 快捷键（插件为下载） | 功能              |
 | ----------------- | ----------------- |
 | `ctrl-k t`        | 展示/取消远程界面 |
 | `ctrl-k c`        | 连接远程          |

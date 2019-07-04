@@ -1,0 +1,187 @@
+"*":
+  "atom-beautify":
+    css:
+      default_beautifier: "Prettier"
+    executables:
+      "php-cs-fixer":
+        path: "C:\\Users\\emad\\.atom\\other\\php-cs-fixer-v2.phar"
+    general:
+      _analyticsUserId: ""
+    html:
+      preserve_newlines: false
+    js:
+      default_beautifier: "Prettier"
+      object_curly_spacing: true
+      preserve_newlines: false
+      space_before_conditional: false
+    markdown:
+      default_beautifier: "Prettier"
+    php:
+      allow_risky: "yes"
+  "atom-package-deps":
+    ignored: [
+      "atom-ide-definitions"
+    ]
+  "atom-ternjs":
+    excludeLowerPriorityProviders: true
+    inlineFnCompletionDocumentation: true
+    snippetsFirst: true
+    useSnippets: true
+    useSnippetsAndFunction: true
+  autoprefixer:
+    runOnSave: true
+  autosave:
+    enabled: true
+  "color-picker":
+    abbreviateValues: true
+    alphaChannelAlways: true
+    automaticReplace: true
+    triggerKey: "K"
+  core:
+    autoHideMenuBar: true
+    closeDeletedFileTabs: true
+    disabledPackages: [
+      "markdown-preview"
+    ]
+    packagesWithKeymapsDisabled: [
+      "git-time-machine"
+      "markdown-preview-plus"
+      "open-in-browser"
+      "file-header"
+      "atom-ide-definitions"
+      "remote-ftp"
+      "atom-ternjs"
+      "symbols-view"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "one-light-ui"
+      "atom-material-syntax"
+    ]
+    uriHandlerRegistration: "always"
+  docblockr:
+    auto_add_method_tag: true
+    c_style_block_comments: true
+    deep_indent: true
+    development_mode: true
+    extra_tags_go_after: true
+    lower_case_primitives: true
+    newline_after_block: true
+    override_js_var: true
+    per_section_indent: true
+    short_primitives: true
+    simple_mode: true
+  "double-tag":
+    allowEndTagSync: true
+  editor:
+    fontFamily: "hack, '思源黑体 CN'"
+    tabLength: 4
+    tabType: "soft"
+  "exception-reporting":
+    userId: ""
+  "file-header":
+    autoAddingHeaderOnNewFile: false
+    autoAddingHeaderOnSaving: false
+    configDirPath: "C:\\Users\\emad\\.atom\\other\\file-header"
+    dateTimeFormat: "YYYY-MM-DD HH:mm:ss"
+    email: "linjialiang@163.com"
+    ignoreListForAutoUpdateAndAddingHeader: [
+      ""
+    ]
+    numOfEmptyLinesAfterNewHeader: 0
+    realname: "madnesslin(地上马)"
+  "line-ending-selector":
+    defaultLineEnding: "LF"
+  "linter-eslint":
+    advanced:
+      disableEslintIgnore: true
+      disableFSCache: true
+    disabling: {}
+    global: {}
+    lintHtmlFiles: true
+  "linter-php": {}
+  "linter-ui-default":
+    showPanel: true
+  "markdown-preview-plus":
+    markdownItConfig:
+      breakOnSingleNewline: true
+      useCriticMarkup: true
+      useToc: true
+    pandocConfig: {}
+    previewConfig:
+      activatePreviewWithEditor: true
+    syncConfig:
+      syncEditorOnPreviewScroll: true
+      syncPreviewOnChange: true
+      syncPreviewOnEditorScroll: true
+    syntaxThemeName: "atom-material-syntax"
+    useGitHubStyle: true
+  "markdown-toc-auto": {}
+  minimap:
+    plugins:
+      bookmarks: true
+      bookmarksDecorationsZIndex: 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      linter: true
+      linterDecorationsZIndex: 0
+      "minimap-quick-highlight": true
+      "minimap-quick-highlightDecorationsZIndex": 0
+      "split-diff": true
+      "split-diffDecorationsZIndex": 0
+  "one-dark-ui":
+    tabCloseButton: "Left"
+    tabSizing: "Maximum"
+  "one-light-ui":
+    tabCloseButton: "Left"
+    tabSizing: "Maximum"
+  "platformio-ide-terminal":
+    ansiColors:
+      zBright:
+        brightBlue: "#0080c0"
+    core:
+      shell: "C:\\Program Files\\Git\\bin\\bash.exe"
+      workingDirectory: "Active File"
+    style:
+      theme: "solarized-dark"
+    toggles:
+      autoClose: true
+  "project-manager":
+    alwaysOpenInSameWindow: true
+    includeGitRepositories: true
+    showPath: false
+    sortBy: "group"
+  "quick-highlight":
+    decorate: "box"
+  "remote-ftp":
+    beta: {}
+    connector:
+      autoUploadOnSave: "only when connected"
+    context: {}
+    dev: {}
+    statusbar:
+      enable: true
+    tree:
+      showViewOnStartup: false
+  "spell-check":
+    useLocales: false
+  "sync-settings":
+    _lastBackupHash: ""
+    extraFiles: [
+      "config.cson"
+      "github.cson"
+      "markdown-preview-plus.cson"
+      "projects.cson"
+      ".apmrc"
+    ]
+    gistId: ""
+    personalAccessToken: ""
+    quietUpdateCheck: true
+    removeObsoletePackages: true
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  "tree-view-git-status":
+    gitFlow:
+      display_type: 2
+  welcome:
+    showOnStartup: false
