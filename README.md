@@ -13,7 +13,7 @@
 | [wamp 开发环境](./WAMP/README.md)           | 介绍了 WAMP 开发环境的搭建      |
 | [PHP 疑难杂症](./PHP/README.md)             | 介绍了 PHP 各类疑难杂症         |
 | [控制版本系统之 Git](./Git/README.md)       | 介绍了 Git 的常用指令及进阶内容 |
-| [Debian](./Debian/README.md)                   | 介绍了 PHP 开发者常见的运维知识 |
+| [PHP 运维的那些事](./Debian/README.md)      | 介绍了 PHP 开发者常见的运维知识 |
 | [引用容器引擎之 Docker](./Docker/README.md) | 介绍了 Docker（最常用的容器）   |
 
 ## 对初学者的忠告
