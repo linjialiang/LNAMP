@@ -6,7 +6,7 @@
       "php-cs-fixer":
         path: "C:\\Users\\emad\\.atom\\other\\php-cs-fixer-v2.phar"
     general:
-      _analyticsUserId: ""
+      _analyticsUserId: "5967b1bd-b08b-45ca-bb07-79691cef3219"
     html:
       preserve_newlines: false
     js:
@@ -75,10 +75,12 @@
     allowEndTagSync: true
   editor:
     fontFamily: "hack, '思源黑体 CN'"
+    showIndentGuide: true
+    showInvisibles: true
     tabLength: 4
     tabType: "soft"
   "exception-reporting":
-    userId: ""
+    userId: "10ace339-2c51-484b-925e-d20bd74c4495"
   "file-header":
     autoAddingHeaderOnNewFile: false
     autoAddingHeaderOnSaving: false
@@ -100,8 +102,7 @@
     global: {}
     lintHtmlFiles: true
   "linter-php": {}
-  "linter-ui-default":
-    showPanel: true
+  "linter-ui-default": {}
   "markdown-preview-plus":
     markdownItConfig:
       breakOnSingleNewline: true
@@ -114,7 +115,7 @@
       syncEditorOnPreviewScroll: true
       syncPreviewOnChange: true
       syncPreviewOnEditorScroll: true
-    syntaxThemeName: "atom-material-syntax"
+    syntaxThemeName: "city-lights-syntax"
     useGitHubStyle: true
   "markdown-toc-auto": {}
   minimap:
@@ -166,7 +167,7 @@
   "spell-check":
     useLocales: false
   "sync-settings":
-    _lastBackupHash: ""
+    _lastBackupHash: "adbd5b80fe7e5dc16ec7b9961238bfc52ae0dfc2"
     extraFiles: [
       "config.cson"
       "github.cson"
