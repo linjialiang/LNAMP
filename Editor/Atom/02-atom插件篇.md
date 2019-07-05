@@ -25,11 +25,11 @@
 | project-manager         | 项目管理          |
 | platformio-ide-terminal | atom 下出色的终端 |
 | markdown-preview-plus   | markdown 预览     |
-| ~~markdown-toc-auto~~   | markdown 导航     |
+| markdown-toc-auto       | markdown 导航     |
 | file-header             | 文件头信息        |
 | file-icons              | 文件图标          |
 | quick-highlight         | 文本快速高亮      |
-| ~~remote-ftp~~          | 远程连接          |
+| remote-ftp              | 远程连接          |
 | editorconfig            | 统一代码风格      |
 
 | git 相关插件(3)      | 插件描述                                   |
@@ -47,12 +47,12 @@
 | minimap-linter          | 代码小窗口-linter 包    |
 | minimap-quick-highlight | 代码小窗口-快速高亮     |
 
-| 语法相关插件(4)     | 插件描述               |
-| ------------------- | ---------------------- |
-| ~~language-apache~~ | httpd 扩展文件语法高亮 |
-| language-nginx      | nginx 配置文件语法高亮 |
-| language-ini        | ini 扩展文件语法高亮   |
-| language-notenv     | .env 扩展文件语法高亮  |
+| 语法相关插件(4) | 插件描述               |
+| --------------- | ---------------------- |
+| language-apache | httpd 扩展文件语法高亮 |
+| language-nginx  | nginx 配置文件语法高亮 |
+| language-ini    | ini 扩展文件语法高亮   |
+| language-notenv | .env 扩展文件语法高亮  |
 
 | ide(11)                   | 插件描述                 |
 | ------------------------- | ------------------------ |
