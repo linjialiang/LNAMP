@@ -330,105 +330,108 @@
 
 ## 虚拟主机相关配置
 
-> 这里我主要讲解 2 个内容：1）别名配置；2）虚拟主机配置
+> 这里我主要讲解 2 个内容：别名配置、虚拟主机配置
 
-## 一、别名配置
+1. 别名配置
 
-> 以 `phpmtadmin` 和 `adminer.php` 为例：
->
-> - 站点配置目录下新建文件 `phpmyadmin.conf` ，下面直接贴代码：
+   ```text
+   - 以 phpmtadmin 和 adminer.php 为例;
+   - 站点配置目录下新建文件 phpmyadmin.conf文件；
+   ```
 
-```shell
-Alias /phpmyadmin ${BASE_ROOT}/phpmyadmin
-<Directory ${BASE_ROOT}/phpmyadmin>
-    Options FollowSymLinks
-    DirectoryIndex index.php
-    <RequireAll>
-        Require local
-    </RequireAll>
-</Directory>
-<Directory ${BASE_ROOT}/phpmyadmin/libraries>
-    Require all denied
-</Directory>
-<Directory ${BASE_ROOT}/phpmyadmin/setup/lib>
-    Require all denied
-</Directory>
-Alias /adminer ${BASE_ROOT}/phpmyadmin/adminer.php
-```
+   > 下面直接贴代码：
 
-## 二、配置虚拟主机
+   ```shell
+   Alias /phpmyadmin ${BASE_ROOT}/phpmyadmin
+   <Directory ${BASE_ROOT}/phpmyadmin>
+       Options FollowSymLinks
+       DirectoryIndex index.php
+       <RequireAll>
+           Require local
+       </RequireAll>
+   </Directory>
+   <Directory ${BASE_ROOT}/phpmyadmin/libraries>
+       Require all denied
+   </Directory>
+   <Directory ${BASE_ROOT}/phpmyadmin/setup/lib>
+       Require all denied
+   </Directory>
+   Alias /adminer ${BASE_ROOT}/phpmyadmin/adminer.php
+   ```
 
-> 站点配置目录下新建 `.conf` 扩展的文件，下面直接贴代码：
+2. 配置虚拟主机
 
-```shell
-<VirtualHost *:80>
-    ServerAdmin admin@example.com
-    DocumentRoot "${HTDOCS}/www_test_com"
-    ServerName www.test1.com
-    ServerAlias www.test1.com test1.com www.test2.com test2.com
-    ErrorDocument 404 /Error.html
+   > 站点配置目录下新建 `.conf` 扩展的文件，下面直接贴代码：
 
-    ErrorLog "${HTLOGS}/error/test.log"
-    CustomLog "${HTLOGS}/access/test.log" common
+   ```shell
+   <VirtualHost *:80>
+       ServerAdmin admin@example.com
+       DocumentRoot "${HTDOCS}/www_test_com"
+       ServerName www.test1.com
+       ServerAlias www.test1.com test1.com www.test2.com test2.com
+       ErrorDocument 404 /Error.html
 
-    RewriteEngine on
-    RewriteCond %{HTTP_HOST} ^test1.com$ [NC]
-    RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
-    RewriteCond %{HTTP_HOST} ^test2.com$ [NC]
-    RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
-</VirtualHost>
-```
+       ErrorLog "${HTLOGS}/error/test.log"
+       CustomLog "${HTLOGS}/access/test.log" common
 
-> 最简洁虚拟主机配置
+       RewriteEngine on
+       RewriteCond %{HTTP_HOST} ^test1.com$ [NC]
+       RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
+       RewriteCond %{HTTP_HOST} ^test2.com$ [NC]
+       RewriteRule ^(.*)$ http://www.%{HTTP_HOST}$1 [R=301,L]
+   </VirtualHost>
+   ```
 
-```shell
-<VirtualHost *:80>
-    DocumentRoot "${HTDOCS}/www_test_com"
-    ServerName www.test1.com
-</VirtualHost>
-```
+   > 最简洁虚拟主机配置
 
-> ssl 版配置
+   ```shell
+   <VirtualHost *:80>
+       DocumentRoot "${HTDOCS}/www_test_com"
+       ServerName www.test1.com
+   </VirtualHost>
+   ```
 
-```shell
-<VirtualHost *:80>
-    ServerName www.test.com
-    ServerAlias test.com www.test.com
-    DocumentRoot "${HTDOCS}/www_test_com"
+   > ssl 版配置
 
-    RewriteEngine on
-    RewriteCond %{SERVER_PORT} 80 [NC]
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301,L]
-</VirtualHost>
+   ```shell
+   <VirtualHost *:80>
+       ServerName www.test.com
+       ServerAlias test.com www.test.com
+       DocumentRoot "${HTDOCS}/www_test_com"
 
-<virtualhost *:443>
-    ServerName www.test.com
-    ServerAlias test.com www.test.com
-    DocumentRoot "${HTDOCS}/www_test_com"
+       RewriteEngine on
+       RewriteCond %{SERVER_PORT} 80 [NC]
+       RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [R=301,L]
+   </VirtualHost>
 
-    RewriteEngine on
-    RewriteCond %{HTTP_HOST} ^test.com$ [NC]
-    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}$1 [R=301,L]
+   <virtualhost *:443>
+       ServerName www.test.com
+       ServerAlias test.com www.test.com
+       DocumentRoot "${HTDOCS}/www_test_com"
 
-    SSLEngine on
-    SSLCertificateFile 路径/2_www.test.com.crt
-    SSLCertificateKeyFile 路径/3_www.test.com.key
-    SSLCertificateChainFile 路径/1_root_bundle.crt
-</virtualhost>
-```
+       RewriteEngine on
+       RewriteCond %{HTTP_HOST} ^test.com$ [NC]
+       RewriteRule ^(.*)$ https://www.%{HTTP_HOST}$1 [R=301,L]
 
-## 三、将域名绑定到本地
+       SSLEngine on
+       SSLCertificateFile 路径/2_www.test.com.crt
+       SSLCertificateKeyFile 路径/3_www.test.com.key
+       SSLCertificateChainFile 路径/1_root_bundle.crt
+   </virtualhost>
+   ```
 
-> windows 开发环境只有在系统文件 `hosts` 下加入指定的域名，网站才能正常访问！
+3. 将域名绑定到本地
 
-```hosts
-# 在底部新增几行内容
-127.0.0.1 test.com www.test.com
-127.0.0.1 test1.com www.test1.com
-127.0.0.1 test2.com www.test2.com
-```
+   > windows 开发环境只有在系统文件 `hosts` 下加入指定的域名，网站才能正常访问！
 
-> 文件路径： `c:\Windows\System32\drivers\etc\hosts`
+   ```hosts
+   # 在底部新增几行内容
+   127.0.0.1 test.com www.test.com
+   127.0.0.1 test1.com www.test1.com
+   127.0.0.1 test2.com www.test2.com
+   ```
+
+   > 文件路径： `c:\Windows\System32\drivers\etc\hosts`
 
 ## httpd 日志
 
