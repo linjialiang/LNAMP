@@ -84,7 +84,7 @@
 | 01   | [配置 apache24](./配置apache24.md) |
 | 02   | [配置 php](./配置php.md)           |
 | 03   | [配置 mariadb](./配置mariadb.md)   |
-| 04   | [wamp 组件维护](./wamp组件维护.md) |
+| 04   | [维护 wamp](./维护wamp.md)         |
 
 ## 版本说明
 
