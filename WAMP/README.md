@@ -81,9 +81,9 @@
 
 | 序号 | 导航链接                           |
 | ---- | ---------------------------------- |
-| 01   | [配置 apache24](./配置apache24.md) |
-| 02   | [配置 php](./配置php.md)           |
-| 03   | [配置 mariadb](./配置mariadb.md)   |
+| 01   | [配置 httpd](./配置httpd.md) |
+| 02   | [配置 mariadb](./配置mariadb.md)   |
+| 03   | [配置 php](./配置php.md)           |
 | 04   | [维护 wamp](./维护wamp.md)         |
 
 ## 版本说明
