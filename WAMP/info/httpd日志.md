@@ -140,7 +140,12 @@
 
 ## 访问日志
 
-> 服务器访问日志记录服务器处理的所有请求。访问日志的位置和内容由 CustomLog 指令控制。该 LogFormat 指令可用于简化日志内容的选择。
+> 服务器访问日志记录服务器处理的所有请求
+
+```text
+- 访问日志的位置和内容由 CustomLog 指令控制；
+- LogFormat 指令可用于简化日志内容的输出。
+```
 
 | 所属模块       | 指令      | 描述                                               |
 | -------------- | --------- | -------------------------------------------------- |
@@ -148,97 +153,128 @@
 | mod_setenvif   | LogFormat | 设置日志文件的文件名和格式                         |
 | mod_setenvif   | SetEnvIf  | 根据请求的属性设置环境变量，用于限制日志输出内容   |
 
-> 访问日志的典型配置可能如下所示：
+1. 典型配置
 
-```shell
-LogFormat "%h %l %u %t \"%r\" %>s %b" common
-CustomLog ${BASE_ROOT}/logs/apache24/access/access_log common
-```
+   > 访问日志的典型配置如下所示：
 
-> 默认的访问日志配置代码
+   ```shell
+   LogFormat "%h %l %u %t \"%r\" %>s %b" common
+   CustomLog ${BASE_ROOT}/logs/apache24/access/access_log common
+   ```
 
-```shell
-<IfModule log_config_module>
-    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-    LogFormat "%h %l %u %t \"%r\" %>s %b" common
+2. 默认配置
 
-    <IfModule logio_module>
-      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
-    </IfModule>
+   > 默认的访问日志配置代码
 
-    CustomLog "${BASE_ROOT}/logs/apache24/access/access_log" common
-</IfModule>
-```
+   ```shell
+   <IfModule log_config_module>
+       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+       LogFormat "%h %l %u %t \"%r\" %>s %b" common
 
-> 新增访问日志格式模板，命名为 `newlogformat` 并调用该模板为访问日志输出格式
+       <IfModule logio_module>
+         LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+       </IfModule>
 
-```shell
-<IfModule log_config_module>
-    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-    LogFormat "%h %l %u %t \"%r\" %>s %b" common
-    LogFormat "%h-%v-%V %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" newlogformat
+       CustomLog "${BASE_ROOT}/logs/apache24/access/access_log" common
+   </IfModule>
+   ```
 
-    <IfModule logio_module>
-      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
-    </IfModule>
+## 访问日志模版
 
-    CustomLog "${BASE_ROOT}/logs/apache24/access/access_log" newlogformat
-</IfModule>
-```
+> 下面的示例可以帮助我们更好的理解访问日志！
 
-> 1.  调用 `newlogformat` 模板为访问日志输出格式
-> 2.  创建 `access_log` 访问日志文件并每天截断一次文件（由于每次截断的文件名一致，因此永远只能保留一天的日志）
+1. 示例一、创建普通的访问日志模版
 
-```shell
-<IfModule log_config_module>
-    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-    LogFormat "%h %l %u %t \"%r\" %>s %b" common
-    LogFormat "%h-%v-%V %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" newlogformat
+   > 新增访问日志格式模板，命名为 `newlogformat` 并调用该模板为访问日志输出格式
 
-    <IfModule logio_module>
-      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
-    </IfModule>
+   ```shell
+   <IfModule log_config_module>
+       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+       LogFormat "%h %l %u %t \"%r\" %>s %b" common
+       LogFormat "%h-%v-%V %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" newlogformat
 
-    CustomLog "|${SRVROOT}/bin/rotatelogs.exe -t ${BASE_ROOT}/logs/apache24/access/access_log 86400 480" newlogformat
-</IfModule>
-```
+       <IfModule logio_module>
+         LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+       </IfModule>
 
-> 1.  调用 `newlogformat` 模板为访问日志输出格式；
-> 2.  创建 `access_log` 访问日志文件并每天截断一次文件（由于文件名根据时间来创建，因此每天都有一个日志文件被保留）；
+       CustomLog "${BASE_ROOT}/logs/apache24/access/access_log" newlogformat
+   </IfModule>
+   ```
 
-```shell
-<IfModule log_config_module>
-    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-    LogFormat "%h %l %u %t \"%r\" %>s %b" common
-    LogFormat "%h-%v-%V %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" newlogformat
+2. 只保留一天的文件日志
 
-    <IfModule logio_module>
-      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
-    </IfModule>
+   > 如果我们仅需短时间内的访问日志信息，我们就可以只保留 24 小时甚至更断的访问日志信息
 
-    CustomLog "|${SRVROOT}/bin/rotatelogs.exe -t ${BASE_ROOT}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat
-</IfModule>
-```
+   ```text
+   - 调用 newlogformat 模板为访问日志输出格式；
+   - 创建 access_log 访问日志文件，每86400秒截断一次文件；
+   - 提示：由于每次截断的文件名一致，因此永远只能保留一天的日志。
+   ```
 
-> 1.  调用 `newlogformat` 模板为访问日志输出格式；
-> 2.  创建 `access_log` 访问日志文件并每天截断一次文件（由于文件名根据时间来创建，因此每天都有一个日志文件被保留）；
-> 3.  限制图片 js 等文件写入日志；
+   ```shell
+   <IfModule log_config_module>
+       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+       LogFormat "%h %l %u %t \"%r\" %>s %b" common
+       LogFormat "%h-%v-%V %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" newlogformat
 
-```shell
-<IfModule log_config_module>
-    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-    LogFormat "%h %l %u %t \"%r\" %>s %b" common
-    LogFormat "%h-%v-%V %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" newlogformat
+       <IfModule logio_module>
+         LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+       </IfModule>
 
-    <IfModule logio_module>
-      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
-    </IfModule>
+       CustomLog "|${SRVROOT}/bin/rotatelogs.exe -t ${BASE_ROOT}/logs/apache24/access/access_log 86400 480" newlogformat
+   </IfModule>
+   ```
 
-    SetEnvIf Request_URI "\.(ico|gif|jpg|png|bmp|swf|css|js)$" dontlog
+3. 按天截断访问日志文件
 
-    CustomLog "|${SRVROOT}/bin/rotatelogs.exe -t ${BASE_ROOT}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat env=!dontlog
-</IfModule>
-```
+   > 单个日志过多不利于查看，因此需要将访问日志进行文件分割
+
+   ```text
+   - 调用 newlogformat 模板为访问日志输出格式；
+   - 创建 access_log 访问日志文件，每86400秒截断一次文件；
+   - 提示：由于文件名根据时间来创建，因此每天都有一个日志文件被保留。
+   ```
+
+   ```shell
+   <IfModule log_config_module>
+       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+       LogFormat "%h %l %u %t \"%r\" %>s %b" common
+       LogFormat "%h-%v-%V %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" newlogformat
+
+       <IfModule logio_module>
+         LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+       </IfModule>
+
+       CustomLog "|${SRVROOT}/bin/rotatelogs.exe -t ${BASE_ROOT}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat
+   </IfModule>
+   ```
+
+4. 限制默写文件日志写入
+
+   > 很多文件的访问信息可能无关紧要，这些我们就可以不记录到日志中
+
+   ```text
+   - 调用 `newlogformat` 模板为访问日志输出格式；
+   - 创建 `access_log` 访问日志文件并每天截断一次文件;
+   - 限制图片、js、css 等文件的访问信息写入日志；
+   - 提示：由于文件名根据时间来创建，因此每天都有一个日志文件被保留。
+   ```
+
+   ```shell
+   <IfModule log_config_module>
+       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+       LogFormat "%h %l %u %t \"%r\" %>s %b" common
+       LogFormat "%h-%v-%V %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" newlogformat
+
+       <IfModule logio_module>
+         LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+       </IfModule>
+
+       SetEnvIf Request_URI "\.(ico|gif|jpg|png|bmp|swf|css|js)$" dontlog
+
+       CustomLog "|${SRVROOT}/bin/rotatelogs.exe -t ${BASE_ROOT}/logs/apache24/access/access_log.%Y-%m-%d 86400 480" newlogformat env=!dontlog
+   </IfModule>
+   ```
 
 > 访问日志格式字符串
 
