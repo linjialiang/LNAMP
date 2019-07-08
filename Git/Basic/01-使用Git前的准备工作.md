@@ -131,9 +131,19 @@ $ git config --global core.editor <editor_name>
    tags
    ```
 
-## Windows 下快速配置
+## Git 配置文件
 
-> Windows 下直接将 `.gitconfig` 文件的内容替换如下代码即可：
+> 下面列举 Git 允许读取的配置文件路径：
+
+| 路径                                 | 范围         | 优先级 |
+| ------------------------------------ | ------------ | ------ |
+| /etc/gitconfig                       | 全局         | 最低   |
+| ~/.gitconfig 或 ~/.config/git/config | 系统当前用户 | 较低   |
+| .git/config                          | 当前仓库     | 最高   |
+
+### Windows 下快速配置
+
+> Windows 下直接将 `~/.gitconfig` 文件的内容替换如下代码即可：
 
 ```shell
 [user]
@@ -147,7 +157,7 @@ $ git config --global core.editor <editor_name>
     ignorecase = false
 ```
 
-## 概念
+## Git 概念
 
 > 如果你希望后面的学习更顺利，记住下面这些关于 Git 的概念。
 
