@@ -437,7 +437,3 @@ Alias /adminer ${BASE_ROOT}/phpmyadmin/adminer.php
 ## httpd 访问控制
 
 > 点击查看详情 [httpd 访问控制](./info/httpd访问控制.md)
-
-## 结束语
-
-> 关于 apache24 的配置讲解到此就为止，想要深入学习，建议去[apache24 官网查看手册](https://httpd.apache.org/docs/2.4/)！
