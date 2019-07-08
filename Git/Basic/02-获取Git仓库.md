@@ -11,11 +11,11 @@
 
 1.  确认项目位置
 
-    > 我们创建一个目录 `D:/test/`
+    > 我们创建一个目录 `D:/git/`
 
     ```shell
-    $ mkdir /d/test
-    $ cd /d/test
+    $ mkdir /d/git
+    $ cd /d/git
     ```
 
 2.  初始化 Git 本地仓库
@@ -24,21 +24,21 @@
 
     ```shell
     $ git init
-    Initialized empty Git repository in D:/test/.git/
+    Initialized empty Git repository in D:/git/.git/
     ```
 
 ## 克隆现有的仓库
 
 ```text
-- 远程仓库地址： https://gitee.com/linjialiang/test.git
+- 远程仓库地址： https://gitee.com/linjialiang/git.git
 - 操作指令：： git clone [远程仓库地址] <本地仓库目录名>
 ```
 
 > 具体操作如下：
 
 ```shell
-$ git clone https://gitee.com/linjialiang/test.git test
-Cloning into 'test'...
+$ git clone https://gitee.com/linjialiang/git.git git
+Cloning into 'git'...
 remote: Enumerating objects: 3, done.
 remote: Counting objects: 100% (3/3), done.
 remote: Compressing objects: 100% (2/2), done.
