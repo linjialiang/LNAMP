@@ -38,3 +38,14 @@
 ## 开始安装 Debian10
 
 > 虚拟机安装还是很简单的没有什么需要特别注意的，按中文说明，一路安装下去即可，重点的地方我直接截图：
+
+| 3n-2                                       | 3n-1                                       | 3n                                         |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| ![安装Debian10](./static/02/debian/01.png) | ![安装Debian10](./static/02/debian/02.png) | ![安装Debian10](./static/02/debian/03.png) |
+| ![安装Debian10](./static/02/debian/04.png) | ![安装Debian10](./static/02/debian/05.png) | ![安装Debian10](./static/02/debian/06.png) |
+| ![安装Debian10](./static/02/debian/07.png) | ![安装Debian10](./static/02/debian/08.png) | ![安装Debian10](./static/02/debian/09.png) |
+| ![安装Debian10](./static/02/debian/10.png) | ![安装Debian10](./static/02/debian/11.png) | ![安装Debian10](./static/02/debian/12.png) |
+| ![安装Debian10](./static/02/debian/13.png) | ![安装Debian10](./static/02/debian/14.png) | ![安装Debian10](./static/02/debian/15.png) |
+| ![安装Debian10](./static/02/debian/16.png) | ![安装Debian10](./static/02/debian/17.png) | ![安装Debian10](./static/02/debian/18.png) |
+| ![安装Debian10](./static/02/debian/19.png) | ![安装Debian10](./static/02/debian/20.png) | ![安装Debian10](./static/02/debian/21.png) |
+| ![安装Debian10](./static/02/debian/22.png) | ![安装Debian10](./static/02/debian/23.png) | ![安装Debian10](./static/02/debian/24.png) |
