@@ -179,7 +179,7 @@
 
 6. 删除文件内容
 
-   > 对 /server/conf 目录下所有 .conf 格式的文件进行搜索，并将文件中的 `^M` 内容去掉
+   > 对 /server/conf 目录下所有 .conf 格式的文件进行搜索，并将文件内容中的 `^M` 字符去掉
 
    ```shell
    # 使用 'cat -A file_path' 可以查看特殊元字符
@@ -189,7 +189,10 @@
    $ find /server/conf -name "*.conf" -type "f"| xargs grep "^M" -l |xargs dos2unix
 
    # sed 版
-   $ find /server/conf -name "*.conf" -type "f"| xargs grep "^M" -l |xargs sed -i ‘s/^M//g'
+   $ find /server/conf -name "*.conf" -type "f"| xargs grep "^M" -l |xargs sed -i 's/^M//g'
+
+   # sed 版，仅对每行结尾处的 `^M` 字符进行处理
+   $ find /server/conf -name "*.conf" -type "f"| xargs grep -E "^M$" -l |xargs sed -i 's/^M$//g'
    ```
 
    > 提示：由于 dos 系统没有 `^M` 这个字符编码，所以必须在 unix 下使用快捷键 `C-V C-M` 生成！
