@@ -112,30 +112,84 @@
 | xargs | 用于组合多个指令 |
 | find  | 查询指定的文件   |
 | grep  | 查询文件的内容   |
-| exec  | 执行指令         |
+| rm    | 删除指令         |
+| sed   | 编辑文件内容     |
 
-1. 搜索并输出行
+1. 输出文件名+行内容
 
-> /server/conf 目录下搜索所有 .conf 格式的文件，打印出带有 www.debian.org 的文件名+行内容：
+   > 对 /server/conf 目录下所有 .conf 格式的文件进行搜索，打印出带有 www.debian.org 内容的文件的【文件名+行内容】：
 
-```shell
-$ find /server/conf -name "*.conf" -type "f" | xargs grep "www\.debian\.org"
-```
+   ```shell
+   # 普通版
+   $ find /server/conf -name "*.conf" -type "f" | xargs grep "www\.debian\.org"
 
-> /server/conf 目录下搜索所有 .conf 格式的文件，打印出带有 www.debian.org 的文件名+行内容（内容不区分大小写）：
+   # 内容不区分大小写
+   $ find /server/conf -name "*.conf" -type "f" | xargs grep "www\.debian\.org" -i
 
-```shell
-$ find /server/conf -name "*.conf" | xargs grep "www\.debian\.org" -i
-```
+   # 文件名及文件格式不区分大小写
+   $ find /server/conf -iname "*.conf" -type "f" | xargs grep "www\.debian\.org"
+   ```
 
-> /server/conf 目录下搜索所有 .conf 格式的文件，仅打印出带有 www.debian.org 的文件名：
+2. 仅输出文件名
 
-```shell
-$ find /server/conf -name "*.conf" | xargs grep "www\.debian\.org" -l
-```
+   > 对 /server/conf 目录下所有 .conf 格式的文件进行搜索，仅打印出带有 www.debian.org 内容的文件的【文件名】：
 
-> /server/conf 目录下搜索所有 .conf 格式的文件，仅打印出带有 www.debian.org 的文件名（内容不区分大小写）：
+   ```shell
+   # 普通版
+   $ find /server/conf -name "*.conf" -type "f"| xargs grep "www\.debian\.org" -l
 
-```shell
-$ find /server/conf -name "*.conf" | xargs grep "www\.debian\.org" -il
-```
+   # 列出不符合的文件列表(grep 的 -L 参数是取反)
+   $ find /server/conf -name "*.conf" -type "f"| xargs grep "www\.debian\.org" -L
+
+   # 内容不区分大小写
+   $ find /server/conf -name "*.conf" -type "f"| xargs grep "www\.debian\.org" -il
+
+   # 文件名及文件格式不区分大小写
+   $ find /server/conf -iname "*.conf" -type "f"| xargs grep "www\.debian\.org" -l
+
+   ```
+
+3. 删除文件
+
+   > 对 /server/conf 目录下所有 .conf 格式的文件进行搜索，并删除带有 www.debian.org 的文件：
+
+   ```shell
+   $ find /server/conf -name "*.conf" -type "f"| xargs grep "www\.debian\.org" -l | xargs rm -f
+   ```
+
+   > 注意：记住删除文件必须仅输出文件名（grep 使用 -l 或 -L 参数 ）
+
+4. 删除目录
+
+   > 搜索 /server/conf 目录下所有以 .conf 结尾的目录，并删除它们
+
+   ```shell
+   $ find /server/conf -name "*.conf" -type "d" | xargs rm -rf
+   ```
+
+   > 警告：最好不要使用此方法来删除目录，只要条件允许 `/server/conf` 目录也可以删除！
+
+5. 文件拼接
+
+   > 对 /server/conf 目录下所有 .conf 格式的文件进行搜索，并将带有 debian.org 内容的文件拼接到 debian_org.conf 文件下
+
+   ```shell
+   $  find /server/conf -name "*.conf" -type "f"| xargs grep "www\.debian\.org" -l | xargs cat {} \; > debian_org.txt
+   ```
+
+6. 删除文件内容
+
+   > 对 /server/conf 目录下所有 .conf 格式的文件进行搜索，并将文件中的 `^M` 内容去掉
+
+   ```shell
+   # 使用 'cat -A file_path' 可以查看特殊元字符
+   $find /server/conf -name "*.conf" -type "f"| xargs grep "^M" -l |xargs cat -A
+
+   # 需要安装 dos2unix，仅适用dos文件转unix文件
+   $ find /server/conf -name "*.conf" -type "f"| xargs grep "^M" -l |xargs dos2unix
+
+   # sed 版
+   $ find /server/conf -name "*.conf" -type "f"| xargs grep "^M" -l |xargs sed -i ‘s/^M//g'
+   ```
+
+   > 提示：由于 dos 系统没有 `^M` 这个字符编码，所以必须在 unix 下使用快捷键 `C-V C-M` 生成！
