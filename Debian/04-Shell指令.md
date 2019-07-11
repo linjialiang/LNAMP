@@ -114,6 +114,7 @@
 | grep  | 查询文件的内容   |
 | rm    | 删除指令         |
 | sed   | 编辑文件内容     |
+| cat   | 显示文件内容     |
 
 1. 输出文件名+行内容
 
@@ -196,3 +197,81 @@
    ```
 
    > 提示：由于 dos 系统没有 `^M` 这个字符编码，所以必须在 unix 下使用快捷键 `C-V C-M` 生成！
+
+### tar 解压缩应用案例
+
+> 会用的指令及其说明
+
+| 指令  | 描述                   |
+| ----- | ---------------------- |
+| tar   | 打包工具               |
+| gzip  | 使 tar 支持 gzip 压缩  |
+| bzip2 | 使 tar 支持 bzip2 压缩 |
+| cat   | 对分割后的文件进行合并 |
+| split | 对打包后的文件进行分割 |
+
+1. tar 分卷打包文件
+
+   > tar 分卷打包选项说明
+
+   | 选项     | 描述                     |
+   | -------- | ------------------------ |
+   | -c       | 打包                     |
+   | -v       | 显示详细信息             |
+   | -f       | 指定文件名（打包文件名） |
+   | -z       | 打包同时 gzip 压缩包     |
+   | -j       | 打包同时 bzip2 压缩包    |
+   | split    | 分割                     |
+   | split -b | 按字节分割               |
+   | split -d | 指定文件名               |
+
+   > tar 分卷打包文件指令
+
+   ```shell
+   $ tar -[z|j]cvf - <原文件所在路径> | split -b <指定分卷最大容量，如：500M> -d - <打包文件存放路径>
+   ```
+
+   > 将 /server/conf 目录下的所有文件，分卷打包到 /server/www/tar 目录下
+
+   ```shell
+   # tar 打包，不压缩
+   $ tar -cvf - /server/conf | split -b 10k -d - /server/www/tar/conf.tar.
+
+   # tar 打包，gzip压缩
+   $ tar -zcvf - /server/conf | split -b 5k -d - /server/www/tar/conf.tar.gz.
+
+   # tar 打包，bzip2压缩
+   $ tar -jcvf - /server/conf | split -b 5k -d - /server/www/tar/conf.tar.bz2
+   ```
+
+2. tar 分卷解压
+
+   > tar 分卷打包选项说明
+
+   | 选项       | 描述                       |
+   | ---------- | -------------------------- |
+   | -v         | 显示详细信息               |
+   | -x         | 解包                       |
+   | -z         | 对 gzip 压缩包进行解包     |
+   | -j         | 对 bzip2 压缩包进行解包    |
+   | -C（大写） | 指定包解压后文件的存放目录 |
+   | cat        | 合并分割包                 |
+
+   > tar 分卷解压指令
+
+   ```shell
+   $ cat <打包文件存放路径> | tar [z|j]xvf -C <解压后的文件存放路径>
+   ```
+
+   > 将 /server/www/tar 目录下的分卷打包文件，解压到 /server/tar 目录下
+
+   ```shell
+   # tar 解压
+   $ cat /server/www/tar/conf.tar.* | tar xv -C /server/tar
+
+   # gzip 解压
+   $ cat /server/www/tar/conf.tar.gz.* | tar -zxv -C -p /server/tar.gz
+
+   # bzip2 解压
+   $ cat /server/www/tar/conf.tar.bz2.* | tar -jxv -C -p /server/tar.bz2
+   ```
