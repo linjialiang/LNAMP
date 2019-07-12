@@ -42,3 +42,59 @@ Connection: keep-alive
 ETag: "5d282806-264"
 Accept-Ranges: bytes
 ```
+
+## 管理 Nginx 服务
+
+> 使用 apt 安装的 Nginx 默认支持 3 种管理方式：
+
+1. 要停止 Nginx 服务，请运行：
+
+   ```shell
+   $ systemctl stop nginx
+   $ service nginx stop
+   $ /etc/init.d/nginx stop
+   ```
+
+2. 要再次启动它，请键入：
+
+   ```shell
+   $ systemctl start nginx
+   $ service nginx start
+   $ /etc/init.d/nginx start
+   ```
+
+3. 重启 Nginx 服务:
+
+   ```shell
+   $ systemctl restart nginx
+   $ service nginx restart
+   $ /etc/init.d/nginx restart
+   ```
+
+4. 在配置更改后重新加载 Nginx 服务：
+
+   ```shell
+   $ systemctl reload nginx
+   $ service nginx reload
+   $ /etc/init.d/nginx reload
+   ```
+
+5. 查看 Nginx 服务当前状态：
+
+   ```shell
+   $ systemctl status nginx
+   $ service nginx status
+   $ /etc/init.d/nginx status
+   ```
+
+6. 禁用 Nginx 服务在启动时启动：
+
+   ```shell
+   $ systemctl disable nginx
+   ```
+
+7. 启用 Nginx 服务在启动时启动：
+
+   ```shell
+   $ systemctl enable nginx
+   ```
