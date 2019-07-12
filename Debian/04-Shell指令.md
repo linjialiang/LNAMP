@@ -331,19 +331,19 @@
 1. 检查是否安装了 openssh
 
 ```shell
-# dpkg --get-selections | grep openssh
+$ dpkg --get-selections | grep openssh
 ```
 
 2. 查看当前 httpd 相关的进程
 
 ```shell
-# `ps -ef | grep httpd`
+$ `ps -ef | grep httpd`
 ```
 
 3. 强制关闭进程（按上个指令可以查到进程 id -- PID）
 
 ```shell
-# `kill -s 9 [PID]`
+$ `kill -s 9 [PID]`
 ```
 
 | other unix command                 | 说明                 |
