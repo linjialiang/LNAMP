@@ -28,6 +28,6 @@
 
 | 章节                                         |
 | -------------------------------------------- |
-| [apt 安装 nginx](./info/apt安装nginx.md)     |
-| [apt 安装 mariadb](./info/apt安装mariadb.md) |
-| [apt 安装 php](./info/apt安装php.md)         |
+| [apt 安装 nginx](./info/apt安装Nginx.md)     |
+| [apt 安装 mariadb](./info/apt安装MariaDB.md) |
+| [apt 安装 php](./info/apt安装PHP.md)         |
