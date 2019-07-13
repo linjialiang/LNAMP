@@ -99,11 +99,7 @@ Accept-Ranges: bytes
    $ systemctl enable nginx
    ```
 
-## 配置 Nginx
-
-> Nginx 的配置也是比较简单的，与 httpd 相比，方便很多
-
-### 配置文件
+## Nginx 配置文件
 
 > Nginx 具体的配置文件及其的作用，如下表：
 
@@ -114,4 +110,7 @@ Accept-Ranges: bytes
 | /etc/nginx/mime.types                | 静态资源文件格式列表       |
 | /etc/nginx/modules-enabled           | 被加载的模块               |
 | /etc/nginx/sites-enabled             | 被加载的站点配置           |
+| /etc/nginx/fastcgi.conf              | fastcgi 配置               |
 | /etc/nginx/snippets/fastcgi-php.conf | 适用于 php 的 fastcgi 配置 |
+
+> Nginx的具体配置请参考 [Ningx 配置详解](./Nginx配置详解.md)
