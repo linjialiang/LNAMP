@@ -142,7 +142,7 @@ alias lla='ls $LS_OPTIONS -laF'
 > 使用 source 更新终端界面
 
 ```shell
-$ source ~/bashrc
+$ source ~/.bashrc
 ```
 
 ## 安装必备工具
