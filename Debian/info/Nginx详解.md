@@ -2,6 +2,10 @@
 
 > 用好 Nginx，需要掌握的知识会非常多，而我们只会详细讲解常用部分，其它可以参考[Nginx 官方手册](http://nginx.org/en/docs/)
 
+```text
+- 中文翻译：http://tengine.taobao.org/nginx_docs/cn/docs/
+```
+
 ## 文章快速引导
 
 > Nginx 详解的相关章节都罗列在这里了！
