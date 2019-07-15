@@ -302,7 +302,23 @@
     Context:	main
     ```
 
-21. worker_connections
+21. worker_aio_requests
+
+    > 将 aio 与 epoll 连接处理方法一起使用时，为单个工作进程设置未完成异步 I/O 操作的最大数量。
+
+    ```ini
+    Syntax:	worker_aio_requests number;
+    Default:	worker_aio_requests 32;
+    Context:	events
+    ```
+
+    > 示例：如果你使用的是异步 epoll 连接处理方式，这个值设定单个 worker 进程异步 I/O 操作数为 1 万
+
+    ```conf
+    worker_aio_requests 10000;
+    ```
+
+22. worker_connections
 
     > 设置单个 worker 进程能同时打开的最大连接数。
 
@@ -317,7 +333,7 @@
     - 另一个需要考虑的问题是，实际并发连接的数量不能超过当前打开文件最大数量的限制，可以通过 worker_rlimit_nofile 指令更改。
     ```
 
-22. worker_cpu_affinity
+23. worker_cpu_affinity
 
     > 将 worker 进程绑定到 cpu 集。每个 CPU 集由允许的 CPU 的位掩码表示。应该为每个 worker 进程定义一个单独的集合。默认情况下，worker 进程不绑定到任何特定的 CPU。
 
@@ -336,7 +352,7 @@
 
     > 规则设定：cpu 有多少个核，就有几位数，1 代表内核开启，0 代表内核关闭。
 
-23. worker_priority
+24. worker_priority
 
     > 定义 worker 进程的调度优先级，负数表示更高的优先级。允许范围通常在-20 到 19 之间变化。
 
@@ -352,7 +368,7 @@
     $ ps axo cmd,pid,psr,ni | grep nginx
     ```
 
-24. worker_processes
+25. worker_processes
 
     > 定义 worker 进程的数量。
 
@@ -376,8 +392,8 @@
       > 每个 worker 进程都可以绑定到一个单独的 CPU
 
       ```ini
-      worker_processes 4
-      worker_cpu_affinity 0001 0010 0100 1000
+      worker_processes 4;
+      worker_cpu_affinity 0001 0010 0100 1000;
       ```
 
     - 有 4 个 cpu，仅设置 2 个工作进程
@@ -385,11 +401,11 @@
       > 这样我们只能自己分配 cpu 绑定了
 
       ```ini
-      worker_processes 2
+      worker_processes 2;
       # 1、3两个cpu绑定到 'worker进程1'，2、4两个cpu绑定到 'worker进程2'
-      worker_cpu_affinity 0101 1010
+      worker_cpu_affinity 0101 1010;
       # 1、2、3三个cpu绑定到 'worker进程1',4这个cpu绑定到 'worker进程2'
-      worker_cpu_affinity 0111 1000
+      worker_cpu_affinity 0111 1000;
       ```
 
     - 有 2 个 cpu，设置 2 个 worker 进程
@@ -397,8 +413,78 @@
       > 每个 worker 进程都可以绑定到一个单独的 CPU
 
       ```ini
-      worker_priority 2
-      worker_cpu_affinity 01 10
+      worker_priority 2;
+      worker_cpu_affinity 01 10;
       ```
 
-25. worker_rlimit_core
+26. worker_rlimit_core
+
+    > 为工作进程更改 core 文件(RLIMIT_CORE)的大小限制。用于在不重新启动主进程的情况下增加限制。
+
+    ```ini
+    Syntax:	worker_rlimit_core size;
+    Default:	—
+    Context:	main
+    ```
+
+    > worker_rlimit_core 限制 coredump 核心转储文件的大小，这是用于调试、定位问题的配置项
+
+    ```ini
+    - 在linux系统中，当进程发生错误或者收到信号而终止时，系统会将进程执行时的内存内容（核心映像）写入一个文件中(core)，以作为调试之用，这就是所谓的核心转储(core dumps)。
+    - 当nginx进程出现一些非法操作（如内存越界）导致进程直接被操作系统强制停止时会产生核心转储文件core，可以从core中获取堆栈、寄存器等信息，从而帮助我们定位问题。
+    - 但是这种core文件中的许多信息并不一定是用户所需信息，如果不加以限制会造成core文件非常大，很容易导致磁盘占满。通过worker_rlimit_core配置参数可以限制core文件的大小。
+    ```
+
+    > 案例：
+
+    ```conf
+    worker_rlimit_core  50M;
+    ```
+
+27. worker_rlimit_nofile
+
+    > 更改工作进程打开文件的最大数量限制(RLIMIT_NOFILE)。用于在不重新启动主进程的情况下增加限制。
+
+    ```ini
+    Syntax:	worker_rlimit_nofile number;
+    Default:	—
+    Context:	main
+    ```
+
+    > 案例，高并发下我们可以直接设置成十万
+
+    ```conf
+    worker_rlimit_nofile 100000;
+    ```
+
+28. worker_shutdown_timeout
+
+    > 为客户端设置一个超时，在规定时间内由客户端（浏览者）控制是否关闭连接（页面）；如果超时，nginx 将尝试强制关闭当前客户端打开的所有连接，保证服务器资源不被占用。
+
+    ```ini
+    Syntax:	worker_shutdown_timeout time;
+    Default:	—
+    Context:	main
+    ```
+
+    > 案例，10 秒后将强制关闭，worker 进程中与当前客户端相关的所有链接
+
+    ```conf
+    worker_shutdown_timeout 30s;
+    ```
+
+29. working_directory
+
+    > 定义工作进程的当前工作目录。它主要用于编写 core 文件，在这种情况下，工作进程应该具有指定目录的写权限。
+
+    ```ini
+    Syntax:	working_directory directory;
+    Default:	—
+    Context:	main
+    ```
+
+    > 案例：
+
+    ```conf
+    working_directory /tmp/;
+    ```
