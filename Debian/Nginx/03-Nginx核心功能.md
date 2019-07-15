@@ -252,7 +252,7 @@
 
 17. thread_pool
 
-    > 定义用于多线程读取和发送文件而不阻塞工作进程的命名线程池。
+    > 定义用于多线程读取和发送文件而不阻塞 worker 进程的命名线程池。
 
     ```text
     Syntax:	thread_pool name threads=number [max_queue=number];
@@ -301,7 +301,7 @@
 
 20. user
 
-    > 定义工作进程使用的用户和组凭据。如果省略组，则使用名称等于 user 的组。
+    > 定义 worker 进程使用的用户和组凭据。如果省略组，则使用名称等于 user 的组。
 
     ```text
     Syntax:	user 用户名 [用户组名];
@@ -314,6 +314,47 @@
     > 设置单个 worker 进程能同时打开的最大连接数。
 
     ```text
+    Syntax:	worker_connections number;
+    Default:	worker_connections 512;
+    Context:	events
+    ```
+
+    ```text
     - 应该记住，这个数字包括所有连接(例如与代理服务器的连接等)，而不仅仅是与客户机的连接。
     - 另一个需要考虑的问题是，实际并发连接的数量不能超过当前打开文件最大数量的限制，可以通过 worker_rlimit_nofile 指令更改。
+    ```
+
+22. worker_cpu_affinity
+
+    > 将 worker 进程绑定到 cpu 集。每个 CPU 集由允许的 CPU 的位掩码表示。应该为每个 worker 进程定义一个单独的集合。默认情况下，worker 进程不绑定到任何特定的 CPU。
+
+    ```text
+    Syntax:	    worker_cpu_affinity cpumask ...;
+                worker_cpu_affinity auto [cpumask];
+    Default:	—
+    Context:	main
+    ```
+
+    > 使用一下指令查看 cpu 核心数：
+
+    ```shell
+    $ cat /proc/cpuinfo | grep processor
+    ```
+
+    > 规则设定：cpu 有多少个核，就有几位数，1 代表内核开启，0 代表内核关闭。
+
+23. worker_priority
+
+    > 定义 worker 进程的调度优先级，负数表示更高的优先级。允许范围通常在-20 到 19 之间变化。
+
+    ```text
+    Syntax:	worker_priority number;
+    Default:	worker_priority 0;
+    Context:	main
+    ```
+
+    > 默认即可，对性能影响不大。可以使用下面的指令查看优先级：
+
+    ```shell
+    $ ps axo cmd,pid,psr,ni | grep nginx
     ```
