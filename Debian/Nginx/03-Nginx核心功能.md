@@ -361,3 +361,44 @@
     Default:	worker_processes 1;
     Context:	main
     ```
+
+    > 取值概述
+
+    ```ini
+    - worker_processes 最佳值取决于许多因素，包括(但不限于)CPU内核的数量、存储数据的硬盘驱动器的数量和负载模式。
+    - 当有疑问时，将它设置为可用CPU内核的数量将是一个好的开始(值“auto”将尝试自动检测它)。
+    ```
+
+    > 通常他跟 `worker_cpu_affinity` 指令组合使用：
+
+    - 有 4 个 cpu，设置 4 个 worker 进程
+
+      > 每个 worker 进程都可以绑定到一个单独的 CPU
+
+      ```ini
+      worker_processes 4
+      worker_cpu_affinity 0001 0010 0100 1000
+      ```
+
+    - 有 4 个 cpu，仅设置 2 个工作进程
+
+      > 这样我们只能自己分配 cpu 绑定了
+
+      ```ini
+      worker_processes 2
+      # 1、3两个cpu绑定到 'worker进程1'，2、4两个cpu绑定到 'worker进程2'
+      worker_cpu_affinity 0101 1010
+      # 1、2、3三个cpu绑定到 'worker进程1',4这个cpu绑定到 'worker进程2'
+      worker_cpu_affinity 0111 1000
+      ```
+
+    - 有 2 个 cpu，设置 2 个 worker 进程
+
+      > 每个 worker 进程都可以绑定到一个单独的 CPU
+
+      ```ini
+      worker_priority 2
+      worker_cpu_affinity 01 10
+      ```
+
+25. worker_rlimit_core
