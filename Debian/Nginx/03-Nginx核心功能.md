@@ -483,7 +483,7 @@
     Context:	main
     ```
 
-    > 案例：
+    > 案例：设置编写 core 文件的目录为/tmp/
 
     ```conf
     working_directory /tmp/;
