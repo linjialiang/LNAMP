@@ -31,7 +31,7 @@ $ curl -I 127.0.0.1
 
 > 终端出现如下类似输出，则说明启动成功：
 
-```ini
+```shell
 HTTP/1.1 200 OK
 Server: nginx/1.14.2
 Date: Fri, 12 Jul 2019 06:37:51 GMT
