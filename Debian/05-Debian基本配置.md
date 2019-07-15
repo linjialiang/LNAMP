@@ -165,7 +165,7 @@ $ apt install lrzsz tar bzip2 gzip curl
 
    > curl 是一种命令行工具，作用是发出网络请求，然后得到和提取数据，显示在"标准输出"（stdout）上面。
 
-   ```text
+   ```ini
    具体知识点请查看阮一峰的博客：
         - http://www.ruanyifeng.com/blog/2011/09/curl.html
    ```
