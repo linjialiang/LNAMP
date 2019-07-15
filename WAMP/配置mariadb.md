@@ -6,7 +6,7 @@
 
 > my.ini 是 mariadb 配置文件，我们在 mariadb 根目录上创建 my.ini，并输入以下内容
 
-```ini
+```text
 [client]
 port = 3306
 
@@ -15,7 +15,7 @@ port = 3306
 datadir = "c:/wamp/web/data"
 ```
 
-```ini
+```text
 - 提示：`innodb` 索引扩展默认会跟 `datadir` 同级，如无必要不用配置
 - 注意：需要将 mariadb 根目录下的 data 目录下的全部数据复制到指定的路径下
 ```

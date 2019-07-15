@@ -10,7 +10,7 @@
 
     > 与负载、性能相关，也称 `互斥锁`
 
-    ```ini
+    ```text
     - 语法: 	  accept_mutex on | off;
     - 默认值: 	 accept_mutex off;
     - 上下文: 	 events
@@ -18,7 +18,7 @@
 
     > accept_mutex 的作用：
 
-    ```ini
+    ```text
     - accept_mutex on;
          - 当一个新连接到达时，如果激活了 accept_mutex，那么多个Worker将以串行方式来处理，其中有一个 Worker 会被唤醒，其他的 Worker 继续保持休眠状态；
          - 需要程序一个个分配，worker分配不均匀，执行效率低。
@@ -32,7 +32,7 @@
 
     > 与负载、性能相关， 满足 `accept_mutex on;` 这个条件才有效
 
-    ```ini
+    ```text
     - 语法:     accept_mutex_delay time;
     - 默认值:   accept_mutex_delay 500ms;
     - 上下文:   events
@@ -40,7 +40,7 @@
 
     > accept_mutex_delay 的作用：
 
-    ```ini
+    ```text
     - 当 accept_mutex 功能启用后，只有一个持有 mutex 锁的 worker 进程会接受并处理请求，其他 worker 进程等待；
     - accept_mutex_delay 指定的时间就是这些 worker 进程的等待时间，过了等待时间下一个 worker 进程便取得 mutex 锁，处理请求；
     - accept_mutex_delay 在 events 模块中指定，默认的值为 500ms。
@@ -50,7 +50,7 @@
 
     > 确定 nginx 是否应该成为守护进程，主要用于开发环境中。
 
-    ```ini
+    ```text
     - 语法:     daemon on | off;
     - 默认值:   daemon on;
     - 上下文:   events
@@ -62,7 +62,7 @@
 
     > 为选定的客户端连接启用 debug 日志，而其他客户端的连接将使用 error_log 指令设置的日志级别。
 
-    ```ini
+    ```text
     - 语法:    debug_connection address | CIDR | unix:;
     - 默认值:  没有
     - 上下文:  events
@@ -74,7 +74,7 @@
 
     > 这个指令用于调试。
 
-    ```ini
+    ```text
     Syntax: 	debug_points abort | stop;
     Default: 	—
     Context: 	main
@@ -84,7 +84,7 @@
 
     > 设置 nginx 环境变量
 
-    ```ini
+    ```text
     Syntax: 	env variable[=value];
     Default: 	env TZ;
     Context: 	main
@@ -94,7 +94,7 @@
 
     > 配置错误日志记录
 
-    ```ini
+    ```text
     Syntax: 	error_log file [错误日志级别];
     Default: 	error_log logs/error.log error;
     Context: 	main, http, mail, stream, server, location
@@ -106,7 +106,7 @@
 
     > 核心功能中唯一的块指令，提供配置文件上下文，其中指定了影响连接处理的指令。
 
-    ```ini
+    ```text
     Syntax: 	events { ... }
     Default: 	—
     Context: 	main
@@ -116,7 +116,7 @@
 
     > 在配置中包含另一个文件，或与指定掩码匹配的文件。包含的文件应该由语法正确的指令和块组成。
 
-    ```ini
+    ```text
     Syntax: 	include file | mask;
     Default: 	—
     Context: 	any
@@ -133,7 +133,7 @@
 
     > 加载一个动态模块
 
-    ```ini
+    ```text
     Syntax: 	load_module file;
     Default: 	—
     Context: 	main
@@ -149,13 +149,13 @@
 
     > nginx 使用锁的机制来实现 accept_mutex 功能和共享内存.
 
-    ```ini
+    ```text
     Syntax: 	lock_file file;
     Default: 	lock_file logs/nginx.lock;
     Context: 	main
     ```
 
-    ```ini
+    ```text
     - 大多数操作系统中，锁都是一个原子操作，这种情况下这条指令无效；
     - 还有一些操作系统中使用“锁文件”的的机制来实现锁，此命令用来指定锁文件前缀名。
     - lock_file 我们一般也用不到
@@ -165,7 +165,7 @@
 
     > 是否以 master/worker 方式进行工作
 
-    ```ini
+    ```text
     Syntax: 	master_process on | off;
     Default: 	master_process on;
     Context: 	main
@@ -173,7 +173,7 @@
 
     > master_process 选项解释：
 
-    ```ini
+    ```text
     - master_process on; 表示 nginx 是以一个 master 进程管理多个 worker 进程的方式运行的；
     - master_process off; 表示 nginx 不会 fork 出 worker 子进程来处理请求，而是用master进程自身来处理请求。
     - 除非开发插件，一般都是开启的
@@ -183,13 +183,13 @@
 
     > 让 nginx worker 进程尽可能多地接受请求。
 
-    ```ini
+    ```text
     Syntax: 	multi_accept on | off;
     Default: 	multi_accept off;
     Context: 	events
     ```
 
-    ```ini
+    ```text
     - multi_accept on; 时，可以让 nginx worker 进程尽可能多地接受请求；
         - 作用是让worker进程一次性地接受监听队列里的所有请求，然后处理；
     - multi_accept off; 时，worker进程必须一个一个地接受监听队列里的请求。
@@ -199,7 +199,7 @@
 
     > 开启或者禁用即时编译正则表达式(PCRE 版本必须在 8.20 或者更高)
 
-    ```ini
+    ```text
     Syntax:	pcre_jit on | off;
     Default:	pcre_jit off;
     Context:	main
@@ -207,7 +207,7 @@
 
     > `pcre_jit on;` 可显著提高 nginx 对正则的处理速度，具体实现过程如下：
 
-    ```ini
+    ```text
     1. 构建PCRE时，必须指定 --enable-jit 参数；
     2. 构建nginx时，必须指定 --with-pcre-jit 参数，让nginx启用对pcre_jit的支持；
     3. 如果pcre可执行程序没有加入系统环境变量中，则需要通过 '--with-pcre=<pcre可执行程序路径>' 指定正确的路径。
@@ -217,7 +217,7 @@
 
     > 定义一个文件，该文件将存储主进程的进程 ID。
 
-    ```ini
+    ```text
     Syntax:	pid file;
     Default:    pid logs/nginx.pid;
     Context:	main
@@ -227,7 +227,7 @@
 
     > 该指令用于指定 openssl 使用的引擎。
 
-    ```ini
+    ```text
     Syntax: ssl_engine <引擎名>;
     Default:	—
     Context:	main
@@ -247,13 +247,13 @@
 
     > 定义用于多线程读取和发送文件而不阻塞 worker 进程的命名线程池。
 
-    ```ini
+    ```text
     Syntax:	thread_pool name threads=number [max_queue=number];
     Default:	thread_pool default threads=32 max_queue=65536;
     Context:	main
     ```
 
-    ```ini
+    ```text
     - threads参数定义池中的线程数;
     - 如果池中的所有线程都处于繁忙状态，则新任务将在队列中等待;
     - max_queue参数限制允许在队列中等待的任务数量;
@@ -266,7 +266,7 @@
 
     > 该配置指令允许用户减少调用 gettimeofday()的次数。
 
-    ```ini
+    ```text
     Syntax:	timer_resolution <间隔时间>;
     Default:	—
     Context:	main
@@ -284,7 +284,7 @@
 
     > 指定要使用的连接处理方法。通常不需要显式地指定它，因为 nginx 默认使用最有效的方法。
 
-    ```ini
+    ```text
     Syntax:	use [ select| poll| kqueuw | epoll ];
     Default:	—
     Context:	events
@@ -296,7 +296,7 @@
 
     > 定义 worker 进程使用的用户和组凭据。如果省略组，则使用名称等于 user 的组。
 
-    ```ini
+    ```text
     Syntax:	user 用户名 [用户组名];
     Default:	user nobody nobody;
     Context:	main
@@ -306,7 +306,7 @@
 
     > 将 aio 与 epoll 连接处理方法一起使用时，为单个工作进程设置未完成异步 I/O 操作的最大数量。
 
-    ```ini
+    ```text
     Syntax:	worker_aio_requests number;
     Default:	worker_aio_requests 32;
     Context:	events
@@ -322,13 +322,13 @@
 
     > 设置单个 worker 进程能同时打开的最大连接数。
 
-    ```ini
+    ```text
     Syntax:	worker_connections number;
     Default:	worker_connections 512;
     Context:	events
     ```
 
-    ```ini
+    ```text
     - 应该记住，这个数字包括所有连接(例如与代理服务器的连接等)，而不仅仅是与客户机的连接。
     - 另一个需要考虑的问题是，实际并发连接的数量不能超过当前打开文件最大数量的限制，可以通过 worker_rlimit_nofile 指令更改。
     ```
@@ -337,7 +337,7 @@
 
     > 将 worker 进程绑定到 cpu 集。每个 CPU 集由允许的 CPU 的位掩码表示。应该为每个 worker 进程定义一个单独的集合。默认情况下，worker 进程不绑定到任何特定的 CPU。
 
-    ```ini
+    ```text
     Syntax:	    worker_cpu_affinity cpumask ...;
                 worker_cpu_affinity auto [cpumask];
     Default:	—
@@ -356,7 +356,7 @@
 
     > 定义 worker 进程的调度优先级，负数表示更高的优先级。允许范围通常在-20 到 19 之间变化。
 
-    ```ini
+    ```text
     Syntax:	worker_priority number;
     Default:	worker_priority 0;
     Context:	main
@@ -372,7 +372,7 @@
 
     > 定义 worker 进程的数量。
 
-    ```ini
+    ```text
     Syntax:	worker_processes number | auto;
     Default:	worker_processes 1;
     Context:	main
@@ -380,7 +380,7 @@
 
     > 取值概述
 
-    ```ini
+    ```text
     - worker_processes 最佳值取决于许多因素，包括(但不限于)CPU内核的数量、存储数据的硬盘驱动器的数量和负载模式。
     - 当有疑问时，将它设置为可用CPU内核的数量将是一个好的开始(值“auto”将尝试自动检测它)。
     ```
@@ -391,7 +391,7 @@
 
       > 每个 worker 进程都可以绑定到一个单独的 CPU
 
-      ```ini
+      ```text
       worker_processes 4;
       worker_cpu_affinity 0001 0010 0100 1000;
       ```
@@ -400,7 +400,7 @@
 
       > 这样我们只能自己分配 cpu 绑定了
 
-      ```ini
+      ```text
       worker_processes 2;
       # 1、3两个cpu绑定到 'worker进程1'，2、4两个cpu绑定到 'worker进程2'
       worker_cpu_affinity 0101 1010;
@@ -412,7 +412,7 @@
 
       > 每个 worker 进程都可以绑定到一个单独的 CPU
 
-      ```ini
+      ```text
       worker_priority 2;
       worker_cpu_affinity 01 10;
       ```
@@ -421,7 +421,7 @@
 
     > 为工作进程更改 core 文件(RLIMIT_CORE)的大小限制。用于在不重新启动主进程的情况下增加限制。
 
-    ```ini
+    ```text
     Syntax:	worker_rlimit_core size;
     Default:	—
     Context:	main
@@ -429,7 +429,7 @@
 
     > worker_rlimit_core 限制 coredump 核心转储文件的大小，这是用于调试、定位问题的配置项
 
-    ```ini
+    ```text
     - 在linux系统中，当进程发生错误或者收到信号而终止时，系统会将进程执行时的内存内容（核心映像）写入一个文件中(core)，以作为调试之用，这就是所谓的核心转储(core dumps)。
     - 当nginx进程出现一些非法操作（如内存越界）导致进程直接被操作系统强制停止时会产生核心转储文件core，可以从core中获取堆栈、寄存器等信息，从而帮助我们定位问题。
     - 但是这种core文件中的许多信息并不一定是用户所需信息，如果不加以限制会造成core文件非常大，很容易导致磁盘占满。通过worker_rlimit_core配置参数可以限制core文件的大小。
@@ -445,7 +445,7 @@
 
     > 更改工作进程打开文件的最大数量限制(RLIMIT_NOFILE)。用于在不重新启动主进程的情况下增加限制。
 
-    ```ini
+    ```text
     Syntax:	worker_rlimit_nofile number;
     Default:	—
     Context:	main
@@ -461,7 +461,7 @@
 
     > 为客户端设置一个超时，在规定时间内由客户端（浏览者）控制是否关闭连接（页面）；如果超时，nginx 将尝试强制关闭当前客户端打开的所有连接，保证服务器资源不被占用。
 
-    ```ini
+    ```text
     Syntax:	worker_shutdown_timeout time;
     Default:	—
     Context:	main
@@ -477,7 +477,7 @@
 
     > 定义工作进程的当前工作目录。它主要用于编写 core 文件，在这种情况下，工作进程应该具有指定目录的写权限。
 
-    ```ini
+    ```text
     Syntax:	working_directory directory;
     Default:	—
     Context:	main

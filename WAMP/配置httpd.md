@@ -2,7 +2,7 @@
 
 > Apache24 是当前最流行的 web 服务器软件之一，我们通常简写为 httpd。
 
-```ini
+```text
 - 注意： httpd 配置文件只支持正斜杆 `/` 不允许出现反斜杠 `\`
 ```
 
@@ -10,7 +10,7 @@
 
 > httpd.conf 是 httpd 的主配置文件，路径如下：
 
-```ini
+```text
 - 路径： C:/wamp/apache24/conf/httpd.conf
 - 提示：
     c:\wamp 是 wamp 开发环境的根目录；
@@ -32,7 +32,7 @@
 
 > 为 httpd 设置常用路径的环境变量
 
-````ini
+````text
 - 环境变量定义格式： `Define 变量名 变量值`
 - 环境变量输出格式： `${变量名}`
 ``
@@ -47,7 +47,7 @@
 | `Define HTDOCS "${WEB_ROOT}/www"`           | `${HTDOCS}`      | 站点主目录           |
 | `Define HTLOGS "${WEB_ROOT}/logs/apache24"` | `${HTLOGS}`      | 阿帕奇日志目录       |
 
-```ini
+```text
 - 警告：如不需要，尽量少的定义环境变量，这会提高httpd的负荷；
 - 提示：由于 Define 是 apache24 自带的变量，并不需要其它模块支持，因此定义到配置文件最前面即可！
 ```
@@ -56,7 +56,7 @@
 
 > httpd.conf 文件下增加 httpd 的子配置文件
 
-```ini
+```text
 - 描述： httpd 支持定义子孙配置文件，支持相对路径和绝对路径，我们这里会用到绝对路径
 - 格式： Include 自配置文件路径
 ```
@@ -67,7 +67,7 @@
 </IfModule>
 ````
 
-```ini
+```text
 - 警告：由于 `Include` 需要模块 `include_module` 支持，所以我们需要在模块定义之后添加
 - 提示：由于自定义的 apache24.conf 文件会有各种配置，我们建议在模块定义后第一个出现就是该配置文件
 ```
@@ -76,7 +76,7 @@
 
 > 删除 httpd.conf 多余配置项目
 
-```ini
+```text
 - 删除 1：文件里所有注释的行都可以被删除掉
 - 删除 2：由于 httpd 支持相对路径，因此 `定义模块之后的内容` 都可以删除或转移到 apache24.conf
 - 福利：为了能更直观理解 httpd 配置，我会将模块往后的内容全部挪移到 apache24.conf 这个子配置文件里
@@ -183,7 +183,7 @@
 
     - 为 apache24 指定站点缺省位置
 
-      ```ini
+      ```text
       - apache24 未配置 VirtualHost 的域名会访问第一个 VirtualHost 配置下的站点目录
       - DocumentRoot 是会被探针识别为站点目录的，安全起见不应该与其它站点设置在同一个根目录下
       ```
@@ -334,7 +334,7 @@
 
 1. 别名配置
 
-   ```ini
+   ```text
    - 以 phpmtadmin 和 adminer.php 为例;
    - 站点配置目录下新建文件 phpmyadmin.conf文件；
    ```

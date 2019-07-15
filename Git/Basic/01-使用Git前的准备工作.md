@@ -100,7 +100,7 @@ $ git config --global core.editor <editor_name>
 
 1. `.gitignore` 文件语法规则：
 
-   ```ini
+   ```text
    - 所有空格或者以 # 开头的行都会被 Git 忽略；
    - 可以使用标准的 glob 模式匹配；
    - 匹配 glob 模式可以以 / 开头防止递归；
