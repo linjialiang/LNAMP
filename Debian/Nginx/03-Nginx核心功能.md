@@ -228,7 +228,11 @@
     > 该指令用于指定 openssl 使用的引擎。
 
     ```text
+<<<<<<< HEAD
     Syntax:	ssl_engine <引擎名>;
+=======
+    Syntax:	ssl_engine device;
+>>>>>>> 558966549559c90310267c821e396473cb78e280
     Default:	—
     Context:	main
     ```
@@ -304,4 +308,4 @@
 
 21. worker_aio_requests
 
-    > 
+    >
