@@ -75,3 +75,27 @@
    ```
 
 5. 架构和可扩展性
+
+   ```text
+   - 一个主进程(master)和多个工作进程(worker)，worker 进程以非特权用户运行；
+   - 配置灵活;
+   - 在不中断客户端服务的情况下重新配置 和升级可执行文件;
+   - 支持的I/O事件通知机制：
+     - kqueue（FreeBSD 4.1+）
+     - epoll（Linux 2.6+）
+     - rt signals（Linux 2.2.19+）
+     - /dev/poll（Solaris 7 11/99+）
+     - event ports（Solaris 10）
+     - select 以及 poll；
+   - 支持众多的 kqueue 特性:
+     包括 EV_CLEAR、EV_DISABLE（临时禁止事件）、NOTE_LOWAT、EV_EOF，可用数据的数量，错误代码；
+   - 支持各种 epoll 功能:
+     - EPOLLRDHUP（Linux 2.6.17 +，glibc 2.8+）
+     - EPOLLEXCLUSIVE（Linux 4.5 +，glibc 2.24+）
+   - 支持 sendfile（FreeBSD 3.1+, Linux 2.2+, Mac OS X 10.5+）、sendfile64（Linux 2.4.21+）和 sendfilev（Solaris 8 7/01+）；
+   - 文件 AIO（FreeBSD 4.3+, Linux 2.6.22+）；
+   - DIRECTIO (FreeBSD 4.4+, Linux 2.4+, Solaris 2.6+, Mac OS X);
+   - 支持 Accept-filters（FreeBSD 4.1+, NetBSD 5.0+）和 TCP_DEFER_ACCEPT（Linux 2.4+）；
+   - 10000 个非活跃的 HTTP keep-alive 连接仅占用约 2.5M 内存；
+   - 尽可能避免数据拷贝操作。
+   ```
