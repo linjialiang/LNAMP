@@ -208,10 +208,14 @@
     > `pcre_jit on;` 可显著提高 nginx 对正则的处理速度，具体实现过程如下：
 
     ```text
-    构建nginx时，必须指定如下几个选项：
-        1. --with-pcre=<pcre源码的路径> 选项，这样Nginx就会自动编译pcre；
-        2. --with-pcre-jit 选项，让nginx启用对pcre_jit的支持；
-        3. --with-pcre-opt='--enable-jit' 选项，这样编译安装的pcre才会支持JIT编译器。
+    - 使用已安装成功的 PCRE：
+        1. PCRE版本需要大于等于 8.20;
+        2. 构建 PCRE 时，添加 --enable-jit 选项；
+        3. 构建 Nginx 时，添加 --with-pcre 选项，代表强制使用已安装成功的pcre库。
+    - 让Nginx自动编译PCRE，必须在构建Nginx包时：
+        1. PCRE版本需要大于等于 8.20，并且解压好源码;
+        2. 构建 Nginx 时，添加 --with-pcre=<pcre源码的路径> 选项，这样Nginx就会自动编译PCRE；
+        3. 构建 Nginx 时，添加 --with-pcre-jit 选项，让nginx内的正则支持JIT编译器（即时编译编译器）；
     ```
 
 15. pid
