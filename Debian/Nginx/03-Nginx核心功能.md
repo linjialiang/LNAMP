@@ -209,9 +209,10 @@
 
     ```text
     - 使用已安装成功的 PCRE：
-        1. PCRE版本需要大于等于 8.20;
-        2. 构建 PCRE 时，添加 --enable-jit 选项；
-        3. 构建 Nginx 时，添加 --with-pcre 选项，代表强制使用已安装成功的pcre库。
+        1. PCRE版本大于等于 8.20;
+        2. PCRE执行程序需要加入环境变量中；
+        3. 构建 PCRE 时，添加 --enable-jit 选项；
+        4. 构建 Nginx 时，添加 --with-pcre 选项，代表强制使用已安装成功的pcre库。
     - 让Nginx自动编译PCRE，必须在构建Nginx包时：
         1. PCRE版本需要大于等于 8.20，并且解压好源码;
         2. 构建 Nginx 时，添加 --with-pcre=<pcre源码的路径> 选项，这样Nginx就会自动编译PCRE；
