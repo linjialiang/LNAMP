@@ -4,7 +4,7 @@
 
 1. 默认安装的模块
 
-   > 这些模块是编译安装 Nginx 时，会自动安装的：
+   > 这些模块在编译 Nginx 时就会自动安装的：
 
    | 模块                          | 描述                                                                                                                 |
    | ----------------------------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -54,7 +54,7 @@
    | ---------------------------- | --------------------------------- | ------------------------------------------------------------------------- |
    | ngx_http_addition_module     | `--with-http_addition_module`     | 过滤器模块                                                                |
    | ngx_http_auth_request_module | `--with-http_auth_request_module` | 基于子请求的结果来对客户端授权                                            |
-   | ngx_http_dav_module          | `--with-http_dav_module`          | 处理 HTTP 和 WebDAV 的部分方法，                                          |
+   | ngx_http_dav_module          | `--with-http_dav_module`          | 处理 HTTP、处理 WebDAV 部分方法（PUT、DELETE、MKCOL、COPY 和 MOVE）       |
    | ngx_http_flv_module          | `--with-http_flv_module`          | 为 Flash Video（FLV）文件提供伪流服务器端支持，                           |
    | ngx_http_geoip_module        | `--with-http_geoip_module`        | 根据客户端 IP 地址的值创建的变量，                                        |
    | ngx_http_gunzip_module       | `--with-http_gunzip_module`       | 是一个过滤器 Nginx                                                        |
@@ -87,11 +87,3 @@
    | ngx_http_spdy_module          | 1.9.5 版本后被`ngx_http_v2_module`取代   | 为 SPDY 提供实验支持                             |
    | ngx_http_upstream_conf_module | 1.13.3 版本后被`ngx_http_api_module`取代 | 模块允许通过简单的 HTTP 接口即时配置上游服务器组 |
    | ngx_http_status_module        | 1.13.3 版本后被`ngx_http_api_module`取代 | 提供对各种状态信息的访问                         |
-
-> 备注：
-
-```text
-WEBDAV：
-    - WebDAV 是一种基于 HTTP 1.1协议的通信协议；
-    - 这里的WebDAV方法指的是 PUT、DELETE、MKCOL、COPY和MOVE
-```
