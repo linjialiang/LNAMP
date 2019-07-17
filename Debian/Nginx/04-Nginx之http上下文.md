@@ -8,7 +8,7 @@
 
    | 模块                          | 描述                                                                                                                 |
    | ----------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-   | ngx_http_core_module          | http 基础模块                                                                                                        |
+   | ngx_http_core_module          | http 上下文基础模块                                                                                                  |
    | ngx_http_access_module        | 限制对某些客户端地址的访问                                                                                           |
    | ngx_http_api_module           | 提供 REST API 访问的各种状态信息                                                                                     |
    | ngx_http_auth_basic_module    | 限制对资源的访问                                                                                                     |
@@ -87,3 +87,10 @@
    | ngx_http_spdy_module          | 1.9.5 版本后被`ngx_http_v2_module`取代   | 为 SPDY 提供实验支持                             |
    | ngx_http_upstream_conf_module | 1.13.3 版本后被`ngx_http_api_module`取代 | 模块允许通过简单的 HTTP 接口即时配置上游服务器组 |
    | ngx_http_status_module        | 1.13.3 版本后被`ngx_http_api_module`取代 | 提供对各种状态信息的访问                         |
+
+## 重要模块
+
+> 在实际工作中有写模块并非必要，下面是 http 上下文重要模块列表：
+
+| 重要模块 | 构建选项 | 描述 |
+| -------- | -------- | ---- |
