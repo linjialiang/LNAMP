@@ -2,6 +2,8 @@
 
 > Apache24 是当前最流行的 web 服务器软件之一，我们通常简写为 httpd。
 
+点击查看 [中文翻译文档](https://www.docs4dev.com/docs/zh/apache/2.4/reference)
+
 ```text
 - 注意： httpd 配置文件只支持正斜杆 `/` 不允许出现反斜杠 `\`
 ```
