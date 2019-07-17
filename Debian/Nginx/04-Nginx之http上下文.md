@@ -2,17 +2,17 @@
 
 > 官方手册上对 http 上下文写出了 58 个模块，具体如下：
 
-| 模块                          | 描述                                                        |
-| ----------------------------- | ----------------------------------------------------------- |
-| ngx_http_core_module          | http 核心功能模块，默认安装                                 |
-| ngx_http_access_module        | 访问限制模块，默认安装                                      |
-| ngx_http_addition_module      | 过滤器模块，构建 Nginx 需添加 `--with-http_addition_module` |
-| ngx_http_api_module           |
-| ngx_http_auth_basic_module    |
-| ngx_http_auth_jwt_module      |
-| ngx_http_auth_request_module  |
-| ngx_http_autoindex_module     |
-| ngx_http_browser_module       |
+| 模块                          | 描述                                                                              |
+| ----------------------------- | --------------------------------------------------------------------------------- |
+| ngx_http_core_module          | http 基础模块，默认安装                                                           |
+| ngx_http_access_module        | 限制对某些客户端地址的访问，默认安装                                              |
+| ngx_http_addition_module      | 过滤器模块，使用 `--with-http_addition_module` 构建 Nginx                         |
+| ngx_http_api_module           | 提供 REST API 访问的各种状态信息，默认安装                                        |
+| ngx_http_auth_basic_module    | 限制对资源的访问，默认安装                                                        |
+| ngx_http_auth_jwt_module      | 验证客户端，默认安装                                                              |
+| ngx_http_auth_request_module  | 基于子请求的结果来对客户端授权，使用 `--with-http_auth_request_module` 构建 Nginx |
+| ngx_http_autoindex_module     | 处理以斜杠字符（'/'）结尾的请求，并生成目录列表，默认安装 ，默认安装              |
+| ngx_http_browser_module       | 用于声明浏览器类型，默认安装                                                      |
 | ngx_http_charset_module       |
 | ngx_http_dav_module           |
 | ngx_http_empty_gif_module     |
