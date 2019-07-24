@@ -6,7 +6,6 @@
 
 | atom 扩展主题(7)         |
 | ------------------------ |
-| aesthetic-ui             |
 | city-lights-syntax       |
 | dracula-syntax           |
 | nord-atom-syntax         |
