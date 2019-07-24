@@ -4,14 +4,11 @@
 
 ## atom 主题扩展
 
-| atom 扩展主题(7)         |
+| atom 扩展主题(3)         |
 | ------------------------ |
-| city-lights-syntax       |
-| dracula-syntax           |
-| nord-atom-syntax         |
-| atom-eclipse-syntax      |
-| monokai                  |
+| aesthetic-ui             |
 | atom-material-syntax     |
+| city-lights-syntax       |
 | notepad-plus-plus-syntax |
 
 ## atom 插件扩展
