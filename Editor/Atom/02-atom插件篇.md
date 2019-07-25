@@ -7,6 +7,7 @@
 | atom 扩展主题(3)         |
 | ------------------------ |
 | aesthetic-ui             |
+| atom-material-ui         |
 | atom-material-syntax     |
 | city-lights-syntax       |
 | notepad-plus-plus-syntax |
