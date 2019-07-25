@@ -1,35 +1,5 @@
 [
   {
-    title: "programmer"
-    group: "知识汇总"
-    paths: [
-      "D:\\programmer"
-    ]
-    icon: "code-icon"
-    color: "green"
-    devMode: true
-  }
-  {
-    title: "qyadmin"
-    group: "ThinkPHP项目"
-    paths: [
-      "C:\\wamp\\web\\www\\qyadmin"
-    ]
-    icon: "php-icon"
-    color: "#8892BF"
-    devMode: true
-  }
-  {
-    title: "hash"
-    group: "composer"
-    paths: [
-      "D:\\composer\\hash"
-    ]
-    icon: "php-icon"
-    color: "#8892BF"
-    devMode: true
-  }
-  {
     title: ".atom"
     group: "atom"
     paths: [
