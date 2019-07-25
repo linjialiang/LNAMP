@@ -14,21 +14,20 @@
 
 ## atom 插件扩展
 
-| 实用插件(13)            | 插件描述          |
-| ----------------------- | ----------------- |
-| atom-beautify           | 格式化源代码      |
-| docblockr               | 用于注释          |
-| sync-settings           | atom 配置同步插件 |
-| split-diff              | 文件对比插件      |
-| project-manager         | 项目管理          |
-| platformio-ide-terminal | atom 下出色的终端 |
-| markdown-preview-plus   | markdown 预览     |
-| markdown-toc-auto       | markdown 导航     |
-| file-header             | 文件头信息        |
-| file-icons              | 文件图标          |
-| quick-highlight         | 文本快速高亮      |
-| remote-ftp              | 远程连接          |
-| editorconfig            | 统一代码风格      |
+| 实用插件(13)              | 插件描述          |
+| ------------------------- | ----------------- |
+| atom-beautify             | 格式化源代码      |
+| docblockr                 | 用于注释          |
+| sync-settings             | atom 配置同步插件 |
+| split-diff                | 文件对比插件      |
+| project-manager           | 项目管理          |
+| platformio-ide-terminal   | atom 下出色的终端 |
+| markdown-preview-enhanced | markdown 预览     |
+| file-header               | 文件头信息        |
+| file-icons                | 文件图标          |
+| quick-highlight           | 文本快速高亮      |
+| remote-ftp                | 远程连接          |
+| editorconfig              | 统一代码风格      |
 
 | git 相关插件(3)      | 插件描述                                   |
 | -------------------- | ------------------------------------------ |
@@ -45,26 +44,21 @@
 | minimap-linter          | 代码小窗口-linter 包    |
 | minimap-quick-highlight | 代码小窗口-快速高亮     |
 
-| 语法相关插件(4) | 插件描述               |
+| 语法相关插件(3) | 插件描述               |
 | --------------- | ---------------------- |
-| language-apache | httpd 扩展文件语法高亮 |
 | language-nginx  | nginx 配置文件语法高亮 |
 | language-ini    | ini 扩展文件语法高亮   |
 | language-notenv | .env 扩展文件语法高亮  |
 
-| ide(11)                   | 插件描述                 |
-| ------------------------- | ------------------------ |
-| busy-signal               | 基础包                   |
-| intentions                | Linter 显示              |
-| linter-ui-default         | Linter 界面              |
-| linter                    | Linter 基础包            |
-| atom-ide-datatip          | ide 界面展示             |
-| atom-ide-signature-help   | ide 界面参数帮助信息     |
-| atom-ide-definitions      | ide 转到定义             |
-| atom-ide-markdown-service | ide 界面以 markdown 展示 |
-| linter-eslint             | js 错误提示              |
-| atom-ternjs               | js 代码补全              |
-| ide-php                   | php 语言包               |
+| ide(7)            | 插件描述      |
+| ----------------- | ------------- |
+| busy-signal       | 基础包        |
+| intentions        | Linter 显示   |
+| linter-ui-default | Linter 界面   |
+| linter            | Linter 基础包 |
+| linter-eslint     | js 错误提示   |
+| linter-php        | php 错误提示  |
+| atom-ternjs       | js 代码补全   |
 
 | html 相关插件(6) | 插件描述                  |
 | ---------------- | ------------------------- |
@@ -157,10 +151,6 @@
 | [规则官网](https://twitter.com/autoprefixer)                  | 官网是推特     |
 
 ### remote-ftp
-
-> 设置仅在 ftp 连接成功时，文件保存后自动更新远程文件：
-
-![保存时自动更新远程文件](./static/02/01.png)
 
 > 最简单的 ftp 配置，更全面的说明移步 [`官方说明`](https://github.com/icetee/remote-ftp)
 
