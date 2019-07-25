@@ -4,13 +4,13 @@
 
 ## atom 主题扩展
 
-| atom 扩展主题(3)         |
+| atom 扩展主题(5)         |
 | ------------------------ |
 | aesthetic-ui             |
-| atom-material-ui         |
 | atom-material-syntax     |
 | city-lights-syntax       |
 | notepad-plus-plus-syntax |
+| monokai                  |
 
 ## atom 插件扩展
 
