@@ -135,15 +135,56 @@ $ apt install libxml2-dev libssl-dev
 
 1. 安装 ImageMagic 扩展库
 
+   > 需要扩展支持，还未安装完成
+
    ```shell
+   # 需要 imagemagick 依赖包支持：
+   $ apt install imagemagick
    $ cd /data/
    $ wget https://pecl.php.net/get/imagick-3.4.4.tgz
+   $ tar -xzvf imagick-3.4.4.tgz
+   $ cd imagick-3.4.4
+   $ phpize
+   $ ./configure
+   $ make -j4
+   $ make test
+   $ make install
    ```
 
-2. 安装 ImageMagic 扩展库
+2. 安装 xdebug 扩展库
 
    ```shell
    $ cd /data/
    $ wget https://pecl.php.net/get/xdebug-2.7.2.tgz
    $ tar -xzvf xdebug-2.7.2.tgz
+   $ cd xdebug-2.7.2
+   $ phpize
+   $ ./configure
+   $ make -j4
+   $ make test
+   $ make install
+   ```
+
+   > 修改 php.ini 文件
+
+   ```shell
+   $ vim /server/php/lib/php.ini
+   ```
+
+   > php.ini 文件底部增加如下内容：
+
+   ```ini
+   [Xdebug]
+   zend_extension=xdebug
+   xdebug.profiler_append = 0
+   xdebug.profiler_enable = 1
+   xdebug.profiler_enable_trigger = 0
+   xdebug.profiler_output_dir ="/logs/php/xdebug"
+   xdebug.trace_output_dir ="/logs/php/xdebug"
+   xdebug.profiler_output_name = "cache.out.%t-%s"
+   xdebug.remote_enable = 1
+   xdebug.remote_autostart = 1
+   xdebug.remote_handler = "dbgp"
+   xdebug.remote_host = "127.0.0.1"
+   xdebug.idekey= PHPSTROM
    ```
