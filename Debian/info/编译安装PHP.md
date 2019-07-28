@@ -92,4 +92,58 @@ $ apt install libxml2-dev libssl-dev
 
 ## 安装额外扩展
 
-> php 自身提供的 `phpize` 程序可以安装额外扩展
+> 额外需要安装的几个扩展：
+
+| 扩展                                               | 描述                                                                 |
+| -------------------------------------------------- | -------------------------------------------------------------------- |
+| [ImageMagic](https://pecl.php.net/package/imagick) | 处理图片的                                                           |
+| [xdebug](https://pecl.php.net/package/xdebug)      | xdebug 调试，也可以直接去[官方](https://xdebug.org/download.php)下载 |
+
+### 用 phpize 编译共享 PECL 扩展库
+
+> phpize 命令是用来准备 PHP 扩展库的编译环境的，使用 `phpize --help` 可以查看帮助
+
+- 使用 phpize 前，建议将 php 二进制文件加入环境变量中:
+
+  ```shell
+  $ cp -p -r /etc/profile{,.bak}
+  $ vim /etc/profile
+  $ source /etc/profile
+  ```
+
+- 使用 phpize 前，必须存在 php.ini 配置文件
+
+  ```shell
+  # 开发模式
+  $ cp -p -r /data/php-7.3.7/php.ini-development /server/php/lib/php.ini
+  # 部署模式
+  $ cp -p -r /data/php-7.3.7/php.ini-production /server/php/lib/php.ini
+  ```
+
+- 出现如下报错：
+
+  ```text
+  Cannot find autoconf. Please check your autoconf installation and the
+  $PHP_AUTOCONF environment variable. Then, rerun this script.
+  ```
+
+  > 必须安装 autoconf 及其依赖：
+
+  ```shell
+  $ apt install autoconf automake m4
+  ```
+
+1. 安装 ImageMagic 扩展库
+
+   ```shell
+   $ cd /data/
+   $ wget https://pecl.php.net/get/imagick-3.4.4.tgz
+   ```
+
+2. 安装 ImageMagic 扩展库
+
+   ```shell
+   $ cd /data/
+   $ wget https://pecl.php.net/get/xdebug-2.7.2.tgz
+   $ tar -xzvf xdebug-2.7.2.tgz
+   ```
