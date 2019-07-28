@@ -44,6 +44,9 @@ $ apt install libxml2-dev libssl-dev
 | `--with-pdo-mysql`         | 构建 pdo-mysql 扩展（默认使用 mysqlnd 驱动），在 php.ini 文件里启用   |
 | `--with-mysqli`            | 构建 mysqli 扩展（默认使用 mysqlnd 驱动），在 php.ini 文件里启用      |
 | `--with-curl=/server/curl` | 构建 curl 扩展（只有构建在指定目录下的 curl，php 才能找到指定的文件） |
+| `--without-cdb`            | 禁止构建 cdb 扩展（一种数据库管理系统）                               |
+| `--without-sqlite3`        | 禁止构建 sqlite3 扩展（一种数据库管理系统）                           |
+| `--without-pdo-sqlite`     | 禁止构建 pdo-sqlite 扩展（一种数据库管理系统）                        |
 
 1. 编译安装 curl
 
@@ -65,25 +68,27 @@ $ apt install libxml2-dev libssl-dev
    $ make install
    ```
 
-> 具体操作：
+2. 编译 php：
 
-```shell
-$ ../configure --prefix=/server/php \
---enable-fpm \
---enable-mbstring \
---with-openssl \
---with-pcre-jit \
---enable-mysqlnd \
---with-pdo-mysql \
---with-mysqli \
---with-curl=/server/curl \
---without-cdb \
---without-sqlite3 \
---without-pdo-sqlite
-$ make -j4
-$ make test
-$ make install
-```
+   > 构建 & 编译 & 安装 php
+
+   ```shell
+   $ ../configure --prefix=/server/php \
+   --enable-fpm \
+   --enable-mbstring \
+   --with-openssl \
+   --with-pcre-jit \
+   --enable-mysqlnd \
+   --with-pdo-mysql \
+   --with-mysqli \
+   --with-curl=/server/curl \
+   --without-cdb \
+   --without-sqlite3 \
+   --without-pdo-sqlite
+   $ make -j4
+   $ make test
+   $ make install
+   ```
 
 ## 安装额外扩展
 
