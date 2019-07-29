@@ -33,4 +33,4 @@
 | [apt 安装 nginx](./lnmp/apt安装Nginx.md)      |
 | [从源码构建 nginx](./lnmp/从源代构建Nginx.md) |
 | [apt 安装 mariadb](./lnmp/apt安装MariaDB.md)  |
-| [编译安装 php](./lnmp/编译安装PHP.md)         |
+| [从源码构建 php](./lnmp/从源码构建PHP.md)     |
