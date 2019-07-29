@@ -351,5 +351,9 @@ $ cp -p -r /server/php/etc/php-fpm.d/www.conf{.default,}
   # 开机启动
   $ systemctl enable php-fpm
   # 禁用开机启动
-  $ /lib/systemd/systemd-sysv-install disable php-fpm
+  $ systemctl disable php-fpm
   ```
+
+  > 提示：在 debian9 上禁用开机启动，需要使用：
+  >
+  > - `/lib/systemd/systemd-sysv-install disable php-fpm`
