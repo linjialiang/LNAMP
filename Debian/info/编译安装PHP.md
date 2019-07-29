@@ -312,17 +312,4 @@ $ cp -p -r /server/php/etc/php-fpm.d/www.conf{.default,}
 
 - 为 www 工作池修改监听端口
 
-  > 默认值已经设置了，一般我们不需要修改：
-
-  ```shell
-  $ vim /server/php/etc/php-fpm.d/www.conf
-  ```
-
-  > 没有特别需要就不要修改了
-
-  ```conf
-  ...
-  # listen = 127.0.0.1:9000
-  listen = 127.0.0.1:9001
-  ...
-  ```
+  > 默认值已经设置了，一般我们不需要修改！
