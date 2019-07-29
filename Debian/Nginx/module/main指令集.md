@@ -274,7 +274,7 @@
 
     | Syntax  | `use [ select| poll| kqueuw | epoll ];` |
     | ------- | --------------------------------------- |
-    | Default | —                                       |
+    | Default | `—`                                     |
     | Context | events                                  |
 
     > select/poll 是标准模式，kqueue/epoll 是高效模式。kqueue 仅仅适合 BSD 系统。linux 首选是 epoll
