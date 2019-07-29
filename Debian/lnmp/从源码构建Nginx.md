@@ -140,3 +140,5 @@ $ make install
 | ------------------ | ------------------------------------------------- |
 | 启用开机启动 nginx | `/lib/systemd/systemd-sysv-install enable nginx`  |
 | 禁用开机启动 nginx | `/lib/systemd/systemd-sysv-install disable nginx` |
+
+> 更多 Nginx 内容请查阅 [man-nginx](../Nginx/README.md)
