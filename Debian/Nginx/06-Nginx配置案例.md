@@ -8,14 +8,14 @@
 我们将实现一个示例，根据请求，将从不同的本地目录提供文件：
     - 包含HTML文件的目  /data/www
     - 包含图像的目录   /data/images
-- 这将需要编辑配置文件并在 http 块内设置 server 块，其中包含两个 location 块。
+- 这将需要编辑配置文件并在 http 块指令内设置 server 块指令，其中包含两个 location 块指令。
 ```
 
 > 具体操作如下：
 
 1. 首先，创建 `/data/www` 目录并将带有任何文本内容的 `index.html` 文件放入其中，然后创建 `/data/images` 目录并在其中放置一些图像。
 
-2. 下来，打开配置文件。默认配置文件已包含几个 server 块的示例，主要是注释掉的。现在注释掉所有这些块并启动一个新的 server 块：
+2. 下来，打开配置文件。默认配置文件已包含几个 server 块指令的示例，主要是注释掉的。现在注释掉所有这些块并启动一个新的 server 块指令：
 
    ```conf
    http {
@@ -25,11 +25,11 @@
    ```
 
    ```text
-   - 通常，配置文件可能包含几个 server 块 distinguished ，它们通过 listen 到 server names 。
-   - 一旦nginx决定哪个 server 处理请求，它就会根据 server 块中定义的 location 指令的参数测试请求头中指定的URI。
+   - 通常，配置文件可能包含几个 server 块指令 distinguished ，它们通过 listen 到 server names 。
+   - 一旦nginx决定哪个 server 处理请求，它就会根据 server 块指令中定义的 location 指令的参数测试请求头中指定的URI。
    ```
 
-3. 将以下 location 块添加到 server 块：
+3. 将以下 location 块指令添加到 server 块指令：
 
    ```conf
    location / {
@@ -38,14 +38,14 @@
    ```
 
    ```text
-   - 此 location 块指定与请求中的URI进行比较的“/”前缀。
+   - 此 location 块指令指定与请求中的URI进行比较的“/”前缀。
    - 对于匹配请求，URI将添加到 root 指令中指定的路径，
         - 即：/data/www，以形成本地文件系统上所请求文件的路径。
-   - 如果存在多个匹配的 location 块，则nginx选择具有最长前缀的块。
-   - 上面的 location 块提供了最短的前缀，长度为1，因此只有当所有其他 location 块无法提供匹配时，才会使用此块。
+   - 如果存在多个匹配的 location 块指令，则nginx选择具有最长前缀的块。
+   - 上面的 location 块指令提供了最短的前缀，长度为1，因此只有当所有其他 location 块指令无法提供匹配时，才会使用此块。
    ```
 
-4. 接下来，添加第二个 location 块：
+4. 接下来，添加第二个 location 块指令：
 
    ```conf
    location /images/ {
@@ -55,7 +55,7 @@
 
    > 它将匹配以 `/images/` 开头的请求（ `location /` 也匹配此类请求，但前缀较短）。
 
-5. server 块的结果配置应如下所示：
+5. server 块指令的结果配置应如下所示：
 
    ```conf
    server {
@@ -97,7 +97,7 @@
 - 在此示例中，将在单个nginx实例上定义两个服务器。
 ```
 
-1. 首先，通过向 nginx 的配置文件添加一个 server 块来定义代理服务器，其中包含以下内容：
+1. 首先，通过向 nginx 的配置文件添加一个 server 块指令来定义代理服务器，其中包含以下内容：
 
    ```conf
    server {
@@ -112,12 +112,12 @@
    ```text
    - 这将是一个侦听8080端口的简单服务器（之前，自使用标准端口80以来尚未指定 listen 指令）并将所有请求映射到本地文件系统上的 /data/up1 目录。
    - 创建此目录并将 index.html 文件放入其中。请注意， root 指令放在 server 上下文中。
-   - 当为请求提供服务而选择的 location 块不包含自己的 root 指令时，将使用这样的 root 指令。
+   - 当为请求提供服务而选择的 location 块指令不包含自己的 root 指令时，将使用这样的 root 指令。
    ```
 
 2. 接下来，使用上一节中的服务器配置并进行修改使其成为代理服务器配置。
 
-   > 在第一个 location 块中，将 proxy_pass 指令与参数中指定的代理服务器的协议，名称和端口放在一起（在我们的例子中，它是 http://localhost:8080 ）：
+   > 在第一个 location 块指令中，将 proxy_pass 指令与参数中指定的代理服务器的协议，名称和端口放在一起（在我们的例子中，它是 http://localhost:8080 ）：
 
    ```conf
    server {
@@ -131,9 +131,9 @@
    }
    ```
 
-3. 我们将修改第二个 location 块
+3. 我们将修改第二个 location 块指令
 
-   > 该块当前将带有 `/images/` 前缀的请求映射到 `/data/images` 目录下的文件，以使其与具有典型文件扩展名的图像请求相匹配。修改后的 location 块看起来像这样：
+   > 该块当前将带有 `/images/` 前缀的请求映射到 `/data/images` 目录下的文件，以使其与具有典型文件扩展名的图像请求相匹配。修改后的 location 块指令看起来像这样：
 
    ```conf
    location ~ \.(gif|jpg|png)$ {
@@ -146,7 +146,7 @@
        - 正则表达式应该以 ~ 开头；
        - 相应的请求将映射到 /data/images 目录。
 
-   当nginx选择 location 块来提供请求时：
+   当nginx选择 location 块指令来提供请求时：
        - 它首先检查指定前缀的 location 指令，记住具有最长前缀的 location ，然后检查正则表达式；
        - 如果与正则表达式匹配，则nginx选择此 location ，否则，它会选择之前记住的那个。
    ```

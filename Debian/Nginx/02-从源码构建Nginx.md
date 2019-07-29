@@ -6,27 +6,27 @@
 
 > 这里我基于 Nginx-1.16.0 版本的构建选项，做了全面的分析：
 
-| 序号 | configure 选项分类                                                                 |
-| ---- | ---------------------------------------------------------------------------------- |
-| 00   | [configure 基本选项](../Nginx/configure/00-configure基本选项.md)                   |
-| 01   | [I/O 模式相关的构建选项](../Nginx/configure/01-IO模式相关的构建选项.md)            |
-| 02   | [设置用户的构建选项](../Nginx/configure/02-设置用户的构建选项.md)                  |
-| 03   | [处理进程阻塞的构建选项](../Nginx/configure/03-处理进程阻塞的构建选项.md)          |
-| 04   | [http 块默认不安装的构建选项](../Nginx/configure/04-http块默认不安装的构建选项.md) |
-| 05   | [http 块允许禁用的构建选项](../Nginx/configure/05-http块允许禁用的构建选项.md)     |
-| 06   | [http 块支持 perl 语言](../Nginx/configure/06-http块支持perl语言.md)               |
-| 07   | [http 块其它的构建选项](../Nginx/configure/07-http块其它的构建选项.md)             |
-| 08   | [禁用 http 块服务的构建选项](../Nginx/configure/08-禁用http块服务的构建选项.md)    |
-| 09   | [mail 块相关构建选项](../Nginx/configure/09-mail块相关构建选项.md)                 |
-| 10   | [stream 块相关构建选项](../Nginx/configure/10-stream块相关构建选项.md)             |
-| 11   | [开发者构建选项](../Nginx/configure/11-开发者构建选项.md)                          |
-| 12   | [第三方模块相关构建选项](../Nginx/configure/12-第三方模块相关构建选项.md)          |
-| 13   | [不需要考虑的构建选项](../Nginx/configure/13-不需要考虑的构建选项.md)              |
-| 14   | [构建 pcre 库选项](../Nginx/configure/14-构建pcre库选项.md)                        |
-| 15   | [构建 zlib 库选项](../Nginx/configure/15-构建zlib库选项.md)                        |
-| 16   | [构建 libatomic 库选项](../Nginx/configure/16-构建libatomic库选项.md)              |
-| 17   | [构建 openssl 库选项](../Nginx/configure/17-构建openssl库选项.md)                  |
-| 18   | [调试日志构建选项](../Nginx/configure/18-调试日志构建选项.md)                      |
+| 序号 | configure 选项分类                                                          |
+| ---- | --------------------------------------------------------------------------- |
+| 00   | [configure 基本选项](./configure/00-configure基本选项.md)                   |
+| 01   | [I/O 模式相关的构建选项](./configure/01-IO模式相关的构建选项.md)            |
+| 02   | [设置用户的构建选项](./configure/02-设置用户的构建选项.md)                  |
+| 03   | [处理进程阻塞的构建选项](./configure/03-处理进程阻塞的构建选项.md)          |
+| 04   | [http 块默认不安装的构建选项](./configure/04-http块默认不安装的构建选项.md) |
+| 05   | [http 块允许禁用的构建选项](./configure/05-http块允许禁用的构建选项.md)     |
+| 06   | [http 块支持 perl 语言](./configure/06-http块支持perl语言.md)               |
+| 07   | [http 块其它的构建选项](./configure/07-http块其它的构建选项.md)             |
+| 08   | [禁用 http 块服务的构建选项](./configure/08-禁用http块服务的构建选项.md)    |
+| 09   | [mail 块相关构建选项](./configure/09-mail块相关构建选项.md)                 |
+| 10   | [stream 块相关构建选项](./configure/10-stream块相关构建选项.md)             |
+| 11   | [开发者构建选项](./configure/11-开发者构建选项.md)                          |
+| 12   | [第三方模块相关构建选项](./configure/12-第三方模块相关构建选项.md)          |
+| 13   | [不需要考虑的构建选项](./configure/13-不需要考虑的构建选项.md)              |
+| 14   | [构建 pcre 库选项](./configure/14-构建pcre库选项.md)                        |
+| 15   | [构建 zlib 库选项](./configure/15-构建zlib库选项.md)                        |
+| 16   | [构建 libatomic 库选项](./configure/16-构建libatomic库选项.md)              |
+| 17   | [构建 openssl 库选项](./configure/17-构建openssl库选项.md)                  |
+| 18   | [调试日志构建选项](./configure/18-调试日志构建选项.md)                      |
 
 ## 必备安装包准备
 
@@ -121,7 +121,7 @@ $ make install
 
 2. `/etc/init.d/nginx` 文件内容：
 
-   > [nginx 启动文件](../Nginx/source/init.d.nginx.sh) 这是我测试过的启动文件
+   > [nginx 启动文件](./source/init.d.nginx.sh) 这是我测试过的启动文件
 
 3. 将 /etc/init.d/nginx 脚本加入开机自动启动
 

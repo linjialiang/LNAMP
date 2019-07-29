@@ -10,11 +10,10 @@
 
     > 与负载、性能相关，也称 `互斥锁`
 
-    ```text
-    - 语法: 	  accept_mutex on | off;
-    - 默认值: 	 accept_mutex off;
-    - 上下文: 	 events
-    ```
+    | 语法   | `accept_mutex on | off;` |
+    | ------ | ------------------------ |
+    | 默认值 | accept_mutex off;        |
+    | 上下文 | events                   |
 
     > accept_mutex 的作用：
 
@@ -32,11 +31,10 @@
 
     > 与负载、性能相关， 满足 `accept_mutex on;` 这个条件才有效
 
-    ```text
-    - 语法:     accept_mutex_delay time;
-    - 默认值:   accept_mutex_delay 500ms;
-    - 上下文:   events
-    ```
+    | 语法   | `accept_mutex_delay time;` |
+    | ------ | -------------------------- |
+    | 默认值 | accept_mutex_delay 500ms;  |
+    | 上下文 | events                     |
 
     > accept_mutex_delay 的作用：
 
@@ -50,11 +48,10 @@
 
     > 确定 nginx 是否应该成为守护进程，主要用于开发环境中。
 
-    ```text
-    - 语法:     daemon on | off;
-    - 默认值:   daemon on;
-    - 上下文:   events
-    ```
+    | 语法   | `daemon on | off;` |
+    | ------ | ------------------ |
+    | 默认值 | daemon on;         |
+    | 上下文 | events             |
 
     > 注意：用于开发调试，生产环境不建议使用
 
@@ -62,11 +59,10 @@
 
     > 为选定的客户端连接启用 debug 日志，而其他客户端的连接将使用 error_log 指令设置的日志级别。
 
-    ```text
-    - 语法:    debug_connection address | CIDR | unix:;
-    - 默认值:  没有
-    - 上下文:  events
-    ```
+    | 语法   | `debug_connection address | CIDR | unix:;` |
+    | ------ | ------------------------------------------ |
+    | 默认值 | 没有                                       |
+    | 上下文 | events                                     |
 
     > 注意：用于开发调试，生产环境不建议使用
 
@@ -74,31 +70,28 @@
 
     > 这个指令用于调试。
 
-    ```text
-    Syntax: 	debug_points abort | stop;
-    Default: 	—
-    Context: 	main
-    ```
+    | Syntax  | `debug_points abort | stop;` |
+    | ------- | ---------------------------- |
+    | Default | —                            |
+    | Context | main                         |
 
 6.  env
 
     > 设置 nginx 环境变量
 
-    ```text
-    Syntax: 	env variable[=value];
-    Default: 	env TZ;
-    Context: 	main
-    ```
+    | Syntax  | `env variable[=value];` |
+    | ------- | ----------------------- |
+    | Default | env TZ;                 |
+    | Context | main                    |
 
 7.  error_log
 
     > 配置错误日志记录
 
-    ```text
-    Syntax: 	error_log file [错误日志级别];
-    Default: 	error_log logs/error.log error;
-    Context: 	main, http, mail, stream, server, location
-    ```
+    | Syntax  | `error_log file [错误日志级别];`           |
+    | ------- | ------------------------------------------ |
+    | Default | error_log logs/error.log error;            |
+    | Context | main, http, mail, stream, server, location |
 
     > 注意： 要使用 debug 级别的日志，需要在编译 nginx 时加上 `--with-debug`，使用 `nginx -V` 可以查看编译时是否支持 debug 级别日志
 
@@ -106,21 +99,19 @@
 
     > 核心功能中唯一的块指令，提供配置文件上下文，其中指定了影响连接处理的指令。
 
-    ```text
-    Syntax: 	events { ... }
-    Default: 	—
-    Context: 	main
-    ```
+    | Syntax  | `events { ... }` |
+    | ------- | ---------------- |
+    | Default | —                |
+    | Context | main             |
 
 9.  include
 
     > 在配置中包含另一个文件，或与指定掩码匹配的文件。包含的文件应该由语法正确的指令和块组成。
 
-    ```text
-    Syntax: 	include file | mask;
-    Default: 	—
-    Context: 	any
-    ```
+    | Syntax  | `include file | mask;` |
+    | ------- | ---------------------- |
+    | Default | —                      |
+    | Context | any                    |
 
     > include 指令案例：
 
@@ -133,11 +124,10 @@
 
     > 加载一个动态模块
 
-    ```text
-    Syntax: 	load_module file;
-    Default: 	—
-    Context: 	main
-    ```
+    | Syntax  | `load_module file;` |
+    | ------- | ------------------- |
+    | Default | —                   |
+    | Context | main                |
 
     > load_module 案例：
 
@@ -149,11 +139,10 @@
 
     > nginx 使用锁的机制来实现 accept_mutex 功能和共享内存.
 
-    ```text
-    Syntax: 	lock_file file;
-    Default: 	lock_file logs/nginx.lock;
-    Context: 	main
-    ```
+    | Syntax  | `lock_file file;`          |
+    | ------- | -------------------------- |
+    | Default | lock_file logs/nginx.lock; |
+    | Context | main                       |
 
     ```text
     - 大多数操作系统中，锁都是一个原子操作，这种情况下这条指令无效；
@@ -165,11 +154,10 @@
 
     > 是否以 master/worker 方式进行工作
 
-    ```text
-    Syntax: 	master_process on | off;
-    Default: 	master_process on;
-    Context: 	main
-    ```
+    | Syntax  | `master_process on | off;` |
+    | ------- | -------------------------- |
+    | Default | master_process on;         |
+    | Context | main                       |
 
     > master_process 选项解释：
 
@@ -183,11 +171,10 @@
 
     > 让 nginx worker 进程尽可能多地接受请求。
 
-    ```text
-    Syntax: 	multi_accept on | off;
-    Default: 	multi_accept off;
-    Context: 	events
-    ```
+    | Syntax  | `multi_accept on | off;` |
+    | ------- | ------------------------ |
+    | Default | multi_accept off;        |
+    | Context | events                   |
 
     ```text
     - multi_accept on; 时，可以让 nginx worker 进程尽可能多地接受请求；
@@ -199,11 +186,10 @@
 
     > 开启或者禁用即时编译正则表达式(PCRE 版本必须在 8.20 或者更高)
 
-    ```text
-    Syntax:	pcre_jit on | off;
-    Default:	pcre_jit off;
-    Context:	main
-    ```
+    | Syntax  | `pcre_jit on | off;` |
+    | ------- | -------------------- |
+    | Default | pcre_jit off;        |
+    | Context | main                 |
 
     > `pcre_jit on;` 可显著提高 nginx 对正则的处理速度，具体实现过程如下：
 
@@ -223,21 +209,19 @@
 
     > 定义一个文件，该文件将存储主进程的进程 ID。
 
-    ```text
-    Syntax:	pid file;
-    Default:    pid logs/nginx.pid;
-    Context:	main
-    ```
+    | Syntax  | `pid file;`         |
+    | ------- | ------------------- |
+    | Default | pid logs/nginx.pid; |
+    | Context | main                |
 
 16. ssl_engine
 
     > 该指令用于指定 openssl 使用的引擎。
 
-    ```text
-    Syntax: ssl_engine <引擎名>;
-    Default:	—
-    Context:	main
-    ```
+    | Syntax  | `ssl_engine <引擎名>;` |
+    | ------- | ---------------------- |
+    | Default | —                      |
+    | Context | main                   |
 
     > 你可以通过下面的命令行获知系统目前支持的 openssl 引擎：
 
@@ -253,11 +237,10 @@
 
     > 定义用于多线程读取和发送文件而不阻塞 worker 进程的命名线程池。
 
-    ```text
-    Syntax:	thread_pool name threads=number [max_queue=number];
-    Default:	thread_pool default threads=32 max_queue=65536;
-    Context:	main
-    ```
+    | Syntax  | `thread_pool name threads=number [max_queue=number];` |
+    | ------- | ----------------------------------------------------- |
+    | Default | thread_pool default threads=32 max_queue=65536;       |
+    | Context | main                                                  |
 
     ```text
     - threads参数定义池中的线程数;
@@ -272,11 +255,10 @@
 
     > 该配置指令允许用户减少调用 gettimeofday()的次数。
 
-    ```text
-    Syntax:	timer_resolution <间隔时间>;
-    Default:	—
-    Context:	main
-    ```
+    | Syntax  | `timer_resolution <间隔时间>;` |
+    | ------- | ------------------------------ |
+    | Default | —                              |
+    | Context | main                           |
 
     > 示例：
 
@@ -290,11 +272,10 @@
 
     > 指定要使用的连接处理方法。通常不需要显式地指定它，因为 nginx 默认使用最有效的方法。
 
-    ```text
-    Syntax:	use [ select| poll| kqueuw | epoll ];
-    Default:	—
-    Context:	events
-    ```
+    | Syntax  | `use [ select| poll| kqueuw | epoll ];` |
+    | ------- | --------------------------------------- |
+    | Default | —                                       |
+    | Context | events                                  |
 
     > select/poll 是标准模式，kqueue/epoll 是高效模式。kqueue 仅仅适合 BSD 系统。linux 首选是 epoll
 
@@ -302,21 +283,19 @@
 
     > 定义 worker 进程使用的用户和组凭据。如果省略组，则使用名称等于 user 的组。
 
-    ```text
-    Syntax:	user 用户名 [用户组名];
-    Default:	user nobody nobody;
-    Context:	main
-    ```
+    | Syntax  | `user 用户名 [用户组名];` |
+    | ------- | ------------------------- |
+    | Default | user nobody nobody;       |
+    | Context | main                      |
 
 21. worker_aio_requests
 
     > 将 aio 与 epoll 连接处理方法一起使用时，为单个工作进程设置未完成异步 I/O 操作的最大数量。
 
-    ```text
-    Syntax:	worker_aio_requests number;
-    Default:	worker_aio_requests 32;
-    Context:	events
-    ```
+    | Syntax  | `worker_aio_requests number;` |
+    | ------- | ----------------------------- |
+    | Default | worker_aio_requests 32;       |
+    | Context | events                        |
 
     > 示例：如果你使用的是异步 epoll 连接处理方式，这个值设定单个 worker 进程异步 I/O 操作数为 1 万
 
@@ -328,11 +307,10 @@
 
     > 设置单个 worker 进程能同时打开的最大连接数。
 
-    ```text
-    Syntax:	worker_connections number;
-    Default:	worker_connections 512;
-    Context:	events
-    ```
+    | Syntax  | `worker_connections number;` |
+    | ------- | ---------------------------- |
+    | Default | worker_connections 512;      |
+    | Context | events                       |
 
     ```text
     - 应该记住，这个数字包括所有连接(例如与代理服务器的连接等)，而不仅仅是与客户机的连接。
@@ -362,11 +340,10 @@
 
     > 定义 worker 进程的调度优先级，负数表示更高的优先级。允许范围通常在-20 到 19 之间变化。
 
-    ```text
-    Syntax:	worker_priority number;
-    Default:	worker_priority 0;
-    Context:	main
-    ```
+    | Syntax  | `worker_priority number;` |
+    | ------- | ------------------------- |
+    | Default | worker_priority 0;        |
+    | Context | main                      |
 
     > 默认即可，对性能影响不大。可以使用下面的指令查看优先级：
 
@@ -378,11 +355,10 @@
 
     > 定义 worker 进程的数量。
 
-    ```text
-    Syntax:	worker_processes number | auto;
-    Default:	worker_processes 1;
-    Context:	main
-    ```
+    | Syntax  | `worker_processes number | auto;` |
+    | ------- | --------------------------------- |
+    | Default | worker_processes 1;               |
+    | Context | main                              |
 
     > 取值概述
 
@@ -427,11 +403,10 @@
 
     > 为工作进程更改 core 文件(RLIMIT_CORE)的大小限制。用于在不重新启动主进程的情况下增加限制。
 
-    ```text
-    Syntax:	worker_rlimit_core size;
-    Default:	—
-    Context:	main
-    ```
+    | Syntax  | `worker_rlimit_core size;` |
+    | ------- | -------------------------- |
+    | Default | —                          |
+    | Context | main                       |
 
     > worker_rlimit_core 限制 coredump 核心转储文件的大小，这是用于调试、定位问题的配置项
 
@@ -451,11 +426,10 @@
 
     > 更改工作进程打开文件的最大数量限制(RLIMIT_NOFILE)。用于在不重新启动主进程的情况下增加限制。
 
-    ```text
-    Syntax:	worker_rlimit_nofile number;
-    Default:	—
-    Context:	main
-    ```
+    | Syntax  | `worker_rlimit_nofile number;` |
+    | ------- | ------------------------------ |
+    | Default | —                              |
+    | Context | main                           |
 
     > 案例，高并发下我们可以直接设置成十万
 
@@ -467,11 +441,10 @@
 
     > 为客户端设置一个超时，在规定时间内由客户端（浏览者）控制是否关闭连接（页面）；如果超时，nginx 将尝试强制关闭当前客户端打开的所有连接，保证服务器资源不被占用。
 
-    ```text
-    Syntax:	worker_shutdown_timeout time;
-    Default:	—
-    Context:	main
-    ```
+    | Syntax  | `worker_shutdown_timeout time;` |
+    | ------- | ------------------------------- |
+    | Default | —                               |
+    | Context | main                            |
 
     > 案例，10 秒后将强制关闭，worker 进程中与当前客户端相关的所有链接
 
@@ -483,11 +456,10 @@
 
     > 定义工作进程的当前工作目录。它主要用于编写 core 文件，在这种情况下，工作进程应该具有指定目录的写权限。
 
-    ```text
-    Syntax:	working_directory directory;
-    Default:	—
-    Context:	main
-    ```
+    | Syntax  | `working_directory directory;` |
+    | ------- | ------------------------------ |
+    | Default | —                              |
+    | Context | main                           |
 
     > 案例：设置编写 core 文件的目录为/tmp/
 
