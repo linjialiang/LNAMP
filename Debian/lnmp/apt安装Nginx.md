@@ -113,4 +113,4 @@ Accept-Ranges: bytes
 | /etc/nginx/fastcgi.conf              | fastcgi 配置               |
 | /etc/nginx/snippets/fastcgi-php.conf | 适用于 php 的 fastcgi 配置 |
 
-> Nginx的具体配置请参考 [Ningx 详解](./Nginx详解.md)
+> Nginx的具体配置请参考 [Ningx 详解](./../Nginx/README.md)
