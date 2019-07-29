@@ -355,10 +355,10 @@
 
     > 定义 worker 进程的数量。
 
-    | Syntax  | `worker_processes number | auto;` |
-    | ------- | --------------------------------- |
-    | Default | worker_processes 1;               |
-    | Context | main                              |
+    | Syntax  | `worker_processes number, auto;` |
+    | ------- | -------------------------------- |
+    | Default | worker_processes 1;              |
+    | Context | main                             |
 
     > 取值概述
 
