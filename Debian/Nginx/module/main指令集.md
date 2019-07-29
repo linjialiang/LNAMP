@@ -272,10 +272,10 @@
 
     > 指定要使用的连接处理方法。通常不需要显式地指定它，因为 nginx 默认使用最有效的方法。
 
-    | Syntax  | `use [ select| poll| kqueuw | epoll ];` |
-    | ------- | --------------------------------------- |
-    | Default | `—`                                     |
-    | Context | events                                  |
+    | Syntax  | `use [ select, poll, kqueuw, epoll ];` |
+    | ------- | -------------------------------------- |
+    | Default | `—`                                    |
+    | Context | events                                 |
 
     > select/poll 是标准模式，kqueue/epoll 是高效模式。kqueue 仅仅适合 BSD 系统。linux 首选是 epoll
 
