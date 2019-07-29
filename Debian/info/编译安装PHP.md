@@ -103,7 +103,9 @@ $ apt install libxml2-dev libssl-dev
 
 > phpize 命令是用来准备 PHP 扩展库的编译环境的，使用 `phpize --help` 可以查看帮助
 
-- 使用 phpize 前，建议将 php 二进制文件加入环境变量中:
+- 将 php 二进制文件加入环境变量中:
+
+  > 使用 phpize 前，建议将 php 二进制文件加入环境变量中
 
   ```shell
   $ cp -p -r /etc/profile{,.bak}
@@ -111,7 +113,9 @@ $ apt install libxml2-dev libssl-dev
   $ source /etc/profile
   ```
 
-- 使用 phpize 前，必须存在 php.ini 配置文件
+- php 配置文件
+
+  > 使用 phpize 前，必须正确配置 php.ini 文件
 
   ```shell
   # 开发模式
@@ -120,14 +124,16 @@ $ apt install libxml2-dev libssl-dev
   $ cp -p -r /data/php-7.3.7/php.ini-production /server/php/lib/php.ini
   ```
 
-- 出现如下报错：
+- 安装 autoconf
+
+  > 使用 phpize 如果出现如下报错，则必须安装 autoconf
 
   ```text
   Cannot find autoconf. Please check your autoconf installation and the
   $PHP_AUTOCONF environment variable. Then, rerun this script.
   ```
 
-  > 必须安装 autoconf 及其依赖：
+  > 安装 autoconf 及其依赖：
 
   ```shell
   $ apt install autoconf automake m4
@@ -138,6 +144,20 @@ $ apt install libxml2-dev libssl-dev
   > 在没有指定扩展路径是，默认会出现在如下类似位置：
   >
   > - `/server/php/lib/php/extensions/no-debug-non-zts-20180731/`
+
+- 查看扩展
+
+  > 查看 php 已开启的扩展，最简单的的方法就是：
+
+  ```shell
+  $ php -m
+  ```
+
+  > 查看 php 的详细情况：
+
+  ```shell
+  $ php -r 'phpinfo();'
+  ```
 
 ### 安装 php 扩展 xdebug
 
