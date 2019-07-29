@@ -313,3 +313,43 @@ $ cp -p -r /server/php/etc/php-fpm.d/www.conf{.default,}
 - 为 www 工作池修改监听端口
 
   > 默认值已经设置了，一般我们不需要修改！
+
+### 开机启动 php-fpm
+
+> php 做的很好，编译时就将启动文件生成到构建目录里了。
+
+- 进入构建目录：
+
+  ```shell
+  cd /data/php-7.3.7/php_build/sapi/fpm
+  ```
+
+  > 两个启动项相关文件：
+
+  | 开机启动项        | init 启动文件    |
+  | ----------------- | ---------------- |
+  | `php-fpm.service` | `init.d.php-fpm` |
+
+- init 启动具体操作：
+
+  ```shell
+  # 拷贝到 init.d 目录
+  $ cp init.d.php-fpm /etc/init.d/php-fpm
+  # 杀死之前打开的nginx进程，init的才能正常使用，否则pid冲突
+  $ ps -ef | grep php-fpm
+  $ kill -9 pid
+  $ /etc/init.d/php-fpm {start|reload|stop|status}
+  ```
+
+- 开机启动具体操作
+
+  > systemctl 可以将 init.d 上的启动脚本设置为开机启动
+
+  ```shell
+  # 首先使用 init 启动 php-fpm：
+  $ /etc/init.d/php-fpm start
+  # 开机启动
+  $ systemctl enable php-fpm
+  # 禁用开机启动
+  $ /lib/systemd/systemd-sysv-install disable php-fpm
+  ```
