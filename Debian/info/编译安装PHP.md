@@ -128,6 +128,8 @@ $ php-config -h
   > 使用 phpize 前，必须正确配置 php.ini 文件
 
   ```shell
+  # 使用 php --ini 查询php配置文件的情况
+  $ php --ini
   # 开发模式
   $ cp -p -r /data/php-7.3.7/php.ini-development /server/php/lib/php.ini
   # 部署模式
@@ -271,4 +273,56 @@ $ make install
 
      > `;extension=imagick`
 
-## 开启 php-fm 服务
+## 开启 php-fpm 服务
+
+> 配置 php-fpm 以及 开机启动 php_fpm 服务
+
+### 配置 `php-fpm`
+
+> 两个重要的配置文件：
+
+| 进程        | 对应配置文件       | 数量         |
+| ----------- | ------------------ | ------------ |
+| 主进程      | `php-fpm.conf`     | 仅有一个     |
+| worker 进程 | `php-fpm.d/*.conf` | 可以拥有多个 |
+
+```shell
+$ cp -p -r /server/php/etc/php-fpm.conf{.default,}
+$ cp -p -r /server/php/etc/php-fpm.d/www.conf{.default,}
+```
+
+- 为 www 工作池指定用户及用户组
+
+  > 跟 nginx 的用户及用户组一致即可
+
+  ```shell
+  $ groupadd -g 2000 nginx
+  $ useradd -c 'Users of the Nginx service and php-fpm service' -u 2000 -s /usr/sbin/nologin -d /home/nginx -m -g nginx nginx
+  $ vim /server/php/etc/php-fpm.d/www.conf
+  ```
+
+  ```conf
+  ...
+  # user = nobody
+  # group = nobody
+  user = nginx
+  group = nginx
+  ...
+  ```
+
+- 为 www 工作池修改监听端口
+
+  > 默认值已经设置了，一般我们不需要修改：
+
+  ```shell
+  $ vim /server/php/etc/php-fpm.d/www.conf
+  ```
+
+  > 没有特别需要就不要修改了
+
+  ```conf
+  ...
+  # listen = 127.0.0.1:9000
+  listen = 127.0.0.1:9001
+  ...
+  ```
