@@ -133,58 +133,93 @@ $ apt install libxml2-dev libssl-dev
   $ apt install autoconf automake m4
   ```
 
-1. 安装 ImageMagic 扩展库
+- php 扩展库路径
 
-   > 需要扩展支持，还未安装完成
+  > 在没有指定扩展路径是，默认会出现在如下类似位置：
+  >
+  > - `/server/php/lib/php/extensions/no-debug-non-zts-20180731/`
 
-   ```shell
-   # 需要 imagemagick 依赖包支持：
-   $ apt install imagemagick
-   $ cd /data/
-   $ wget https://pecl.php.net/get/imagick-3.4.4.tgz
-   $ tar -xzvf imagick-3.4.4.tgz
-   $ cd imagick-3.4.4
-   $ phpize
-   $ ./configure
-   $ make -j4
-   $ make test
-   $ make install
-   ```
+### 安装 php 扩展 xdebug
 
-2. 安装 xdebug 扩展库
+```shell
+$ cd /data/
+$ wget https://pecl.php.net/get/xdebug-2.7.2.tgz
+$ tar -xzvf xdebug-2.7.2.tgz
+$ cd xdebug-2.7.2
+$ phpize
+$ ./configure
+$ make -j4
+$ make test
+$ make install
+```
 
-   ```shell
-   $ cd /data/
-   $ wget https://pecl.php.net/get/xdebug-2.7.2.tgz
-   $ tar -xzvf xdebug-2.7.2.tgz
-   $ cd xdebug-2.7.2
-   $ phpize
-   $ ./configure
-   $ make -j4
-   $ make test
-   $ make install
-   ```
+- 修改 php.ini 文件
 
-   > 修改 php.ini 文件
+  ```shell
+  $ vim /server/php/lib/php.ini
+  ```
 
-   ```shell
-   $ vim /server/php/lib/php.ini
-   ```
+- php.ini 文件底部增加如下内容：
 
-   > php.ini 文件底部增加如下内容：
+  ```ini
+  [Xdebug]
+  zend_extension=xdebug
+  xdebug.profiler_append = 0
+  xdebug.profiler_enable = 1
+  xdebug.profiler_enable_trigger = 0
+  xdebug.profiler_output_dir ="/logs/php/xdebug"
+  xdebug.trace_output_dir ="/logs/php/xdebug"
+  xdebug.profiler_output_name = "cache.out.%t-%s"
+  xdebug.remote_enable = 1
+  xdebug.remote_autostart = 1
+  xdebug.remote_handler = "dbgp"
+  xdebug.remote_host = "127.0.0.1"
+  xdebug.idekey= PHPSTROM
+  ```
 
-   ```ini
-   [Xdebug]
-   zend_extension=xdebug
-   xdebug.profiler_append = 0
-   xdebug.profiler_enable = 1
-   xdebug.profiler_enable_trigger = 0
-   xdebug.profiler_output_dir ="/logs/php/xdebug"
-   xdebug.trace_output_dir ="/logs/php/xdebug"
-   xdebug.profiler_output_name = "cache.out.%t-%s"
-   xdebug.remote_enable = 1
-   xdebug.remote_autostart = 1
-   xdebug.remote_handler = "dbgp"
-   xdebug.remote_host = "127.0.0.1"
-   xdebug.idekey= PHPSTROM
-   ```
+### 安装 php 扩展 imagick
+
+> 安装之前需要自行编译依赖项 `ImageMagick`
+
+- 编译依赖项 `ImageMagick`
+
+  ```shell
+  $ cd /data/
+  $ wget http://mirror.checkdomain.de/imagemagick/ImageMagick-7.0.8-57.tar.gz
+  $ tar -xzvf ImageMagick-7.0.8-57.tar.gz
+  $ mkdir /data/ImageMagick-7.0.8-57/ImageMagick_bulld
+  $ cd /data/ImageMagick-7.0.8-57/ImageMagick_bulld/
+  $ ../configure --prefix=/server/ImageMagick
+  $ make -j4
+  $ make install
+  ```
+
+- 开始编译 php 扩展 `imagick`
+
+  ```shell
+  $ cd /data/
+  $ wget https://pecl.php.net/get/imagick-3.4.4.tgz
+  $ tar -xzvf imagick-3.4.4.tgz
+  $ cd imagick-3.4.4
+  $ phpize
+  $ ./configure --with-imagick=/server/ImageMagick/
+  $ make -j4
+  $ make test
+  $ make install
+  ```
+
+- 修改 php.ini 文件
+
+  ```shell
+  $ vim /server/php/lib/php.ini
+  ```
+
+  > 在 php.ini 文件 `第 940 行左右` 添加如下内容：
+
+  ```ini
+  extension=imagick
+  ```
+
+## 开启需要的扩展
+
+>
