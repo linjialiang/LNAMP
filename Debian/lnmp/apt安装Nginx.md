@@ -1,6 +1,6 @@
 # apt 安装 Nginx
 
-> 从第六版开始我们推荐使用 Nginx 作为服务器 Web 服务，喜欢 httpd 的可以参考 [WAMP 章节](./../../WAMP/README.md)
+> 从第六版开始我们推荐使用 Nginx 作为服务器的 Web 服务，喜欢 httpd 的可以参考 [WAMP 章节](./../../WAMP/README.md)
 
 ## 安装 Nginx
 
@@ -113,4 +113,4 @@ Accept-Ranges: bytes
 | /etc/nginx/fastcgi.conf              | fastcgi 配置               |
 | /etc/nginx/snippets/fastcgi-php.conf | 适用于 php 的 fastcgi 配置 |
 
-> Nginx的具体配置请参考 [Ningx 详解](./../Nginx/README.md)
+> Nginx 的具体配置请参考 [Ningx 详解](./../Nginx/README.md)

@@ -12,7 +12,7 @@
 
 | 章节                                                       |
 | ---------------------------------------------------------- |
-| [认识 Nginx](./../Nginx/01-认识Nginx.md)                   |
-| [Nginx 初学者指南](./../Nginx/02-Nginx初学者指南.md)       |
-| [Nginx 核心功能](./../Nginx/03-Nginx核心功能.md)           |
-| [Nginx 之 http 上下文](./../Nginx/04-Nginx之http上下文.md) |
+| [认识 Nginx](./01-认识Nginx.md)                   |
+| [Nginx 初学者指南](./02-Nginx初学者指南.md)       |
+| [Nginx 核心功能](./03-Nginx核心功能.md)           |
+| [Nginx 之 http 上下文](./04-Nginx之http上下文.md) |
