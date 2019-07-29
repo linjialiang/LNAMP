@@ -90,6 +90,16 @@ $ apt install libxml2-dev libssl-dev
    $ make install
    ```
 
+## php-config 命令行工具
+
+> php-config 是一个简单的命令行脚本用于获取所安装的 PHP 配置的信息。使用 `-h` 来查看：
+
+```shell
+$ php-config -h
+```
+
+> 提示： 在编译扩展时，如果安装有多个 PHP 版本，可以在配置时用 `--with-php-config` 选项来指定使用哪一个版本编译，该选项指定了相对应的 php-config 脚本的路径。
+
 ## 安装额外扩展
 
 > 额外需要安装的几个扩展：
@@ -240,6 +250,25 @@ $ make install
   extension=imagick
   ```
 
-## 开启需要的扩展
+## 开启与禁用扩展库
 
->
+> php 扩展库有两种：
+
+| 库分类 | 描述                                            | 操作方式          |
+| ------ | ----------------------------------------------- | ----------------- |
+| 静态库 | 构建 php 时，默认安装或者添加了构建选项安装的库 | 重新编译 php      |
+| 动态库 | 后期使用 phpize 安装的                          | 通过 php.ini 控制 |
+
+- 启用 php 动态库
+
+  1. 通过 phpize 安装动态库
+
+  2. 通过 php.ini 添加 `extension=<库名>` 或者 `zend_extension=<库名>`
+
+- 禁用动态扩展库
+
+  1. 通过 php.ini ，找到对应的扩展库名，并在前面加上`;` 如：
+
+     > `;extension=imagick`
+
+## 开启 php-fm 服务
