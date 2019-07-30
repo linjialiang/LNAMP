@@ -65,6 +65,20 @@ datadir = "c:/wamp/web/data"
 | 2    | my.ini 中指定的数据库存放目录没有找到，会怎么办？ | mariadb 根目录下的数据库存放目录`data`会被初始化 |
 | 3    | 没有找到 my.ini，会怎么办？                       | mariadb 根目录下的数据库存放目录`data`会被初始化 |
 
+### mysql_install_db.exe
+
+> 从 mariadb 10.4 开始，data 默认为空，我们可以执行 `mysql_install_db.exe` 来生成 data 目录的基本数据，并初始化 mariadb！
+
+    - mysql_install_db.exe 目录如下：
+
+        > `bin\mysql_install_db.exe`
+
+    - 生成的data目录的路径：
+
+        > data目录的路径在mariadb根目录下面
+
+    - 需要移除data目录下的 my.ini 文件
+
 ## 配置 phpmyadmin
 
 > phpmyadmin 是一款非常优秀的 web 端数据库管理平台，使用语言 php，支持 mysql 和 mariadb
