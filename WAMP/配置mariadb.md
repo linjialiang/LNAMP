@@ -9,6 +9,7 @@
 ```text
 [client]
 port = 3306
+plugin-dir=c:/wamp/base/mariadb/lib/plugin
 
 [mysqld]
 port = 3306
