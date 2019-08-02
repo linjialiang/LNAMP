@@ -50,19 +50,19 @@
 | language-ini    | ini 扩展文件语法高亮   |
 | language-notenv | .env 扩展文件语法高亮  |
 
-| ide(11)            | 插件描述      |
-| ----------------- | ------------- |
-| busy-signal       | 基础包        |
-| intentions        | Linter 显示   |
-| linter-ui-default | Linter 界面   |
-| linter            | Linter 基础包 |
-| linter-eslint     | js 错误提示   |
-| atom-ternjs       | js 代码补全   |
-php-ide-serenata|php包|
-atom-ide-signature-help|
-atom-ide-datatip|
-atom-ide-definitions|
-atom-ide-markdown-service|
+| ide(11)                   | 插件描述      |
+| ------------------------- | ------------- |
+| busy-signal               | 基础包        |
+| intentions                | Linter 显示   |
+| linter-ui-default         | Linter 界面   |
+| linter                    | Linter 基础包 |
+| linter-eslint             | js 错误提示   |
+| atom-ternjs               | js 代码补全   |
+| php-ide-serenata          | php 包        |
+| atom-ide-signature-help   | ide 组合包    |
+| atom-ide-datatip          | ide 组合包    |
+| atom-ide-definitions      | ide 组合包    |
+| atom-ide-markdown-service | ide 组合包    |
 
 | html 相关插件(6) | 插件描述                  |
 | ---------------- | ------------------------- |
