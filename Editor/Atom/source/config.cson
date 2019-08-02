@@ -20,6 +20,7 @@
       allow_risky: "yes"
   "atom-package-deps":
     ignored: [
+      "php-ide-serenata"
       "atom-ide-definitions"
     ]
   "atom-ternjs":
@@ -45,13 +46,14 @@
     ]
     packagesWithKeymapsDisabled: [
       "git-time-machine"
-      "markdown-preview-plus"
       "open-in-browser"
       "file-header"
-      "atom-ide-definitions"
       "remote-ftp"
       "atom-ternjs"
       "symbols-view"
+      "markdown-preview-enhanced"
+      "php-ide-serenata"
+      "atom-ide-definitions"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -101,22 +103,13 @@
     disabling: {}
     global: {}
     lintHtmlFiles: true
+  "linter-php": {}
   "linter-ui-default": {}
-  "markdown-preview-plus":
-    markdownItConfig:
-      breakOnSingleNewline: true
-      useCriticMarkup: true
-      useToc: true
-    pandocConfig: {}
-    previewConfig:
-      activatePreviewWithEditor: true
-    syncConfig:
-      syncEditorOnPreviewScroll: true
-      syncPreviewOnChange: true
-      syncPreviewOnEditorScroll: true
-    syntaxThemeName: "city-lights-syntax"
-    useGitHubStyle: true
-  "markdown-toc-auto": {}
+  "markdown-preview-enhanced":
+    codeBlockTheme: "solarized-light.css"
+    openPreviewPaneAutomatically: false
+    previewTheme: "solarized-light.css"
+    revealjsTheme: "solarized.css"
   minimap:
     plugins:
       bookmarks: true
@@ -135,6 +128,8 @@
   "one-light-ui":
     tabCloseButton: "Left"
     tabSizing: "Maximum"
+  "php-ide-serenata":
+    storagePath: "C:\\Users\\emad\\AppData\\Roaming\\php-ide-serenata"
   "platformio-ide-terminal":
     ansiColors:
       zBright:
@@ -166,7 +161,7 @@
   "spell-check":
     useLocales: false
   "sync-settings":
-    _lastBackupHash: "adbd5b80fe7e5dc16ec7b9961238bfc52ae0dfc2"
+    _lastBackupHash: "26aa78a869eb540afdce70c1547079d5696d253e"
     extraFiles: [
       "config.cson"
       "github.cson"
@@ -174,12 +169,11 @@
       "projects.cson"
       ".apmrc"
     ]
-    gistId: ""
-    personalAccessToken: ""
+    gistId: "60e333b6d2aec1ae974e3f5e1f18e7a6"
+    personalAccessToken: "ed18e1a15e28059c79019caa36cf609acfbb6c6c"
     quietUpdateCheck: true
     removeObsoletePackages: true
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "tree-view": {}
   "tree-view-git-status":
     gitFlow:
       display_type: 2
