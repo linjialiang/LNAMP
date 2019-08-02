@@ -18,6 +18,10 @@
       default_beautifier: "Prettier"
     php:
       allow_risky: "yes"
+  "atom-package-deps":
+    ignored: [
+      "atom-ide-definitions"
+    ]
   "atom-ternjs":
     excludeLowerPriorityProviders: true
     inlineFnCompletionDocumentation: true
@@ -41,16 +45,17 @@
     ]
     packagesWithKeymapsDisabled: [
       "git-time-machine"
+      "markdown-preview-plus"
       "open-in-browser"
       "file-header"
+      "atom-ide-definitions"
       "remote-ftp"
       "atom-ternjs"
       "symbols-view"
-      "markdown-preview-enhanced"
     ]
     telemetryConsent: "limited"
     themes: [
-      "aesthetic-ui"
+      "one-light-ui"
       "atom-material-syntax"
     ]
     uriHandlerRegistration: "always"
@@ -96,13 +101,22 @@
     disabling: {}
     global: {}
     lintHtmlFiles: true
-  "linter-php": {}
   "linter-ui-default": {}
-  "markdown-preview-enhanced":
-    codeBlockTheme: "solarized-light.css"
-    openPreviewPaneAutomatically: false
-    previewTheme: "solarized-light.css"
-    revealjsTheme: "solarized.css"
+  "markdown-preview-plus":
+    markdownItConfig:
+      breakOnSingleNewline: true
+      useCriticMarkup: true
+      useToc: true
+    pandocConfig: {}
+    previewConfig:
+      activatePreviewWithEditor: true
+    syncConfig:
+      syncEditorOnPreviewScroll: true
+      syncPreviewOnChange: true
+      syncPreviewOnEditorScroll: true
+    syntaxThemeName: "city-lights-syntax"
+    useGitHubStyle: true
+  "markdown-toc-auto": {}
   minimap:
     plugins:
       bookmarks: true
@@ -152,18 +166,20 @@
   "spell-check":
     useLocales: false
   "sync-settings":
-    _lastBackupHash: "fef2fe4b7d8827968edb40600a1f70d39b2ee741"
+    _lastBackupHash: "adbd5b80fe7e5dc16ec7b9961238bfc52ae0dfc2"
     extraFiles: [
       "config.cson"
       "github.cson"
+      "markdown-preview-plus.cson"
       "projects.cson"
       ".apmrc"
     ]
-    gistId: "c9851ea3657494aaf429d45a59b04ba0"
-    personalAccessToken: "aeae2bfc1c623b7696456a007a3ae9cef25e9caf"
+    gistId: ""
+    personalAccessToken: ""
     quietUpdateCheck: true
     removeObsoletePackages: true
-  "tree-view": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
   "tree-view-git-status":
     gitFlow:
       display_type: 2
