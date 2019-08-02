@@ -1,5 +1,6 @@
 'atom-workspace':
     'ctrl-k ctrl-t': 'git-time-machine:toggle'
+    'ctrl-k ctrl-enter': 'atom-ide-go-to-definition:go-to-definition'
     'ctrl-k t': 'remote-ftp:toggle'
     'ctrl-k c': 'remote-ftp:connect'
     'ctrl-k d': 'remote-ftp:disconnect'

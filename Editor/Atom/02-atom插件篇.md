@@ -57,8 +57,12 @@
 | linter-ui-default | Linter 界面   |
 | linter            | Linter 基础包 |
 | linter-eslint     | js 错误提示   |
-| linter-php        | php 错误提示  |
 | atom-ternjs       | js 代码补全   |
+php-ide-serenata|php包|
+atom-ide-signature-help|
+atom-ide-datatip|
+atom-ide-definitions|
+atom-ide-markdown-service|
 
 | html 相关插件(6) | 插件描述                  |
 | ---------------- | ------------------------- |
