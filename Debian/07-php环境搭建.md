@@ -34,3 +34,4 @@
 | [从源码构建 nginx](./lnmp/从源代构建Nginx.md) |
 | [apt 安装 mariadb](./lnmp/apt安装MariaDB.md)  |
 | [从源码构建 php](./lnmp/从源码构建PHP.md)     |
+| [Linux 子系统](./lnmp/Linux子系统.md)         |
