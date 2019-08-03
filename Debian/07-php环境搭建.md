@@ -28,10 +28,9 @@
 
 > 下面是 apt 搭建法涉及到的文章
 
-| 章节                                              |
-| ------------------------------------------------- |
-| [apt 安装 nginx](./lnmp/apt安装Nginx.md)          |
-| [从源码构建 nginx](./lnmp/从源代构建Nginx.md)     |
-| [apt 安装 mariadb](./lnmp/apt安装MariaDB.md)      |
-| [从源码构建 mariadb](./lnmp/从远吗构建MariaDB.md) |
-| [从源码构建 php](./lnmp/从源码构建PHP.md)         |
+| 章节                                          |
+| --------------------------------------------- |
+| [apt 安装 nginx](./lnmp/apt安装Nginx.md)      |
+| [从源码构建 nginx](./lnmp/从源代构建Nginx.md) |
+| [apt 安装 mariadb](./lnmp/apt安装MariaDB.md)  |
+| [从源码构建 php](./lnmp/从源码构建PHP.md)     |
