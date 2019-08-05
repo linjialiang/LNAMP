@@ -1,10 +1,6 @@
 // 将键绑定放在此文件中以覆盖默认值
 [
   {
-    "key": "alt+b",
-    "command": "-extension.openInDefaultBrowser"
-  },
-  {
     "key": "ctrl+k ctrl+enter",
     "command": "editor.action.revealDefinition",
     "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
