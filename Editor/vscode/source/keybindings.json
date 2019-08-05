@@ -11,29 +11,6 @@
     "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
   },
   {
-    "key": "ctrl+shift+d",
-    "command": "editor.action.copyLinesDownAction",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+k ctrl+b",
-    "command": "workbench.action.toggleSidebarVisibility"
-  },
-  {
-    "key": "ctrl+b",
-    "command": "-workbench.action.toggleSidebarVisibility"
-  },
-  {
-    "key": "ctrl+x",
-    "command": "-extension.vim_ctrl+x",
-    "when": "editorTextFocus && vim.active && vim.use<C-x> && !inDebugRepl"
-  },
-  {
-    "key": "ctrl+a",
-    "command": "-extension.vim_ctrl+a",
-    "when": "editorTextFocus && vim.active && vim.use<C-a> && !inDebugRepl"
-  },
-  {
     "key": "ctrl+k ctrl+m",
     "command": "markdown.showPreviewToSide",
     "when": "editorLangId == 'markdown'"
@@ -42,5 +19,22 @@
     "key": "ctrl+k v",
     "command": "-markdown.showPreviewToSide",
     "when": "editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+k ctrl+b",
+    "command": "extension.openInDefaultBrowser"
+  },
+  {
+    "key": "alt+b",
+    "command": "-extension.openInDefaultBrowser"
+  },
+  {
+    "key": "ctrl+k ctrl+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "l",
+    "command": "list.select",
+    "when": "listFocus && !inputFocus"
   }
 ]
