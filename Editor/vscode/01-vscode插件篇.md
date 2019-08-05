@@ -40,7 +40,7 @@
 | 14   | HTML Boilerplate           | 自定义 html 模块                |
 | 15   | HTML CSS Support           | 让 html 文件支持 css 属性       |
 | 16   | jQuery Code Snippets       | jquery 代码片段                 |
-| 17   | koroFileHeader             | 自定义头部信息                  |
+| 17   | ~~koroFileHeader~~         | ~~自定义头部信息~~              |
 | 18   | nginx.conf hint            | nginx 唯一需要的插件            |
 | 19   | open in browser            | 默认程序打开当前文件            |
 | 20   | PHP DocBlocker             | php 注释助手                    |
