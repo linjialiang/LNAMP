@@ -1,4 +1,6 @@
 "*":
+  "Sublime-Style-Column-Selection":
+    selectKeyTrigger: "Ctrl"
   "atom-beautify":
     css:
       default_beautifier: "Prettier"
@@ -18,11 +20,6 @@
       default_beautifier: "Prettier"
     php:
       allow_risky: "yes"
-  "atom-package-deps":
-    ignored: [
-      "php-ide-serenata"
-      "atom-ide-definitions"
-    ]
   "atom-ternjs":
     excludeLowerPriorityProviders: true
     inlineFnCompletionDocumentation: true
@@ -51,15 +48,10 @@
       "remote-ftp"
       "atom-ternjs"
       "symbols-view"
-      "markdown-preview-enhanced"
-      "php-ide-serenata"
       "atom-ide-definitions"
+      "markdown-preview-plus"
     ]
     telemetryConsent: "limited"
-    themes: [
-      "one-light-ui"
-      "atom-material-syntax"
-    ]
     uriHandlerRegistration: "always"
   docblockr:
     auto_add_method_tag: true
@@ -72,7 +64,6 @@
     override_js_var: true
     per_section_indent: true
     short_primitives: true
-    simple_mode: true
   "double-tag":
     allowEndTagSync: true
   editor:
@@ -105,11 +96,6 @@
     lintHtmlFiles: true
   "linter-php": {}
   "linter-ui-default": {}
-  "markdown-preview-enhanced":
-    codeBlockTheme: "solarized-light.css"
-    openPreviewPaneAutomatically: false
-    previewTheme: "solarized-light.css"
-    revealjsTheme: "solarized.css"
   minimap:
     plugins:
       bookmarks: true
@@ -128,8 +114,6 @@
   "one-light-ui":
     tabCloseButton: "Left"
     tabSizing: "Maximum"
-  "php-ide-serenata":
-    storagePath: "C:\\Users\\emad\\AppData\\Roaming\\php-ide-serenata"
   "platformio-ide-terminal":
     ansiColors:
       zBright:
@@ -161,16 +145,9 @@
   "spell-check":
     useLocales: false
   "sync-settings":
-    _lastBackupHash: "26aa78a869eb540afdce70c1547079d5696d253e"
-    extraFiles: [
-      "config.cson"
-      "github.cson"
-      "markdown-preview-plus.cson"
-      "projects.cson"
-      ".apmrc"
-    ]
-    gistId: "60e333b6d2aec1ae974e3f5e1f18e7a6"
-    personalAccessToken: "ed18e1a15e28059c79019caa36cf609acfbb6c6c"
+    _lastBackupHash: "2d2d3db6b846746a5a939005943676202cf310ee"
+    gistId: "0c1b5fcfa399c0d790a5346bc65567fc"
+    personalAccessToken: "39e6a61625bda8a30f9f44dac19e0f2e79892af1"
     quietUpdateCheck: true
     removeObsoletePackages: true
   "tree-view": {}
