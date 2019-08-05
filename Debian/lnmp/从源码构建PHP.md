@@ -4,12 +4,12 @@
 
 ## 构建前的准备
 
-> 下载和解压 php7.3.7
+> 下载和解压 php7.3.8
 
 ```shell
 $ mkdir /server/php
 $ cd /data/
-$ wget https://www.php.net/distributions/php-7.3.7.tar.gz
+$ wget https://www.php.net/distributions/php-7.3.8.tar.gz
 $ tar -xzvf php-7.3.7.tar.gz
 $ mkdir /data/php-7.3.7/php_build
 $ cd /data/php-7.3.7/php_build
@@ -217,10 +217,10 @@ $ make install
 
   ```shell
   $ cd /data/
-  $ wget http://mirror.checkdomain.de/imagemagick/ImageMagick-7.0.8-57.tar.gz
-  $ tar -xzvf ImageMagick-7.0.8-57.tar.gz
-  $ mkdir /data/ImageMagick-7.0.8-57/ImageMagick_bulld
-  $ cd /data/ImageMagick-7.0.8-57/ImageMagick_bulld/
+  $ wget http://mirror.checkdomain.de/imagemagick/ImageMagick-7.0.8-59.tar.gz
+  $ tar -xzvf ImageMagick-7.0.8-59.tar.gz
+  $ mkdir /data/ImageMagick-7.0.8-59/ImageMagick_bulld
+  $ cd /data/ImageMagick-7.0.8-59/ImageMagick_bulld/
   $ ../configure --prefix=/server/ImageMagick
   $ make -j4
   $ make install
