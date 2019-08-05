@@ -29,29 +29,25 @@
 | 03   | Auto Rename Tag            | 对 html 标签重命名              |
 | 04   | Bookmarks                  | 书签统一管理                    |
 | 05   | Bracket Pair Colorizer 2   | 第二代括号着色                  |
-| 06   | Color Highlight            | css 显示真实颜色值              |
-| 07   | Color Picker               | 帮助生成颜色值                  |
-| 08   | Debugger for Chrome        | 在 chrome 中调试 js             |
-| 09   | Debugger for Firefox       | 在 Firefox 中调试 js            |
-| 10   | DotENV                     | `.env`文件语法高亮              |
-| 11   | Dracula Official           | 一个暗系主题                    |
-| 12   | EditorConfig for VS Code   | 统一代码格式                    |
-| 13   | GitLens — Git supercharged | Git 必备插件                    |
-| 14   | ~~HTML Boilerplate~~       | ~~自定义 html 模块~~            |
-| 15   | HTML CSS Support           | 让 html 文件支持 css 属性       |
-| 16   | jQuery Code Snippets       | jquery 代码片段                 |
-| 17   | ~~koroFileHeader~~         | ~~自定义头部信息~~              |
-| 18   | nginx.conf hint            | nginx 唯一需要的插件            |
-| 19   | open in browser            | 默认程序打开当前文件            |
-| 20   | PHP DocBlocker             | php 注释助手                    |
-| 21   | PHP Intelephense           | 高性能，功能丰富的 PHP 智能感知 |
-| 22   | Prettier - Code formatter  | 格式化多种类型的文件            |
-| 23   | Project Manager            | 项目管理                        |
-| 24   | Settings Sync              | vscode 配置同步助手             |
-| 25   | TODO Highlight             | 备忘录高亮                      |
-| 26   | Todo Tree                  | 备忘录管理                      |
-| 27   | Vetur                      | vue 唯一需要的插件              |
-| 28   | vscode-icons               | 图标样式                        |
-| 29   | Atom Keymap                | 绑定 Atom Keymap 按键           |
+| 06   | Debugger for Chrome        | 在 chrome 中调试 js             |
+| 07   | Debugger for Firefox       | 在 Firefox 中调试 js            |
+| 08   | DotENV                     | `.env`文件语法高亮              |
+| 09   | Dracula Official           | 一个暗系主题                    |
+| 10   | EditorConfig for VS Code   | 统一代码格式                    |
+| 11   | GitLens — Git supercharged | Git 必备插件                    |
+| 12   | HTML CSS Support           | 让 html 文件支持 css 属性       |
+| 13   | jQuery Code Snippets       | jquery 代码片段                 |
+| 14   | nginx.conf hint            | nginx 唯一需要的插件            |
+| 15   | open in browser            | 默认程序打开当前文件            |
+| 16   | PHP DocBlocker             | php 注释助手                    |
+| 17   | PHP Intelephense           | 高性能，功能丰富的 PHP 智能感知 |
+| 18   | Prettier - Code formatter  | 格式化多种类型的文件            |
+| 19   | Project Manager            | 项目管理                        |
+| 10   | Settings Sync              | vscode 配置同步助手             |
+| 21   | TODO Highlight             | 备忘录高亮                      |
+| 22   | Todo Tree                  | 备忘录管理                      |
+| 23   | Vetur                      | vue 唯一需要的插件              |
+| 24   | vscode-icons               | 图标样式                        |
+| 25   | Atom Keymap                | 绑定 Atom Keymap 按键           |
 
 > 除此之外还有一个中文菜单插件 `Chinese (Simplified) Language Pack for Visual Studio Code`
