@@ -4,7 +4,12 @@
 
 ## atom 插件扩展
 
-| 实用插件(15)                   | 插件描述          |
+| 主题扩展(2)      | 描述     |
+| ---------------- | -------- |
+| nord-atom-syntax | 代码样式 |
+| nord-atom-ui     | 界面样式 |
+
+| 实用插件(14)                   | 插件描述          |
 | ------------------------------ | ----------------- |
 | atom-beautify                  | 格式化源代码      |
 | docblockr                      | 用于注释          |
@@ -18,7 +23,6 @@
 | quick-highlight                | 文本快速高亮      |
 | remote-ftp                     | 远程连接          |
 | editorconfig                   | 统一代码风格      |
-| tool-bar                       | 侧边栏            |
 | todo-show                      | 备忘录管理        |
 | Sublime-Style-Column-Selection | 任意选择          |
 
