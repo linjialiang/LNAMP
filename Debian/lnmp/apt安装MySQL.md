@@ -9,31 +9,13 @@
 
 > 注意：mysql 是通过执行脚本来选择 mysql 版本及 debian 版本
 
-## 添加 MariaDB 源
-
-> 下面是将 MariaDB 4.x 添加到您的系统的命令:
+## 下载 mysql 安装脚本
 
 ```shell
-$ apt install software-properties-common dirmngr
-$ apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xF1656F24C74CD1D8
+wget https://repo.mysql.com//mysql-apt-config_0.8.13-1_all.deb
 ```
 
-> 在 `/etc/apt/sources.list.d/` 下创建 `mariadb.list` 文件，并增加内容。
-
-```shell
-$ cd /etc/apt/sources.list.d/
-$ touch mariadb.list
-$ vim mariadb.list
-```
-
-> mariadb.list 文件内容：
-
-```conf
-# MariaDB 10.4 repository list - created 2019-07-27 03:17 UTC
-# http://downloads.mariadb.org/mariadb/repositories/
-deb http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.4/debian buster main
-deb-src http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.4/debian buster main
-```
+> 下载后使用 `./mysql-apt-config_0.8.13-1_all.deb` 来执行它
 
 ## 开始安装
 
