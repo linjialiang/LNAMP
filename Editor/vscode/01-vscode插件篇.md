@@ -48,6 +48,6 @@
 | 22   | Todo Tree                  | 备忘录管理                      |
 | 23   | Vetur                      | vue 唯一需要的插件              |
 | 24   | vscode-icons               | 图标样式                        |
-| 25   | Atom Keymap                | 绑定 Atom Keymap 按键           |
+| 25   | vim                        | 绑定 vim 按键                   |
 
 > 除此之外还有一个中文菜单插件 `Chinese (Simplified) Language Pack for Visual Studio Code`
