@@ -1,6 +1,4 @@
 "*":
-  "Sublime-Style-Column-Selection":
-    selectKeyTrigger: "Ctrl"
   "atom-beautify":
     css:
       default_beautifier: "Prettier"
