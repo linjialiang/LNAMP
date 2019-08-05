@@ -37,7 +37,7 @@
 | 11   | Dracula Official           | 一个暗系主题                    |
 | 12   | EditorConfig for VS Code   | 统一代码格式                    |
 | 13   | GitLens — Git supercharged | Git 必备插件                    |
-| 14   | HTML Boilerplate           | 自定义 html 模块                |
+| 14   | ~~HTML Boilerplate~~       | ~~自定义 html 模块~~            |
 | 15   | HTML CSS Support           | 让 html 文件支持 css 属性       |
 | 16   | jQuery Code Snippets       | jquery 代码片段                 |
 | 17   | ~~koroFileHeader~~         | ~~自定义头部信息~~              |
