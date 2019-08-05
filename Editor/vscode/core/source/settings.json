@@ -1,0 +1,19 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Monokai",
+    "git.confirmSync": false,
+    "atomKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "sync.gist": "c2550d3b1303927b4d9fe6f541ebb2a4",
+    "sync.forceUpload": true,
+    "files.autoSave": "onFocusChange",
+    "editor.fontFamily": "'Fira Code','思源宋体 CN'",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 21,
+    "editor.fontLigatures": true,
+    "editor.lineNumbers": "relative",
+    "window.zoomLevel": 0,
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "workbench.startupEditor": "newUntitledFile"
+}
