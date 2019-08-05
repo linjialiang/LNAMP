@@ -36,5 +36,13 @@
     "key": "l",
     "command": "list.select",
     "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+alt+b",
+    "command": "editor.action.formatDocument"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "-editor.action.formatDocument"
   }
 ]

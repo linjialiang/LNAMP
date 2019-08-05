@@ -32,7 +32,7 @@
 | 06   | Debugger for Chrome        | 在 chrome 中调试 js             |
 | 07   | Debugger for Firefox       | 在 Firefox 中调试 js            |
 | 08   | DotENV                     | `.env`文件语法高亮              |
-| 09   | Dracula Official           | 一个暗系主题                    |
+| 09   | One Dark Pro               | 一个暗系主题                    |
 | 10   | EditorConfig for VS Code   | 统一代码格式                    |
 | 11   | GitLens — Git supercharged | Git 必备插件                    |
 | 12   | HTML CSS Support           | 让 html 文件支持 css 属性       |

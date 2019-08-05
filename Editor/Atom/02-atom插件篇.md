@@ -2,32 +2,25 @@
 
 > Atom 有很多优秀的插件，我们这里只是讲解其中一部分插件，这些插件都是我经过长期使用得到的，并且可以很好的协作！
 
-## atom 主题扩展
-
-| atom 扩展主题(5)         |
-| ------------------------ |
-| aesthetic-ui             |
-| atom-material-syntax     |
-| city-lights-syntax       |
-| notepad-plus-plus-syntax |
-| monokai                  |
-
 ## atom 插件扩展
 
-| 实用插件(12)              | 插件描述          |
-| ------------------------- | ----------------- |
-| atom-beautify             | 格式化源代码      |
-| docblockr                 | 用于注释          |
-| sync-settings             | atom 配置同步插件 |
-| split-diff                | 文件对比插件      |
-| project-manager           | 项目管理          |
-| platformio-ide-terminal   | atom 下出色的终端 |
-| markdown-preview-enhanced | markdown 预览     |
-| file-header               | 文件头信息        |
-| file-icons                | 文件图标          |
-| quick-highlight           | 文本快速高亮      |
-| remote-ftp                | 远程连接          |
-| editorconfig              | 统一代码风格      |
+| 实用插件(15)                   | 插件描述          |
+| ------------------------------ | ----------------- |
+| atom-beautify                  | 格式化源代码      |
+| docblockr                      | 用于注释          |
+| sync-settings                  | atom 配置同步插件 |
+| split-diff                     | 文件对比插件      |
+| project-manager                | 项目管理          |
+| platformio-ide-terminal        | atom 下出色的终端 |
+| markdown-preview-plus          | markdown 预览     |
+| file-header                    | 文件头信息        |
+| file-icons                     | 文件图标          |
+| quick-highlight                | 文本快速高亮      |
+| remote-ftp                     | 远程连接          |
+| editorconfig                   | 统一代码风格      |
+| tool-bar                       | 侧边栏            |
+| todo-show                      | 备忘录管理        |
+| Sublime-Style-Column-Selection | 任意选择          |
 
 | git 相关插件(3)      | 插件描述                                   |
 | -------------------- | ------------------------------------------ |
@@ -35,41 +28,36 @@
 | merge-conflicts      | 解决 Atom 中的 Git 合并冲突                |
 | tree-view-git-status | 目录树里显示 Git 状态                      |
 
-| minimap 相关插件(6)     | 插件描述                |
+| minimap 相关插件(5)     | 插件描述                |
 | ----------------------- | ----------------------- |
 | minimap                 | 代码小窗口              |
-| minimap-bookmarks       | 代码小窗口-书签高亮     |
 | minimap-git-diff        | 代码小窗口-git 对比高亮 |
 | minimap-split-diff      | 代码小窗口-对比高亮     |
 | minimap-linter          | 代码小窗口-linter 包    |
 | minimap-quick-highlight | 代码小窗口-快速高亮     |
 
-| 语法相关插件(3) | 插件描述               |
-| --------------- | ---------------------- |
-| language-nginx  | nginx 配置文件语法高亮 |
-| language-ini    | ini 扩展文件语法高亮   |
-| language-notenv | .env 扩展文件语法高亮  |
+| 语法相关插件(4) | 插件描述                |
+| --------------- | ----------------------- |
+| language-apache | apache 配置文件语法高亮 |
+| language-nginx  | nginx 配置文件语法高亮  |
+| language-ini    | ini 扩展文件语法高亮    |
+| language-notenv | .env 扩展文件语法高亮   |
 
-| ide(11)                   | 插件描述      |
-| ------------------------- | ------------- |
-| busy-signal               | 基础包        |
-| intentions                | Linter 显示   |
-| linter-ui-default         | Linter 界面   |
-| linter                    | Linter 基础包 |
-| linter-eslint             | js 错误提示   |
-| atom-ternjs               | js 代码补全   |
-| php-ide-serenata          | php 包        |
-| atom-ide-signature-help   | ide 组合包    |
-| atom-ide-datatip          | ide 组合包    |
-| atom-ide-definitions      | ide 组合包    |
-| atom-ide-markdown-service | ide 组合包    |
+| ide(7)            | 插件描述      |
+| ----------------- | ------------- |
+| busy-signal       | 基础包        |
+| intentions        | Linter 显示   |
+| linter-ui-default | Linter 界面   |
+| linter            | Linter 基础包 |
+| linter-eslint     | js 错误提示   |
+| linter-php        | php 错误提示  |
+| atom-ternjs       | js 代码补全   |
 
-| html 相关插件(6) | 插件描述                  |
+| html 相关插件(5) | 插件描述                  |
 | ---------------- | ------------------------- |
 | autoprefixer     | css3 后缀自动完成         |
 | open-in-browser  | html 页面从默认浏览器打开 |
 | color-picker     | 颜色选择                  |
-| pigments         | css 下显示真实颜色        |
 | emmet            | 前端神器                  |
 | double-tag       | html 标签同步修改         |
 
