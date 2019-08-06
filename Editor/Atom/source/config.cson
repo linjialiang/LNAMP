@@ -48,11 +48,10 @@
       "symbols-view"
       "atom-ide-definitions"
       "markdown-preview-plus"
-      "tool-bar"
     ]
     telemetryConsent: "limited"
     themes: [
-      "nord-atom-ui"
+      "one-dark-ui"
       "nord-atom-syntax"
     ]
     uriHandlerRegistration: "always"
@@ -70,7 +69,7 @@
   "double-tag":
     allowEndTagSync: true
   editor:
-    fontFamily: "hack, '思源黑体 CN'"
+    fontFamily: "'Fira Code', '思源黑体 CN'"
     showIndentGuide: true
     showInvisibles: true
     tabLength: 4
@@ -90,13 +89,6 @@
     realname: "madnesslin(地上马)"
   "line-ending-selector":
     defaultLineEnding: "LF"
-  "linter-eslint":
-    advanced:
-      disableEslintIgnore: true
-      disableFSCache: true
-    disabling: {}
-    global: {}
-    lintHtmlFiles: true
   "linter-php": {}
   "linter-ui-default": {}
   "markdown-preview-plus":
@@ -117,8 +109,6 @@
       "minimap-quick-highlightDecorationsZIndex": 0
       "split-diff": true
       "split-diffDecorationsZIndex": 0
-  "nord-atom-ui":
-    darkerFormFocusEffect: true
   "one-dark-ui":
     tabCloseButton: "Left"
     tabSizing: "Maximum"
@@ -156,15 +146,11 @@
   "spell-check":
     useLocales: false
   "sync-settings":
-    _lastBackupHash: "97890dfe1d107e5cc9e6e85c96eb3bf6b0b756cb"
+    _lastBackupHash: "b6e3e7b3ff6a553a10b3ad226a97659e0f8ecc43"
     gistId: "0c1b5fcfa399c0d790a5346bc65567fc"
     personalAccessToken: "39e6a61625bda8a30f9f44dac19e0f2e79892af1"
     quietUpdateCheck: true
     removeObsoletePackages: true
-  "tool-bar":
-    fullWidth: false
-    position: "Left"
-    useTouchBar: false
   "tree-view": {}
   "tree-view-git-status":
     gitFlow:
