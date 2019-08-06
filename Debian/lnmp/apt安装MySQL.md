@@ -12,7 +12,7 @@
 ## 下载 mysql 安装脚本
 
 ```shell
-wget https://repo.mysql.com//mysql-apt-config_0.8.13-1_all.deb
+wget https://repo.mysql.com/mysql-apt-config_0.8.13-1_all.deb
 ```
 
 > 下载后使用 `./mysql-apt-config_0.8.13-1_all.deb` 来执行它

@@ -150,7 +150,7 @@ $ source ~/.bashrc
 > 有些系统工具非常有用，而我们的极简安装可能都没有安装上
 
 ```shell
-$ apt install lrzsz tar bzip2 gzip curl
+$ apt install lrzsz tar bzip2 gzip curl wget
 ```
 
 1. lrzsz
