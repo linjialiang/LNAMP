@@ -85,6 +85,27 @@ $ apt install mariadb-server
   $ mv mysql{,.bak}/
   ```
 
+### 创建 `init.d` 启动脚本
+
+> 在常规 linux 中，我们可以使用 systemctl 来启动 mariadb,不过 win10 分发版本就只能使用 init.d 脚本来启动了
+
+1. 启动 mariadb 服务
+
+    ```shell
+    $ /usr/bin/mysqld_safe --defaults-file=/etc/mysql/my.cnf &>/dev/null &
+    ```
+
+2. 首先设置 root 用户密码
+
+   > 这个密码在关闭 mariadb 服务的时候需要使用
+
+    ```shell
+    # 启动mariadb
+    $ mysqld_safe
+    $ mysqladmin -uroot -p旧密码 password 新密码
+    ```
+
+
 ### 远程连接
 
 > 为了便于管理我们要开通指定 ip 地址的远程客户端操作 mariadb
