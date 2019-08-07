@@ -50,10 +50,6 @@
       "markdown-preview-plus"
     ]
     telemetryConsent: "limited"
-    themes: [
-      "one-dark-ui"
-      "nord-atom-syntax"
-    ]
     uriHandlerRegistration: "always"
   docblockr:
     auto_add_method_tag: true
@@ -145,12 +141,6 @@
       showViewOnStartup: false
   "spell-check":
     useLocales: false
-  "sync-settings":
-    _lastBackupHash: "b6e3e7b3ff6a553a10b3ad226a97659e0f8ecc43"
-    gistId: "0c1b5fcfa399c0d790a5346bc65567fc"
-    personalAccessToken: "39e6a61625bda8a30f9f44dac19e0f2e79892af1"
-    quietUpdateCheck: true
-    removeObsoletePackages: true
   "tree-view": {}
   "tree-view-git-status":
     gitFlow:
