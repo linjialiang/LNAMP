@@ -52,7 +52,7 @@
 | intentions        | Linter 显示   |
 | linter-ui-default | Linter 界面   |
 | linter            | Linter 基础包 |
-| linter-eslint     | js 错误提示   |
+| linter-jshint     | js 错误提示   |
 | linter-php        | php 错误提示  |
 | atom-ternjs       | js 代码补全   |
 
