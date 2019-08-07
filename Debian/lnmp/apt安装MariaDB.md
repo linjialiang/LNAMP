@@ -85,27 +85,6 @@ $ apt install mariadb-server
   $ mv mysql{,.bak}/
   ```
 
-### 创建 `init.d` 启动脚本
-
-> 在常规 linux 中，我们可以使用 systemctl 来启动 mariadb,不过 win10 分发版本就只能使用 init.d 脚本来启动了
-
-1. 启动 mariadb 服务
-
-    ```shell
-    $ /usr/bin/mysqld_safe --defaults-file=/etc/mysql/my.cnf &>/dev/null &
-    ```
-
-2. 首先设置 root 用户密码
-
-   > 这个密码在关闭 mariadb 服务的时候需要使用
-
-    ```shell
-    # 启动mariadb
-    $ mysqld_safe
-    $ mysqladmin -uroot -p旧密码 password 新密码
-    ```
-
-
 ### 远程连接
 
 > 为了便于管理我们要开通指定 ip 地址的远程客户端操作 mariadb
@@ -142,3 +121,39 @@ $ apt install mariadb-server
   # 刷新权限
   MariaDB [(none)]> flush privileges;
   ```
+
+---
+
+## 创建 `init.d` 启动脚本
+
+> 在常规 linux 中，我们可以使用 systemctl 来启动 mariadb,不过 win10 分发版本就只能使用 init.d 脚本来启动了
+
+| 序号 | 启动脚本路径                                                |
+| ---- | ----------------------------------------------------------- |
+| 01   | [`init.d.mysqld.sh`](./../MariaDB/source/init.d.mysqld.sh)  |
+| 02   | [`init.d.mysqld2sh`](./../MariaDB/source/init.d.mysqld2.sh) |
+
+> 将上表中两个脚本任意选择一个，拷贝到 `/etc/init.d/` 目录下，并且重命名为 `mysqld`。
+
+### 注意事项
+
+> 想要脚本有效，必须满足：`数据库 root 用户的密码无效` 并且 `以root账号登陆系统` 。
+
+- 数据库 root 用户设置了密码怎么办？
+
+  > root 设置了密码，就必须更改启动脚本中的变量 `MYADMIN` 的值，具体如下：
+
+  ```sh
+  MYADMIN="/usr/bin/mysqladmin --defaults-file=/etc/mysql/my.cnf" -uroot -p密码"
+  ```
+
+### 启动脚本操作说明
+
+> 由于只是开发环境，我就简单写了几个常用的选项：
+
+| 描述     | 指令                         |
+| -------- | ---------------------------- |
+| 启动服务 | `/etc/init.d/mysqld start`   |
+| 关闭服务 | `/etc/init.d/mysqld stop`    |
+| 重新加载 | `/etc/init.d/mysqld reload`  |
+| 重启服务 | `/etc/init.d/mysqld restart` |
