@@ -141,4 +141,29 @@ $ make install
 | 启用开机启动 nginx | `/lib/systemd/systemd-sysv-install enable nginx`  |
 | 禁用开机启动 nginx | `/lib/systemd/systemd-sysv-install disable nginx` |
 
+## Nginx 配置站点
+
+> 下面是一个最基础，最简单的站点配置：
+
+```nginx
+...
+server{
+    listen 80;
+    server_name qyadmin.com www.qyadmin.com;
+    root /mnt/c/wamp/web/www/qyadmin/public;
+
+    location ~ \.php$ {
+        fastcgi_pass  127.0.0.1:9000;
+        fastcgi_index index.php;
+
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param QUERY_STRING    $query_string;
+        fastcgi_param REQUEST_METHOD  $request_method;
+        fastcgi_param CONTENT_TYPE    $content_type;
+        fastcgi_param CONTENT_LENGTH  $content_length;
+    }
+}
+...
+```
+
 > 更多 Nginx 内容请查阅 [man-nginx](../Nginx/README.md)
