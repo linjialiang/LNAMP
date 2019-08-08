@@ -121,6 +121,14 @@ $ php-config -h
   ```shell
   $ cp -p -r /etc/profile{,.bak}
   $ vim /etc/profile
+  ```
+
+  ```conf
+  # /etc/profile 底部增加一行
+  export PATH=$PATH:/server/php/bin:/server/php/sbin
+  ```
+
+  ```shell
   $ source /etc/profile
   ```
 
@@ -175,7 +183,8 @@ $ php-config -h
 ### 安装 php 扩展 xdebug
 
 ```shell
-$ cd /data/
+$ mkdir /data/ext/
+$ cd /data/ext/
 $ wget https://pecl.php.net/get/xdebug-2.7.2.tgz
 $ tar -xzvf xdebug-2.7.2.tgz
 $ cd xdebug-2.7.2
@@ -217,6 +226,7 @@ $ make install
 - 编译依赖项 `ImageMagick`
 
   ```shell
+  $ mkdir /server/ImageMagick
   $ cd /data/
   $ wget http://mirror.checkdomain.de/imagemagick/ImageMagick-7.0.8-59.tar.gz
   $ tar -xzvf ImageMagick-7.0.8-59.tar.gz
@@ -230,7 +240,7 @@ $ make install
 - 开始编译 php 扩展 `imagick`
 
   ```shell
-  $ cd /data/
+  $ cd /data/ext
   $ wget https://pecl.php.net/get/imagick-3.4.4.tgz
   $ tar -xzvf imagick-3.4.4.tgz
   $ cd imagick-3.4.4
@@ -302,12 +312,17 @@ $ cp -p -r /server/php/etc/php-fpm.d/www.conf{.default,}
   $ vim /server/php/etc/php-fpm.d/www.conf
   ```
 
+  > 指定用户级用户组，并指定监听用户和监听用户组：
+
   ```conf
   ...
   # user = nobody
   # group = nobody
   user = nginx
   group = nginx
+  ...
+  listen.owner = nginx
+  listen.group = ningx
   ...
   ```
 
@@ -358,3 +373,13 @@ $ cp -p -r /server/php/etc/php-fpm.d/www.conf{.default,}
   > 提示：在 debian9 上禁用开机启动，需要使用：
   >
   > - `/lib/systemd/systemd-sysv-install disable php-fpm`
+
+  ## 附录：
+
+  1. Linux 子系统启动报错：
+
+     ```shell
+     failed to retrieve TCP_INFO for socket: Protocol not available (92)
+     ```
+
+     > 解决：修改 `php-fpm.conf` 文件，设置 `log_level = alert`
