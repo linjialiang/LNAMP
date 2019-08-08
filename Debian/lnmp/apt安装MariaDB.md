@@ -135,6 +135,10 @@ $ apt install mariadb-server
 
 > 将上表中两个脚本任意选择一个，拷贝到 `/etc/init.d/` 目录下，并且重命名为 `mysqld`。
 
+- 脚本权限
+
+  > 脚本需要有执行权限，即： `chrom +x mysqld`
+
 ### 注意事项
 
 > 想要脚本有效，必须满足：`数据库 root 用户的密码无效` 并且 `以root账号登陆系统` 。
