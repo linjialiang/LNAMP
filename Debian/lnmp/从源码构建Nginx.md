@@ -178,7 +178,7 @@ server {
         include fastcgi-tp.conf;
     }
 
-    location ~ /\.ht {
+    location ~ /(\.ht|\.git|\.vscode|\.idea) {
         deny all;
     }
 
