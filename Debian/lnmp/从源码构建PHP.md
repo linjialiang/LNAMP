@@ -395,10 +395,10 @@ $ cp -p -r /server/php/etc/php-fpm.d/www.conf{.default,}
 
 1. Linux 子系统启动报错：
 
-    > Nginx 处理端口
+   > 如果 PHP-fmp 是以 TCP 监听就会发生下面的错误
 
-    ```shell
-    failed to retrieve TCP_INFO for socket: Protocol not available (92)
-    ```
+   ```shell
+   failed to retrieve TCP_INFO for socket: Protocol not available (92)
+   ```
 
-    > 解决：修改 `php-fpm.conf` 文件，设置 `log_level = alert` (治标不治本)
+   > 解决：修改 `php-fpm.conf` 文件，设置 `log_level = alert` (治标不治本)
