@@ -146,24 +146,52 @@ $ make install
 > 下面是一个最基础，最简单的站点配置：
 
 ```nginx
-...
-server{
+server {
     listen 80;
     server_name qyadmin.com www.qyadmin.com;
     root /mnt/c/wamp/web/www/qyadmin/public;
 
-    location ~ \.php$ {
-        fastcgi_pass  127.0.0.1:9000;
-        fastcgi_index index.php;
+    access_log /logs/nginx/access_log/qyadmin.com.log;
+    error_log /logs/nginx/error_log/qyadmin.com.log;
 
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        fastcgi_param QUERY_STRING    $query_string;
-        fastcgi_param REQUEST_METHOD  $request_method;
-        fastcgi_param CONTENT_TYPE    $content_type;
-        fastcgi_param CONTENT_LENGTH  $content_length;
+    add_header Strict-Transport-Security "max-age=63072000; preload";
+    add_header X-Frame-Options SAMEORIGIN;
+    add_header X-Content-Type-Options nosniff;
+    add_header X-XSS-Protection "1; mode=block";
+
+    index index.html index.php;
+
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php73-fpm.sock;
+        fastcgi_index index.php;
+        include fastcgi-tp.conf;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$ {
+        expires 30d;
+        access_log off;
+    }
+
+    location ~ .*\.(js|css)?$ {
+        expires 12h;
+        access_log off;
     }
 }
-...
 ```
 
 > 更多 Nginx 内容请查阅 [man-nginx](../Nginx/README.md)

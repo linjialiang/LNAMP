@@ -302,6 +302,8 @@ $ cp -p -r /server/php/etc/php-fpm.conf{.default,}
 $ cp -p -r /server/php/etc/php-fpm.d/www.conf{.default,}
 ```
 
+> 如果没有特别指明，都是在 www 工作池对应的配置文件中修改
+
 - 为 www 工作池指定用户及用户组
 
   > 跟 nginx 的用户及用户组一致即可
@@ -326,9 +328,24 @@ $ cp -p -r /server/php/etc/php-fpm.d/www.conf{.default,}
   ...
   ```
 
-- 为 www 工作池修改监听端口
+- 监听端口
 
-  > 默认值已经设置了，一般我们不需要修改！
+  > 如果选择 TCP 端口监听，默认值已经设置了，一般我们不需要修改！
+
+- 监听形式
+
+  > 默认是以 TCP 端口监听的，我们也可以修改成 `在unix套接字上监听`，具体操作如下：
+
+  ```shell
+  $ mkdir /var/run/php/
+  ```
+
+  ```conf
+  ...
+  ;listen = 127.0.0.1:9000
+  listen = /var/run/php/php73-fpm.sock
+  ...
+  ```
 
 ### 开机启动 php-fpm
 
@@ -382,4 +399,4 @@ $ cp -p -r /server/php/etc/php-fpm.d/www.conf{.default,}
      failed to retrieve TCP_INFO for socket: Protocol not available (92)
      ```
 
-     > 解决：修改 `php-fpm.conf` 文件，设置 `log_level = alert`
+     > 解决：修改 `php-fpm.conf` 文件，设置 `log_level = alert` (治标不治本)
