@@ -49,5 +49,6 @@
 | 23   | Vetur                      | vue 唯一需要的插件              |
 | 24   | vscode-icons               | 图标样式                        |
 | 25   | Atom Keymap                | 绑定 atom 按键                  |
+| 26   | Smarty                     | 支持 Smarty                     |
 
 > 除此之外还有一个中文菜单插件 `Chinese (Simplified) Language Pack for Visual Studio Code`
