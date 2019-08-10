@@ -151,7 +151,6 @@ $ make install
 
     # 一般跟cpu个数相同
     worker_processes 4;
-
     # 配合worker_processes选项
     worker_cpu_affinity 0001 0010 0100 1000;
     # 如果不加以限制会造成core文件过大，导致磁盘占满
@@ -161,14 +160,14 @@ $ make install
     # 它主要用于编写 core 文件，工作进程应该具有对指定目录的写权限（/tmp/ 默认为 777 权限）
     working_directory /tmp/;
     # 更改工作进程打开文件的最大数量限制（理论值应该于 `ulimit -n` 相同）
-    worker_rlimit_nofile 1024;
+    worker_rlimit_nofile 65535;
 
     ...
     events{
         # 设置单个 worker 进程能同时打开的最大连接数
-        worker_connections 1024;
+        worker_connections 65535;
         # 将 aio 与 epoll 连接处理方法一起使用时，为单个工作进程设置未完成异步 I/O 操作的最大数量。
-        worker_aio_requests 1024;
+        worker_aio_requests 10240;
     }
 }
 ```
