@@ -161,14 +161,14 @@ $ make install
     # 它主要用于编写 core 文件，工作进程应该具有对指定目录的写权限（/tmp/ 默认为 777 权限）
     working_directory /tmp/;
     # 更改工作进程打开文件的最大数量限制（理论值应该于 `ulimit -n` 相同）
-    worker_rlimit_nofile 65535;
+    worker_rlimit_nofile 1024;
 
     ...
     events{
         # 设置单个 worker 进程能同时打开的最大连接数
-        worker_connections 65535;
+        worker_connections 1024;
         # 将 aio 与 epoll 连接处理方法一起使用时，为单个工作进程设置未完成异步 I/O 操作的最大数量。
-        worker_aio_requests 10240;
+        worker_aio_requests 1024;
     }
 }
 ```
@@ -201,23 +201,23 @@ file locks                      (-x) unlimited
 
 1. 使用 `cat /proc/sys/fs/file-max` 可以查看系统总限制；
 
-2. 在 `/etc/security/limits.conf` 文件里可以修改它：
+2. 在 `/etc/security/limits.conf` 文件里可以修改它（在 windows 分发中没有毛用）：
 
    > 在最底部加上两句即可：
 
    ```conf
-   * soft  nofile  65536
-   * hard  nofile  65536
+   * soft  nofile  65535
+   * hard  nofile  65535
    ```
 
    > 也可以仅针对单个用户：
 
    ```conf
-   @nginx soft  nofile  65536
-   @nginx hard  nofile  65536
+   @nginx soft  nofile  65535
+   @nginx hard  nofile  65535
    ```
 
-   > 重启或者使用 `source /etc/security/limits.conf` 实现
+   > 提示：修改后立即生效，无需重启，只要重新链接下
 
 ## Nginx 配置站点
 
