@@ -150,4 +150,30 @@ $ make install
 | fastcgi 公用配置 | [fastcgi-tp.conf](./../Nginx/source/fastcgi-tp.conf)   |
 | 站点配置         | [qyadmin.com.conf](./../Nginx/source/qyadmin.com.conf) |
 
+- 最简单的 php-fpm 站点配置：
+
+```nginx
+server {
+    listen 80;
+    server_name qyadmin.com www.qyadmin.com;
+    root /mnt/c/wamp/web/www/qyadmin/public;
+
+    access_log /logs/nginx/access_log/qyadmin.com.log;
+    error_log /logs/nginx/error_log/qyadmin.com.log;
+    index index.html index.php;
+
+    location / {
+        try_files $uri $uri/ /index.php$uri?$query_string;
+    }
+
+    location ~ \.php {
+        fastcgi_pass  unix:/var/run/php/php73-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_split_path_info  ^(.+\.php)(.*)$;
+
+        include fastcgi-tp.conf;
+    }
+}
+```
+
 > 更多 Nginx 内容请查阅 [man-nginx](../Nginx/README.md)

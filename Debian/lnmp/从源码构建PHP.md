@@ -347,6 +347,8 @@ $ cp -p -r /server/php/etc/php-fpm.d/www.conf{.default,}
   ...
   ```
 
+> 这里贴一个 `php-fpm` 工作池[`最基本配置`](./source/php-fpm.www.conf)
+
 ### 开机启动 php-fpm
 
 > php 做的很好，编译时就将启动文件生成到构建目录里了。
