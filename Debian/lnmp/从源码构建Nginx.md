@@ -141,6 +141,84 @@ $ make install
 | 启用开机启动 nginx | `/lib/systemd/systemd-sysv-install enable nginx`  |
 | 禁用开机启动 nginx | `/lib/systemd/systemd-sysv-install disable nginx` |
 
+## Nginx 全局配置
+
+> main 上下文是对 nginx 全局的配置，有下面几点需要关注：
+
+```nginx
+{
+    ...
+
+    # 一般跟cpu个数相同
+    worker_processes 4;
+
+    # 配合worker_processes选项
+    worker_cpu_affinity 0001 0010 0100 1000;
+    # 如果不加以限制会造成core文件过大，导致磁盘占满
+    worker_rlimit_core  50M;
+    # 为客户端设置一个超时，超时后 nginx 将尝试强制关闭当前客户端打开的所有连接，保证服务器资源不被占用
+    worker_shutdown_timeout 30s;
+    # 它主要用于编写 core 文件，工作进程应该具有对指定目录的写权限（/tmp/ 默认为 777 权限）
+    working_directory /tmp/;
+    # 更改工作进程打开文件的最大数量限制（理论值应该于 `ulimit -n` 相同）
+    worker_rlimit_nofile 65535;
+
+    ...
+    events{
+        # 设置单个 worker 进程能同时打开的最大连接数
+        worker_connections 65535;
+        # 将 aio 与 epoll 连接处理方法一起使用时，为单个工作进程设置未完成异步 I/O 操作的最大数量。
+        worker_aio_requests 10240;
+    }
+}
+```
+
+### ulimit
+
+> 我们可以用 `ulimit -a` 来查看所有限制值：
+
+```shell
+[root@Debian10 sites]# ulimit -a
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 40
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 8041
+max locked memory       (kbytes, -l) 64
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 8041
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+```
+
+> 其中：`open files (-n) 1024` 是 Linux 操作系统对一个进程打开的文件句柄数量的限制(也包含打开的 SOCKET 数量，可影响 MySQL 的并发连接数目)。
+
+1. 使用 `cat /proc/sys/fs/file-max` 可以查看系统总限制；
+
+2. 在 `/etc/security/limits.conf` 文件里可以修改它：
+
+   > 在最底部加上两句即可：
+
+   ```conf
+   * soft  nofile  65536
+   * hard  nofile  65536
+   ```
+
+   > 也可以仅针对单个用户：
+
+   ```conf
+   @nginx soft  nofile  65536
+   @nginx hard  nofile  65536
+   ```
+
+   > 重启或者使用 `source /etc/security/limits.conf` 实现
+
 ## Nginx 配置站点
 
 > 下面是一组针对 ThinkPHP 写的站点配置文件：
@@ -167,7 +245,7 @@ server {
     }
 
     location ~ \.php {
-        fastcgi_pass  unix:/var/run/php/php73-fpm.sock;
+        fastcgi_pass  unix:/var/run/php73-fpm.sock;
         fastcgi_index index.php;
         fastcgi_split_path_info  ^(.+\.php)(.*)$;
 

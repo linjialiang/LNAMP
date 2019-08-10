@@ -343,7 +343,7 @@ $ cp -p -r /server/php/etc/php-fpm.d/www.conf{.default,}
   ```conf
   ...
   ;listen = 127.0.0.1:9000
-  listen = /var/run/php/php73-fpm.sock
+  listen = /var/run/php73-fpm.sock
   ...
   ```
 
