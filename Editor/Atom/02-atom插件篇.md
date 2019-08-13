@@ -235,3 +235,25 @@
 ### linter-eslint
 
 > 该插件是 js 检测最佳工具，安装完成后，只要在项目根目录上添加 `.eslintrc` 即可！
+
+1. 增加 html 支持
+
+   > 需要安装 `eslint-plugin-html` 扩展
+
+   ```bat
+   # 打开 cmd 进入指定目录
+   cd C:\Users\xxx\AppData\Local\atom\app-1.39.1\resources\app\apm\bin
+   npm install -g npm
+   npm install eslint -g
+   npm install eslint-plugin-html -g
+   ```
+
+   > `.eslintrc` 文件增加如下内容：
+
+   ```json
+   {
+     "plugins": [
+         "html"
+     ]
+   }
+   ```
