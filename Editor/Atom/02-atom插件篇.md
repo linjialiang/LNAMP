@@ -4,26 +4,21 @@
 
 ## atom 插件扩展
 
-| 主题扩展(1)      | 描述     |
-| ---------------- | -------- |
-| nord-atom-syntax | 代码样式 |
-
-| 实用插件(13)                       | 插件描述          |
-| ---------------------------------- | ----------------- |
-| atom-beautify                      | 格式化源代码      |
-| docblockr                          | 用于注释          |
-| sync-settings                      | atom 配置同步插件 |
-| split-diff                         | 文件对比插件      |
-| project-manager                    | 项目管理          |
-| platformio-ide-terminal            | atom 下出色的终端 |
-| markdown-preview-plus              | markdown 预览     |
-| file-header                        | 文件头信息        |
-| file-icons                         | 文件图标          |
-| quick-highlight                    | 文本快速高亮      |
-| remote-ftp                         | 远程连接          |
-| editorconfig                       | 统一代码风格      |
-| todo-show                          | 备忘录管理        |
-| ~~Sublime-Style-Column-Selection~~ | 任意选择          |
+| 实用插件(13)            | 插件描述          |
+| ----------------------- | ----------------- |
+| atom-beautify           | 格式化源代码      |
+| docblockr               | 用于注释          |
+| sync-settings           | atom 配置同步插件 |
+| split-diff              | 文件对比插件      |
+| project-manager         | 项目管理          |
+| platformio-ide-terminal | atom 下出色的终端 |
+| markdown-preview-plus   | markdown 预览     |
+| file-header             | 文件头信息        |
+| file-icons              | 文件图标          |
+| quick-highlight         | 文本快速高亮      |
+| remote-ftp              | 远程连接          |
+| editorconfig            | 统一代码风格      |
+| todo-show               | 备忘录管理        |
 
 | git 相关插件(3)      | 插件描述                                   |
 | -------------------- | ------------------------------------------ |
@@ -36,7 +31,6 @@
 | minimap                 | 代码小窗口              |
 | minimap-git-diff        | 代码小窗口-git 对比高亮 |
 | minimap-split-diff      | 代码小窗口-对比高亮     |
-| ~~minimap-linter~~      | 代码小窗口-linter 包    |
 | minimap-quick-highlight | 代码小窗口-快速高亮     |
 
 | 语法相关插件(4) | 插件描述                |
@@ -46,15 +40,9 @@
 | language-ini    | ini 扩展文件语法高亮    |
 | language-notenv | .env 扩展文件语法高亮   |
 
-| ide(1)                | 插件描述      |
-| --------------------- | ------------- |
-| ~~busy-signal~~       | 基础包        |
-| ~~intentions~~        | Linter 显示   |
-| ~~linter-ui-default~~ | Linter 界面   |
-| ~~linter~~            | Linter 基础包 |
-| ~~linter-eslint~~     | js 错误提示   |
-| ~~linter-php~~        | php 错误提示  |
-| atom-ternjs           | js 代码补全   |
+| ide(1)      | 插件描述    |
+| ----------- | ----------- |
+| atom-ternjs | js 代码补全 |
 
 | html 相关插件(5) | 插件描述                  |
 | ---------------- | ------------------------- |
@@ -219,39 +207,12 @@
 
 ```json
 {
-  "ecmaVersion": 8,
-  "libs": ["jquery"],
+  "ecmaVersion": "8",
+  "libs": [],
   "loadEagerly": [],
   "dontLoad": ["node_modules/**"],
   "plugins": {
-    "doc_comment": true,
-    "complete_strings": {
-      "maxLength": 15
-    }
+    "doc_comment": true
   }
 }
 ```
-
-### linter-eslint
-
-> 该插件是 js 检测最佳工具，安装完成后，只要在项目根目录上添加 `.eslintrc` 即可！
-
-1. 增加 html 支持
-
-   > 需要安装 `eslint-plugin-html` 扩展
-
-   ```bat
-   # 打开 cmd 进入指定目录
-   cd C:\Users\xxx\AppData\Local\atom\app-1.39.1\resources\app\apm\bin
-   npm install -g npm
-   npm install eslint -g
-   npm install eslint-plugin-html -g
-   ```
-
-   > `.eslintrc` 文件增加如下内容：
-
-   ```json
-   {
-     "plugins": ["html"]
-   }
-   ```
