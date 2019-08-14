@@ -6,7 +6,7 @@
       "php-cs-fixer":
         path: "C:\\Users\\emad\\.atom\\other\\php-cs-fixer-v2.phar"
     general:
-      _analyticsUserId: "5967b1bd-b08b-45ca-bb07-79691cef3219"
+      _analyticsUserId: ""
     html:
       preserve_newlines: false
     js:
@@ -71,7 +71,7 @@
     tabLength: 4
     tabType: "soft"
   "exception-reporting":
-    userId: "10ace339-2c51-484b-925e-d20bd74c4495"
+    userId: ""
   "file-header":
     autoAddingHeaderOnNewFile: false
     autoAddingHeaderOnSaving: false
@@ -85,8 +85,6 @@
     realname: "madnesslin(地上马)"
   "line-ending-selector":
     defaultLineEnding: "LF"
-  "linter-php": {}
-  "linter-ui-default": {}
   "markdown-preview-plus":
     syncConfig:
       syncEditorOnPreviewScroll: true
@@ -99,8 +97,6 @@
       bookmarksDecorationsZIndex: 0
       "git-diff": true
       "git-diffDecorationsZIndex": 0
-      linter: true
-      linterDecorationsZIndex: 0
       "minimap-quick-highlight": true
       "minimap-quick-highlightDecorationsZIndex": 0
       "split-diff": true
@@ -141,6 +137,11 @@
       showViewOnStartup: false
   "spell-check":
     useLocales: false
+  "sync-settings":
+    _lastBackupHash: ""
+    gistId: ""
+    personalAccessToken: ""
+    removeObsoletePackages: true
   "tree-view": {}
   "tree-view-git-status":
     gitFlow:
