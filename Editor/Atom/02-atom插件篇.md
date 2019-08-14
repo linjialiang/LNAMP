@@ -8,22 +8,22 @@
 | ---------------- | -------- |
 | nord-atom-syntax | 代码样式 |
 
-| 实用插件(14)                   | 插件描述          |
-| ------------------------------ | ----------------- |
-| atom-beautify                  | 格式化源代码      |
-| docblockr                      | 用于注释          |
-| sync-settings                  | atom 配置同步插件 |
-| split-diff                     | 文件对比插件      |
-| project-manager                | 项目管理          |
-| platformio-ide-terminal        | atom 下出色的终端 |
-| markdown-preview-plus          | markdown 预览     |
-| file-header                    | 文件头信息        |
-| file-icons                     | 文件图标          |
-| quick-highlight                | 文本快速高亮      |
-| remote-ftp                     | 远程连接          |
-| editorconfig                   | 统一代码风格      |
-| todo-show                      | 备忘录管理        |
-| Sublime-Style-Column-Selection | 任意选择          |
+| 实用插件(13)                       | 插件描述          |
+| ---------------------------------- | ----------------- |
+| atom-beautify                      | 格式化源代码      |
+| docblockr                          | 用于注释          |
+| sync-settings                      | atom 配置同步插件 |
+| split-diff                         | 文件对比插件      |
+| project-manager                    | 项目管理          |
+| platformio-ide-terminal            | atom 下出色的终端 |
+| markdown-preview-plus              | markdown 预览     |
+| file-header                        | 文件头信息        |
+| file-icons                         | 文件图标          |
+| quick-highlight                    | 文本快速高亮      |
+| remote-ftp                         | 远程连接          |
+| editorconfig                       | 统一代码风格      |
+| todo-show                          | 备忘录管理        |
+| ~~Sublime-Style-Column-Selection~~ | 任意选择          |
 
 | git 相关插件(3)      | 插件描述                                   |
 | -------------------- | ------------------------------------------ |
@@ -31,12 +31,12 @@
 | merge-conflicts      | 解决 Atom 中的 Git 合并冲突                |
 | tree-view-git-status | 目录树里显示 Git 状态                      |
 
-| minimap 相关插件(5)     | 插件描述                |
+| minimap 相关插件(4)     | 插件描述                |
 | ----------------------- | ----------------------- |
 | minimap                 | 代码小窗口              |
 | minimap-git-diff        | 代码小窗口-git 对比高亮 |
 | minimap-split-diff      | 代码小窗口-对比高亮     |
-| minimap-linter          | 代码小窗口-linter 包    |
+| ~~minimap-linter~~      | 代码小窗口-linter 包    |
 | minimap-quick-highlight | 代码小窗口-快速高亮     |
 
 | 语法相关插件(4) | 插件描述                |
@@ -46,15 +46,15 @@
 | language-ini    | ini 扩展文件语法高亮    |
 | language-notenv | .env 扩展文件语法高亮   |
 
-| ide(7)            | 插件描述      |
-| ----------------- | ------------- |
-| busy-signal       | 基础包        |
-| intentions        | Linter 显示   |
-| linter-ui-default | Linter 界面   |
-| linter            | Linter 基础包 |
-| linter-eslint     | js 错误提示   |
-| linter-php        | php 错误提示  |
-| atom-ternjs       | js 代码补全   |
+| ide(1)                | 插件描述      |
+| --------------------- | ------------- |
+| ~~busy-signal~~       | 基础包        |
+| ~~intentions~~        | Linter 显示   |
+| ~~linter-ui-default~~ | Linter 界面   |
+| ~~linter~~            | Linter 基础包 |
+| ~~linter-eslint~~     | js 错误提示   |
+| ~~linter-php~~        | php 错误提示  |
+| atom-ternjs           | js 代码补全   |
 
 | html 相关插件(5) | 插件描述                  |
 | ---------------- | ------------------------- |
@@ -193,7 +193,7 @@
 
 ### file-header
 
-> 头信息可以自定义模板，自定义模板的位置在 `~\.atom\other\file-header`目录下，文件源码如下:
+> 头信息可以自定义模板，自定义模板的位置在 `~~\.atom\other\file-header`目录下，文件源码如下:
 
 | 序号 | file-header 模板                                             |
 | ---- | ------------------------------------------------------------ |
@@ -252,8 +252,6 @@
 
    ```json
    {
-     "plugins": [
-         "html"
-     ]
+     "plugins": ["html"]
    }
    ```
