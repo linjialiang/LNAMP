@@ -40,7 +40,7 @@
 | language-ini    | ini 扩展文件语法高亮    |
 | language-notenv | .env 扩展文件语法高亮   |
 
-| ide(1)               | 插件描述    |
+| ide(2)               | 插件描述    |
 | -------------------- | ----------- |
 | atom-ternjs          | js 代码补全 |
 | autocomplete-modules | js 模块补全 |
