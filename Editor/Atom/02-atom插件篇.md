@@ -4,7 +4,7 @@
 
 ## atom 插件扩展
 
-| 实用插件(13)            | 插件描述          |
+| 实用插件(12)            | 插件描述          |
 | ----------------------- | ----------------- |
 | atom-beautify           | 格式化源代码      |
 | docblockr               | 用于注释          |
@@ -13,12 +13,11 @@
 | project-manager         | 项目管理          |
 | platformio-ide-terminal | atom 下出色的终端 |
 | markdown-preview-plus   | markdown 预览     |
-| file-header             | 文件头信息        |
+| language-markdown       | markdown 语法高亮 |
 | file-icons              | 文件图标          |
 | quick-highlight         | 文本快速高亮      |
 | remote-ftp              | 远程连接          |
 | editorconfig            | 统一代码风格      |
-| todo-show               | 备忘录管理        |
 
 | git 相关插件(3)      | 插件描述                                   |
 | -------------------- | ------------------------------------------ |
@@ -39,11 +38,6 @@
 | language-nginx  | nginx 配置文件语法高亮  |
 | language-ini    | ini 扩展文件语法高亮    |
 | language-notenv | .env 扩展文件语法高亮   |
-
-| ide(2)               | 插件描述    |
-| -------------------- | ----------- |
-| atom-ternjs          | js 代码补全 |
-| autocomplete-modules | js 模块补全 |
 
 | html 相关插件(5) | 插件描述                  |
 | ---------------- | ------------------------- |
@@ -177,43 +171,5 @@
     "connTimeout": 10000, // 等待建立控制连接的时间(以毫秒为单位)， Default: 10000
     "pasvTimeout": 10000, // 等待PASV数据连接建立的时间(以毫秒为单位)， Default: 10000
     "keepalive": 10000,  // 主动向ssh发送指令的间隔时间，0为不发送，默认: 10000
-}
-```
-
-### file-header
-
-> 头信息可以自定义模板，自定义模板的位置在 `~~\.atom\other\file-header`目录下，文件源码如下:
-
-| 序号 | file-header 模板                                             |
-| ---- | ------------------------------------------------------------ |
-| 01   | [默认](./other/file-header/templates/emad_default.tmpl)      |
-| 02   | [css 类](./other/file-header/templates/emad_css.tmpl)        |
-| 03   | [html 类](./other/file-header/templates/emad_html.tmpl)      |
-| 04   | [高级语言文件](./other/file-header/templates/emad_lang.tmpl) |
-| 05   | [sql 文件](./other/file-header/templates/emad_sql.tmpl)      |
-
-### atom-ternjs
-
-> 该插件很不错，不仅仅是 js 自动补全插件，当然它的主要作用还是自动补全
-
-```shell
-配置项目步骤：
-    1） 从项目中打开任何1个js文件；
-    2） 菜单步骤： 'Packages -> Atom Ternjs -> Configure project'；
-    3） 出现配置视图。根据您的需要配置；
-    4） 点击 'Save & Restart Server' 创建或更新 '.tern-project' 文件。
-```
-
-> `.tern-project` 文件案例：
-
-```json
-{
-  "ecmaVersion": "8",
-  "libs": [],
-  "loadEagerly": [],
-  "dontLoad": ["node_modules/**"],
-  "plugins": {
-    "doc_comment": true
-  }
 }
 ```

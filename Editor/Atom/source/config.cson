@@ -6,7 +6,7 @@
       "php-cs-fixer":
         path: "C:\\Users\\emad\\.atom\\other\\php-cs-fixer-v2.phar"
     general:
-      _analyticsUserId: ""
+      _analyticsUserId: "5967b1bd-b08b-45ca-bb07-79691cef3219"
     html:
       preserve_newlines: false
     js:
@@ -18,12 +18,6 @@
       default_beautifier: "Prettier"
     php:
       allow_risky: "yes"
-  "atom-ternjs":
-    excludeLowerPriorityProviders: true
-    inlineFnCompletionDocumentation: true
-    snippetsFirst: true
-    useSnippets: true
-    useSnippetsAndFunction: true
   autoprefixer:
     runOnSave: true
   autosave:
@@ -35,18 +29,17 @@
     triggerKey: "K"
   core:
     autoHideMenuBar: true
+    automaticallyUpdate: false
     closeDeletedFileTabs: true
     disabledPackages: [
       "markdown-preview"
+      "language-gfm"
     ]
     packagesWithKeymapsDisabled: [
       "git-time-machine"
       "open-in-browser"
-      "file-header"
       "remote-ftp"
-      "atom-ternjs"
       "symbols-view"
-      "atom-ide-definitions"
       "markdown-preview-plus"
     ]
     telemetryConsent: "limited"
@@ -71,18 +64,7 @@
     tabLength: 4
     tabType: "soft"
   "exception-reporting":
-    userId: ""
-  "file-header":
-    autoAddingHeaderOnNewFile: false
-    autoAddingHeaderOnSaving: false
-    configDirPath: "C:\\Users\\emad\\.atom\\other\\file-header"
-    dateTimeFormat: "YYYY-MM-DD HH:mm:ss"
-    email: "linjialiang@163.com"
-    ignoreListForAutoUpdateAndAddingHeader: [
-      ""
-    ]
-    numOfEmptyLinesAfterNewHeader: 0
-    realname: "madnesslin(地上马)"
+    userId: "10ace339-2c51-484b-925e-d20bd74c4495"
   "line-ending-selector":
     defaultLineEnding: "LF"
   "markdown-preview-plus":
@@ -126,11 +108,8 @@
   "quick-highlight":
     decorate: "box"
   "remote-ftp":
-    beta: {}
     connector:
       autoUploadOnSave: "only when connected"
-    context: {}
-    dev: {}
     statusbar:
       enable: true
     tree:
@@ -138,11 +117,10 @@
   "spell-check":
     useLocales: false
   "sync-settings":
-    _lastBackupHash: ""
-    gistId: ""
-    personalAccessToken: ""
+    _lastBackupHash: "2706792bdc85d84056dbe0ca8d3a1992580545c6"
+    gistId: "62af0c9780d4a0756c0ae495623266bf"
+    personalAccessToken: "d5e6efc8c4e9f8aa26b041abf589a707e1c166e0"
     removeObsoletePackages: true
-  "tree-view": {}
   "tree-view-git-status":
     gitFlow:
       display_type: 2

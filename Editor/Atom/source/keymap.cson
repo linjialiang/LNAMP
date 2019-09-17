@@ -1,6 +1,5 @@
 'atom-workspace':
     'ctrl-k ctrl-t': 'git-time-machine:toggle'
-    'ctrl-k ctrl-enter': 'atom-ide-go-to-definition:go-to-definition'
     'ctrl-k t': 'remote-ftp:toggle'
     'ctrl-k c': 'remote-ftp:connect'
     'ctrl-k d': 'remote-ftp:disconnect'
@@ -18,11 +17,6 @@
     'ctrl-k ctrl-o': 'autocomplete-plus:activate'
     'ctrl-k ctrl-e': 'open-in-browser:open'
 
-'atom-workspace atom-text-editor:not([mini])':
-    'ctrl-k m': 'quick-highlight:toggle'
-    'ctrl-k shift-M': 'quick-highlight:clear'
-    'ctrl-k ctrl-h': 'file-header:add'
-
 '.select-list atom-text-editor, body atom-text-editor.autocomplete-active':
     'ctrl-p': 'core:move-up'
     'ctrl-n': 'core:move-down'
@@ -32,15 +26,13 @@
 'atom-text-editor, webview.markdown-preview-plus':
     'ctrl-k ctrl-m': 'markdown-preview-plus:toggle'
 
+'atom-workspace atom-text-editor:not([mini])':
+    'ctrl-k m': 'quick-highlight:toggle'
+    'ctrl-k shift-M': 'quick-highlight:clear'
+
 'atom-text-editor.vim-mode-plus.normal-mode, atom-text-editor.vim-mode-plus.visual-mode':
     'g m': 'vim-mode-plus-user:quick-highlight-word'
     'g shift-M': 'quick-highlight:clear'
 
 '.platform-win32 atom-text-editor':
     'ctrl-k ctrl-r': 'symbols-view:toggle-file-symbols'
-
-'.platform-win32 atom-text-editor[data-grammar~=js]':
-    'ctrl-k ctrl-shift-D': 'atom-ternjs:definition'
-    'ctrl-k ctrl-shift-R': 'atom-ternjs:rename'
-    'ctrl-k ctrl-shift-E': 'atom-ternjs:references'
-    'ctrl-k ctrl-shift-O': 'atom-ternjs:documentation'
