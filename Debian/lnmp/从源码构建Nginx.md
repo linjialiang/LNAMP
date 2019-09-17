@@ -4,7 +4,7 @@
 
 ## Nginx 构建选项详解
 
-> 这里我基于 Nginx-1.16.0 版本的构建选项，做了全面的分析：
+> 这里我基于 nginx-1.16.1 版本的构建选项，做了全面的分析：
 
 | 序号 | configure 选项分类                                                                 |
 | ---- | ---------------------------------------------------------------------------------- |
@@ -37,10 +37,10 @@
 | 编译环境     | `apt install gcc g++ autotools-dev make`                                        |
 | libgd 库     | `apt install libgd-dev`                                                         |
 | geoip 库     | `apt install libgeoip-dev`                                                      |
-| openssl 库   | [`openssl-1.1.1c.tar.gz`](https://www.openssl.org/source/openssl-1.1.1c.tar.gz) |
+| openssl 库   | [`openssl-1.1.1d.tar.gz`](https://www.openssl.org/source/openssl-1.1.1d.tar.gz) |
 | pcre 库      | [`pcre-8.43.tar.gz`](https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz)            |
 | zlib 库      | [`zlib-1.2.11.tar.gz`](http://zlib.net/zlib-1.2.11.tar.gz)                      |
-| nginx 源码包 | [`nginx-1.16.0.tar.gz`](http://nginx.org/download/nginx-1.16.0.tar.gz)          |
+| nginx 源码包 | [`nginx-1.16.1.tar.gz`](http://nginx.org/download/nginx-1.16.1.tar.gz)          |
 
 > 备注说明：编译 pcre 库 需要 gcc 套件的 c++编译器，也就是 g++
 
@@ -55,8 +55,8 @@ $ tar -xzvf <pkg_name>
 
 ```shell
 $ mkdir -p /server/nginx
-$ mkdir /data/nginx-1.16.0/nginx_bulid
-$ cd /data/nginx-1.16.0
+$ mkdir /data/nginx-1.16.1/nginx_bulid
+$ cd /data/nginx-1.16.1
 ```
 
 ## 部署环境构建
@@ -65,7 +65,7 @@ $ cd /data/nginx-1.16.0
 
 ```shell
 ./configure --prefix=/server/nginx \
---builddir=/data/nginx-1.16.0/nginx_bulid \
+--builddir=/data/nginx-1.16.1/nginx_bulid \
 --with-threads \
 --with-file-aio \
 --with-http_ssl_module \
@@ -95,7 +95,7 @@ $ cd /data/nginx-1.16.0
 --with-pcre=/data/pcre-8.43 \
 --with-pcre-jit \
 --with-zlib=/data/zlib-1.2.11 \
---with-openssl=/data/openssl-1.1.1c \
+--with-openssl=/data/openssl-1.1.1d \
 --with-debug
 ```
 

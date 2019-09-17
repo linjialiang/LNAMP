@@ -4,15 +4,15 @@
 
 ## 构建前的准备
 
-> 下载和解压 php7.3.8
+> 下载和解压 php7.3.9
 
 ```shell
 $ mkdir /server/php
 $ cd /data/
-$ wget https://www.php.net/distributions/php-7.3.8.tar.gz
-$ tar -xzvf php-7.3.8.tar.gz
-$ mkdir /data/php-7.3.8/php_build
-$ cd /data/php-7.3.8/php_build
+$ wget https://www.php.net/distributions/php-7.3.9.tar.gz
+$ tar -xzvf php-7.3.9.tar.gz
+$ mkdir /data/php-7.3.9/php_build
+$ cd /data/php-7.3.9/php_build
 ```
 
 ## 编译 php
@@ -54,9 +54,9 @@ $ apt install libxml2-dev libssl-dev
 
    ```shell
    $ cd /data/
-   $ wget https://curl.haxx.se/download/curl-7.65.3.tar.gz
-   $ tar -xzvf curl-7.65.3.tar.gz
-   $ cd curl-7.65.3
+   $ wget https://curl.haxx.se/download/curl-7.66.0.tar.gz
+   $ tar -xzvf curl-7.66.0.tar.gz
+   $ cd curl-7.66.0
    $ mkdir /server/curl
    ```
 
@@ -228,10 +228,10 @@ $ make install
   ```shell
   $ mkdir /server/ImageMagick
   $ cd /data/
-  $ wget http://mirror.checkdomain.de/imagemagick/ImageMagick-7.0.8-59.tar.gz
-  $ tar -xzvf ImageMagick-7.0.8-59.tar.gz
-  $ mkdir /data/ImageMagick-7.0.8-59/ImageMagick_bulld
-  $ cd /data/ImageMagick-7.0.8-59/ImageMagick_bulld/
+  $ wget https://github.com/ImageMagick/ImageMagick/archive/7.0.8-64.tar.gz
+  $ tar -xzvf ImageMagick-7.0.8-64.tar.gz
+  $ mkdir /data/ImageMagick-7.0.8-64/ImageMagick_bulld
+  $ cd /data/ImageMagick-7.0.8-64/ImageMagick_bulld/
   $ ../configure --prefix=/server/ImageMagick
   $ make -j4
   $ make install
