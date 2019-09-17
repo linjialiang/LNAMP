@@ -1,4 +1,10 @@
 "*":
+  "activate-power-mode":
+    comboMode:
+      enabled: false
+    plugins:
+      playAudio: true
+      screenShake: true
   "atom-beautify":
     css:
       default_beautifier: "Prettier"
@@ -41,6 +47,7 @@
       "remote-ftp"
       "symbols-view"
       "markdown-preview-plus"
+      "activate-power-mode"
     ]
     telemetryConsent: "limited"
     uriHandlerRegistration: "always"
@@ -117,10 +124,16 @@
   "spell-check":
     useLocales: false
   "sync-settings":
-    _lastBackupHash: "2706792bdc85d84056dbe0ca8d3a1992580545c6"
+    _lastBackupHash: "b034e5087a92f9decab94646512048e6caff3a07"
+    extraFiles: [
+      ".apmrc"
+    ]
     gistId: "62af0c9780d4a0756c0ae495623266bf"
     personalAccessToken: "d5e6efc8c4e9f8aa26b041abf589a707e1c166e0"
+    quietUpdateCheck: true
     removeObsoletePackages: true
+    syncInit: false
+    syncSnippets: false
   "tree-view-git-status":
     gitFlow:
       display_type: 2
