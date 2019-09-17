@@ -48,5 +48,6 @@
 | 22   | vscode-icons               | 图标样式                        |
 | 23   | Atom Keymap                | 绑定 atom 按键                  |
 | 24   | Smarty                     | 支持 Smarty                     |
+| 25   | alignment                  | 符号对齐插件                    |
 
 > 除此之外还有一个中文菜单插件 `Chinese (Simplified) Language Pack for Visual Studio Code`

@@ -1,48 +1,28 @@
 // 将键绑定放在此文件中以覆盖默认值
 [
-  {
-    "key": "ctrl+k ctrl+enter",
-    "command": "editor.action.revealDefinition",
-    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-  },
-  {
-    "key": "f12",
-    "command": "-editor.action.revealDefinition",
-    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-  },
-  {
-    "key": "ctrl+k ctrl+m",
-    "command": "markdown.showPreviewToSide",
-    "when": "editorLangId == 'markdown'"
-  },
-  {
-    "key": "ctrl+k v",
-    "command": "-markdown.showPreviewToSide",
-    "when": "editorLangId == 'markdown'"
-  },
-  {
-    "key": "ctrl+k ctrl+b",
-    "command": "extension.openInDefaultBrowser"
-  },
-  {
-    "key": "alt+b",
-    "command": "-extension.openInDefaultBrowser"
-  },
-  {
-    "key": "ctrl+k ctrl+b",
-    "command": "-workbench.action.toggleSidebarVisibility"
-  },
-  {
-    "key": "l",
-    "command": "list.select",
-    "when": "listFocus && !inputFocus"
-  },
-  {
-    "key": "ctrl+alt+b",
-    "command": "editor.action.formatDocument"
-  },
-  {
-    "key": "shift+alt+f",
-    "command": "-editor.action.formatDocument"
-  }
+    {
+        "key": "ctrl+k ctrl+enter",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+k ctrl+m",
+        "command": "markdown.showPreviewToSide",
+        "when": "editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+k ctrl+b",
+        "command": "extension.openInDefaultBrowser",
+        "when": "editorLangId == 'html'"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "l",
+        "command": "list.select",
+        "when": "listFocus && !inputFocus"
+    }
 ]

@@ -1,6 +1,6 @@
 {
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "One Dark Pro",
   "git.confirmSync": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.formatOnPaste": true,
@@ -20,5 +20,8 @@
   "json.format.enable": false,
   "javascript.format.enable": false,
   "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true
+  "files.insertFinalNewline": true,
+  "sync.forceUpload": true,
+  "extensions.ignoreRecommendations": false,
+  "prettier.tabWidth": 4
 }
