@@ -7,8 +7,9 @@
 > 第一步，我们应该先升级系统
 
 ```shell
-# apt update
-# apt dist-upgrade
+$ apt update
+$ apt upgrade       # 小版本更新方式
+$ apt dist-upgrade  # 大版本更新方式
 ```
 
 更新完系统后，我们会发现 mariadb 已经更新到了最新版本 `10.4.8`
