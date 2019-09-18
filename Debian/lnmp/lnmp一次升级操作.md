@@ -98,3 +98,71 @@ $ /server/nginx/sbin/nginx
 > 提示：如果需要平滑升级，请查阅[Nginx 平滑升级](./../Nginx/03-Nginx平滑升级.md)
 
 ## 升级 php
+
+> 升级 php 前可能需要先升级依赖库，具体步骤如下：
+
+```text
+1. 升级 curl 至 curl-7.66.0.tar.gz
+2. 编译php新版本
+3. 无缝升级操作
+```
+
+### 升级 curl
+
+> 直接覆盖原先的，或者直接删除 `/server/curl` 数据，具体操作如下：
+
+```
+$ cd /data/curl-7.66.0
+$ ./configure --prefix=/server/curl
+$ make -j4
+$ make install
+```
+
+### 编译安装新版 php
+
+我这里的 php 没有必须要保存的文件，如果有需要保存的配置文件啥的，就应该要先保存好，在编译安装
+
+> 构建 & 编译 & 安装 php
+
+```shell
+$ cd /data/php-7.3.9/php_build
+$ ../configure --prefix=/server/php \
+--enable-fpm \
+--enable-mbstring \
+--with-openssl \
+--with-pcre-jit \
+--enable-mysqlnd \
+--with-pdo-mysql \
+--with-mysqli \
+--with-curl=/server/curl \
+--without-cdb \
+--without-sqlite3 \
+--without-pdo-sqlite
+$ make -j4
+$ make test
+$ make install
+```
+
+> 配置 php.ini 文件
+
+```shell
+$ cp -p -r /data/php-7.3.9/php.ini-development /server/php/lib/php.ini
+```
+
+### php 扩展
+
+我们之前为 php 安装了两个额外扩展，这两个扩展没有更新，因此只需在 php.ini 上加入即可。
+
+> 提示：加入比较简单，详情清查阅 [从源码构建 PHP](./从源码构建PHP.md)
+
+### 更新 ImageMagick
+
+php 扩展 imagick 虽然没有更新，但是它的依赖包 ImageMagick 却有更新，这里我们也更新下 ImageMagick
+
+```shell
+$ mkdir /data/ImageMagick-7.0.8-64/ImageMagick_bulld
+$ cd /data/ImageMagick-7.0.8-64/ImageMagick_bulld/
+$ ../configure --prefix=/server/ImageMagick
+$ make -j4
+$ make install
+```
