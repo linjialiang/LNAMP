@@ -14,24 +14,5 @@
         "key": "ctrl+k ctrl+b",
         "command": "extension.openInDefaultBrowser",
         "when": "editorLangId == 'html'"
-    },
-    {
-        "key": "ctrl+alt+b",
-        "command": "editor.action.formatDocument",
-        "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "l",
-        "command": "list.select",
-        "when": "listFocus && !inputFocus"
-    },
-    {
-        "key": "ctrl+shift+d",
-        "command": "editor.action.copyLinesDownAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+shift+d",
-        "command": "-workbench.view.debug"
     }
 ]
