@@ -42,6 +42,6 @@
 | 16   | SVG                          | svg预览                   |
 | 17   | TODO Highlight               | 备忘录高亮                |
 | 18   | Todo Tree                    | 备忘录管理                |
-| 19   | vscode-icons                 | 图标样式                  |
-| 20   | Vetur                        | vue 唯一需要的插件        |
+| 19   | Vetur                        | vue 唯一需要的插件        |
+| 20   | vscode-icons                 | 图标样式                  |
 
