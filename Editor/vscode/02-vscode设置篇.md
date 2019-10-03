@@ -6,7 +6,7 @@
 
 vscode 快捷键是本篇章的重点，合理的快捷键可以让工作效力更加高效，具体如下：
 
-> 基本编辑快捷键
+### 基本编辑快捷键
 
 | 按键组合         | 描述                       | 指令                                              |
 | ---------------- | -------------------------- | ------------------------------------------------- |
@@ -50,18 +50,40 @@ vscode 快捷键是本篇章的重点，合理的快捷键可以让工作效力�
 | Ctrl+/           | 切换行注释                 | editor.action.commentLine                         |
 | Shift+Alt+A      | 切换快注释                 | editor.action.blockComment                        |
 
-> 搜索界面快捷键
+### 单页搜索界面快捷键
 
-| 按键组合    | 描述                    | 指令                                  |
-| ----------- | ----------------------- | ------------------------------------- |
-| Ctrl+F      | 搜索界面                | actions.find                          |
-| Ctrl+H      | 替换界面                | editor.action.startFindReplaceAction  |
-| Enter       | 选中(替换)下一个匹配项  | editor.action.nextMatchFindAction     |
-| Shift+Enter | 选中(替换)上一个匹配项  | editor.action.previousMatchFindAction |
-| Alt+Enter   | 选中(替换)所有匹配项    | editor.action.selectAllMatches        |
-| Alt+C       | 切换区分大小写选项      | toggleFindCaseSensitive               |
-| Alt+R       | 切换正则匹配选项        | toggleFindRegex                       |
-| Alt+W       | 切换搜索整个单词选项    | toggleFindWholeWord                   |
-| Ctrl+M      | 切换使用 Tab 键设置焦点 | editor.action.toggleTabFocusMode      |
-| unassigned  | 切换显示空白            | toggleRenderWhitespace                |
-| Alt+Z       | 切换允许换行选项        | editor.action.toggleWordWrap          |
+| 按键组合       | 描述                    | 指令                                  |
+| -------------- | ----------------------- | ------------------------------------- |
+| Ctrl+F         | 搜索界面                | actions.find                          |
+| Ctrl+H         | 替换界面                | editor.action.startFindReplaceAction  |
+| Enter          | 选中下一个匹配项        | editor.action.nextMatchFindAction     |
+| Shift+Enter    | 选中上一个匹配项        | editor.action.previousMatchFindAction |
+| Alt+Enter      | 选中所有匹配项          | editor.action.selectAllMatches        |
+| Alt+C          | 切换区分大小写选项      | toggleFindCaseSensitive               |
+| Alt+R          | 切换正则匹配选项        | toggleFindRegex                       |
+| Alt+W          | 切换搜索整个单词选项    | toggleFindWholeWord                   |
+| ~~Ctrl+M~~     | 切换使用 Tab 键设置焦点 | editor.action.toggleTabFocusMode      |
+| ~~unassigned~~ | 切换显示空白            | toggleRenderWhitespace                |
+| Alt+Z          | 切换允许换行选项        | editor.action.toggleWordWrap          |
+
+### 语言界面快捷键
+
+| 按键组合         | 描述                        | 指令                                       |
+| ---------------- | --------------------------- | ------------------------------------------ |
+| ~~Ctrl+Space~~   | 展开不全列表（冲突）        | editor.action.triggerSuggest               |
+| Ctrl+Shift+Space | 触发器参数提示              | editor.action.triggerParameterHints        |
+| Shift+Alt+F      | 格式化文档                  | editor.action.formatDocument               |
+| Ctrl+K Ctrl+F    | 格式化选定区域              | editor.action.formatSelection              |
+| F12              | 方法条状到定义处            | editor.action.revealDefinition             |
+| Ctrl+K Ctrl+I    | Show Hover                  | editor.action.showHover                    |
+| Alt+F12          | Peek Definition             | editor.action.peekDefinition               |
+| Ctrl+K F12       | Open Definition to the Side | editor.action.revealDefinitionAside        |
+| Ctrl+.           | Quick Fix                   | editor.action.quickFix                     |
+| Shift+F12        | Peek References             | editor.action.referenceSearch.trigger      |
+| F2               | 文件重命名                  | editor.action.rename                       |
+| Ctrl+Shift+.     | Replace with Next Value     | editor.action.inPlaceReplace.down          |
+| Ctrl+Shift+,     | Replace with Previous Value | editor.action.inPlaceReplace.up            |
+| Shift+Alt+Right  | Expand AST Selection        | editor.action.smartSelect.expand           |
+| Shift+Alt+Left   | Shrink AST Selection        | editor.action.smartSelect.shrink           |
+| Ctrl+K Ctrl+X    | 去掉行尾空格                | editor.action.trimTrailingWhitespace       |
+| Ctrl+K M         | 更换语言                    | workbench.action.editor.changeLanguageMode |

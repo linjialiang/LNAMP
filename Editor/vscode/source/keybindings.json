@@ -14,5 +14,10 @@
         "key": "ctrl+k ctrl+b",
         "command": "extension.openInDefaultBrowser",
         "when": "editorLangId == 'html'"
+    },
+    {
+        "key": "ctrl+k ctrl+o",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
     }
 ]
