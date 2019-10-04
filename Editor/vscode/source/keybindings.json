@@ -3,7 +3,7 @@
     {
         "key": "ctrl+k ctrl+b",
         "command": "extension.openInDefaultBrowser",
-        "when": "editorLangId == 'html'"
+        "when": "editorLangId == html"
     },
     {
         "key": "ctrl+k ctrl+o",
