@@ -70,11 +70,11 @@ vscode 快捷键是本篇章的重点，合理的快捷键可以让工作效力�
 
 | 按键组合         | 描述                        | 指令                                       |
 | ---------------- | --------------------------- | ------------------------------------------ |
-| ~~Ctrl+Space~~   | 展开不全列表（冲突）        | editor.action.triggerSuggest               |
+| ~~Ctrl+Space~~   | 展开补全列表（冲突）        | editor.action.triggerSuggest               |
 | Ctrl+Shift+Space | 触发器参数提示              | editor.action.triggerParameterHints        |
 | Shift+Alt+F      | 格式化文档                  | editor.action.formatDocument               |
 | Ctrl+K Ctrl+F    | 格式化选定区域              | editor.action.formatSelection              |
-| F12              | 方法条状到定义处            | editor.action.revealDefinition             |
+| F12              | 方法跳转到定义处            | editor.action.revealDefinition             |
 | Ctrl+K Ctrl+I    | Show Hover                  | editor.action.showHover                    |
 | Alt+F12          | Peek Definition             | editor.action.peekDefinition               |
 | Ctrl+K F12       | Open Definition to the Side | editor.action.revealDefinitionAside        |
@@ -163,7 +163,7 @@ vscode 快捷键是本篇章的重点，合理的快捷键可以让工作效力�
 | Ctrl+-           | 缩小显示                       | workbench.action.zoomOut                        |
 | Ctrl+Numpad0     | 重置缩放                       | workbench.action.zoomReset                      |
 | Ctrl+B           | 切换侧栏可见性                 | workbench.action.toggleSidebarVisibility        |
-| Ctrl+Shift+E     | Show                           | Explorer / Toggle Focus workbench.view.explorer |
+| Ctrl+Shift+E     | 资源管理界面                   | Explorer / Toggle Focus workbench.view.explorer |
 | Ctrl+Shift+F     | 全局搜索界面                   | workbench.view.search                           |
 | ~~Ctrl+Shift+G~~ | 显示版本控制界面（被插件覆盖） | workbench.view.scm                              |
 | Ctrl+Shift+D     | 显示调试界面                   | workbench.view.debug                            |
@@ -174,3 +174,63 @@ vscode 快捷键是本篇章的重点，合理的快捷键可以让工作效力�
 | Ctrl+Shift+V     | 切换 markdown 预览             | markdown.showPreview                            |
 | Ctrl+K V         | 打开 makrdow 预览到一边        | markdown.showPreviewToSide                      |
 | Ctrl+\`          | 集成终端开关                   | workbench.action.terminal.toggleTerminal        |
+
+### 全局搜索快捷键
+
+| 按键组合     | 描述                   | 指令                                       |
+| ------------ | ---------------------- | ------------------------------------------ |
+| Ctrl+Shift+F | 切换到全局搜索界面     | workbench.view.search                      |
+| Ctrl+Shift+H | 切换到批量文件替换界面 | workbench.action.replaceInFiles            |
+| Alt+C        | 切换区分大小写         | toggleSearchCaseSensitive                  |
+| Alt+W        | 切换匹配整个单词       | toggleSearchWholeWord                      |
+| Alt+R        | 切换使用正则表达式     | toggleSearchRegex                          |
+| Ctrl+Shift+J | 切换搜索详细信息       | workbench.action.search.toggleQueryDetails |
+| F4           | 关注下一个搜索结果     | search.action.focusNextSearchResult        |
+| Shift+F4     | 关注上一个搜索结果     | search.action.focusPreviousSearchResult    |
+| Down         | 显示下一个搜索项       | history.showNext                           |
+| Up           | 显示上一个搜索项       | history.showPrevious                       |
+
+### 设置界面快捷键
+
+| 按键组合      | 描述             | 指令                                   |
+| ------------- | ---------------- | -------------------------------------- |
+| Ctrl+,        | 打开设置界面     | workbench.action.openSettings          |
+| 未定义快捷键  | 开放式工作区设置 | workbench.action.openWorkspaceSettings |
+| Ctrl+K Ctrl+S | 打开键盘快捷键   | workbench.action.openGlobalKeybindings |
+| 未定义快捷键  | 打开用户代码片段 | workbench.action.openSnippets          |
+| Ctrl+K Ctrl+T | 选择颜色主题     | workbench.action.selectTheme           |
+| 未定义快捷键  | 配置显示语言     | workbench.action.configureLocale       |
+
+### Debug
+
+| 按键组合      | 描述           | 指令                                 |
+| ------------- | -------------- | ------------------------------------ |
+| F9            | 切换设置断点   | editor.debug.action.toggleBreakpoint |
+| F5            | 开始调试       | workbench.action.debug.start         |
+| F5            | 继续循环       | workbench.action.debug.continue      |
+| Ctrl+F5       | 开始(没有调试) | workbench.action.debug.run           |
+| F6            | 暂停           | workbench.action.debug.pause         |
+| F11           | 单步执行       | workbench.action.debug.stepInto      |
+| Shift+F11     | 跳出           | workbench.action.debug.stepOut       |
+| F10           | 跨过           | workbench.action.debug.stepOver      |
+| Shift+F5      | 停止           | workbench.action.debug.stop          |
+| Ctrl+K Ctrl+I | 显示悬停       | editor.debug.action.showDebugHover   |
+
+### 任务快捷键
+
+| 按键组合     | 描述           | 指令                                                  |
+| ------------ | -------------- | ----------------------------------------------------- |
+| 未定义快捷键 | 安装扩展       | workbench.extensions.action.installExtension          |
+| 未定义快捷键 | 显示安装的扩展 | workbench.extensions.action.showInstalledExtensions   |
+| 未定义快捷键 | 展示过时的扩展 | workbench.extensions.action.listOutdatedExtensions    |
+| 未定义快捷键 | 显示推荐的扩展 | workbench.extensions.action.showRecommendedExtensions |
+| 未定义快捷键 | 受欢迎的扩展   | workbench.extensions.action.showPopularExtensions     |
+| 未定义快捷键 | 更新所有的扩展 | workbench.extensions.action.updateAllExtensions       |
+
+### 扩展及自定义快捷键
+
+| 按键组合       | 描述               | 指令                           |
+| -------------- | ------------------ | ------------------------------ |
+| ctrl+k ctrl+b  | 以默认方式打开文件 | extension.openInDefaultBrowser |
+| ctrl+k ctrl+o  | 展开补全列表       | editor.action.triggerSuggest   |
+| Ctrl+Shift+G G | 显示版本控制界面   | workbench.view.scm             |
