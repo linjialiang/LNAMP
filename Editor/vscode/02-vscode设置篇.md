@@ -126,3 +126,51 @@ vscode 快捷键是本篇章的重点，合理的快捷键可以让工作效力�
 | Ctrl+K Right        | 将活动编辑器组向右移动     | workbench.action.moveActiveEditorGroupRight |
 | Ctrl+Alt+Right      | 将编辑器移到下一组         | workbench.action.moveEditorToNextGroup      |
 | Ctrl+Alt+Left       | 将编辑器移到前面的组中     | workbench.action.moveEditorToPreviousGroup  |
+
+### 文件管理快捷键
+
+| 按键组合       | 描述                             | 指令                                                   |
+| -------------- | -------------------------------- | ------------------------------------------------------ |
+| Ctrl+N         | 新建文件                         | workbench.action.files.newUntitledFile                 |
+| Ctrl+O         | 打开文件                         | workbench.action.files.openFile                        |
+| Ctrl+S         | 保存                             | workbench.action.files.save                            |
+| Ctrl+K S       | 保存全部打开文件                 | workbench.action.files.saveAll                         |
+| Ctrl+Shift+S   | 文件另存为                       | workbench.action.files.saveAs                          |
+| Ctrl+F4        | 关闭当前文件                     | workbench.action.closeActiveEditor                     |
+| 未定义快捷键   | 关闭其他文件                     | workbench.action.closeOtherEditors                     |
+| Ctrl+K W       | 关闭当前编辑器组                 | workbench.action.closeEditorsInGroup                   |
+| 未定义快捷键   | 关闭其它编辑器组                 | workbench.action.closeEditorsInOtherGroups             |
+| 未定义快捷键   | 关闭左侧编辑器组                 | workbench.action.closeEditorsToTheLeft                 |
+| 未定义快捷键   | 关闭右侧编辑器组                 | workbench.action.closeEditorsToTheRight                |
+| Ctrl+K Ctrl+W  | 关闭全部打开文件                 | workbench.action.closeAllEditors                       |
+| Ctrl+Shift+T   | 重新打开关闭的文件               | workbench.action.reopenClosedEditor                    |
+| Ctrl+K Enter   | 保持打开（不会被其它文件替换）   | workbench.action.keepEditor                            |
+| Ctrl+Tab       | 切换到下一个打开文件             | workbench.action.openNextRecentlyUsedEditorInGroup     |
+| Ctrl+Shift+Tab | 切换到上一个打开文件             | workbench.action.openPreviousRecentlyUsedEditorInGroup |
+| Ctrl+K P       | 复制当前文件路径                 | workbench.action.files.copyPathOfActiveFile            |
+| Ctrl+K R       | 资源管理器中打开当前文件所在目录 | workbench.action.files.revealActiveFileInWindows       |
+| Ctrl+K O       | 在新的 vscode 窗口中打开当前文件 | workbench.action.files.showOpenedFileInNewWindow       |
+| 未定义快捷键   | Compare Opened File With         | workbench.files.action.compareFileWith                 |
+
+### 界面显示快捷键
+
+| 按键组合         | 描述                           | 指令                                            |
+| ---------------- | ------------------------------ | ----------------------------------------------- |
+| F11              | 切换全屏                       | workbench.action.toggleFullScreen               |
+| Ctrl+K Z         | 禅模式开关                     | workbench.action.toggleZenMode                  |
+| Escape Escape    | 离开禅模式                     | workbench.action.exitZenMode                    |
+| Ctrl+=           | 放大显示                       | workbench.action.zoomIn                         |
+| Ctrl+-           | 缩小显示                       | workbench.action.zoomOut                        |
+| Ctrl+Numpad0     | 重置缩放                       | workbench.action.zoomReset                      |
+| Ctrl+B           | 切换侧栏可见性                 | workbench.action.toggleSidebarVisibility        |
+| Ctrl+Shift+E     | Show                           | Explorer / Toggle Focus workbench.view.explorer |
+| Ctrl+Shift+F     | 全局搜索界面                   | workbench.view.search                           |
+| ~~Ctrl+Shift+G~~ | 显示版本控制界面（被插件覆盖） | workbench.view.scm                              |
+| Ctrl+Shift+D     | 显示调试界面                   | workbench.view.debug                            |
+| Ctrl+Shift+X     | 显示扩展界面                   | workbench.view.extensions                       |
+| Ctrl+Shift+U     | 显示输出                       | workbench.action.output.toggleOutput            |
+| Ctrl+Q           | 快速打开视图                   | workbench.action.quickOpenView                  |
+| Ctrl+Shift+C     | 打开系统控制台                 | workbench.action.terminal.openNativeConsole     |
+| Ctrl+Shift+V     | 切换 markdown 预览             | markdown.showPreview                            |
+| Ctrl+K V         | 打开 makrdow 预览到一边        | markdown.showPreviewToSide                      |
+| Ctrl+\`          | 集成终端开关                   | workbench.action.terminal.toggleTerminal        |
