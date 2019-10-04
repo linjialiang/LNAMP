@@ -52,19 +52,19 @@ vscode 快捷键是本篇章的重点，合理的快捷键可以让工作效力�
 
 ### 单页搜索界面快捷键
 
-| 按键组合       | 描述                    | 指令                                  |
-| -------------- | ----------------------- | ------------------------------------- |
-| Ctrl+F         | 搜索界面                | actions.find                          |
-| Ctrl+H         | 替换界面                | editor.action.startFindReplaceAction  |
-| Enter          | 选中下一个匹配项        | editor.action.nextMatchFindAction     |
-| Shift+Enter    | 选中上一个匹配项        | editor.action.previousMatchFindAction |
-| Alt+Enter      | 选中所有匹配项          | editor.action.selectAllMatches        |
-| Alt+C          | 切换区分大小写选项      | toggleFindCaseSensitive               |
-| Alt+R          | 切换正则匹配选项        | toggleFindRegex                       |
-| Alt+W          | 切换搜索整个单词选项    | toggleFindWholeWord                   |
-| ~~Ctrl+M~~     | 切换使用 Tab 键设置焦点 | editor.action.toggleTabFocusMode      |
-| ~~unassigned~~ | 切换显示空白            | toggleRenderWhitespace                |
-| Alt+Z          | 切换允许换行选项        | editor.action.toggleWordWrap          |
+| 按键组合     | 描述                    | 指令                                  |
+| ------------ | ----------------------- | ------------------------------------- |
+| Ctrl+F       | 搜索界面                | actions.find                          |
+| Ctrl+H       | 替换界面                | editor.action.startFindReplaceAction  |
+| Enter        | 选中下一个匹配项        | editor.action.nextMatchFindAction     |
+| Shift+Enter  | 选中上一个匹配项        | editor.action.previousMatchFindAction |
+| Alt+Enter    | 选中所有匹配项          | editor.action.selectAllMatches        |
+| Alt+C        | 切换区分大小写选项      | toggleFindCaseSensitive               |
+| Alt+R        | 切换正则匹配选项        | toggleFindRegex                       |
+| Alt+W        | 切换搜索整个单词选项    | toggleFindWholeWord                   |
+| ~~Ctrl+M~~   | 切换使用 Tab 键设置焦点 | editor.action.toggleTabFocusMode      |
+| 未设置快捷键 | 切换显示空白            | toggleRenderWhitespace                |
+| Alt+Z        | 切换允许换行选项        | editor.action.toggleWordWrap          |
 
 ### 语言界面快捷键
 
@@ -104,3 +104,25 @@ vscode 快捷键是本篇章的重点，合理的快捷键可以让工作效力�
 | Alt+Left           | 上一级               | workbench.action.navigateBack                          |
 | Alt+Left           | 返回快速输入         | workbench.action.quickInputBack                        |
 | Alt+Right          | 下一集               | workbench.action.navigateForward                       |
+
+### 编辑器/窗口管理快捷键
+
+| 按键组合            | 描述                       | 指令                                        |
+| ------------------- | -------------------------- | ------------------------------------------- |
+| Ctrl+Shift+N        | 新窗口                     | workbench.action.newWindow                  |
+| Ctrl+W              | 关闭窗口                   | workbench.action.closeWindow                |
+| Ctrl+F4             | 关闭编辑器                 | workbench.action.closeActiveEditor          |
+| Ctrl+K F            | 关闭目录                   | workbench.action.closeFolder                |
+| 未设置快捷键        | 编辑器组之间的循环         | workbench.action.navigateEditorGroups       |
+| Ctrl+\              | 拆分编辑器                 | workbench.action.splitEditor                |
+| Ctrl+1              | 关注第 1 编辑器组          | workbench.action.focusFirstEditorGroup      |
+| Ctrl+2              | 关注第 2 编辑器组          | workbench.action.focusSecondEditorGroup     |
+| Ctrl+3              | 关注第 3 编辑器组          | workbench.action.focusThirdEditorGroup      |
+| 未设置快捷键        | 将焦点放在左侧的编辑器组中 | workbench.action.focusPreviousGroup         |
+| 未设置快捷键        | 将焦点放在右边的编辑器组中 | workbench.action.focusNextGroup             |
+| Ctrl+Shift+PageUp   | 当前编辑器向左移动         | workbench.action.moveEditorLeftInGroup      |
+| Ctrl+Shift+PageDown | 当前编辑器向右移动         | workbench.action.moveEditorRightInGroup     |
+| Ctrl+K Left         | 将活动编辑器组向左移动     | workbench.action.moveActiveEditorGroupLeft  |
+| Ctrl+K Right        | 将活动编辑器组向右移动     | workbench.action.moveActiveEditorGroupRight |
+| Ctrl+Alt+Right      | 将编辑器移到下一组         | workbench.action.moveEditorToNextGroup      |
+| Ctrl+Alt+Left       | 将编辑器移到前面的组中     | workbench.action.moveEditorToPreviousGroup  |
