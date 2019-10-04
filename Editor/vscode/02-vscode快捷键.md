@@ -62,7 +62,7 @@ vscode 快捷键是本篇章的重点，合理的快捷键可以让工作效力�
 | Alt+C        | 切换区分大小写选项      | toggleFindCaseSensitive               |
 | Alt+R        | 切换正则匹配选项        | toggleFindRegex                       |
 | Alt+W        | 切换搜索整个单词选项    | toggleFindWholeWord                   |
-| ~~Ctrl+M~~   | 切换使用 Tab 键设置焦点 | editor.action.toggleTabFocusMode      |
+| Ctrl+M       | 切换使用 Tab 键设置焦点 | editor.action.toggleTabFocusMode      |
 | 未设置快捷键 | 切换显示空白            | toggleRenderWhitespace                |
 | Alt+Z        | 切换允许换行选项        | editor.action.toggleWordWrap          |
 
