@@ -87,3 +87,20 @@ vscode 快捷键是本篇章的重点，合理的快捷键可以让工作效力�
 | Shift+Alt+Left   | Shrink AST Selection        | editor.action.smartSelect.shrink           |
 | Ctrl+K Ctrl+X    | 去掉行尾空格                | editor.action.trimTrailingWhitespace       |
 | Ctrl+K M         | 更换语言                    | workbench.action.editor.changeLanguageMode |
+
+### 导航快捷键
+
+| 按键组合           | 描述                 | 指令                                                   |
+| ------------------ | -------------------- | ------------------------------------------------------ |
+| Ctrl+T             | 显示所有符号         | workbench.action.showAllSymbols                        |
+| Ctrl+G             | 跳转到指定行         | workbench.action.gotoLine                              |
+| Ctrl+P             | 快速打开文件         | workbench.action.quickOpen                             |
+| Ctrl+Shift+O       | 当前页面符号         | workbench.action.gotoSymbol                            |
+| Ctrl+Shift+M       | 显示问题控制台       | workbench.actions.view.problems                        |
+| F8                 | 转到下一个错误或警告 | editor.action.marker.nextInFiles                       |
+| Shift+F8           | 转到上一个错误或警告 | editor.action.marker.prevInFiles                       |
+| Ctrl+Shift+P or F1 | 显示所有命令         | workbench.action.showCommands                          |
+| Ctrl+Shift+Tab     | 导航编辑器组历史记录 | workbench.action.openPreviousRecentlyUsedEditorInGroup |
+| Alt+Left           | 上一级               | workbench.action.navigateBack                          |
+| Alt+Left           | 返回快速输入         | workbench.action.quickInputBack                        |
+| Alt+Right          | 下一集               | workbench.action.navigateForward                       |
