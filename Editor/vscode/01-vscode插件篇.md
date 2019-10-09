@@ -48,3 +48,4 @@ vscode 插件非常丰富，大类分为：内置扩展和社区插件。
 | 24   | Apache Conf Snippets                | httpd 语法片段           |
 | 25   | DotENV                              | ENV 语法高亮             |
 | 26   | nginx.conf hint                     | nginx 高亮、补全、格式化 |
+| 27   | Dracula Official                    | 主题                     |
