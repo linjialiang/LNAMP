@@ -4,7 +4,7 @@
 
 ## atom 插件扩展
 
-| 实用插件(13)            | 插件描述          |
+| 实用插件(11)            | 插件描述          |
 | ----------------------- | ----------------- |
 | atom-beautify           | 格式化源代码      |
 | docblockr               | 用于注释          |
@@ -16,9 +16,7 @@
 | language-markdown       | markdown 语法高亮 |
 | file-icons              | 文件图标          |
 | quick-highlight         | 文本快速高亮      |
-| remote-ftp              | 远程连接          |
 | editorconfig            | 统一代码风格      |
-| activate-power-mode     | 文字输入效果      |
 
 | git 相关插件(3)      | 插件描述                                   |
 | -------------------- | ------------------------------------------ |

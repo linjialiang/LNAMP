@@ -1,9 +1,5 @@
 'atom-workspace':
     'ctrl-k ctrl-t': 'git-time-machine:toggle'
-    'ctrl-k t': 'remote-ftp:toggle'
-    'ctrl-k c': 'remote-ftp:connect'
-    'ctrl-k d': 'remote-ftp:disconnect'
-    'ctrl-k u': 'remote-ftp:upload-selected'
 
 'atom-workspace .tree-view':
     'g g': 'core:move-to-top'

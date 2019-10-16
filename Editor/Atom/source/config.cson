@@ -1,10 +1,4 @@
 "*":
-  "activate-power-mode":
-    comboMode:
-      enabled: false
-    plugins:
-      playAudio: true
-      screenShake: true
   "atom-beautify":
     css:
       default_beautifier: "Prettier"
@@ -35,7 +29,6 @@
     triggerKey: "K"
   core:
     autoHideMenuBar: true
-    automaticallyUpdate: false
     closeDeletedFileTabs: true
     disabledPackages: [
       "markdown-preview"
@@ -44,10 +37,8 @@
     packagesWithKeymapsDisabled: [
       "git-time-machine"
       "open-in-browser"
-      "remote-ftp"
       "symbols-view"
       "markdown-preview-plus"
-      "activate-power-mode"
     ]
     telemetryConsent: "limited"
     uriHandlerRegistration: "always"
@@ -94,6 +85,8 @@
     tabCloseButton: "Left"
     tabSizing: "Maximum"
   "one-light-ui":
+    hideDockButtons: true
+    stickyHeaders: true
     tabCloseButton: "Left"
     tabSizing: "Maximum"
   "platformio-ide-terminal":
@@ -114,22 +107,12 @@
     sortBy: "group"
   "quick-highlight":
     decorate: "box"
-  "remote-ftp":
-    connector:
-      autoUploadOnSave: "only when connected"
-    statusbar:
-      enable: true
-    tree:
-      showViewOnStartup: false
   "spell-check":
     useLocales: false
   "sync-settings":
-    _lastBackupHash: "b034e5087a92f9decab94646512048e6caff3a07"
-    extraFiles: [
-      ".apmrc"
-    ]
+    _lastBackupHash: "bee11370148e4ff53e9c9226dab1221873e3b79f"
     gistId: "62af0c9780d4a0756c0ae495623266bf"
-    personalAccessToken: "d5e6efc8c4e9f8aa26b041abf589a707e1c166e0"
+    personalAccessToken: "a675ca37605a021c7d8eb3706a8146316579a397"
     quietUpdateCheck: true
     removeObsoletePackages: true
     syncInit: false
