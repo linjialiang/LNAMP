@@ -6,7 +6,7 @@
       "php-cs-fixer":
         path: "C:\\Users\\emad\\.atom\\php-cs-fixer-v2.phar"
     general:
-      _analyticsUserId: "5967b1bd-b08b-45ca-bb07-79691cef3219"
+      _analyticsUserId: ""
     html:
       preserve_newlines: false
     js:
@@ -41,6 +41,10 @@
       "markdown-preview-plus"
     ]
     telemetryConsent: "limited"
+    themes: [
+      "one-light-ui"
+      "one-dark-syntax"
+    ]
     uriHandlerRegistration: "always"
   docblockr:
     auto_add_method_tag: true
@@ -62,7 +66,7 @@
     tabLength: 4
     tabType: "soft"
   "exception-reporting":
-    userId: "10ace339-2c51-484b-925e-d20bd74c4495"
+    userId: ""
   "line-ending-selector":
     defaultLineEnding: "LF"
   "markdown-preview-plus":
@@ -110,13 +114,11 @@
   "spell-check":
     useLocales: false
   "sync-settings":
-    _lastBackupHash: "bee11370148e4ff53e9c9226dab1221873e3b79f"
-    gistId: "62af0c9780d4a0756c0ae495623266bf"
-    personalAccessToken: "a675ca37605a021c7d8eb3706a8146316579a397"
+    _lastBackupHash: ""
+    gistId: ""
+    personalAccessToken: ""
     quietUpdateCheck: true
     removeObsoletePackages: true
-    syncInit: false
-    syncSnippets: false
   "tree-view-git-status":
     gitFlow:
       display_type: 2
