@@ -9,10 +9,10 @@
 ```shell
 $ mkdir /server/php
 $ cd /data/
-$ wget https://www.php.net/distributions/php-7.3.9.tar.gz
-$ tar -xzvf php-7.3.9.tar.gz
-$ mkdir /data/php-7.3.9/php_build
-$ cd /data/php-7.3.9/php_build
+$ wget https://www.php.net/distributions/php-7.3.10.tar.gz
+$ tar -xzvf php-7.3.10.tar.gz
+$ mkdir /data/php-7.3.10/php_build
+$ cd /data/php-7.3.10/php_build
 ```
 
 ## 编译 php
@@ -73,7 +73,7 @@ $ apt install libxml2-dev libssl-dev
    > 构建 & 编译 & 安装 php
 
    ```shell
-   $ cd /data/php-7.3.9/php_build
+   $ cd /data/php-7.3.10/php_build
    $ ../configure --prefix=/server/php \
    --enable-fpm \
    --enable-mbstring \
@@ -140,9 +140,9 @@ $ php-config -h
   # 使用 php --ini 查询php配置文件的情况
   $ php --ini
   # 开发模式
-  $ cp -p -r /data/php-7.3.9/php.ini-development /server/php/lib/php.ini
+  $ cp -p -r /data/php-7.3.10/php.ini-development /server/php/lib/php.ini
   # 部署模式
-  $ cp -p -r /data/php-7.3.9/php.ini-production /server/php/lib/php.ini
+  $ cp -p -r /data/php-7.3.10/php.ini-production /server/php/lib/php.ini
   ```
 
 - 安装 autoconf
@@ -356,7 +356,7 @@ $ cp -p -r /server/php/etc/php-fpm.d/www.conf{.default,}
 - 进入构建目录：
 
   ```shell
-  cd /data/php-7.3.9/php_build/sapi/fpm
+  cd /data/php-7.3.10/php_build/sapi/fpm
   ```
 
   > 两个启动项相关文件：

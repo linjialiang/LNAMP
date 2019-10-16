@@ -125,7 +125,7 @@ $ make install
 > 构建 & 编译 & 安装 php
 
 ```shell
-$ cd /data/php-7.3.9/php_build
+$ cd /data/php-7.3.10/php_build
 $ ../configure --prefix=/server/php \
 --enable-fpm \
 --enable-mbstring \
@@ -146,7 +146,7 @@ $ make install
 > 配置 php.ini 文件
 
 ```shell
-$ cp -p -r /data/php-7.3.9/php.ini-development /server/php/lib/php.ini
+$ cp -p -r /data/php-7.3.10/php.ini-development /server/php/lib/php.ini
 ```
 
 ### php 扩展
