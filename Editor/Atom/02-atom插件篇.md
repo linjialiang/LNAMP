@@ -4,10 +4,11 @@
 
 ## atom 插件扩展
 
-| 实用插件(10)            | 插件描述          |
+| 实用插件(11)            | 插件描述          |
 | ----------------------- | ----------------- |
 | atom-beautify           | 格式化源代码      |
 | docblockr               | 用于注释          |
+| sync-settings           | atom 配置同步插件 |
 | split-diff              | 文件对比插件      |
 | project-manager         | 项目管理          |
 | platformio-ide-terminal | atom 下出色的终端 |
