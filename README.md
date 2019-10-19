@@ -2,7 +2,7 @@
 
 《PHP 新手一本通》 是为了便于本人工作中的查询，而总结的一系列关于编程的知识点！
 
-> 此手册停止更新，请访问新版链接 [man-php](/linjialiang/man-php)
+> 此手册停止更新，请访问新版链接 [man-php](https://github.com/linjialiang//man-php)
 
 ## 架构
 
